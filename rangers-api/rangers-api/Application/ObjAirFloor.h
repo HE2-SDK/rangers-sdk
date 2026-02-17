@@ -3,13 +3,18 @@
 namespace app {
     class ObjAirFloor : public hh::game::GameObject {
     public:
+        enum class IdType {
+            NORMAL,
+            NOID,
+        };
+
         struct Unk1 {
             float qword2C0;
             uint32_t qword2C4;
             uint32_t dword2C8;
             uint16_t word2CC;
             uint64_t qword2D0;
-            uint32_t dword2D8;
+            IdType dword2D8;
             uint8_t byte2DC;
         };
 
@@ -34,7 +39,7 @@ namespace app {
         Unk1 unk2C0;
 
 		static const hh::game::GameObjectClass* GetClass();
-        CREATE_FUNC(ObjAirFloor, unsigned int unkParam);
+        CREATE_FUNC(ObjAirFloor, IdType type);
 
 		virtual bool ProcessMessage(hh::fnd::Message& message) override;
 		virtual void AddCallback(hh::game::GameManager* gameManager) override;

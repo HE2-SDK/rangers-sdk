@@ -41,5 +41,7 @@ namespace app::player{
         void SetTypeAndRadius(unsigned char type, float radius);
         void CreateAttackCollision(heur::rfl::PlayerParamAcceleCombo& param, char type, const char* name);
         void DestroyAttackCollision(unsigned int nameHash);
+    
+        DEFAULT_CREATE_FUNC(StatePluginCollision);
     };
 }

@@ -11,4 +11,38 @@ namespace app::player {
 
         PLAYER_VISUAL_CLASS_DECLARATION(VisualSonic);
     };
+
+    class VisualSonicSpin : public VisualSpin, public ComponentHolderListener {
+    public:
+        uint64_t unk201;
+        uint8_t unk202;
+
+        virtual unsigned int GetNameHash() const override;
+        virtual void Initialize(hh::game::GameObject* gameObject, ComponentCollection* componentCollection) override;
+        virtual void OnStart() override;
+        virtual void OnEnd() override;
+        virtual bool GetUnk() const override;
+        virtual void SetUnk(bool enabled) override;
+        virtual void CHL_UnkFunc1(ComponentCollection* collection) override;
+
+        PLAYER_VISUAL_CLASS_DECLARATION(VisualSonicSpin);
+    };
+
+    class VisualSuperSonic : public VisualHuman, public ComponentHolderListener {
+    public:
+        uint8_t unk201;
+        float unk202;
+        float unk203;
+        float unk204;
+        float unk205;
+
+        virtual unsigned int GetNameHash() const override;
+        virtual void Initialize(hh::game::GameObject* gameObject, ComponentCollection* componentCollection) override;
+        virtual void CreateEffects() override;
+        virtual void BindEffects() override;
+        virtual void UnbindEffects() override;
+        virtual void CHL_UnkFunc1(ComponentCollection* collection) override;
+
+        PLAYER_VISUAL_CLASS_DECLARATION(VisualSuperSonic);
+    };
 }

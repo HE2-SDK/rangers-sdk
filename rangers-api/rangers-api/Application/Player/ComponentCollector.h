@@ -2,6 +2,11 @@
 
 namespace app::player {
     struct ComponentCollection;
+
+    class ComponentHolderListener {
+        virtual void CHL_UnkFunc1(ComponentCollection* collection) {}
+    };
+
     struct Component {
         ComponentCollection* collection;
         csl::ut::MoveArray<hh::fnd::Reference<hh::game::GOComponent>> components;

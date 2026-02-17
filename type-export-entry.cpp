@@ -1,5 +1,6 @@
 #define EXPORTING_TYPES
 #define RESOLVE_STATIC_VARIABLE(x) x
+#define _ALLOW_COMPILER_AND_STL_VERSION_MISMATCH
 
 #include "rangers-api/rangers-api/rangers-api.h"
 
@@ -284,3 +285,14 @@ template class app::game::ConditionArgumentFixed<float>;
 template class hh::fnd::Reference<app::ui::UIMainMenuContext>;
 
 template class hh::needle::AnimBlender<hh::needle::AnimTexSrtControl>;
+
+template class hh::needle::ImplDX11::SReflInfo<hh::needle::TParameterSlotRegisterReflection<hh::needle::ParameterValueBool, 4, hh::needle::ShaderReflectionType::BOOL_SLOT_REGISTER>>;
+template class hh::needle::ImplDX11::SReflInfo<hh::needle::TParameterSlotRegisterReflection<hh::needle::ParameterValueInt, 16, hh::needle::ShaderReflectionType::INT_SLOT_REGISTER>>;
+template class hh::needle::ImplDX11::SReflInfo<hh::needle::TParameterSlotRegisterReflection<hh::needle::ParameterValueFloat, 16, hh::needle::ShaderReflectionType::FLOAT_SLOT_REGISTER>>;
+template class hh::needle::ImplDX11::SReflInfo<hh::needle::TParameterSlotRegisterReflection<hh::needle::ParameterValueTexture, 0, hh::needle::ShaderReflectionType::TEXTURE_SLOT_REGISTER>>;
+template class hh::needle::ImplDX11::SReflInfo<hh::needle::TParameterSlotRegisterReflection<hh::needle::ParameterValueSampler, 0, hh::needle::ShaderReflectionType::SAMPLER_SLOT_REGISTER>>;
+template class hh::needle::ImplDX11::SReflInfo<hh::needle::ParameterConstantBufferReflection>;
+template class hh::needle::ImplDX11::SReflInfo<hh::needle::TParameterConstantReflection<hh::needle::ParameterValueBool, 4, hh::needle::ShaderReflectionType::BOOL_CONSTANT>>;
+template class hh::needle::ImplDX11::SReflInfo<hh::needle::TParameterConstantReflection<hh::needle::ParameterValueInt, 16, hh::needle::ShaderReflectionType::INT_CONSTANT>>;
+template class hh::needle::ImplDX11::SReflInfo<hh::needle::TParameterConstantReflection<hh::needle::ParameterValueFloat, 16, hh::needle::ShaderReflectionType::FLOAT_CONSTANT>>;
+template class hh::needle::ImplDX11::SReflInfo<hh::needle::ParameterUnorderedAccessViewReflection>;

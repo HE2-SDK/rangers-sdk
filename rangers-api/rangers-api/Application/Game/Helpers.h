@@ -8,6 +8,7 @@ namespace app::game {
         return (T*)GetObjInfo(gameManager, T::GetClass()->name);
     }
 
+    void ResetPropertyFlag(hh::game::GameObject* object, unsigned int propertyId, unsigned char flag);
     void SetPropertyFlag(hh::game::GameObject* object, unsigned int propertyId, unsigned char flag);
     bool IsPropertyFlagSet(hh::game::GameObject* object, unsigned int propertyId, unsigned char flag);
 }

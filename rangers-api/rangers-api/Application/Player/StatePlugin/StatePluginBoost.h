@@ -39,5 +39,7 @@ namespace app::player {
         void SetBoostType(uint8_t type);
         void SetUnk1(uint8_t type);
         void PlayShakeEffects();
+    
+        DEFAULT_CREATE_FUNC(StatePluginBoost);
     };
 }

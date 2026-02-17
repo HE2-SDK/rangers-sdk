@@ -37,6 +37,8 @@ namespace app::player {
         PlayerHsmContext(csl::fnd::IAllocator* pAllocator);
         ~PlayerHsmContext();
 
+        virtual void OnSave(app::save::SaveManager* saveMgr) override;
+
         void Setup(GOCPlayerHsm* gocPlayerHsm);
 
         app::player::Player* GetPlayerObject() const;

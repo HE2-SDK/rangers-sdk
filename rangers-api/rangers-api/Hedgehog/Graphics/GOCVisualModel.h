@@ -86,6 +86,11 @@ namespace hh::gfx {
         };
 
     public:
+        struct InstanceTransformInfo {
+            csl::math::Matrix34 worldMatrix;
+            csl::math::Vector4 unk0;
+        };
+
         needle::PBRModelInstance* modelInstance;
         csl::fnd::IAllocator* allocator;
         uint16_t unk2;
@@ -107,6 +112,7 @@ namespace hh::gfx {
         uint64_t OnGOCVisualEvent(GOCVisualModel* visualModel, int unkParam1, unsigned int unkParam2, void* unkParam3);
         void Setup(GOCVisualModel& model, const GOCVisualModelDescription& description);
         void GetModelSpaceAabb(csl::geom::Aabb* aabb) const;
+        void SetInstanceTransform(const InstanceTransformInfo& instanceTransformInfo, unsigned int instanceIndex);
 
         // TexSrtControl* SetTexSrtAnimation(hh::gfx::TexSrtDesc& description);
         TexSrtBlender* SetTexSrtBlender(hh::gfx::TexSrtBlenderDesc& description);
@@ -168,6 +174,7 @@ namespace hh::gfx {
         void SetWorld(needle::World* world);
         void SetPose(anim::Pose* pose);
         void ClearPose(anim::Pose* pose);
+        void SetInstanceTransform(const GOCVisualModelImpl::InstanceTransformInfo& instanceTransformInfo, unsigned int instanceIndex);
 
         // TexSrtControl* SetTexSrtAnimation(hh::gfx::TexSrtDesc& description);
         TexSrtBlender* SetTexSrtBlender(hh::gfx::TexSrtBlenderDesc& description);

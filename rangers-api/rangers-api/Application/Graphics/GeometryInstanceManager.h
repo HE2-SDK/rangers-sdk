@@ -1,24 +1,17 @@
 #pragma once
 
-namespace app::gfx{
+namespace app::gfx {
     class GeometryInstanceManager : public hh::game::GameService {
     public:
-        struct UnkStr{
-            hh::gfx::ResModel* resource;
-            int64_t unk0;
-            char gap10[120];
-            const char* name;
-            bool useCustomName;
-        };
-
-        csl::ut::MoveArray<int64_t> unk0; //unsure
+        csl::ut::StringMap<hh::fnd::Reference<InstanceUnit>> instanceUnitsByName;
 
         virtual void* GetRuntimeTypeInfo() const override;
 		virtual void OnAddedToGame() override;
 		virtual void OnRemovedFromGame() override;
 
-        void UnkFunc(UnkStr& unkStr, hh::fnd::Handle<GeometryInstance>& geometryInstance);
+        void AddInstance(InstanceUnit::Description& description, hh::fnd::Handle<GeometryInstance>* instance);
+        void CreateInstanceUnit(InstanceUnit::Description& description, hh::fnd::Handle<GeometryInstance>* instance);
 
-        GAMESERVICE_CLASS_DECLARATION(GeometryInstanceManager)
+        GAMESERVICE_CLASS_DECLARATION(GeometryInstanceManager);
     };
 }

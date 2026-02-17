@@ -52,4 +52,6 @@ namespace app::save {
     ExtraCharacterAc GetExtraCharacterAccessor(hh::game::GameObject* gameObject, unsigned int idx);
     CharacterAc GetCharacterAccessor(hh::game::GameManager* gameManager, unsigned int idx);
     CharacterAc GetCharacterAccessor(hh::game::GameObject* gameObject, unsigned int idx);
+    unsigned char GetSequence(hh::game::GameManager* gameManager);
+    OptionGamePlayData::Value GetGameDifficulty(hh::game::GameObject* gameObject, bool easier);
 }

@@ -56,6 +56,7 @@ namespace app::save {
         short GetNumRings() const;
         short GetBoostGaugeLevel() const;
         bool HasChaosEmeralds() const;
+        bool GetFlag2And4() const;
     };
 
     class ExtraCharacterAc : public SaveDataAccessor<ExtraCharacterData> {
@@ -105,6 +106,7 @@ namespace app::save {
         void SetTime(game::Timestamp& time);
         bool GetTime(game::Timestamp& time);
         GamePlayData::SequenceDeprecated GetSequence() const;
+        bool GetFlag2() const;
     };
 
     class HeaderAc : public SaveDataAccessor<HeaderData> {
@@ -157,6 +159,22 @@ namespace app::save {
     class OptionGamePlayAc : public SaveDataAccessor<OptionGamePlayData> {
     public:
         uint8_t GetDLCSonicCostume() const;
+        bool GetConfigFlag3() const;
+        bool GetConfig2Flag0() const;
+        bool GetConfig2Flag3() const;
+        bool GetConfig2Flag4() const;
+        bool GetConfig2Flag20() const;
+        float GetMaxSpeedRate() const;
+        float GetInitialSpeedRate() const;
+        float GetBoostInitialSpeedRate() const;
+        float GetMinTurnSpeedRate() const;
+        float GetBoostMinTurnSpeedRate() const;
+        float GetAcceleRate() const;
+        float GetRotateForceRate() const;
+        float GetBumpJumpGravityRate() const;
+        float GetBaseAirDragScaleRate() const;
+        OptionGamePlayData::Value GetDifficulty() const;
+        unsigned char GetNeutralDecelerationRate() const;
     };
 
     class OptionGraphicsAc : public SaveDataAccessor<OptionGraphicsData> {

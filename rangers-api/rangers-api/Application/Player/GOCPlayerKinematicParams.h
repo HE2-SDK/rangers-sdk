@@ -135,7 +135,17 @@ namespace app::player {
         void SetRotation(const csl::math::Quaternion& rotation);
         void SetVelocity(const csl::math::Vector4& velocity);
         void SetGravityScale(float gravityScale);
+        void SetLowGravityScale(float gravityScale);
         csl::math::Vector3 GetForwardTargetPosition() const;
+
+        static void SetLandingMaxSlope(float value);
+        static void SetSlidingMaxSlope(float value);
+        static void SetWallAngleMaxSlope(float value);
+        static void SetMovableMaxSlope(float value);
+        static void SetOnStand(heur::rfl::PlayerParamCommon::SupportedPlane plane);
+        static void SetOnRunInAir(heur::rfl::PlayerParamCommon::SupportedPlane plane);
+        static void SetOnRun(heur::rfl::PlayerParamCommon::SupportedPlane plane);
+        static void SetAttrWallOnGround(bool enabled);
 
         GOCOMPONENT_CLASS_DECLARATION(GOCPlayerKinematicParams)
     };

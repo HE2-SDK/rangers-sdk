@@ -4,7 +4,7 @@ namespace hh::gfx {
     struct MatAnimDesc {
         ResAnimMaterial* resource;
         uint32_t unk1;
-        uint64_t unk2;
+        const char* materialName; // unsure
         uint8_t unk3;
     };
 

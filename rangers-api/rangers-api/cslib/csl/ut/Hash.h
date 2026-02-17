@@ -21,5 +21,6 @@ namespace csl::ut {
         inline bool operator!=(HashedString other) const { return hash != other.hash; }
         inline bool operator==(unsigned int other) const { return hash == other; }
         inline bool operator!=(unsigned int other) const { return hash != other; }
+        inline operator unsigned int() const { return hash; }
     };
 }

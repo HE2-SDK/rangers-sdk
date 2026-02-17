@@ -19,7 +19,7 @@ namespace app_cmn::camera {
         
         csl::ut::MoveArray<ControllerUnit> controllerUnits;
 
-        void Setup(SetupInfo& setupInfo);
+        void Setup(const SetupInfo& setupInfo);
 
         void AddController(CameraController* controller, unsigned int id);
         void DestroyController(unsigned int id, CameraInterpolator* interpolator);

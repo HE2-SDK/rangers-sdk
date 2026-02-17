@@ -15,6 +15,16 @@ namespace app::physics {
             UNK1 //related to MsgColliderQueryLeave
         };
 
+        struct SetupInfo {
+            hh::fnd::HFrame* frame{};
+            uint32_t unk2{};
+            uint32_t unk3{};
+            csl::ut::Bitset<OverlapFlag> overlapFlags{};
+            uint64_t unk5{};
+            csl::math::Transform worldTransform{};
+            uint16_t unk6{};
+        };
+
         hh::physics::PhysicsOverlapJob* physicsJob;
         csl::ut::MoveArray<hh::fnd::Handle<hh::physics::GOCCollider>> overlappedColliders;
         csl::ut::MoveArray<void*> unkA8;
@@ -37,6 +47,7 @@ namespace app::physics {
 		virtual void PostStepCallback(hh::game::GameManager* gameManager, const hh::game::GameStepInfo& gameStepInfo) override;
 		virtual void UpdateCallback(hh::game::GameManager* gameManager, const hh::game::GameStepInfo& gameStepInfo) override;
 
+        void Setup(const SetupInfo& setupInfo);
         void SetFrame(hh::fnd::HFrame* frame);
         void SetPosition(csl::math::Vector3& position);
         void SetEnabled(bool enabled);

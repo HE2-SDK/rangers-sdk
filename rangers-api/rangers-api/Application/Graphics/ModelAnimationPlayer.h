@@ -54,6 +54,7 @@ namespace app::gfx {
         CREATE_FUNC(ModelAnimationPlayer, uint32_t unk3Param);
 
         void SetModel(hh::gfx::GOCVisualModel* model);
+        void ClearModel();
         Animation& GetAnimation(size_t id);
         void AddTexPatAnimation(size_t id, hh::gfx::ResAnimTexPat* resource);
         void AddTexSrtAnimation(size_t id, hh::gfx::ResAnimTexSrt* resource);
@@ -72,6 +73,6 @@ namespace app::gfx {
         void ResetSpeed();
         bool IsAtEnd() const;
         void Play();
-        void Stop();
+        void Pause();
     };
 }

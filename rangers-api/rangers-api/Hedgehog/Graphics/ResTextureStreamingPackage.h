@@ -8,7 +8,7 @@ namespace hh::gfx{
         ucsl::resources::ntsp::v1::NeedleTextureStreamingPackage* streamedbinaryData;
         ucsl::resources::ntsp::v1::NeedleTextureStreamingPackage* header;
         ucsl::resources::ntsp::v1::Texture* textures;
-        ucsl::resources::ntsp::v1::Block* blocks;
+        ucsl::resources::ntsp::v1::Mipmap* mipmaps;
         fnd::Reference<fnd::StreamReaderWin32> streamReader;
         hh::fnd::Uri filepath;
 
@@ -16,7 +16,7 @@ namespace hh::gfx{
         void LoadData(fnd::FileSystemImpl* fileSystem);
         ucsl::resources::ntsp::v1::NeedleTextureStreamingPackage* GetHeader() const;
         ucsl::resources::ntsp::v1::Texture* GetTexture(const char* name) const;
-        ucsl::resources::ntsp::v1::Block* GetBlocks() const;
+        ucsl::resources::ntsp::v1::Mipmap* GetMipmaps() const;
         fnd::StreamReaderWin32* GetStreamReader() const;
 
         MANAGED_RESOURCE_CLASS_DECLARATION_INLINE(ResTextureStreamingPackage);

@@ -32,14 +32,26 @@ namespace app::player {
         enum class CombatFlag : unsigned int
         {
             JUMP = 0x0,
+            UNK_01 = 0x01,
+            UNK_02 = 0x02,
             BOOST = 0x03,
+            UNK_04 = 0x04,
             SIDE_STEP = 0x05,
+            UNK_06 = 0x06,
+            UNK_0C = 0x0C,
             PARRY = 0x0F,
             PERFECT_PARRY = 0x10,
+            UNK_13 = 0x13,
+            UNK_17 = 0x17,
+            UNK_18 = 0x18,
             AIR_TRICK = 0x1A,
+            UNK_1C = 0x1C,
+            UNK_1D = 0x1D,
+            UNK_1E = 0x1E,
             CAMERA_MOVEMENT = 0x1F,
             MOVEMENT = 0x20,
             GRAND_SLAM = 0x22,
+            UNK_26 = 0x26,
             QUICK_CYLOOP = 0x28,
             PHANTOM_RUSH = 0x2A,
             CYCLONE_KICK = 0x2B,
@@ -52,7 +64,12 @@ namespace app::player {
             HOMING_SHOT = 0x34,
             CROSS_SLASH = 0x35,
             AUTO_COMBO = 0x39,
+            UNK_3B = 0x3B,
+            UNK_3C = 0x3C,
+            UNK_3D = 0x3D,
+            UNK_3E = 0x3E,
             SPIN_DASH = 0x3F,
+            DECELERATION_RATE_MAXED_OUT = 0x40, // or potentially at zero
         };
 
         enum class WorldFlag : unsigned int
@@ -61,23 +78,18 @@ namespace app::player {
             DAMAGED_OR_REPELLED = 0x02,
             OUT_OF_CONTROL = 0x07,
             AUTO_RUN = 0x0A,
+            UNK_1B = 0x1B,
             CYBER_SPACE = 0x1E,
             WALL_JUMP_LAND = 0x22,
             POWER_BOOST = 0x28,
+            UNK_29 = 0x29,
             AIR_TRICK = 0x2A,
+            UNK_35 = 0x35,
             HEIGHT_MAP_COLLISION = 0x37,
             NO_CLIP = 0x38,
             BATTLE = 0x3A,
             NITRO_BOOST = 0x43,
             MAX_SPEED_CHALLENGE = 0x44,
-        };
-
-        enum class Difficulty : uint8_t
-        {
-            EASY = 0x00,
-            NORMAL = 0x01,
-            HARD = 0x02,
-            EXTREME = 0x03,
         };
 
         enum class Dimension : unsigned int {
@@ -118,8 +130,10 @@ namespace app::player {
         uint32_t dword170; //handle
         uint32_t qword174;
         uint32_t qword178;
-        uint32_t dword17C;
-        Difficulty byte180;
+        uint8_t dword17C;
+        uint8_t dword17D;
+        uint16_t dword17E;
+        app::save::OptionGamePlayData::Value difficulty;
         uint32_t qword184;
         uint32_t qword188;
 
@@ -144,6 +158,8 @@ namespace app::player {
         void SetWorldFlag(WorldFlag worldFlag, bool enabled);
         bool GetStateFlag(StateFlag stateFlag);
         bool GetWorldFlag(WorldFlag worldFlag);
+        void Set17DFlag(unsigned char flag, bool enabled);
+        void UnkFunc1421(unsigned int nameHash);
         FormState GetFormState() const;
         CharacterIdU8 GetCharacterId() const;
 

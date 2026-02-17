@@ -15,8 +15,9 @@ namespace app::level {
         uint32_t unk18c;
         uint32_t unk18d;
         csl::ut::MoveArray<hh::fnd::Handle<hh::fnd::Messenger>> uiObjects;
-        uint16_t unk20;
+        uint8_t unk20;
         uint8_t unk21;
+        uint8_t unk22;
 
         virtual void* GetRuntimeTypeInfo() const;
 		virtual void OnAddedToGame();
