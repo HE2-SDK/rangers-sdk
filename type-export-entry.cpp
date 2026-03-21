@@ -120,6 +120,9 @@ template class csl::ut::MoveArray<csl::ut::StringMap<hh::anim::EventData*>>;
 template class csl::ut::InplaceMoveArray<hh::anim::AsmResourceManager::ClipBindInfo, 5>;
 template class csl::ut::InplaceBitArray<4>;
 template class hh::fnd::Reference<app::player::PlayerEffect>;
+template class hh::fnd::Reference<hh::anim::iksolver::SolverBase>;
+template class csl::ut::InplaceMoveArray<hh::fnd::Reference<hh::anim::iksolver::SolverBase>, 3>;
+template class csl::ut::MoveArray<hh::anim::Trigger>;
 
 template class hh::fnd::Reference<hh::gfx::TexPatControlHH>;
 template class hh::fnd::Reference<hh::gfx::TexSrtControlHH>;
@@ -296,3 +299,12 @@ template class hh::needle::ImplDX11::SReflInfo<hh::needle::TParameterConstantRef
 template class hh::needle::ImplDX11::SReflInfo<hh::needle::TParameterConstantReflection<hh::needle::ParameterValueInt, 16, hh::needle::ShaderReflectionType::INT_CONSTANT>>;
 template class hh::needle::ImplDX11::SReflInfo<hh::needle::TParameterConstantReflection<hh::needle::ParameterValueFloat, 16, hh::needle::ShaderReflectionType::FLOAT_CONSTANT>>;
 template class hh::needle::ImplDX11::SReflInfo<hh::needle::ParameterUnorderedAccessViewReflection>;
+
+template class Cyan::Resource::ResObject<Cyan::Resource::Texture>;
+template class Cyan::Resource::ResObject<Cyan::Resource::Effect>;
+template class Cyan::Resource::ResObject<Cyan::Resource::Model>;
+template class Cyan::Resource::ResObject<Cyan::Resource::Shader>;
+template class Cyan::Resource::ResObject<Cyan::Resource::ComputeShader>;
+template class Cyan::Resource::ResObject<Cyan::Resource::Skeleton>;
+template class Cyan::Resource::ResObject<Cyan::Resource::NodeAnim>;
+template class Cyan::Graphics::ExternalMeshInstance<hh::needle::Model, hh::needle::PBRModelInstance>;

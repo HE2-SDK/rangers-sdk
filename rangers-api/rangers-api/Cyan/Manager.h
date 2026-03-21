@@ -102,7 +102,7 @@ namespace Cyan {
         template<typename T>
         using RequestResourceHandler = bool (Effect* effect, Resource::ResObject<T>* resource, void* userData);
 
-        virtual EffectHandle CreateEffect(void* unkParam4, uint32_t* unkParam5, bool unkParam6, int unkParam7, int unkParam8) = 0;
+        virtual EffectHandle CreateEffect(Resource::EffectParam* effectParam, const EffectInstanceParam& instanceParam, bool unkParam6, int unkParam7, int unkParam8) = 0;
         virtual int UnkFunc2(const char* unkParam1, void* unkParam2) = 0;
         virtual int DestroyEffect(const EffectHandle& effectHandle) = 0;
         virtual int Initialize(const Graphics::DeviceContainer& deviceContainer) = 0;
@@ -147,13 +147,13 @@ namespace Cyan {
         virtual void SetNotifyCallback(NotifyCallback* notifyCallback, void* userData) = 0;
         virtual void ResetNotifyCallback() = 0;
         virtual void Bind(Resource::EffectParam* effectParam) = 0;
-        virtual void SetTextureRequestResourceHandler(RequestResourceHandler<Resource::TextureParam>* handler, void* userData) = 0;
         virtual void SetNodeAnimRequestResourceHandler(RequestResourceHandler<Resource::NodeAnim>* handler, void* userData) = 0;
-        virtual void SetEffectRequestResourceHandler(RequestResourceHandler<Resource::Effect>* handler, void* userData) = 0;
+        virtual void SetSkeletonRequestResourceHandler(RequestResourceHandler<Resource::Skeleton>* handler, void* userData) = 0;
         virtual void SetModelRequestResourceHandler(RequestResourceHandler<Resource::Model>* handler, void* userData) = 0;
+        virtual void SetEffectRequestResourceHandler(RequestResourceHandler<Resource::Effect>* handler, void* userData) = 0;
         virtual void SetComputeShaderRequestResourceHandler(RequestResourceHandler<Resource::ComputeShader>* handler, void* userData) = 0;
         virtual void SetShaderRequestResourceHandler(RequestResourceHandler<Resource::Shader>* handler, void* userData) = 0;
-        virtual void UnkFunc52(void* handler, void* userData) = 0;
+        virtual void SetTextureRequestResourceHandler(RequestResourceHandler<Resource::Texture>* handler, void* userData) = 0;
         virtual void UnkFunc53(void* handler, void* userData) = 0;
         virtual void UnkFunc54(void* handler, void* userData) = 0;
         virtual void UnkFunc55(void* handler, void* userData) = 0;
@@ -232,13 +232,13 @@ namespace Cyan {
         uint64_t qword14B8;
         void* meshMemoryPtr;
         size_t meshMemorySize;
-        ResourceRequest unkResourceRequest0;
+        ResourceRequest textureRequest;
         ResourceRequest shaderRequest;
         ResourceRequest computeShaderRequest;
-        ResourceRequest modelRequest;
         ResourceRequest effectRequest;
+        ResourceRequest modelRequest;
+        ResourceRequest skeletonRequest;
         ResourceRequest nodeAnimRequest;
-        ResourceRequest textureRequest;
         ResourceRequest unkResourceRequest1;
         ResourceRequest lightRequest;
         ResourceRequest unkResourceRequest2[2];
@@ -269,9 +269,16 @@ namespace Cyan {
             float worldScale;
         };
 
+        static bool RequestTextureCallback(Effect* effect, Resource::ResObject<Resource::Texture>* resource, void* userData);
+        static bool RequestNodeAnimCallback(Effect* effect, Resource::ResObject<Resource::NodeAnim>* resource, void* userData);
+        static bool RequestEffectCallback(Effect* effect, Resource::ResObject<Resource::Effect>* resource, void* userData);
+        static bool RequestModelCallback(Effect* effect, Resource::ResObject<Resource::Model>* resource, void* userData);
+        static bool RequestComputeShaderCallback(Effect* effect, Resource::ResObject<Resource::ComputeShader>* resource, void* userData);
+        static bool RequestShaderCallback(Effect* effect, Resource::ResObject<Resource::Shader>* resource, void* userData);
+
         ManagerImpl(unsigned int unkParam1, const Config& config);
 
-        virtual EffectHandle CreateEffect(void* unkParam4, uint32_t* unkParam5, bool unkParam6, int unkParam7, int unkParam8) override;
+        virtual EffectHandle CreateEffect(Resource::EffectParam* effectParam, const EffectInstanceParam& instanceParam, bool unkParam6, int unkParam7, int unkParam8) override;
         virtual int UnkFunc2(const char* unkParam1, void* unkParam2) override;
         virtual int DestroyEffect(const EffectHandle& effectHandle) override;
         virtual int Initialize(const Graphics::DeviceContainer& deviceContainer) override;
@@ -316,13 +323,13 @@ namespace Cyan {
         virtual void SetNotifyCallback(NotifyCallback* notifyCallback, void* userData) override;
         virtual void ResetNotifyCallback() override;
         virtual void Bind(Resource::EffectParam* effectParam) override;
-        virtual void SetTextureRequestResourceHandler(RequestResourceHandler<Resource::TextureParam>* handler, void* userData) override;
         virtual void SetNodeAnimRequestResourceHandler(RequestResourceHandler<Resource::NodeAnim>* handler, void* userData) override;
-        virtual void SetEffectRequestResourceHandler(RequestResourceHandler<Resource::Effect>* handler, void* userData) override;
+        virtual void SetSkeletonRequestResourceHandler(RequestResourceHandler<Resource::Skeleton>* handler, void* userData) override;
         virtual void SetModelRequestResourceHandler(RequestResourceHandler<Resource::Model>* handler, void* userData) override;
+        virtual void SetEffectRequestResourceHandler(RequestResourceHandler<Resource::Effect>* handler, void* userData) override;
         virtual void SetComputeShaderRequestResourceHandler(RequestResourceHandler<Resource::ComputeShader>* handler, void* userData) override;
         virtual void SetShaderRequestResourceHandler(RequestResourceHandler<Resource::Shader>* handler, void* userData) override;
-        virtual void UnkFunc52(void* handler, void* userData) override;
+        virtual void SetTextureRequestResourceHandler(RequestResourceHandler<Resource::Texture>* handler, void* userData) override;
         virtual void UnkFunc53(void* handler, void* userData) override;
         virtual void UnkFunc54(void* handler, void* userData) override;
         virtual void UnkFunc55(void* handler, void* userData) override;
@@ -338,8 +345,17 @@ namespace Cyan {
         virtual ~ManagerImpl();
 
         void UpdateEffect();
+        EffectHandle CreateEffect(Resource::EffectParam* effectParam, const EffectInstanceParam& instanceParam, const InheritChildParam* inheritChildParam, EffectImpl* parent, bool unkParam6, int unkParam7, int unkParam8);
         Element* CreateElement(const Resource::ElementParam* elementParam);
         Emitter* CreateEmitter(EffectImpl* effect, const Resource::EmitterParam* emitterParam, const InheritChildParam* inheritChildParam, int unkParam1);
         bool UpdateLight(UpdateLightParam& param);
+        Graphics::MeshRenderer& GetMeshRenderer();
+
+        template<typename T> void RequestResource(EffectImpl* effect, Resource::ResObject<T>* resource);
+        template<> void RequestResource(EffectImpl* effect, Resource::ResObject<Resource::Texture>* resource);
+        template<> void RequestResource(EffectImpl* effect, Resource::ResObject<Resource::Effect>* resource);
+        template<> void RequestResource(EffectImpl* effect, Resource::ResObject<Resource::Model>* resource);
+        template<> void RequestResource(EffectImpl* effect, Resource::ResObject<Resource::NodeAnim>* resource);
+        template<> void RequestResource(EffectImpl* effect, Resource::ResObject<Resource::Skeleton>* resource);
     };
 }

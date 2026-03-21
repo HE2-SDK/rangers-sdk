@@ -45,12 +45,14 @@ namespace app::player {
             UNK_17 = 0x17,
             UNK_18 = 0x18,
             AIR_TRICK = 0x1A,
+            UNK_1B = 0x1B,
             UNK_1C = 0x1C,
             UNK_1D = 0x1D,
             UNK_1E = 0x1E,
             CAMERA_MOVEMENT = 0x1F,
             MOVEMENT = 0x20,
             GRAND_SLAM = 0x22,
+            UNK_25 = 0x25,
             UNK_26 = 0x26,
             QUICK_CYLOOP = 0x28,
             PHANTOM_RUSH = 0x2A,
@@ -162,6 +164,7 @@ namespace app::player {
         void UnkFunc1421(unsigned int nameHash);
         FormState GetFormState() const;
         CharacterIdU8 GetCharacterId() const;
+        static CombatFlag GetConfiguredCombatFlag(unsigned char index);
 
         DEFAULT_CREATE_FUNC(BlackboardStatus);
     };

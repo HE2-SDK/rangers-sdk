@@ -3,6 +3,8 @@
 namespace app::player {
     class StatePluginCamera : public PlayerStatePlugin {
     public:
+        static constexpr const char* name = "StatePluginCamera";
+
         uint64_t qword28;
         uint64_t qword30;
         float qword38;

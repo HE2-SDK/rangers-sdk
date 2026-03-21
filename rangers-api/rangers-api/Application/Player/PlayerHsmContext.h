@@ -49,7 +49,7 @@ namespace app::player {
         CharacterIdU8 GetCharacterId() const;
         bool IsOutOfControl() const;
         bool IsAutoRun() const;
-        void AddParam(StateParameter* param);
+        void AddParam(const StateParameter& param);
         heur::rfl::PlayerParamCommon* GetPlayerParamCommon() const;
         heur::rfl::PlayerParamCombo& GetComboParameters() const;
         heur::rfl::PlayerParamSonicBoom& GetSonicBoomParameters() const;

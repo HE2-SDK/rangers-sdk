@@ -15,6 +15,14 @@ namespace Cyan {
         csl::math::Matrix44 unk6;
     };
 
+    struct EffectInstanceParam {
+        hh::eff::ResEffect* resource{};
+        hh::needle::intrusive_ptr<hh::needle::NeedleRefcountObject>* nodeUnkParam1{};
+        void* nodeUnkParam2{};
+        unsigned int nodeIndex{};
+        uint64_t unk1{};
+    };
+
     class Effect;
     class Emitter;
     class EffectHandle {
@@ -66,7 +74,7 @@ namespace Cyan {
         virtual void SetVisibility(bool enabled) = 0;
         virtual bool GetVisibility() const = 0;
         virtual void SetBillboardViewportID(unsigned int viewportId) = 0;
-        virtual void* UnkFunc30() = 0;
+        virtual EffectInstanceParam& GetInstanceParam() const = 0;
         virtual void Setup(SetupInfo& setupInfo) = 0;
         virtual void SetUnk3(float value) = 0;
         virtual void SetUnk4(float value) = 0;
@@ -103,14 +111,10 @@ namespace Cyan {
         EffectHandle hh__eff__effecthandleE8;
         EffectHandle hh__eff__effecthandleF8;
         uint32_t flags;
-        uint64_t qword110;
-        hh::needle::NeedleRefcountObject* qword118;
-        uint64_t qword120;
-        uint32_t dword128;
-        uint64_t qword130;
+        EffectInstanceParam instanceParam;
         PerEffectData* perEffectData;
 
-        EffectImpl(ManagerImpl* managerImpl, Resource::EffectParam* effectParam, unsigned int unkParam1, void* unkParam2, const InheritChildParam* unkParam3, void* unkParam4, bool unkParam5, int unkParam6);
+        EffectImpl(ManagerImpl* managerImpl, Resource::EffectParam* effectParam, unsigned int unkParam1, const EffectInstanceParam& instanceParam, const InheritChildParam* unkParam3, EffectImpl* parent, bool unkParam5, int unkParam6);
 
         void SetDataBuffer(PerEffectData* data);
         void PrepareRender(Graphics::Renderer* renderer, const Graphics::DeviceContainer& deviceContainer);
@@ -145,7 +149,7 @@ namespace Cyan {
         virtual void SetVisibility(bool enabled) override;
         virtual bool GetVisibility() const override;
         virtual void SetBillboardViewportID(unsigned int viewportId) override;
-        virtual void* UnkFunc30() override;
+        virtual EffectInstanceParam& GetInstanceParam() const override;
         virtual void Setup(Effect::SetupInfo& setupInfo) override;
         virtual void SetUnk3(float value) override;
         virtual void SetUnk4(float value) override;

@@ -9,7 +9,7 @@ namespace app::player {
         virtual void CreateEffects() override;
         virtual void BindEffects() override;
 
-        PLAYER_VISUAL_CLASS_DECLARATION(VisualSonic);
+        PLAYER_VISUAL_CLASS_DECLARATION_INLINE_GET_CLASS(VisualSonic);
     };
 
     class VisualSonicSpin : public VisualSpin, public ComponentHolderListener {
@@ -25,7 +25,7 @@ namespace app::player {
         virtual void SetUnk(bool enabled) override;
         virtual void CHL_UnkFunc1(ComponentCollection* collection) override;
 
-        PLAYER_VISUAL_CLASS_DECLARATION(VisualSonicSpin);
+        PLAYER_VISUAL_CLASS_DECLARATION_INLINE_GET_CLASS(VisualSonicSpin);
     };
 
     class VisualSuperSonic : public VisualHuman, public ComponentHolderListener {
@@ -43,6 +43,6 @@ namespace app::player {
         virtual void UnbindEffects() override;
         virtual void CHL_UnkFunc1(ComponentCollection* collection) override;
 
-        PLAYER_VISUAL_CLASS_DECLARATION(VisualSuperSonic);
+        PLAYER_VISUAL_CLASS_DECLARATION_INLINE_GET_CLASS(VisualSuperSonic);
     };
 }

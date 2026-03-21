@@ -5,6 +5,26 @@ namespace app::player {
     public:
         static constexpr const char* name = "StatePluginBoost";
 
+        enum class Flag : unsigned int {
+            UNK0,
+            UNK1,
+            UNK2,
+            UNK3,
+            UNK4,
+            UNK5,
+            UNK6,
+            UNK7,
+            UNK8,
+            UNK9,
+            UNK10,
+            UNK11,
+            UNK12,
+            UNK13,
+            UNK14,
+            UNK15,
+            UNK16,
+        };
+
         int unk0; //some handle perhaps?
         int unk1;
         int unk2;
@@ -24,7 +44,7 @@ namespace app::player {
         int64_t unk11b;
         csl::ut::MoveArray<int64_t> unk12;
         csl::ut::MoveArray<int64_t> unk13;
-        int flags;
+        csl::ut::Bitset<Flag> flags;
 
         virtual unsigned int GetNameHash() const override;
         virtual void AddCallback() override;

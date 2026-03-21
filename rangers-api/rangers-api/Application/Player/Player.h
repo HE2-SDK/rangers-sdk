@@ -9,6 +9,7 @@ namespace app::player {
             FALL = 2,
             DOWN = 3,
             BOARDING = 4,
+            SLEEP = 5,
         };
 
         enum class Unk1Flag : uint8_t {

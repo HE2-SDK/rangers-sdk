@@ -3,7 +3,7 @@
 #define DECLARE_EMISSION(CLASS_NAME)public:\
         CLASS_NAME(Emitter* emitter, const csl::math::Matrix44& emissionMatrix);\
         void CreateElements();\
-        virtual bool EmitElement(const Resource::EmitterParam* emitterParam) override;
+        virtual bool EmitElement() override;
 
 namespace Cyan{
     class EmissionBase {
@@ -18,7 +18,7 @@ namespace Cyan{
 
         bool EntryElement(EmitParam* emitParam, const Resource::ElementParam* elementParam);
 
-        virtual bool EmitElement(const Resource::EmitterParam* emitterParam) = 0;
+        virtual bool EmitElement() = 0;
     };
 
     class EmissionPoint : public EmissionBase {

@@ -37,5 +37,7 @@ namespace hh::needle {
 
         int GetParameterValueObjectContainerByName(CNameIDObject* name);
         ParameterValueObjectContainer* GetParameterValueObjectContainer(int index);
+
+        static ModelInstance* Create(Model* model, ModelInstanceRenderer* renderer);
     };
 }

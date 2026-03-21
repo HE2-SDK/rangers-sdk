@@ -3,6 +3,7 @@
 namespace hh::anim {
     class BlendNodeBase;
     class ClipNode;
+    class Trigger;
     class AnimationState : public fnd::ReferencedObject {
     public:
         class SpeedBindable : public Bindable {
@@ -71,5 +72,8 @@ namespace hh::anim {
         void Update();
         bool IsFlagContained(int flagId) const;
         void SetTime(float time);
+
+        void GetTriggerEvents(csl::ut::MoveArray<Trigger>& triggers);
+        void GetTriggerEvents2(float unkParam1, csl::ut::MoveArray<Trigger>& triggers);
     };
 }

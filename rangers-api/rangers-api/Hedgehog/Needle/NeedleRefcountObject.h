@@ -12,7 +12,7 @@ namespace hh::needle {
         NeedleRefcountObject();
         virtual void ReleasePostDestroyInternal();
         virtual NeedleRefcountObject* GetDependRefcountObject();
-        virtual ~NeedleRefcountObject() = default;
+        virtual ~NeedleRefcountObject();
         void AddRef();
         void Release();
     };

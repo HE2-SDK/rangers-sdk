@@ -5,6 +5,12 @@ namespace Cyan{
 
     class Element {
     public:
+        enum class AxisFlag : unsigned char {
+            X,
+            Y,
+            Z,
+        };
+
         int64_t qword8;
         Element* self;
         int64_t qword18;
@@ -20,24 +26,31 @@ namespace Cyan{
         csl::math::Vector3 position1;
         csl::math::Vector3 spreadVector; //stores
         csl::math::Vector3 unkVec;
-        int8_t gap4Cb[40];
+        csl::math::Vector3 unkVec2;
+        csl::math::Position unkVec2Offset;
+        csl::math::Position unkVec2Multiplier;
         float emitterSize[3];
         float emitterScale[3];
         float fps;
-        int8_t gap4Cbb[20];
+        int8_t gap4Cbb[12];
+        float unk4Cbba;
+        float unk4Cbbb;
         float directionJitter; //unsure
-        int8_t gap4Cbbb[48];
-        short word11C;
-        char word11E; // 0x01 init children
+        int8_t gap4Cbbc[48];
+        csl::ut::Bitset<AxisFlag> unkVec2Axes;
+        char byte11D;
+        char byte11E; // 0x01 init children
+        bool byte11F;
         EmitParam emitParam;
         AnimCtrl* childrenAnim[16];
-        AnimCtrl* qword220;
+        AnimCtrl* unkVec2Anim;
         AnimCtrl* scaleAnim;
         AnimCtrl* unkColorAnim0[4];
         AnimCtrl* unkColorAnim1[4];
         AnimCtrl* unkColorAnim2[4];
-        AnimCtrl* modifierAnim[5][8];
-        int64_t qword290[18];
+        AnimCtrl* unkAnim[2];
+        AnimCtrl* modifierAnim[8][5];
+        int64_t qword290[16];
         AnimCtrl* patternAnim[4];
         AnimCtrl* animationControl;
         float textureUvScale[2]; //unsure, when used, it's multiplied by worldScale
@@ -45,7 +58,9 @@ namespace Cyan{
         int8_t gap488[648];
         HistoricalStripe* historicalStripe;
         int relatedToUpdateLight;
-        int8_t gap488b[20];
+        HistoricalStripe* historicalStripe2;
+        int unk738;
+        uint32_t unk73C;
         int64_t qword730;
         int32_t dword738;
         int32_t dword73C;

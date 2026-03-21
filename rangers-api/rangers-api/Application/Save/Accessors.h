@@ -57,6 +57,7 @@ namespace app::save {
         short GetBoostGaugeLevel() const;
         bool HasChaosEmeralds() const;
         bool GetFlag2And4() const;
+        bool IsConfiguredCombatFlagEnabled(unsigned char index);
     };
 
     class ExtraCharacterAc : public SaveDataAccessor<ExtraCharacterData> {

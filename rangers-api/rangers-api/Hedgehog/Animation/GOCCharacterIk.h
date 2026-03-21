@@ -45,7 +45,7 @@ namespace hh::anim {
         csl::ut::InplaceMoveArray<fnd::Reference<fnd::ReferencedObject>, 1> unkB0;
         fnd::Reference<RaycastInterface> raycastInterface;
         csl::ut::InplaceMoveArray<fnd::Reference<iksolver::SolverBase>, 3> ikSolvers;
-        uint64_t qword118;
+        GOCAnimationSingle* gocAnimationSingle;
         csl::ut::InplaceMoveArray<Unk1, 1> unk120;
         csl::fnd::Function<bool (const GOCAnimationSingle*)> unk150;
         csl::ut::InplaceMoveArray<Unk2, 2> unk1B0;

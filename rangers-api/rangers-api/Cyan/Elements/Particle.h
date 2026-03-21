@@ -18,6 +18,7 @@ namespace Cyan::Elements{
         void CalcFieldSpin2(FieldArgs* args, csl::math::Vector3& out);
         void CalcFieldRandom(FieldArgs* args, const csl::math::Vector3& spreadVector, const csl::math::Vector3& spreadVectorNorm, const csl::math::Matrix34& emissionMatrix, bool unk0);
         void Rotation2VecY(const csl::math::Vector3& rotation, csl::math::Vector3* out);
+        void CalcDirectional(Element* element, unsigned int unkParam1, unsigned int unkParam2);
 
         Particle(Emitter* emitter, const Resource::ElementParam* element, const EmitParam* emitParam);
     };  

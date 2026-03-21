@@ -16,7 +16,7 @@ namespace app_cmn::camera {
         struct SetupInfo {
             int controllerUnitAmount;
         };
-        
+
         csl::ut::MoveArray<ControllerUnit> controllerUnits;
 
         void Setup(const SetupInfo& setupInfo);

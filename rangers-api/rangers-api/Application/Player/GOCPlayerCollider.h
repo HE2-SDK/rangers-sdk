@@ -28,7 +28,7 @@ namespace app::player {
         void Setup(const SetupInfo& setupInfo);
         void AddQuery(physics::GOCColliderQuery* query);
         void AddCollider(hh::physics::GOCCollider* collider);
-        void SetEnabled(int componentNameHash, bool enabled);
+        void SetEnabled(unsigned int componentNameHash, bool enabled);
         void SetUnk211(hh::physics::GOCCollider* collider);
         PlayerCollision* GetPlayerCollision() const;
         PlayerController* GetPlayerController() const;

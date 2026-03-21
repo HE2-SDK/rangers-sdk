@@ -30,7 +30,7 @@ namespace Cyan {
 
             System::RandomTable* randomTable;
             System::Random* random;
-            char flags;
+            unsigned int flags;
             float fps;
             float unk2b[2];
             void* colorSet;
@@ -55,10 +55,10 @@ namespace Cyan {
 
         void InitAnimation(const CreateParam& createParam);
         void Update(float time);
-        unsigned int GetValue(int count) const;
+        float GetValue(int curveIndex) const;
         unsigned int GetValues(float* values, int count) const;
         float GetKeyValue(const CurveStatus* curveStatus, int key);
-        unsigned short GetCurveNum() const;
+        unsigned int GetCurveNum() const;
         void CalcKeyValue(float unk, CurveStatus* curveStatus);
         void* Interpolation(const CurveStatus* curveStatus, int unk0, int unk1, float unk2, float unk3);
         void SetTime(float time);

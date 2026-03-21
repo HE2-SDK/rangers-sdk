@@ -129,7 +129,7 @@ namespace hh::eff {
             uint32_t dwordD0;
             Unk1* unkD8;
             uint32_t dwordE0;
-            csl::ut::PointerMap<void*, void*>* unkE8;
+            csl::ut::StringMap<hh::needle::Model*>* modelsByName;
             csl::fnd::IAllocator* unkAllocator2;
             CyanRenderHandler cyanRenderHandler;
             CyanAllocator cyanAllocator;

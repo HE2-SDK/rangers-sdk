@@ -43,7 +43,7 @@ namespace app::player {
         virtual void CreateEffects() {}
         virtual void BindEffects() {}
         virtual void UnbindEffects() {}
-        virtual void EventCallback(const hh::anim::TriggerListener::Trigger& trigger) override;
+        virtual void EventCallback(const hh::anim::Trigger& trigger) override;
 
         void InitializeAttachPointFrames();
         hh::fnd::HFrame* GetAttachPointFrame(AttachPointId attachPointId) const;

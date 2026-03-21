@@ -7,11 +7,11 @@ namespace app::player{
         char flags;
         app::Timer timer;
 
-        virtual unsigned long long GetNameHash() const override;
+        virtual unsigned int GetNameHash() const override;
         virtual void Update(int64_t a2, float deltaTime) override;
 
         void SpawnEffect();
 
-        EffectOverlay(csl::fnd::IAllocator* allocator);
+        CREATE_FUNC(EffectOverlay, hh::game::GameObject* playerObject, PlayerVisual* playerVisual);
     };
 }
