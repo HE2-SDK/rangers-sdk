@@ -41,7 +41,7 @@ namespace hh::anim {
         struct SetupInfo {
             Type type{ Type::UNK0 };
             uint8_t unk1a{};
-            bool setPose{ false };
+            bool setPose{ true };
             unsigned int modelComponentName{};
             unsigned int name{};
             ResSkeleton* skeleton{};

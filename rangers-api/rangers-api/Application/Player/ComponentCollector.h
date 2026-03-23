@@ -18,6 +18,7 @@ namespace app::player {
         void AddComponent(hh::game::GOComponent* component);
         void RemoveComponent(hh::game::GOComponent* component);
         void UpdateVisibility();
+        void ChangeVisibility(bool unkParam1, bool unkParam2);
     };
 
     class ComponentCollector;

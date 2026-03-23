@@ -5,5 +5,6 @@ namespace Cyan{
     public:
         static unsigned int CalcSize(unsigned int count);
         static HistoricalStripe* Create(unsigned int count, void* memory, Elements::Particle* owner);
+        void PrepareRender(Graphics::ParticleDecl* particleDecl);
     };
 }

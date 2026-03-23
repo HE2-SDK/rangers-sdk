@@ -27,7 +27,7 @@ namespace Cyan {
     class Emitter;
     class EffectHandle {
     public:
-        int unk1;
+        int id;
         Effect* effect;
         EffectHandle();
         EffectHandle(const EffectHandle& other);

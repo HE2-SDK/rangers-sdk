@@ -5,8 +5,8 @@ namespace Cyan::Elements{
     public:
         virtual void Process(float unk) override;
         virtual void Update(float unk) override;
-        virtual void PrepareRender(Graphics::Renderer* renderer, void* effectObj) override; //Graphics::EffectObject* effectObj
-        virtual void UnkFunc1() override;
+        virtual void PrepareRender(Graphics::Renderer* renderer, Graphics::EffectObject* effectObject) override;
+        virtual void UnkFunc1(Graphics::Renderer* renderer, Graphics::EffectObject* effectObject) override;
         virtual int GetHistoricalStripeBufferSize() const override;
         virtual void InitParameter() override;
 

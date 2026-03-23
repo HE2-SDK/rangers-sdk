@@ -3,8 +3,8 @@
 #define PLAYER_VISUAL_CLASS_DECLARATION_BASE(ClassName) private:\
 		static const app::player::PlayerVisualClass playerVisualClass;\
     public:\
-		static app::player::PlayerVisual* Create(csl::fnd::IAllocator* allocator, hh::game::GameObject* gameObject, ComponentCollection* componentCollection);\
-		ClassName(csl::fnd::IAllocator* allocator, hh::game::GameObject* gameObject, ComponentCollection* componentCollection);
+		static app::player::PlayerVisual* Create(csl::fnd::IAllocator* allocator, hh::game::GameObject* gameObject, app::player::ComponentCollection* componentCollection);\
+		ClassName(csl::fnd::IAllocator* allocator, hh::game::GameObject* gameObject, app::player::ComponentCollection* componentCollection);
 
 #define PLAYER_VISUAL_CLASS_DECLARATION(ClassName) PLAYER_VISUAL_CLASS_DECLARATION_BASE(ClassName)\
 	public:\
@@ -21,7 +21,7 @@ namespace app::player {
 
     struct PlayerVisualClass {
         unsigned int nameHash;
-        PlayerVisual* (*instantiator)(csl::fnd::IAllocator* allocator);
+        PlayerVisual* (*instantiator)(csl::fnd::IAllocator* allocator, hh::game::GameObject* gameObject, ComponentCollection* componentCollection);
     };
 
     class GOCPlayerVisual;

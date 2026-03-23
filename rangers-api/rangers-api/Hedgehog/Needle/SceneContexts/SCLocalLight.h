@@ -5,23 +5,25 @@ namespace hh::needle {
     public:
         class Impl : public NeedleRefcountObject {
         public:
-            struct Unk1 {
-                int unk1;
-                uint64_t unk2;
+            struct LightHandle {
+                int index;
+                CNameIDObject* name;
             };
 
             SCLocalLight& sceneContext;
-            char unk1[64000];
+            FxLightParam localLightParams[1000];
             unsigned int numLights;
             unsigned int maxLights;
-            Unk1 unk4[1000];
-            unsigned int unk5;
+            LightHandle handles[1000];
+            unsigned int nextId;
             csl::math::Vector4 unk6;
             float unk7;
             int unk8;
             csl::fnd::Mutex mutex;
 
             Impl(SCLocalLight& sceneContext);
+
+            FxLightParam* GetLocalLightParam(unsigned int id) const;
         };
 
         intrusive_ptr<Impl> implementation;
@@ -33,5 +35,11 @@ namespace hh::needle {
         virtual void UnkFunc1();
         virtual unsigned int GetNameHash();
         virtual const char* GetName();
+
+        int AddLocalLightParam(const FxLightParam& lightParam, const char* name);
+        bool SetLocalLightParam(unsigned int id, const FxLightParam& lightParam);
+        void RemoveLocalLightParam(unsigned int lightId);
+        unsigned int GetLocalLightCount() const;
+        unsigned int GetLocalLightMax() const;
     };
 }

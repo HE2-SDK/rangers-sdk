@@ -108,6 +108,14 @@ namespace hh::eff {
                 Unk2 unk5[8];
             };
 
+            static bool RequestTextureCallback(Cyan::Effect* effect, Cyan::Resource::ResObject<Cyan::Resource::Texture>* resource, void* userData);
+            static bool RequestNodeAnimCallback(Cyan::Effect* effect, Cyan::Resource::ResObject<Cyan::Resource::NodeAnim>* resource, void* userData);
+            static bool RequestEffectCallback(Cyan::Effect* effect, Cyan::Resource::ResObject<Cyan::Resource::Effect>* resource, void* userData);
+            static bool RequestModelCallback(Cyan::Effect* effect, Cyan::Resource::ResObject<Cyan::Resource::Model>* resource, void* userData);
+            static bool RequestComputeShaderCallback(Cyan::Effect* effect, Cyan::Resource::ResObject<Cyan::Resource::ComputeShader>* resource, void* userData);
+            static bool RequestShaderCallback(Cyan::Effect* effect, Cyan::Resource::ResObject<Cyan::Resource::Shader>* resource, void* userData);
+            static bool UpdateLightCallback(Cyan::UpdateLightParam* updateLightParam, void* userData);
+
             rsdx::SJobJoint* jobJoint1;
             rsdx::SJobJoint* jobJoint2;
             rsdx::SJobJoint* jobJoint3;
@@ -120,7 +128,7 @@ namespace hh::eff {
             uint32_t unk4;
             float unk5;
             uint8_t gap68[16];
-            float dword78;
+            float lightIntensity;
             ResourceListener resourceListener1;
             ResourceListener resourceListener2;
             csl::ut::MoveArray<void*> unkA0;
@@ -135,6 +143,7 @@ namespace hh::eff {
             CyanAllocator cyanAllocator;
 
             CREATE_FUNC(Impl, const SetupInfo& setupInfo);
+            void Initialize(const SetupInfo& setupInfo);
         };
 
         class Listener {

@@ -12,10 +12,10 @@ namespace hh::anim {
         float unk206;
     
         struct SetupInfo : public GOCAnimationSingle::SetupInfo {
-            AsmResourceManager* asmResourceManager;
-            uint8_t unk102;
-            uint8_t unk103; // This isn't referenced in Setup(), I don't understand...
-            bool setUnk2Flag;
+            AsmResourceManager* asmResourceManager{};
+            uint8_t unk102{};
+            uint8_t unk103{}; // This isn't referenced in Setup(), I don't understand...
+            bool setUnk2Flag{};
         };
 
         virtual void* GetRuntimeTypeInfo() const override;

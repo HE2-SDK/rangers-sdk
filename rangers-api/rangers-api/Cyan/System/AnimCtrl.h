@@ -4,7 +4,6 @@ namespace Cyan {
     class AnimCtrl {
     public:
         struct CurveStatus {
-            int unk0;
             int unk1;
             int unk2;
             float value0;
@@ -16,6 +15,11 @@ namespace Cyan {
             int unk8;
             int unk9;
             float value2;
+        };
+
+        struct CurveInfo {
+            bool unk0;
+            CurveStatus status;
         };
 
         struct CreateParam {
@@ -44,7 +48,7 @@ namespace Cyan {
         int dword10;
         int loopCount;
         float dword18;
-        CurveStatus curves[4];
+        CurveInfo curves[4];
         char gap1c[4];
         CreateParam createParam;
         short word110;
@@ -59,7 +63,7 @@ namespace Cyan {
         unsigned int GetValues(float* values, int count) const;
         float GetKeyValue(const CurveStatus* curveStatus, int key);
         unsigned int GetCurveNum() const;
-        void CalcKeyValue(float unk, CurveStatus* curveStatus);
+        float CalcKeyValue(float unk, float unk2, CurveStatus* curveStatus);
         void* Interpolation(const CurveStatus* curveStatus, int unk0, int unk1, float unk2, float unk3);
         void SetTime(float time);
     };

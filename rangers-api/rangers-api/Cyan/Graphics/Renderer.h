@@ -2,29 +2,63 @@
 
 namespace Cyan {
     class ManagerImpl;
+    class HistoricalStripe;
 }
 
 namespace Cyan::Graphics {
+    class EmitterListEntry {
+    public:
+        EmitterDecl* emitterDecl;
+        EmitterListEntry* prev;
+        EmitterListEntry* next;
+    };
+
+    class EmitterList {
+    public:
+        EmitterListEntry sentinel;
+        EmitterListEntry* first; // actually volatile
+        volatile int length;
+        
+        EmitterList();
+    };
+
+    class EffectObject {
+    public:
+        EmitterDecl declaration;
+        unsigned int nextParticleIndex;
+        ParticleDecl* particleDeclBufferStart;
+        ParticleDecl* particleDeclBufferEnd;
+        MeshDecl* meshDeclBuffer;
+        EmitterListEntry emitterListEntry;
+    };
+
+    class RendererImpl {
+    public:
+        hh::needle::intrusive_ptr<hh::needle::ParameterValueObject> parameterValueObject0;
+        hh::needle::intrusive_ptr<hh::needle::ParameterValueObject> parameterValueObject1;
+        hh::needle::intrusive_ptr<hh::needle::VertexLayout> vertexLayout0;
+        hh::needle::intrusive_ptr<hh::needle::VertexLayout> vertexLayout1;
+        hh::needle::intrusive_ptr<hh::needle::ShaderObject> shaderObject0;
+        hh::needle::intrusive_ptr<hh::needle::ShaderObject> shaderObject1;
+        hh::needle::intrusive_ptr<hh::needle::ShaderObject> shaderObject2;
+        uint8_t byte38;
+    };
+
     class Renderer {
     public:
-        struct Unk1 {
-            uint64_t unk1;
-            uint64_t unk2;
-            uint64_t unk3;
-            Unk1* self;
-            uint32_t unk5;
-
-            Unk1();
+        struct RenderState {
+            hh::needle::ParamValueOverrideHelper pvoHelper;
+            char pad[0x2620];
         };
 
         ManagerImpl* managerImpl;
-        Unk1 unk10[2];
-        bool gammaCorrect;
-        uint64_t qword68;
+        EmitterList emitters[2];
+        unsigned int frameIndex;
+        EmitterListEntry* currentFrameFirstEmitterListEntry;
         unsigned int dword70;
         uint8_t byte74;
-        uint64_t qword78;
-        uint64_t qword80;
+        RendererImpl* implementation;
+        void* renderAllocator;
         int dword88;
 
         Renderer(ManagerImpl* managerImpl);
@@ -35,10 +69,14 @@ namespace Cyan::Graphics {
         virtual void Initialize(const DeviceContainer& deviceContainer);
         virtual void PrepareRender();
         virtual unsigned int Render(const DeviceContainer& deviceContainer, unsigned int unkParam1, unsigned int unkParam2, unsigned int unkParam3, unsigned int unkParam4, void* unkParam5); 
-        virtual void* UnkFunc4(void* unkParam1);
+        virtual EffectObject* BeginEmitter(const EmitterDecl& emitterDecl);
         virtual void UnkFunc5(void* unkParam1);
-        virtual void UnkFunc6(void* unkParam1, void* unkParam2, void* unkParam3);
-        virtual void UnkFunc7(void* unkParam1, void* unkParam2, void* unkParam3);
-        virtual void UnkFunc8(void* unkParam1, void* unkParam2, void* unkParam3, void* unkParam4);
+        virtual void AddParticle(Graphics::EffectObject* effectObject, const Graphics::ParticleDecl& particleDecl, const Matrix23* matrices);
+        virtual void AddCpuTransformedParticle(Graphics::EffectObject* effectObject, const Graphics::ParticleDecl& particleDecl, const Matrix23* matrices);
+        virtual void AddStripe(HistoricalStripe* historicalStripe, Graphics::EffectObject* effectObject, const Graphics::ParticleDecl& particleDecl, const Matrix23* matrices);
+
+    private:
+        void ClearList(unsigned int index);
+        void AddList(EffectObject* effectObject, int layer, float priority);
     };
 }

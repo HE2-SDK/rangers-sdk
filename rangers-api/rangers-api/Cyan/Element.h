@@ -3,12 +3,23 @@
 namespace Cyan{
     class HistoricalStripe;
 
+    
+
     class Element {
     public:
         enum class AxisFlag : unsigned char {
             X,
             Y,
             Z,
+        };
+
+        struct _Texcoord {
+            csl::math::Vector2 current;
+            csl::math::Vector2 start;
+            csl::math::Vector2 step;
+            AnimCtrl* tilingAnimation;
+            AnimCtrl* rotationAnimation;
+            AnimCtrl* offsetAnimation;
         };
 
         int64_t qword8;
@@ -19,12 +30,12 @@ namespace Cyan{
         Emitter* emitter;
         Resource::ElementParam* element;
         float dword40;
-        float dword44;
-        int32_t dword48;
+        float aliveTime;
+        float dword48;
         int32_t dword4C;
-        csl::math::Vector3 position0;
-        csl::math::Vector3 position1;
-        csl::math::Vector3 spreadVector; //stores
+        csl::math::Vector3 position;
+        csl::math::Vector3 previousPosition;
+        csl::math::Vector3 spreadVector;
         csl::math::Vector3 unkVec;
         csl::math::Vector3 unkVec2;
         csl::math::Position unkVec2Offset;
@@ -36,33 +47,36 @@ namespace Cyan{
         float unk4Cbba;
         float unk4Cbbb;
         float directionJitter; //unsure
-        int8_t gap4Cbbc[48];
+        unsigned int unkCount1;
+        csl::ut::Color8 colors[2][2];
+        float unk4C23f2f[2];
+        float unk4C643w2[2][2];
+        int8_t gap4Cbbc[4];
         csl::ut::Bitset<AxisFlag> unkVec2Axes;
         char byte11D;
         char byte11E; // 0x01 init children
         bool byte11F;
         EmitParam emitParam;
-        AnimCtrl* childrenAnim[16];
-        AnimCtrl* unkVec2Anim;
-        AnimCtrl* scaleAnim;
-        AnimCtrl* unkColorAnim0[4];
-        AnimCtrl* unkColorAnim1[4];
-        AnimCtrl* unkColorAnim2[4];
-        AnimCtrl* unkAnim[2];
-        AnimCtrl* modifierAnim[8][5];
+        AnimCtrl* childrenAnimation[16];
+        AnimCtrl* unkVec2Animation;
+        AnimCtrl* scaleAnimation;
+        AnimCtrl* colorAnimation[2][2];
+        AnimCtrl* alphaAnimation[2][2];
+        AnimCtrl* unk4C643w2Animation[2][2];
+        AnimCtrl* unk4C23f2fAnimation[2];
+        AnimCtrl* modifierAnimation[8][5];
         int64_t qword290[16];
-        AnimCtrl* patternAnim[4];
+        AnimCtrl* patternAnimation[4];
         AnimCtrl* animationControl;
         float textureUvScale[2]; //unsure, when used, it's multiplied by worldScale
-        int64_t qword480;
-        int8_t gap488[648];
-        HistoricalStripe* historicalStripe;
+        _Texcoord texCoords[4][2];
+        Matrix23 matrices[4][2];
+        HistoricalStripe* historicalStripe1;
         int relatedToUpdateLight;
-        HistoricalStripe* historicalStripe2;
-        int unk738;
-        uint32_t unk73C;
-        int64_t qword730;
-        int32_t dword738;
+        uint32_t unk4r23414;
+        int unk452434[4];
+        HistoricalStripe* historicalStripe;
+        unsigned int lightId;
         int32_t dword73C;
         int64_t qword740;
         int64_t qword748;
@@ -71,11 +85,11 @@ namespace Cyan{
         void CalcTexcoordImpl(
             float arg0,
             const Resource::TextureParam* texParam,
-            void* texcoord, //Cyan::Texcoord*
-            float* matrix, //Cyan::Matrix23*
+            _Texcoord* texcoord,
+            Cyan::Matrix23* matrix,
             float* p1,
             float* p2,
-            unsigned int flags
+            unsigned int scrollIdx
         );
         void CalcTexcoord(float unk);
         void InitColor(System::Random* random);
@@ -93,8 +107,8 @@ namespace Cyan{
 
         virtual void Process(float unk);
         virtual void Update(float unk);
-        virtual void PrepareRender(Graphics::Renderer* renderer, void* effectObj) {} //Graphics::EffectObject* effectObj
-        virtual void UnkFunc1() {}
+        virtual void PrepareRender(Graphics::Renderer* renderer, Graphics::EffectObject* effectObject) {} //Graphics::EffectObject* effectObj
+        virtual void UnkFunc1(Graphics::Renderer* renderer, Graphics::EffectObject* effectObject) {}
         virtual int GetHistoricalStripeBufferSize() const;
         virtual ~Element();
         virtual void InitParameter() {}
