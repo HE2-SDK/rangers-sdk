@@ -51,12 +51,6 @@ namespace Cyan {
             virtual void OnEnter(System::FSMContext* ctx) override;
         };
 
-        struct EntryElement {
-            Element* elem;
-            EntryElement* nextElem;
-            EntryElement* prevElem;
-        };
-
         struct Unk1Resource {
             uint64_t unk1;
             uint64_t unk2;
@@ -83,11 +77,7 @@ namespace Cyan {
         csl::ut::Bitset<Flag> flags;
         const Resource::EmitterParam* param;
         EffectImpl* effect;
-        uint64_t qword40;
-        uint64_t qword48;
-        uint64_t qword50;
-        EntryElement* entryElement;
-        int elementCount;
+        Cyan::System::LinkList<Element> elements;
         csl::math::Matrix34 emitterMatrix;
         csl::math::Matrix34 poseMatrix;
         csl::math::Matrix34 localMatrix;
@@ -190,23 +180,7 @@ namespace Cyan {
         Resource::ResObject<Resource::Model> model;
         Resource::ResObject<Resource::Skeleton> skeleton;
         Resource::ResObject<Resource::NodeAnim> nodeAnim;
-        uint8_t gapBB0[192]; // ResObj<NodeAnim>, but don't know exact size yet.
-        uint8_t byte1420;
-        uint8_t gap1421[127];
-        uint64_t qword14A0;
-        uint64_t qword14A8;
-        uint64_t qword14B0;
-        uint32_t dword14B8;
-        uint64_t qword14C0;
-        uint8_t byte14C8;
-        uint8_t gap14C9[127];
-        uint64_t qword1548;
-        uint64_t qword1550;
-        uint8_t byte1558;
-        uint8_t gap1559[127];
-        uint64_t qword15D8;
-        uint64_t qword15E0;
-        uint8_t gap15E8[712];
+        System::LinkPool<EffectHandle, 32> childEffectHandlePool;
         Graphics::EffectObject* effectObject;
         Graphics::Renderer* renderer;
         Graphics::EmitterDecl* emitterDecl;
@@ -282,6 +256,10 @@ namespace Cyan {
 
         void ProcessAnimations(float time);
         void RandomizeStartAndEndAngles();
+        void DeleteAllElements();
+        void DeleteAllChildren();
+        void DeleteAllAnimation();
+        void StopChildren();
 
         AnimCtrl* CreateAnimCtrl(const Resource::PtrData<Resource::AnimationParam>& param, unsigned int flags);
     };

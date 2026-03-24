@@ -6,22 +6,6 @@ namespace Cyan {
 }
 
 namespace Cyan::Graphics {
-    class EmitterListEntry {
-    public:
-        EmitterDecl* emitterDecl;
-        EmitterListEntry* prev;
-        EmitterListEntry* next;
-    };
-
-    class EmitterList {
-    public:
-        EmitterListEntry sentinel;
-        EmitterListEntry* first; // actually volatile
-        volatile int length;
-        
-        EmitterList();
-    };
-
     class EffectObject {
     public:
         EmitterDecl declaration;
@@ -29,7 +13,7 @@ namespace Cyan::Graphics {
         ParticleDecl* particleDeclBufferStart;
         ParticleDecl* particleDeclBufferEnd;
         MeshDecl* meshDeclBuffer;
-        EmitterListEntry emitterListEntry;
+        System::LinkList<EmitterDecl>::Entry emitterListEntry;
     };
 
     class RendererImpl {
@@ -52,9 +36,9 @@ namespace Cyan::Graphics {
         };
 
         ManagerImpl* managerImpl;
-        EmitterList emitters[2];
+        System::LinkList<EmitterDecl> emitters[2];
         unsigned int frameIndex;
-        EmitterListEntry* currentFrameFirstEmitterListEntry;
+        System::LinkList<EmitterDecl>::Entry* currentFrameFirstEmitterListEntry;
         unsigned int dword70;
         uint8_t byte74;
         RendererImpl* implementation;

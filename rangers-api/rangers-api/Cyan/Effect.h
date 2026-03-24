@@ -25,12 +25,12 @@ namespace Cyan {
 
     class Effect;
     class Emitter;
-    class EffectHandle {
+    class EffectTag {
     public:
         int id;
         Effect* effect;
-        EffectHandle();
-        EffectHandle(const EffectHandle& other);
+        EffectTag();
+        EffectTag(const EffectTag& other);
 
         const csl::math::Vector3& GetScale() const;
         const csl::ut::Color8& GetColor() const;
@@ -39,6 +39,15 @@ namespace Cyan {
         void SetScale(const csl::math::Vector3& scale);
         void SetColor(const csl::ut::Color8& color);
         void SetAlpha(uint8_t alpha);
+    };
+
+    class EffectHandle {
+    public:
+        int unk1;
+        Cyan::EffectTag* tag;
+
+        EffectHandle();
+        EffectHandle(const EffectHandle& other);
     };
 
     class Effect {
@@ -102,14 +111,10 @@ namespace Cyan {
         uint32_t viewMask;
         uint32_t dwordA8;
         Emitter* emitter;
-        uint64_t qwordB8;
-        uint64_t qwordC0;
-        uint64_t qwordC8;
-        uint64_t qwordD0;
-        uint64_t qwordD8;
-        uint64_t qwordE0;
-        EffectHandle hh__eff__effecthandleE8;
-        EffectHandle hh__eff__effecthandleF8;
+        System::LinkList<EffectImpl>::Entry managerLinkListEntry;
+        System::LinkList<EffectImpl>::Entry sceneLinkListEntry;
+        EffectHandle effecthandleE8;
+        EffectHandle effecthandleF8;
         uint32_t flags;
         EffectInstanceParam instanceParam;
         PerEffectData* perEffectData;

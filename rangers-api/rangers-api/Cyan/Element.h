@@ -23,9 +23,7 @@ namespace Cyan{
         };
 
         int64_t qword8;
-        Element* self;
-        int64_t qword18;
-        int64_t qword20;
+        System::LinkList<Element>::Entry elementListEntry;
         int32_t dword28;
         Emitter* emitter;
         Resource::ElementParam* element;

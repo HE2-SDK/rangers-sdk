@@ -13,9 +13,9 @@ namespace Cyan::Resource {
     class Model {
         Graphics::MeshInstance* meshInstance;
         System::IAllocator* allocator;
-        int unk1;
-        int unk2;
-        int unk3;
+        EmitterParam::BlendMode blendMode;
+        EmitterParam::DepthMode depthMode;
+        EmitterParam::CullMode cullMode;
         uint64_t unk4;
     };
 

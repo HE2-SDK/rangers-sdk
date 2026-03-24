@@ -438,6 +438,7 @@ namespace rangerssdk::ucsl {
 #include "Cyan/System/RandomTable.h"
 #include "Cyan/System/Job.h"
 #include "Cyan/System/FSM.h"
+#include "Cyan/System/LinkList.h"
 #include "Cyan/System/LinkPool.h"
 #include "Cyan/Resource/Effect.h"
 #include "Cyan/Resource/EffectParam.h"

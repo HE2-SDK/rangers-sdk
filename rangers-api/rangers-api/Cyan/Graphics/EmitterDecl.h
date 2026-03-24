@@ -87,7 +87,7 @@ namespace Cyan::Graphics {
         float mask6[2];
         hh::needle::CullMode cullMode;
         BlendModeSettings blendModeSettings;
-        bool unk450;
+        bool enableBlending;
         bool enableDepthTest;
         bool enableDepthWrite;
         float unk454;
@@ -118,7 +118,7 @@ namespace Cyan::Graphics {
         float unk4F4;
         float unk4F8[4];
         float unk508[4];
-        uint64_t gap518;
+        uint64_t gap518; // could be float[4]
         uint32_t unk520;
         float unk524;
         uint32_t unk528[4];
@@ -135,7 +135,7 @@ namespace Cyan::Graphics {
         unsigned int subParticleCount;
         uint64_t qword570;
         Graphics::MeshInstance* meshInstance;
-        uint32_t renderLayer;
+        int renderLayer;
         float renderPriority;
         uint32_t qword588;
         uint32_t qword58C;

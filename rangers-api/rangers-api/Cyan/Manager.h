@@ -213,12 +213,7 @@ namespace Cyan {
         uint64_t qword80;
         uint64_t qword88;
         uint32_t qword90;
-        uint64_t qword98;
-        uint64_t qwordA0;
-        uint64_t qwordA8;
-        Effect* effects;
-        unsigned int numEffects;
-        uint32_t gapBC;
+        System::LinkList<EffectImpl> effects;
         float deltaTime;
         uint32_t dwordC4;
         float floatC8[32];
@@ -354,6 +349,7 @@ namespace Cyan {
         Emitter* CreateEmitter(EffectImpl* effect, const Resource::EmitterParam* emitterParam, const InheritChildParam* inheritChildParam, int unkParam1);
         bool UpdateLight(UpdateLightParam& param);
         Graphics::MeshRenderer& GetMeshRenderer();
+        void DestroyElement(Element* element);
 
         void* RenderAlloc(unsigned int size, unsigned int unk);
         void RenderFree(void* ptr);

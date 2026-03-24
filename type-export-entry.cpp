@@ -308,3 +308,4 @@ template class Cyan::Resource::ResObject<Cyan::Resource::ComputeShader>;
 template class Cyan::Resource::ResObject<Cyan::Resource::Skeleton>;
 template class Cyan::Resource::ResObject<Cyan::Resource::NodeAnim>;
 template class Cyan::Graphics::ExternalMeshInstance<hh::needle::Model, hh::needle::PBRModelInstance>;
+template class Cyan::System::LinkPool<Cyan::EffectHandle, 32>;

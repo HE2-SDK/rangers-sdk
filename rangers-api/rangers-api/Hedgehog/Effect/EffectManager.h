@@ -3,8 +3,8 @@
 namespace hh::eff {
     class EffectHandle {
     public:
-        int unk1;
-        Cyan::EffectHandle* cyanEffectHandle;
+        Cyan::EffectHandle cyanEffectHandle;
+
         EffectHandle();
         EffectHandle(const EffectHandle& other);
 
