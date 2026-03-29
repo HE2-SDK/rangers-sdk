@@ -19,10 +19,11 @@ namespace app::player {
         void RemoveComponent(hh::game::GOComponent* component);
         void UpdateVisibility();
         void ChangeVisibility(bool unkParam1, bool unkParam2);
+        void SetVisibility(bool visible);
     };
 
     class ComponentCollector;
-    struct ComponentCollection {
+    struct ComponentCollection { // actuall ComponentHolder
         enum class Flag {
             UNK0,
             VISIBLE,
@@ -30,7 +31,7 @@ namespace app::player {
 
         csl::ut::MoveArray<Component> components;
         ComponentCollector* componentCollector;
-        uint64_t unk3;
+        ComponentHolderListener* listener;
         csl::ut::Bitset<Flag> flags;
 
         ComponentCollection();

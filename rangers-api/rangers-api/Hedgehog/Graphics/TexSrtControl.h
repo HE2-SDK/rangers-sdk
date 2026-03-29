@@ -11,8 +11,8 @@ namespace hh::gfx {
 
     class TexSrtControlBase : public fnd::ReferencedObject {
     public:
-        virtual void Initialize(TexSrtDesc& description) = 0;
-        virtual void Deinitialize() = 0;
+        virtual void Setup(TexSrtDesc& description) = 0;
+        virtual void Cleanup() = 0;
         virtual void SetFrame(float frame) = 0;
         virtual void SetLocalTime(float frame) = 0;
         virtual float GetFrame() const = 0;
@@ -34,8 +34,8 @@ namespace hh::gfx {
         needle::AnimTexSrtControl* control;
         float fps;
 
-        virtual void Initialize(TexSrtDesc& description) override;
-        virtual void Deinitialize() override;
+        virtual void Setup(TexSrtDesc& description) override;
+        virtual void Cleanup() override;
         virtual void SetFrame(float frame) override;
         virtual void SetLocalTime(float frame) override;
         virtual float GetFrame() const override;

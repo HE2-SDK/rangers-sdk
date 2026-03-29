@@ -17,69 +17,79 @@ namespace Cyan{
             csl::math::Vector2 current;
             csl::math::Vector2 start;
             csl::math::Vector2 step;
-            AnimCtrl* tilingAnimation;
-            AnimCtrl* rotationAnimation;
-            AnimCtrl* offsetAnimation;
+            System::AnimCtrl* scaleAnimation;
+            System::AnimCtrl* rotationAnimation;
+            System::AnimCtrl* translationAnimation;
         };
 
-        int64_t qword8;
+        struct ColorParameters {
+            csl::ut::Color8 colors[2][2];
+            float unk7[2];
+            float unk6[2][2];
+        };
+
+        struct ColorAnimations {
+            System::AnimCtrl* colorAnimation[2][2];
+            System::AnimCtrl* alphaAnimation[2][2];
+            System::AnimCtrl* unk6Animation[2][2];
+            System::AnimCtrl* unk7Animation[2];
+        };
+
+#ifdef EXPORTING_TYPES
+        char pad[8]; // deal with https://randomascii.wordpress.com/2013/12/01/vc-2013-class-layout-change-and-wasted-space/, see 2013 section of https://learn.microsoft.com/en-us/cpp/porting/visual-cpp-change-history-2003-2015?view=msvc-170&redirectedfrom=MSDN#visual-studio-2013-conformance-changes
+#endif
         System::LinkList<Element>::Entry elementListEntry;
         int32_t dword28;
         Emitter* emitter;
-        Resource::ElementParam* element;
-        float dword40;
-        float aliveTime;
-        float dword48;
+        const Resource::ElementParam* param;
+        float lifetimeScale;
+        float time;
+        float patternAnimTime;
         int32_t dword4C;
         csl::math::Vector3 position;
         csl::math::Vector3 previousPosition;
-        csl::math::Vector3 spreadVector;
+        csl::math::Vector3 velocity;
         csl::math::Vector3 unkVec;
-        csl::math::Vector3 unkVec2;
-        csl::math::Position unkVec2Offset;
-        csl::math::Position unkVec2Multiplier;
-        float emitterSize[3];
-        float emitterScale[3];
-        float fps;
-        int8_t gap4Cbb[12];
-        float unk4Cbba;
+        csl::math::Position rotation;
+        float unk124252;
+        csl::math::Position initialRotation;
+        csl::math::Position angularVelocity;
+        csl::math::Position emitterSize;
+        csl::math::Position emitterScale;
+        float lifetime;
+        float gap4Cbb[4];
         float unk4Cbbb;
         float directionJitter; //unsure
-        unsigned int unkCount1;
-        csl::ut::Color8 colors[2][2];
-        float unk4C23f2f[2];
-        float unk4C643w2[2][2];
+        unsigned int colorAnimationCount;
+        ColorParameters colorParameters;
         int8_t gap4Cbbc[4];
-        csl::ut::Bitset<AxisFlag> unkVec2Axes;
+        csl::ut::Bitset<AxisFlag> rotationAxes;
         char byte11D;
         char byte11E; // 0x01 init children
         bool byte11F;
         EmitParam emitParam;
-        AnimCtrl* childrenAnimation[16];
-        AnimCtrl* unkVec2Animation;
-        AnimCtrl* scaleAnimation;
-        AnimCtrl* colorAnimation[2][2];
-        AnimCtrl* alphaAnimation[2][2];
-        AnimCtrl* unk4C643w2Animation[2][2];
-        AnimCtrl* unk4C23f2fAnimation[2];
-        AnimCtrl* modifierAnimation[8][5];
+        System::AnimCtrl* childrenAnimation[16];
+        System::AnimCtrl* rotationAnimation;
+        System::AnimCtrl* scaleAnimation;
+        ColorAnimations colorAnimations;
+        System::AnimCtrl* modifierAnimation[8][5];
         int64_t qword290[16];
-        AnimCtrl* patternAnimation[4];
-        AnimCtrl* animationControl;
+        System::AnimCtrl* patternAnimation[4];
+        System::AnimCtrl* animationControl;
         float textureUvScale[2]; //unsure, when used, it's multiplied by worldScale
         _Texcoord texCoords[4][2];
         Matrix23 matrices[4][2];
         HistoricalStripe* historicalStripe1;
         int relatedToUpdateLight;
         uint32_t unk4r23414;
-        int unk452434[4];
+        int patternAnimationCurrentFrames[4];
         HistoricalStripe* historicalStripe;
         unsigned int lightId;
         int32_t dword73C;
-        int64_t qword740;
-        int64_t qword748;
+        System::AnimCtrl* animationBuffer; // 140FF3B70
+        System::AnimCtrl* nextFreeAnimation; // 140FF3B77
 
-        void UpdatePattern(float unk0, const Resource::TextureParam* textureParam, unsigned int unk1, float* unk2, float* unk3);
+        void UpdatePattern(float deltaTime, const Resource::TextureParam* textureParam, unsigned int textureIndex, float* stepSizes, float* unk3);
         void CalcTexcoordImpl(
             float arg0,
             const Resource::TextureParam* texParam,
@@ -89,24 +99,24 @@ namespace Cyan{
             float* p2,
             unsigned int scrollIdx
         );
-        void CalcTexcoord(float unk);
+        void CalcTexcoord(float deltaTime);
         void InitColor(System::Random* random);
-        void CalcInitVelocity(const csl::math::Vector3& accelaration, const csl::math::Vector3& velocity, const csl::math::Vector3& accelarationNormal);
+        void CalcInitVelocity(const csl::math::Vector3& acceleration, const csl::math::Vector3& velocityDirection, const csl::math::Vector3& accelarationDirection);
         static void CalcSphericalVector(csl::math::Vector3* direction, Cyan::System::Random* random);
-        MemObject<AnimCtrl> CreateAnimCtrl(
+        MemObject<System::AnimCtrl> CreateAnimCtrl(
             const Resource::PtrData<Resource::AnimationParam>& animParam,
             unsigned int unk0,
             float unk1,
-            const void* colorSet, //Cyan::ColorRandomSet*
-            AnimCtrl::CreateParam::RandomSetType type
+            Cyan::Resource::ColorRandomSet* colorSet,
+            System::AnimCtrl::CreateParam::RandomSetType type
         );
         void InitElement();
-        void EmitChild();
+        void EmitChild(float deltaTime);
 
-        virtual void Process(float unk);
-        virtual void Update(float unk);
-        virtual void PrepareRender(Graphics::Renderer* renderer, Graphics::EffectObject* effectObject) {} //Graphics::EffectObject* effectObj
-        virtual void UnkFunc1(Graphics::Renderer* renderer, Graphics::EffectObject* effectObject) {}
+        virtual void Process(float deltaTime, Cyan::Element* unk);
+        virtual void UpdateChildren(float deltaTime);
+        virtual void Update(float deltaTime, Cyan::Element* unk) {}
+        virtual void PrepareRender(Graphics::Renderer* renderer, Graphics::EffectObject* effectObject) {}
         virtual int GetHistoricalStripeBufferSize() const;
         virtual ~Element();
         virtual void InitParameter() {}

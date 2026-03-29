@@ -3,10 +3,10 @@
 namespace Cyan::Elements{
     class Particle : public Element {
     public:
-        virtual void Process(float unk) override;
-        virtual void Update(float unk) override;
+        virtual void Process(float deltaTime, Cyan::Element* unk) override;
+        virtual void UpdateChildren(float deltaTime) override;
+        virtual void Update(float deltaTime, Cyan::Element* unk) override;
         virtual void PrepareRender(Graphics::Renderer* renderer, Graphics::EffectObject* effectObject) override;
-        virtual void UnkFunc1(Graphics::Renderer* renderer, Graphics::EffectObject* effectObject) override;
         virtual int GetHistoricalStripeBufferSize() const override;
         virtual void InitParameter() override;
 

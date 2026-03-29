@@ -19,6 +19,7 @@ namespace app::player {
 
         virtual unsigned int GetNameHash() const override;
         virtual void Initialize(hh::game::GameObject* gameObject, ComponentCollection* componentCollection) override;
+        virtual void SetupEffects() override;
         virtual void OnStart() override;
         virtual void OnEnd() override;
         virtual bool GetUnk() const override;

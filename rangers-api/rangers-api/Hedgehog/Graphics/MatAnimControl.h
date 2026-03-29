@@ -10,8 +10,8 @@ namespace hh::gfx {
 
     class MatAnimControlBase : public fnd::ReferencedObject {
     public:
-        virtual void Initialize(MatAnimDesc& description) = 0;
-        virtual void Deinitialize() = 0;
+        virtual void Setup(MatAnimDesc& description) = 0;
+        virtual void Cleanup() = 0;
         virtual void SetFrame(float frame) = 0;
         virtual void SetLocalTime(float frame) = 0;
         virtual float GetFrame() const = 0;
@@ -33,8 +33,8 @@ namespace hh::gfx {
         uint64_t unk3;
         float fps;
 
-        virtual void Initialize(MatAnimDesc& description) override;
-        virtual void Deinitialize() override;
+        virtual void Setup(MatAnimDesc& description) override;
+        virtual void Cleanup() override;
         virtual void SetFrame(float frame) override;
         virtual void SetLocalTime(float frame) override;
         virtual float GetFrame() const override;

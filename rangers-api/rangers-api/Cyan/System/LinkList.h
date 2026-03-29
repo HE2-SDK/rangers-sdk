@@ -13,7 +13,7 @@ namespace Cyan::System {
 
         Entry sentinel;
         volatile long long first; // pointer to first entry, as a volatile long long
-        volatile int length;
+        volatile long length;
 
         inline void push_back(T* value) {
             _m_prefetchw(&first);

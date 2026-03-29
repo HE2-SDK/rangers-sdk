@@ -9,8 +9,8 @@ namespace hh::gfx {
 
     class TexSrtBlenderBase : public fnd::ReferencedObject {
     public:
-        virtual void Initialize(TexSrtBlenderDesc& description) = 0;
-        virtual void Deinitialize() = 0;
+        virtual void Setup(const TexSrtBlenderDesc& description) = 0;
+        virtual void Cleanup() = 0;
         virtual void UnkFunc3() = 0;
         virtual TexSrtControlBase* CreateControl(const hh::gfx::TexSrtControlDesc& description) = 0;
         virtual void DestroyAllControl() = 0;
@@ -23,8 +23,8 @@ namespace hh::gfx {
         csl::ut::MoveArray<fnd::Reference<TexSrtControlHH>> animations;
         needle::AnimBlender<needle::AnimTexSrtControl>* needleBlender;
 
-        virtual void Initialize(TexSrtBlenderDesc& description) override;
-        virtual void Deinitialize() override;
+        virtual void Setup(const TexSrtBlenderDesc& description) override;
+        virtual void Cleanup() override;
         virtual void UnkFunc3() override;
         virtual TexSrtControlBase* CreateControl(const hh::gfx::TexSrtControlDesc& description) override;
         virtual void DestroyAllControl() override;

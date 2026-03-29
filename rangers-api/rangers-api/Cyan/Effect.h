@@ -85,8 +85,8 @@ namespace Cyan {
         virtual void SetBillboardViewportID(unsigned int viewportId) = 0;
         virtual EffectInstanceParam& GetInstanceParam() const = 0;
         virtual void Setup(SetupInfo& setupInfo) = 0;
-        virtual void SetUnk3(float value) = 0;
-        virtual void SetUnk4(float value) = 0;
+        virtual void SetPlaybackSpeed(float value) = 0;
+        virtual void SetElementLifetimeScale(float value) = 0;
         virtual bool GetUnk5() const = 0;
         virtual bool GetUnk6() const = 0;
         virtual bool GetUnk7() const = 0;
@@ -95,6 +95,15 @@ namespace Cyan {
 
     class EffectImpl : public Effect {
     public:
+        enum class Flag {
+            UNK0,
+            UNK1,
+            UNK2,
+            UNK3,
+            UNK4,
+            FIXED_REFRESH_RATE, // 60 fps
+        };
+
         struct SetupInfo : Effect::SetupInfo {
             hh::eff::ResEffect* resource;
             int64_t unk0;
@@ -106,7 +115,7 @@ namespace Cyan {
         char name[128];
         ManagerImpl* manager;
         uint64_t root;
-        Resource::EffectParam* effectParam;
+        const Resource::EffectParam* param;
         uint32_t dwordA0;
         uint32_t viewMask;
         uint32_t dwordA8;
@@ -115,11 +124,11 @@ namespace Cyan {
         System::LinkList<EffectImpl>::Entry sceneLinkListEntry;
         EffectHandle effecthandleE8;
         EffectHandle effecthandleF8;
-        uint32_t flags;
+        csl::ut::Bitset<Flag> flags;
         EffectInstanceParam instanceParam;
         PerEffectData* perEffectData;
 
-        EffectImpl(ManagerImpl* managerImpl, Resource::EffectParam* effectParam, unsigned int unkParam1, const EffectInstanceParam& instanceParam, const InheritChildParam* unkParam3, EffectImpl* parent, bool unkParam5, int unkParam6);
+        EffectImpl(ManagerImpl* managerImpl, Resource::EffectParam* effectParam, unsigned int unkParam1, const EffectInstanceParam& instanceParam, const InheritChildParam* unkParam3, EffectImpl* parent, bool unkParam5, float unkParam6);
 
         void SetDataBuffer(PerEffectData* data);
         void PrepareRender(Graphics::Renderer* renderer, const Graphics::DeviceContainer& deviceContainer);
@@ -156,8 +165,8 @@ namespace Cyan {
         virtual void SetBillboardViewportID(unsigned int viewportId) override;
         virtual EffectInstanceParam& GetInstanceParam() const override;
         virtual void Setup(Effect::SetupInfo& setupInfo) override;
-        virtual void SetUnk3(float value) override;
-        virtual void SetUnk4(float value) override;
+        virtual void SetPlaybackSpeed(float value) override;
+        virtual void SetElementLifetimeScale(float value) override;
         virtual bool GetUnk5() const override;
         virtual bool GetUnk6() const override;
         virtual bool GetUnk7() const override;

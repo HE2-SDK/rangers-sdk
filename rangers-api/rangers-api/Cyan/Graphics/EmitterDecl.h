@@ -38,7 +38,8 @@ namespace Cyan::Graphics {
         };
 
         csl::math::Position position;
-        float unkVec2[4];
+        csl::math::Position rotation;
+        float unk2;
         float unk4Cbb[4];
         csl::math::Position size;
         unsigned int subParticleIndex;

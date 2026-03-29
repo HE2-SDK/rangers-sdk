@@ -28,9 +28,9 @@ namespace hh::eff {
         void SetEmitRatio(float emitRatio);
         void SetUnk2(unsigned int value);
         void SetMatrix(const csl::math::Matrix34& matrix);
-        void SetUnk4(float value);
+        void SetElementLifetimeScale(float value);
         void SetPause(bool paused);
-        void SetUnk3(float value);
+        void SetPlaybackSpeed(float value);
         void SetScale(const csl::math::Vector3& scale);
         void SetScale(float scale);
         void SetViewMask(unsigned int mask);

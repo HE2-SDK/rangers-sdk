@@ -114,7 +114,7 @@ namespace Cyan {
         template<typename T> using RequestResourceHandler = bool (Effect* effect, Resource::ResObject<T>* resource, void* userData);
         template<typename T> using UpdateLightHandler = bool (UpdateLightParam* updateLightParam, void* userData);
 
-        virtual EffectHandle CreateEffect(Resource::EffectParam* effectParam, const EffectInstanceParam& instanceParam, bool unkParam6, int unkParam7, int unkParam8) = 0;
+        virtual EffectHandle CreateEffect(Resource::EffectParam* effectParam, const EffectInstanceParam& instanceParam, bool unkParam6, int unkParam7, float unkParam8) = 0;
         virtual int UnkFunc2(const char* unkParam1, void* unkParam2) = 0;
         virtual int DestroyEffect(const EffectHandle& effectHandle) = 0;
         virtual int Initialize(const Graphics::DeviceContainer& deviceContainer) = 0;
@@ -277,7 +277,7 @@ namespace Cyan {
 
         ManagerImpl(unsigned int unkParam1, const Config& config);
 
-        virtual EffectHandle CreateEffect(Resource::EffectParam* effectParam, const EffectInstanceParam& instanceParam, bool unkParam6, int unkParam7, int unkParam8) override;
+        virtual EffectHandle CreateEffect(Resource::EffectParam* effectParam, const EffectInstanceParam& instanceParam, bool unkParam6, int unkParam7, float unkParam8) override;
         virtual int UnkFunc2(const char* unkParam1, void* unkParam2) override;
         virtual int DestroyEffect(const EffectHandle& effectHandle) override;
         virtual int Initialize(const Graphics::DeviceContainer& deviceContainer) override;
@@ -344,9 +344,9 @@ namespace Cyan {
         virtual ~ManagerImpl();
 
         void UpdateEffect();
-        EffectHandle CreateEffect(Resource::EffectParam* effectParam, const EffectInstanceParam& instanceParam, const InheritChildParam* inheritChildParam, EffectImpl* parent, bool unkParam6, int unkParam7, int unkParam8);
+        EffectHandle CreateEffect(Resource::EffectParam* effectParam, const EffectInstanceParam& instanceParam, const InheritChildParam* inheritChildParam, EffectImpl* parent, bool unkParam6, int unkParam7, float unkParam8);
         Element* CreateElement(const Resource::ElementParam* elementParam);
-        Emitter* CreateEmitter(EffectImpl* effect, const Resource::EmitterParam* emitterParam, const InheritChildParam* inheritChildParam, int unkParam1);
+        Emitter* CreateEmitter(EffectImpl* effect, const Resource::EmitterParam* emitterParam, const InheritChildParam* inheritChildParam, float unkParam1);
         bool UpdateLight(UpdateLightParam& param);
         Graphics::MeshRenderer& GetMeshRenderer();
         void DestroyElement(Element* element);
@@ -363,5 +363,7 @@ namespace Cyan {
         template<> void RequestResource(EffectImpl* effect, Resource::ResObject<Resource::Model>* resource);
         template<> void RequestResource(EffectImpl* effect, Resource::ResObject<Resource::NodeAnim>* resource);
         template<> void RequestResource(EffectImpl* effect, Resource::ResObject<Resource::Skeleton>* resource);
+        template<> void RequestResource(EffectImpl* effect, Resource::ResObject<Resource::Shader>* resource);
+        template<> void RequestResource(EffectImpl* effect, Resource::ResObject<Resource::ComputeShader>* resource);
     };
 }

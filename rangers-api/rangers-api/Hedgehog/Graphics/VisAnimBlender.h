@@ -9,8 +9,8 @@ namespace hh::gfx {
 
     class VisAnimBlenderBase : public fnd::ReferencedObject {
     public:
-        virtual void Initialize(VisAnimBlenderDesc& description) = 0;
-        virtual void Deinitialize() = 0;
+        virtual void Setup(const VisAnimBlenderDesc& description) = 0;
+        virtual void Cleanup() = 0;
         virtual void UnkFunc3() = 0;
         virtual VisAnimControlBase* CreateControl(const hh::gfx::VisAnimControlDesc& description) = 0;
         virtual void DestroyAllControl() = 0;
@@ -23,8 +23,8 @@ namespace hh::gfx {
         csl::ut::MoveArray<fnd::Reference<VisAnimControlHH>> animations;
         void* needleBlender;
 
-        virtual void Initialize(VisAnimBlenderDesc& description) override;
-        virtual void Deinitialize() override;
+        virtual void Setup(const VisAnimBlenderDesc& description) override;
+        virtual void Cleanup() override;
         virtual void UnkFunc3() override;
         virtual VisAnimControlBase* CreateControl(const hh::gfx::VisAnimControlDesc& description) override;
         virtual void DestroyAllControl() override;
