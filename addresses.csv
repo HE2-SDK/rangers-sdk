@@ -19036,6 +19036,7 @@
 1408b43b0,?GetRuntimeTypeInfo@GOCPlayerParameter@player@app@@UEAAPEAXXZ,1
 1408b43b0,?GetRuntimeTypeInfo@GOCPlayerParameter@player@app@@UEBAPEAXXZ,1
 1408b43c0,?OnGOCEvent@GOCPlayerParameter@player@app@@UEAAXW4GOCEvent@GOComponent@game@hh@@AEAVGameObject@67@PEAX@Z,1
+1408b43d0,j_?Setup@GOCPlayerParameter@player@app@@QEAAXAEBUSetupInfo@123@@Z,1
 1408b4470,?GetClass@GOCPlayerParameter@player@app@@SAPEBVGOComponentClass@game@hh@@XZ,0
 1408b4b60,j_??_GGOCPlayerPath@player@app@@QEAAXXZ,1
 1408b4b60,j_??_DGOCPlayerPath@player@app@@QEAAXXZ,1
@@ -22514,6 +22515,7 @@
 140b7eae0,?Create@ShapeHistoryManager@services@heur@@SAPEAV123@PEAVIAllocator@fnd@csl@@@Z,0
 140b7eb90,??_GRenderTextureFreeCameraManager@services@heur@@QEAAXXZ,1
 140b7eb90,??_DRenderTextureFreeCameraManager@gfx@app_cmn@@QEAAXXZ,1
+140b7ec10,?GetRuntimeTypeInfo@RenderTextureFreeCameraManager@gfx@app_cmn@@UEBAPEAXXZ,1
 140b7ec20,?OnRemovedFromGame@RenderTextureFreeCameraManager@gfx@app_cmn@@UEAAXXZ,1
 140b7ec30,?Create@RenderTextureFreeCameraManager@services@heur@@CAPEAV123@PEAVIAllocator@fnd@csl@@@Z,1
 140b7ec30,?Create@RenderTextureFreeCameraManager@services@heur@@SAPEAV123@PEAVIAllocator@fnd@csl@@@Z,1
@@ -23066,6 +23068,7 @@
 140bc9220,?Load@ResTextMeta@text@hh@@UEAAXPEAX_K@Z,1
 140bc9220,?Load@ResTextProject@text@hh@@UEAAXPEAX_K@Z,1
 140bc9220,?Load@ResOpticalKerning@font@hh@@UEAAXPEAX_K@Z,1
+140bc9220,?Load@ResOcclusionCapsule@gfx@hh@@UEAAXPEAX_K@Z,1
 140bc9230,?Unload@ResBitmapFont@font@hh@@UEAAXXZ,1
 140bc9230,?Unload@ResReflection@fnd@hh@@UEAAXXZ,1
 140bc9230,?Unload@ResMasterLevel@level@app@@UEAAXXZ,1
@@ -24046,6 +24049,7 @@
 140cf4790,j_??_DMTLoadingThreadDispacher@gfx@hh@@QEAAXXZ,1
 140cf4830,j_??_DTextureStreamingService@gfx@hh@@QEAAXXZ,1
 140cf48e0,?PreGameUpdateCallback@TextureStreamingService@gfx@hh@@UEAAXPEAVGameManager@game@3@AEBUSUpdateInfo@fnd@3@@Z,1
+140cf49c0,?GetRuntimeTypeInfo@TextureStreamingService@gfx@hh@@UEBAPEAXXZ,1
 140cf49d0,?OnAddedToGame@TextureStreamingService@gfx@hh@@UEAAXXZ,1
 140cf49f0,j_?OnRemovedFromGame@TextureStreamingService@gfx@hh@@UEAAXXZ,1
 140cf4bb0,?GetClass@TextureStreamingService@gfx@hh@@SAPEBVGameServiceClass@game@3@XZ,1
@@ -24198,10 +24202,14 @@
 140cfe510,??_GResAtmosphericFog@resources@heur@@QEAAXXZ,0
 140cfe5b0,?GetTypeInfo@ResAtmosphericFog@resources@heur@@SAPEBUResourceTypeInfo@fnd@hh@@XZ,0
 140cfe5e0,?GetTypeInfo@ResTerrainMaterial@gfx@hh@@SAPEBUResourceTypeInfo@fnd@3@XZ,1
-140cfe5f0,j_?Create@ResOcclusionCapsule@resources@heur@@CAPEAV123@PEAVIAllocator@fnd@csl@@@Z,0
-140cfe5f0,j_?Create@ResOcclusionCapsule@resources@heur@@SAPEAV123@PEAVIAllocator@fnd@csl@@@Z,0
-140cfe670,??_GResOcclusionCapsule@resources@heur@@QEAAXXZ,0
-140cfe700,?GetTypeInfo@ResOcclusionCapsule@resources@heur@@SAPEBUResourceTypeInfo@fnd@hh@@XZ,0
+140cfe5f0,j_?Create@ResOcclusionCapsule@resources@heur@@CAPEAV123@PEAVIAllocator@fnd@csl@@@Z,1
+140cfe5f0,j_?Create@ResOcclusionCapsule@resources@heur@@SAPEAV123@PEAVIAllocator@fnd@csl@@@Z,1
+140cfe5f0,j_?Create@ResOcclusionCapsule@gfx@hh@@CAPEAVManagedResource@fnd@3@PEAVIAllocator@5csl@@@Z,1
+140cfe670,??_GResOcclusionCapsule@resources@heur@@QEAAXXZ,1
+140cfe670,??_DResOcclusionCapsule@gfx@hh@@QEAAXXZ,1
+140cfe700,?GetTypeInfo@ResOcclusionCapsule@resources@heur@@SAPEBUResourceTypeInfo@fnd@hh@@XZ,1
+140cfe700,?GetTypeInfo@ResOcclusionCapsule@gfx@hh@@SAPEBUResourceTypeInfo@fnd@3@XZ,1
+140cfe710,?Reload@ResOcclusionCapsule@gfx@hh@@UEAAXPEAX_K@Z,1
 140cfe7b0,?Create@ResDensityInstance@resources@heur@@CAPEAV123@PEAVIAllocator@fnd@csl@@@Z,0
 140cfe7b0,?Create@ResDensityInstance@resources@heur@@SAPEAV123@PEAVIAllocator@fnd@csl@@@Z,0
 140cfe820,??_GResDensityInstance@resources@heur@@QEAAXXZ,0
@@ -25172,7 +25180,7 @@
 140d40c80,j_??_DTheEndShootingManager@app@@QEAAXXZ,0
 140d40c80,j_??_DTutorialManager@tutorial@app@@QEAAXXZ,0
 140d40cb0,??_DGameService@game@hh@@QEAAXXZ,1
-140d40d30,?GetRuntimeTypeInfo@GameService@game@hh@@UEAAPEAXXZ,1
+140d40d30,?GetRuntimeTypeInfo@GameService@game@hh@@UEBAPEAXXZ,1
 140d40d40,j_?CreateService@GameManager@game@hh@@AEAAPEAVGameService@23@PEBVGameServiceClass@23@PEAVIAllocator@fnd@csl@@@Z,1
 140d40f30,??_DInternalCameraStack@game@hh@@QEAAXXZ,1
 140d40fe0,?AddComponent@CameraManager@game@hh@@QEAAXPEAVCameraComponent@23@@Z,1
@@ -41949,9 +41957,11 @@
 1415f7180,?classId@ResAtmosphericFog@resources@heur@@0PEBXEB,0
 1415f7198,??_7ResAtmosphericFog@resources@heur@@6B@,0
 1415f71c8,?typeInfo@ResTerrainMaterial@gfx@hh@@0UResourceTypeInfo@fnd@3@B,1
-1415f7200,?typeInfo@ResOcclusionCapsule@resources@heur@@0UResourceTypeInfo@fnd@hh@@B,0
+1415f7200,?typeInfo@ResOcclusionCapsule@resources@heur@@0UResourceTypeInfo@fnd@hh@@B,1
+1415f7200,?typeInfo@ResOcclusionCapsule@gfx@hh@@0UResourceTypeInfo@fnd@3@B,1
 1415f73c0,?classId@ResOcclusionCapsule@resources@heur@@0PEBXEB,0
-1415f73d8,??_7ResOcclusionCapsule@resources@heur@@6B@,0
+1415f73d8,??_7ResOcclusionCapsule@resources@heur@@6B@,1
+1415f73d8,??_7ResOcclusionCapsule@gfx@hh@@6B@,1
 1415f7408,?typeInfo@ResDensityInstance@resources@heur@@0UResourceTypeInfo@fnd@hh@@B,0
 1415f7428,?classId@ResDensityInstance@resources@heur@@0PEBXEB,0
 1415f7440,??_7ResDensityInstance@resources@heur@@6B@,0
@@ -89483,6 +89493,7 @@
 14af84cb0,?GetAcceleComboParameters@GOCPlayerParameter@player@app@@QEBAAEAUPlayerParamAcceleCombo@rfl@3@XZ,1
 14af84cb0,?GetAcceleComboParameters@GOCPlayerParameter@player@app@@QEBAAEAUPlayerParamAcceleCombo@rfl@heur@@XZ,1
 14af8fd00,??_DGOCPlayerParameter@player@app@@QEAAXXZ,1
+14afa2220,?Setup@GOCPlayerParameter@player@app@@QEAAXAEBUSetupInfo@123@@Z,1
 14afbb980,??_GGOCPlayerPath@player@app@@QEAAXXZ,1
 14afbb980,??_DGOCPlayerPath@player@app@@QEAAXXZ,1
 14afc1290,??_GGOCPlayerPosture@player@app@@QEAAXXZ,1
@@ -90544,8 +90555,9 @@
 14f47b290,??_DResTerrainModel@gfx@hh@@QEAAXXZ,0
 14f47f450,?GetDuration@ResVertexAnimationTexture@gfx@hh@@QEBAMXZ,1
 14f49df30,?GetFPS@ResVertexAnimationTexture@gfx@hh@@QEBAMXZ,1
-14f4a1e00,?Create@ResOcclusionCapsule@resources@heur@@CAPEAV123@PEAVIAllocator@fnd@csl@@@Z,0
-14f4a1e00,?Create@ResOcclusionCapsule@resources@heur@@SAPEAV123@PEAVIAllocator@fnd@csl@@@Z,0
+14f4a1e00,?Create@ResOcclusionCapsule@resources@heur@@CAPEAV123@PEAVIAllocator@fnd@csl@@@Z,1
+14f4a1e00,?Create@ResOcclusionCapsule@resources@heur@@SAPEAV123@PEAVIAllocator@fnd@csl@@@Z,1
+14f4a1e00,?Create@ResOcclusionCapsule@gfx@hh@@CAPEAVManagedResource@fnd@3@PEAVIAllocator@5csl@@@Z,1
 14f4a5350,?Create@ResDensitySetting@resources@heur@@CAPEAV123@PEAVIAllocator@fnd@csl@@@Z,0
 14f4a5350,?Create@ResDensitySetting@resources@heur@@SAPEAV123@PEAVIAllocator@fnd@csl@@@Z,0
 14f4a7580,??_GResDensitySetting@resources@heur@@QEAAXXZ,0

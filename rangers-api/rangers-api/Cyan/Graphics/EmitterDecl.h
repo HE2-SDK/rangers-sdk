@@ -45,9 +45,9 @@ namespace Cyan::Graphics {
         unsigned int subParticleIndex;
         ParticleUVDecl uvDeclaration;
         unsigned int colors[2][2];
-        float unk4C643w2[2][2];
+        float luminance[2][2];
         float uvScale[2];
-        float recipunk4C23f2f[2];
+        float recipunk7[2];
     };
 
     struct MeshDecl {
@@ -128,9 +128,9 @@ namespace Cyan::Graphics {
         uint32_t gap540;
         float unk544;
         uint32_t unk548;
-        uint32_t unk54C;
-        uint32_t unk550;
-        uint32_t unk554;
+        float unkFloatFoo1;
+        float unkFloatFoo2;
+        float unkFloatFoo0;
         uint32_t unk558[4];
         unsigned int particleCount; // tentative
         unsigned int subParticleCount;

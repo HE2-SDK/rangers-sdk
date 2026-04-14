@@ -80655,6 +80655,11 @@ PUBLIC ??_DRenderTextureFreeCameraManager@gfx@app_cmn@@QEAAXXZ
     mov rax, 0140b7eb90h
     jmp rax
 
+PUBLIC ?GetRuntimeTypeInfo@RenderTextureFreeCameraManager@gfx@app_cmn@@UEBAPEAXXZ
+?GetRuntimeTypeInfo@RenderTextureFreeCameraManager@gfx@app_cmn@@UEBAPEAXXZ:
+    mov rax, 0140b7ec10h
+    jmp rax
+
 PUBLIC ?OnRemovedFromGame@RenderTextureFreeCameraManager@gfx@app_cmn@@UEAAXXZ
 ?OnRemovedFromGame@RenderTextureFreeCameraManager@gfx@app_cmn@@UEAAXXZ:
     mov rax, 0140b7ec20h
@@ -82492,6 +82497,11 @@ PUBLIC ?Load@ResTextProject@text@hh@@UEAAXPEAX_K@Z
 
 PUBLIC ?Load@ResOpticalKerning@font@hh@@UEAAXPEAX_K@Z
 ?Load@ResOpticalKerning@font@hh@@UEAAXPEAX_K@Z:
+    mov rax, 0140bc9220h
+    jmp rax
+
+PUBLIC ?Load@ResOcclusionCapsule@gfx@hh@@UEAAXPEAX_K@Z
+?Load@ResOcclusionCapsule@gfx@hh@@UEAAXPEAX_K@Z:
     mov rax, 0140bc9220h
     jmp rax
 
@@ -86065,6 +86075,11 @@ PUBLIC ?PreGameUpdateCallback@TextureStreamingService@gfx@hh@@UEAAXPEAVGameManag
     mov rax, 0140cf48e0h
     jmp rax
 
+PUBLIC ?GetRuntimeTypeInfo@TextureStreamingService@gfx@hh@@UEBAPEAXXZ
+?GetRuntimeTypeInfo@TextureStreamingService@gfx@hh@@UEBAPEAXXZ:
+    mov rax, 0140cf49c0h
+    jmp rax
+
 PUBLIC ?OnAddedToGame@TextureStreamingService@gfx@hh@@UEAAXXZ
 ?OnAddedToGame@TextureStreamingService@gfx@hh@@UEAAXXZ:
     mov rax, 0140cf49d0h
@@ -86540,9 +86555,24 @@ PUBLIC ??_GResOcclusionCapsule@resources@heur@@QEAAXXZ
     mov rax, 0140cfe670h
     jmp rax
 
+PUBLIC ??_DResOcclusionCapsule@gfx@hh@@QEAAXXZ
+??_DResOcclusionCapsule@gfx@hh@@QEAAXXZ:
+    mov rax, 0140cfe670h
+    jmp rax
+
 PUBLIC ?GetTypeInfo@ResOcclusionCapsule@resources@heur@@SAPEBUResourceTypeInfo@fnd@hh@@XZ
 ?GetTypeInfo@ResOcclusionCapsule@resources@heur@@SAPEBUResourceTypeInfo@fnd@hh@@XZ:
     mov rax, 0140cfe700h
+    jmp rax
+
+PUBLIC ?GetTypeInfo@ResOcclusionCapsule@gfx@hh@@SAPEBUResourceTypeInfo@fnd@3@XZ
+?GetTypeInfo@ResOcclusionCapsule@gfx@hh@@SAPEBUResourceTypeInfo@fnd@3@XZ:
+    mov rax, 0140cfe700h
+    jmp rax
+
+PUBLIC ?Reload@ResOcclusionCapsule@gfx@hh@@UEAAXPEAX_K@Z
+?Reload@ResOcclusionCapsule@gfx@hh@@UEAAXPEAX_K@Z:
+    mov rax, 0140cfe710h
     jmp rax
 
 PUBLIC ?Create@ResDensityInstance@resources@heur@@CAPEAV123@PEAVIAllocator@fnd@csl@@@Z
@@ -88835,8 +88865,8 @@ PUBLIC ??_DGameService@game@hh@@QEAAXXZ
     mov rax, 0140d40cb0h
     jmp rax
 
-PUBLIC ?GetRuntimeTypeInfo@GameService@game@hh@@UEAAPEAXXZ
-?GetRuntimeTypeInfo@GameService@game@hh@@UEAAPEAXXZ:
+PUBLIC ?GetRuntimeTypeInfo@GameService@game@hh@@UEBAPEAXXZ
+?GetRuntimeTypeInfo@GameService@game@hh@@UEBAPEAXXZ:
     mov rax, 0140d40d30h
     jmp rax
 
@@ -127562,6 +127592,11 @@ PUBLIC ?typeInfo@ResTerrainMaterial@gfx@hh@@0UResourceTypeInfo@fnd@3@B
 
 PUBLIC ?typeInfo@ResOcclusionCapsule@resources@heur@@0UResourceTypeInfo@fnd@hh@@B
 ?typeInfo@ResOcclusionCapsule@resources@heur@@0UResourceTypeInfo@fnd@hh@@B:
+    mov rax, 01415f7200h
+    jmp rax
+
+PUBLIC ?typeInfo@ResOcclusionCapsule@gfx@hh@@0UResourceTypeInfo@fnd@3@B
+?typeInfo@ResOcclusionCapsule@gfx@hh@@0UResourceTypeInfo@fnd@3@B:
     mov rax, 01415f7200h
     jmp rax
 
@@ -174315,6 +174350,11 @@ PUBLIC ??_DGOCPlayerParameter@player@app@@QEAAXXZ
     mov rax, 014af8fd00h
     jmp rax
 
+PUBLIC ?Setup@GOCPlayerParameter@player@app@@QEAAXAEBUSetupInfo@123@@Z
+?Setup@GOCPlayerParameter@player@app@@QEAAXAEBUSetupInfo@123@@Z:
+    mov rax, 014afa2220h
+    jmp rax
+
 PUBLIC ??_GGOCPlayerPath@player@app@@QEAAXXZ
 ??_GGOCPlayerPath@player@app@@QEAAXXZ:
     mov rax, 014afbb980h
@@ -179622,6 +179662,11 @@ PUBLIC ?Create@ResOcclusionCapsule@resources@heur@@CAPEAV123@PEAVIAllocator@fnd@
 
 PUBLIC ?Create@ResOcclusionCapsule@resources@heur@@SAPEAV123@PEAVIAllocator@fnd@csl@@@Z
 ?Create@ResOcclusionCapsule@resources@heur@@SAPEAV123@PEAVIAllocator@fnd@csl@@@Z:
+    mov rax, 014f4a1e00h
+    jmp rax
+
+PUBLIC ?Create@ResOcclusionCapsule@gfx@hh@@CAPEAVManagedResource@fnd@3@PEAVIAllocator@5csl@@@Z
+?Create@ResOcclusionCapsule@gfx@hh@@CAPEAVManagedResource@fnd@3@PEAVIAllocator@5csl@@@Z:
     mov rax, 014f4a1e00h
     jmp rax
 

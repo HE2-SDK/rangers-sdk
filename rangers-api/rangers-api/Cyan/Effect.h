@@ -97,7 +97,7 @@ namespace Cyan {
     public:
         enum class Flag {
             UNK0,
-            UNK1,
+            FIXED_DELTA_TIME,
             UNK2,
             UNK3,
             UNK4,
@@ -116,7 +116,7 @@ namespace Cyan {
         ManagerImpl* manager;
         uint64_t root;
         const Resource::EffectParam* param;
-        uint32_t dwordA0;
+        unsigned int sceneId;
         uint32_t viewMask;
         uint32_t dwordA8;
         Emitter* emitter;
@@ -133,6 +133,7 @@ namespace Cyan {
         void SetDataBuffer(PerEffectData* data);
         void PrepareRender(Graphics::Renderer* renderer, const Graphics::DeviceContainer& deviceContainer);
         float GetWorldScale() const;
+        void Update(float deltaTime);
 
         virtual void Start() override;
         virtual void Stop(bool unk) override; //bool prolly means "immediately"

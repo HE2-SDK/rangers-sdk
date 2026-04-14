@@ -112,7 +112,8 @@ namespace Cyan {
         typedef void NotifyCallback(void* userData, EffectHandle effect, NotifyData notifyData);
 
         template<typename T> using RequestResourceHandler = bool (Effect* effect, Resource::ResObject<T>* resource, void* userData);
-        template<typename T> using UpdateLightHandler = bool (UpdateLightParam* updateLightParam, void* userData);
+        using UpdateLightHandler = bool (UpdateLightParam* updateLightParam, void* userData);
+        using RaycastHandler = bool (const csl::math::Vector3& from, const csl::math::Vector3& to, unsigned int filterMask, csl::math::Vector3& hitLocation, csl::math::Vector3& hitNormal, unsigned int& raycastFlags);
 
         virtual EffectHandle CreateEffect(Resource::EffectParam* effectParam, const EffectInstanceParam& instanceParam, bool unkParam6, int unkParam7, float unkParam8) = 0;
         virtual int UnkFunc2(const char* unkParam1, void* unkParam2) = 0;
@@ -167,9 +168,9 @@ namespace Cyan {
         virtual void SetShaderRequestResourceHandler(RequestResourceHandler<Resource::Shader>* handler, void* userData) = 0;
         virtual void SetTextureRequestResourceHandler(RequestResourceHandler<Resource::Texture>* handler, void* userData) = 0;
         virtual void UnkFunc53(void* handler, void* userData) = 0;
-        virtual void SetUpdateLightHandler(void* handler, void* userData) = 0;
+        virtual void SetUpdateLightHandler(UpdateLightHandler* handler, void* userData) = 0;
         virtual void UnkFunc55(void* handler, void* userData) = 0;
-        virtual void UnkFunc56(void* handler, void* userData) = 0;
+        virtual void SetRaycastHandler(RaycastHandler* handler, void* userData) = 0;
         virtual void UnkFunc57(void* handler, size_t unkParam2) = 0;
         virtual System::IAllocator* GetRenderAllocator() const = 0;
         virtual void UnkFunc59() = 0;
@@ -182,8 +183,9 @@ namespace Cyan {
 
     class ManagerImpl : public Manager {
     public:
-        struct ResourceRequest{
-            void* handler;
+        template<typename F>
+        struct Handler {
+            F* handler;
             void* userData;
         };
 
@@ -198,21 +200,9 @@ namespace Cyan {
         Scene* scenes;
         unsigned int numRenderables;
         volatile int nextEffectId;
-        uint64_t qword20;
-        uint64_t qword28;
-        uint64_t qword30;
-        uint64_t qword38;
-        uint32_t qword40;
-        uint64_t qword48;
-        uint64_t qword50;
-        uint64_t qword58;
-        uint64_t qword60;
-        uint32_t qword68;
-        uint64_t qword70;
-        uint64_t qword78;
-        uint64_t qword80;
-        uint64_t qword88;
-        uint32_t qword90;
+        System::LinkList<void> unk20;
+        System::LinkList<void> unk48;
+        System::LinkList<void> unk70;
         System::LinkList<EffectImpl> effects;
         float deltaTime;
         uint32_t dwordC4;
@@ -239,22 +229,23 @@ namespace Cyan {
         uint64_t qword14B8;
         void* meshMemoryPtr;
         size_t meshMemorySize;
-        ResourceRequest textureResourceRequestHandler;
-        ResourceRequest shaderResourceRequestHandler;
-        ResourceRequest computeShaderResourceRequestHandler;
-        ResourceRequest effectResourceRequestHandler;
-        ResourceRequest modelResourceRequestHandler;
-        ResourceRequest skeletonResourceRequestHandler;
-        ResourceRequest nodeAnimResourceRequestHandler;
-        ResourceRequest unkResourceRequestHandler;
-        ResourceRequest lightResourceRequestHandler;
-        ResourceRequest unkResourceRequestHandler2[2];
+        Handler<RequestResourceHandler<Resource::Texture>> textureResourceRequestHandler;
+        Handler<RequestResourceHandler<Resource::Shader>> shaderResourceRequestHandler;
+        Handler<RequestResourceHandler<Resource::ComputeShader>> computeShaderResourceRequestHandler;
+        Handler<RequestResourceHandler<Resource::Effect>> effectResourceRequestHandler;
+        Handler<RequestResourceHandler<Resource::Model>> modelResourceRequestHandler;
+        Handler<RequestResourceHandler<Resource::Skeleton>> skeletonResourceRequestHandler;
+        Handler<RequestResourceHandler<Resource::NodeAnim>> nodeAnimResourceRequestHandler;
+        Handler<void> unkResourceRequestHandler;
+        Handler<UpdateLightHandler> updateLightHandler;
+        Handler<void> unkResourceRequestHandler2;
+        Handler<RaycastHandler> raycastHandler;
         unsigned int numActiveRequests;
         Camera cameras[5];
         Camera cameras2[5];
         uint32_t dword2C00;
         uint32_t dword2C04;
-        ResourceRequest unkFuncStr2c08;
+        Handler<void> notifyHandler;
         csl::fnd::Mutex mutex2;
 
         struct Config {
@@ -330,9 +321,9 @@ namespace Cyan {
         virtual void SetShaderRequestResourceHandler(RequestResourceHandler<Resource::Shader>* handler, void* userData) override;
         virtual void SetTextureRequestResourceHandler(RequestResourceHandler<Resource::Texture>* handler, void* userData) override;
         virtual void UnkFunc53(void* handler, void* userData) override;
-        virtual void SetUpdateLightHandler(void* handler, void* userData) override;
+        virtual void SetUpdateLightHandler(UpdateLightHandler* handler, void* userData) override;
         virtual void UnkFunc55(void* handler, void* userData) override;
-        virtual void UnkFunc56(void* handler, void* userData) override;
+        virtual void SetRaycastHandler(RaycastHandler* handler, void* userData) override;
         virtual void UnkFunc57(void* handler, size_t unkParam2) override;
         virtual System::IAllocator* GetRenderAllocator() const override;
         virtual void UnkFunc59() override;
@@ -350,6 +341,7 @@ namespace Cyan {
         bool UpdateLight(UpdateLightParam& param);
         Graphics::MeshRenderer& GetMeshRenderer();
         void DestroyElement(Element* element);
+        void DestroyEffect(EffectImpl* effect);
 
         void* RenderAlloc(unsigned int size, unsigned int unk);
         void RenderFree(void* ptr);
@@ -365,5 +357,7 @@ namespace Cyan {
         template<> void RequestResource(EffectImpl* effect, Resource::ResObject<Resource::Skeleton>* resource);
         template<> void RequestResource(EffectImpl* effect, Resource::ResObject<Resource::Shader>* resource);
         template<> void RequestResource(EffectImpl* effect, Resource::ResObject<Resource::ComputeShader>* resource);
+
+        bool Raycast(const csl::math::Vector3& from, const csl::math::Vector3& to, const ucsl::resources::cemt::v100000::LODParam& lodParam, csl::math::Vector3& hitLocation, csl::math::Vector3& hitNormal, unsigned int& raycastFlags);
     };
 }

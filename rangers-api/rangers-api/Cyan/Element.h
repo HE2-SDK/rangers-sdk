@@ -25,13 +25,13 @@ namespace Cyan{
         struct ColorParameters {
             csl::ut::Color8 colors[2][2];
             float unk7[2];
-            float unk6[2][2];
+            float luminance[2][2];
         };
 
         struct ColorAnimations {
             System::AnimCtrl* colorAnimation[2][2];
             System::AnimCtrl* alphaAnimation[2][2];
-            System::AnimCtrl* unk6Animation[2][2];
+            System::AnimCtrl* luminanceAnimation[2][2];
             System::AnimCtrl* unk7Animation[2];
         };
 
@@ -59,7 +59,7 @@ namespace Cyan{
         float lifetime;
         float gap4Cbb[4];
         float unk4Cbbb;
-        float directionJitter; //unsure
+        float velocityJitter;
         unsigned int colorAnimationCount;
         ColorParameters colorParameters;
         int8_t gap4Cbbc[4];
@@ -72,10 +72,10 @@ namespace Cyan{
         System::AnimCtrl* rotationAnimation;
         System::AnimCtrl* scaleAnimation;
         ColorAnimations colorAnimations;
-        System::AnimCtrl* modifierAnimation[8][5];
+        System::AnimCtrl* fieldAnimations[8][5];
         int64_t qword290[16];
         System::AnimCtrl* patternAnimation[4];
-        System::AnimCtrl* animationControl;
+        System::AnimCtrl* uvAnimation;
         float textureUvScale[2]; //unsure, when used, it's multiplied by worldScale
         _Texcoord texCoords[4][2];
         Matrix23 matrices[4][2];
@@ -89,6 +89,8 @@ namespace Cyan{
         System::AnimCtrl* animationBuffer; // 140FF3B70
         System::AnimCtrl* nextFreeAnimation; // 140FF3B77
 
+        // missing 0x10 bytes
+
         void UpdatePattern(float deltaTime, const Resource::TextureParam* textureParam, unsigned int textureIndex, float* stepSizes, float* unk3);
         void CalcTexcoordImpl(
             float arg0,
@@ -101,7 +103,7 @@ namespace Cyan{
         );
         void CalcTexcoord(float deltaTime);
         void InitColor(System::Random* random);
-        void CalcInitVelocity(const csl::math::Vector3& acceleration, const csl::math::Vector3& velocityDirection, const csl::math::Vector3& accelarationDirection);
+        void CalcInitVelocity(const csl::math::Vector3& direction1, const csl::math::Vector3& normalDirection, const csl::math::Vector3& direction2);
         static void CalcSphericalVector(csl::math::Vector3* direction, Cyan::System::Random* random);
         MemObject<System::AnimCtrl> CreateAnimCtrl(
             const Resource::PtrData<Resource::AnimationParam>& animParam,

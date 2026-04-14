@@ -9,7 +9,7 @@ namespace app::player {
         uint8_t byte59;
         uint64_t qword60;
 
-        CREATE_FUNC(EffectMouth, hh::game::GameObject* playerObject, PlayerVisual* playerVisual, unsigned char unkParam);
+        CREATE_FUNC(EffectMouth, hh::game::GameObject* playerObject, PlayerVisual* playerVisual, unsigned char visualId);
 
         virtual unsigned int GetNameHash() const override;
         virtual void Update(int64_t a2, float deltaTime) override;

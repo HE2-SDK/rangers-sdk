@@ -10,6 +10,7 @@ namespace hh::gfx{
         int unk2;
         bool update;
 
+        virtual void* GetRuntimeTypeInfo() const override;
         virtual void OnAddedToGame() override;
 		virtual void OnRemovedFromGame() override;
         virtual void Setup(int unk0) {}

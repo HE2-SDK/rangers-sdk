@@ -12,7 +12,7 @@ namespace Cyan::System {
             int randomSetSize;
             int randomTableOffset;
             int randomSetRandomTableOffset;
-            unsigned char unk10;
+            bool isActive; // current frame within frame bounds
             bool includesEndFrame;
         };
 
@@ -56,9 +56,9 @@ namespace Cyan::System {
         void InitAnimation(const CreateParam& createParam);
         void InitAnimationJittered(const CreateParam& createParam);
         void Update(float deltaTime);
-        void Update(float deltaTime, unsigned char* unk10values);
+        void Update(float deltaTime, bool* isActive);
         void UpdateJittered(float deltaTime);
-        void UpdateJittered(float deltaTime, unsigned char* unk10values);
+        void UpdateJittered(float deltaTime, bool* isActive);
         float GetValue(int curveIndex) const;
         unsigned int GetValues(float* values, int count) const;
         void GetValuesJittered(Resource::JitteredValue* values) const;

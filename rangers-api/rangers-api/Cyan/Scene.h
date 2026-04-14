@@ -13,5 +13,6 @@ namespace Cyan {
 
         void PrepareRender(const Graphics::DeviceContainer& deviceContainer);
         void SetGammaCorrect(bool enabled);
+        void RemoveEffect(Effect* effect);
     };
 }

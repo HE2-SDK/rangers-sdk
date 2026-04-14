@@ -115,6 +115,7 @@ namespace hh::eff {
             static bool RequestComputeShaderCallback(Cyan::Effect* effect, Cyan::Resource::ResObject<Cyan::Resource::ComputeShader>* resource, void* userData);
             static bool RequestShaderCallback(Cyan::Effect* effect, Cyan::Resource::ResObject<Cyan::Resource::Shader>* resource, void* userData);
             static bool UpdateLightCallback(Cyan::UpdateLightParam* updateLightParam, void* userData);
+            static bool RaycastCallback(const csl::math::Vector3& from, const csl::math::Vector3& to, unsigned int filterMask, csl::math::Vector3& hitLocation, csl::math::Vector3& hitNormal, unsigned int& raycastFlags);
 
             rsdx::SJobJoint* jobJoint1;
             rsdx::SJobJoint* jobJoint2;

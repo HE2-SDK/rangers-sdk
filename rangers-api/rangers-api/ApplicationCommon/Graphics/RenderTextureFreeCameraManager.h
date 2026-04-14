@@ -6,6 +6,7 @@ namespace app_cmn::gfx{
         int64_t unk0;
         RenderTextureFreeCamera* camera;
 
+        virtual void* GetRuntimeTypeInfo() const override;
         virtual void OnRemovedFromGame() override;
 
         GAMESERVICE_CLASS_DECLARATION(RenderTextureFreeCameraManager)

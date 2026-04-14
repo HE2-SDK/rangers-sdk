@@ -40,11 +40,11 @@ namespace Cyan {
         virtual uint64_t UnkFunc3(void* unkParam1) override;
         virtual void PrepareRender(Graphics::Renderer* renderer, const Graphics::DeviceContainer& deviceContainer) override;
         virtual System::FSMState* GetState(unsigned int stateId) override;
-        virtual void UnkFunc9(void* unkParam1) override;
+        virtual void UnkFunc9(float deltaTime) override;
         virtual void InitEmitter(bool useLocalMatrix) override;
-        virtual void ProcessEmitter(float time) override;
-        virtual void UpdateEmitter(float time) override;
-        virtual void EmitElements(float time) override;
-        virtual void EmitElements2(float time) override;
+        virtual void ProcessEmitter(float deltaTime) override;
+        virtual void UpdateEmitter(float deltaTime) override;
+        virtual void EmitElements(float deltaTime) override;
+        virtual void EmitElements2(float deltaTime) override;
     };
 }

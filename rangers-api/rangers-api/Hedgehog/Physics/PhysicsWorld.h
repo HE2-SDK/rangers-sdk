@@ -3,7 +3,7 @@
 namespace hh::physics {
     struct PhysicsQueryResult {
         csl::math::Vector3 hitLocation;
-        csl::math::Vector3 unk1;
+        csl::math::Vector3 hitNormal;
         uint32_t hitFlags;
         float unk3;
         fnd::Handle<GOCCollider> collider;
