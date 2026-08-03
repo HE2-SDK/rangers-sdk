@@ -1,9 +1,12 @@
 #pragma once
 
 namespace hh::text {
+    class TagReplacer;
+
     class TagReplaceableCollection : public TagReplaceable {
-        csl::ut::MoveArray<void*> unk101;
     public:
+        csl::ut::MoveArray<TagReplacer*> replacers;
+        
         TagReplaceableCollection(csl::fnd::IAllocator* pAllocator);
     };
 }

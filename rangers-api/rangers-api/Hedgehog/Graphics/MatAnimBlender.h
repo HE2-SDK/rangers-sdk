@@ -21,7 +21,7 @@ namespace hh::gfx {
     public:
         GOCVisualModel* model;
         csl::ut::MoveArray<fnd::Reference<MatAnimControlHH>> animations;
-        uint64_t unk2;
+        needle::AnimBlender<needle::AnimMaterialControl>* needleBlender;
 
         virtual void Initialize(MatAnimBlenderDesc& description) override;
         virtual void Deinitialize() override;

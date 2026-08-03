@@ -11,7 +11,7 @@ namespace app::player {
         virtual unsigned int UnkFunc2() override;
         virtual void Enter() override;
         virtual void Leave() override;
-        virtual void Update(const hh::fnd::SUpdateInfo& updateInfo) override;
+        virtual void Update(float deltaTime, const hh::fnd::SUpdateInfo& updateInfo) override;
         virtual void UnkFunc6() override;
     };
 }

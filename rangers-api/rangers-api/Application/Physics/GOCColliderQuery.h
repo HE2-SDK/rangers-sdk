@@ -15,14 +15,30 @@ namespace app::physics {
             UNK1 //related to MsgColliderQueryLeave
         };
 
-        hh::physics::PhysicsOverlapJob* physicsJob;
+        enum class Shape : uint8_t {
+            SPHERE = 1,
+            MOVE_SPHERE,
+            CAPSULE
+        };
+
+        struct Description {
+            hh::fnd::HFrame* hframe;
+            int32_t hitFlags;
+            int32_t qword148;
+            csl::ut::Bitset<OverlapFlag> ownerOverlapFlags;
+            int64_t qword158;
+            csl::math::Transform worldTransform;
+            Shape shape;
+        };
+
+        hh::fnd::Reference<hh::physics::PhysicsOverlapJob> physicsJob;
         csl::ut::MoveArray<hh::fnd::Handle<hh::physics::GOCCollider>> overlappedColliders;
         csl::ut::MoveArray<void*> unkA8;
         hh::fnd::HFrame* hFrame;
         csl::math::Transform localTransform;
         csl::math::Transform worldTransform;
-        uint8_t byte140;
-        uint32_t qword144;
+        Shape shape;
+        uint32_t hitFlags;
         uint32_t qword148;
         hh::physics::PhysicsWorldBullet* physicsWorld;
         uint64_t qword158;
@@ -40,6 +56,7 @@ namespace app::physics {
         void SetFrame(hh::fnd::HFrame* frame);
         void SetPosition(csl::math::Vector3& position);
         void SetEnabled(bool enabled);
+        void Setup(const Description& desc);
 
         GOCOMPONENT_CLASS_DECLARATION(GOCColliderQuery);
     };

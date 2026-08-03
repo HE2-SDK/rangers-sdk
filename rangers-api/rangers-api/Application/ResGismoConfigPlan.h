@@ -3,7 +3,7 @@
 namespace app{
     class ResGismoConfigPlan : public hh::fnd::ManagedResource {
     public:
-        int64_t unk0;
+        heur::rfl::GismoConfigPlanData* gismoConfigPlanData;
 
         MANAGED_RESOURCE_CLASS_DECLARATION(ResGismoConfigPlan)
 

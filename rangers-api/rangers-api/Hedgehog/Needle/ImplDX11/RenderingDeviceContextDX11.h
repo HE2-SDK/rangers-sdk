@@ -82,7 +82,7 @@ namespace hh::needle::ImplDX11 {
         virtual void SetBlendModeWithAlpha(bool enabled, BlendMode src, BlendMode dst, BlendOp op, BlendMode alphaSrc, BlendMode alphaDst, BlendOp alphaOp) override;
         virtual void SetBlendMode(bool enabled, BlendMode src, BlendMode dst, BlendOp op) override;
         virtual void SetViewport(const ViewportSetting* viewportSetting, unsigned int count) override;
-        virtual void UnkFunc66() override;
+        virtual void SetViewportSetting(const ViewportSetting* viewportSetting, unsigned int count) override;
         virtual void SetScissor(const Rectangle* scissorRects, unsigned int count) override;
         virtual uint64_t UnkFunc68() override;
         virtual uint64_t UnkFunc69(bool enabled, int64_t* bits) override;

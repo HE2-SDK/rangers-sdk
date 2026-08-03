@@ -18,6 +18,10 @@ namespace hh::dv{
             float unk2;
             float unk3;
             hh::gfnd::ViewportData::FovProjectionParameters fovProjectionParams;
+            csl::math::Vector4 unk5;
+            csl::math::Vector4 unk6;
+            float nearClip;
+            float farClip;
         };
 
         Description binaryData;
@@ -25,10 +29,6 @@ namespace hh::dv{
         int unk3;
         int unk4;
         CameraData data;
-        csl::math::Vector4 unk5;
-        csl::math::Vector4 unk6;
-        float nearClip;
-        float farClip;
         int64_t unk7;
         csl::math::Vector3 unk8;
         int unk9;

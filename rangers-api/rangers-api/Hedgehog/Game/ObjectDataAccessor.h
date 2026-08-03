@@ -9,5 +9,8 @@ namespace hh::game {
 
         csl::math::Vector3 GetPosition() const;
         csl::math::Quaternion GetRotation() const;
+        bool IsValid() const;
     };
+
+    ObjectDataAccessor GetObjectDataByName(hh::game::GameManager* gameManager, int chunkId, const char* name);
 }

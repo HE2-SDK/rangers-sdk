@@ -1,4 +1,6 @@
 #pragma once
+#include <ucsl/resources/density-setting/v11.h>
+#include <ucsl/resources/density-pointcloud/v4.h>
 
 namespace hh::needle {
     class DensityContainer : public NeedleRefcountObject {
@@ -126,7 +128,7 @@ namespace hh::needle {
 
         csl::ut::MoveArray<int64_t> unk0;
         csl::ut::MoveArray<int64_t> unk1;
-        csl::ut::MoveArray32<int64_t> unk2; //unsure
+        csl::ut::MoveArray32<ucsl::resources::density_pointcloud::v4::InstanceData> instances; //unsure
         int64_t placementTexStreamCompute; //hh::needle::PlacementTextureStreamingCompute* 0x141D23EC0
         UnkStr0 unkStr0;
         UnkStr1 unkStr1;
@@ -176,7 +178,7 @@ namespace hh::needle {
         int32_t dword5B0;
         int8_t gap5B4[4];
         int64_t qword5B8[5];
-        int64_t qword5E0;
+        ucsl::resources::density_setting::v11::DensitySettingData* densitySettingData;
         csl::ut::MoveArray<int64_t> qword5E8;
         csl::ut::MoveArray<int64_t> qword608;
         float dword628;

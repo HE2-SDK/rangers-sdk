@@ -98,4 +98,22 @@ namespace app::game {
     public:
         MsgScriptExit() : fnd::AppMessage<MsgScriptExit>{ hh::fnd::MessageID::SCRIPT_EXIT } {}
     };
+
+    class MsgShowKodama : public app::fnd::AppMessage<MsgShowKodama> {
+    public:
+        MsgShowKodama() : fnd::AppMessage<MsgShowKodama>{ hh::fnd::MessageID::SHOW_KODAMA } {}
+    };
+
+    class MsgHideKodama : public app::fnd::AppMessage<MsgHideKodama> {
+    public:
+        MsgHideKodama() : fnd::AppMessage<MsgHideKodama>{ hh::fnd::MessageID::HIDE_KODAMA } {}
+    };
+
+    class MsgChangePlayerCharacter : public app::fnd::AppMessage<MsgChangePlayerCharacter> {
+    public:
+        player::CharacterIdU8 newCharId{ player::CharacterIdU8::SONIC };
+        bool startCharactersBgm{ false };
+
+        MsgChangePlayerCharacter() : fnd::AppMessage<MsgChangePlayerCharacter>{ hh::fnd::MessageID::CHANGE_PLAYER_CHARACTER } {}
+    };
 }

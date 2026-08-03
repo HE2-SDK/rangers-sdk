@@ -15,7 +15,7 @@ namespace hh::game {
 
     public:
         struct alignas(8) Config {
-            bool unk1;
+            bool startListeningOnInitialization;
             uint32_t inputComponentInternalPlayerInputIndex;
             uint32_t inputComponentPriority;
             uint32_t inputComponentActionMonitorCount;

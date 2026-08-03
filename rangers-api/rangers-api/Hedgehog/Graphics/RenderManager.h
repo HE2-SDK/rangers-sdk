@@ -3,6 +3,12 @@
 namespace hh::gfx {
     class RenderManager : public gfnd::RenderManagerBase {
     public:
+        class Listener {
+        public:
+            virtual void GFXRML_UnkFunc0() = 0;
+            virtual void GFXRML_UnkFunc1() = 0;
+        };
+
         struct SModelCreationInfo {
             // Check GOCVisualModelImpl::Setup
             needle::Texture* giTexture{ nullptr };
@@ -78,6 +84,8 @@ namespace hh::gfx {
         virtual uint64_t UnkFunc3() override;
         virtual void UnkFunc4() override;
         virtual uint64_t UnkFunc5() override;
+
+        void AddListener(Listener* listener);
 
         void CreateModelFromResource2(needle::Model** model, const SModelCreationInfo& modelCreationInfo);
         needle::ModelInstance* CreateModelInstance(needle::Model* model, const SModelCreationInfo& modelCreationInfo) const;

@@ -64,5 +64,17 @@ namespace hh::fnd {
         inline T* GetResource(const char* name) {
             return static_cast<T*>(GetResource(name, T::GetTypeInfo()));
         }
+
+        void GetResourcesFromContainer(csl::ut::MoveArray<ManagedResource*>& resources, const char* name, const ResourceTypeInfo* typeInfo);
+        template<typename T>
+        inline void GetResourcesFromContainer(csl::ut::MoveArray<T*>& resources, const char* name) {
+            GetResourcesFromContainer((csl::ut::MoveArray<ManagedResource*>&)resources, name, T::GetTypeInfo());
+        }
+
+        static void GetResources(csl::ut::MoveArray<ManagedResource*>& resources, const char* containerName, const ResourceTypeInfo* typeInfo);
+        template<typename T>
+        inline static void GetResources(csl::ut::MoveArray<T*>& resources, const char* containerName) {
+            GetResources((csl::ut::MoveArray<ManagedResource*>&)resources, containerName, T::GetTypeInfo());
+        }
     };
 }

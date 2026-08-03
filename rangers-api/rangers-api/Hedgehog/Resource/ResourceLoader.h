@@ -17,14 +17,15 @@ namespace hh::fnd {
         };
 
         UnpackedResourceContainer unpackedResourceContainer;
-        csl::ut::MoveArray<void*> unk2;
-        csl::ut::MoveArray<void*> unk3;
+        csl::ut::MoveArray<ManagedResource*> loadedResources;
+        csl::ut::MoveArray<ManagedResource*> toBeLoadedResources; // these load when the unload func is called..?
         csl::ut::MoveArray<void*> unk4;
         Unk3 unk5;
-        csl::fnd::IAllocator* otherAllocator;
+        csl::fnd::IAllocator* resourceAllocator;
         csl::ut::VariableString unk6;
         csl::ut::MoveArray<void*> unk7;
-        uint16_t unk8;
+        char unk8;
+        char unk8b;
 
         ResourceLoader(csl::fnd::IAllocator* allocator);
         inline static ResourceLoader* Create(csl::fnd::IAllocator* allocator) {
@@ -32,6 +33,7 @@ namespace hh::fnd {
         }
 
         void LoadPackfile(const char* uri, uint32_t unk);
+        void LoadPackfile(const char* uri, Locale& locale);
         inline void LoadPackfile(const char* uri) { LoadPackfile(uri, 0); }
         void LoadResource(const Uri& uri, const ResourceTypeInfo* resourceTypeInfo, int unk, uint32_t unk2, Locale& locale);
     };

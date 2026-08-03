@@ -102,7 +102,7 @@ namespace Cyan {
         uint64_t qwordE0;
         EffectHandle hh__eff__effecthandleE8;
         EffectHandle hh__eff__effecthandleF8;
-        uint32_t flags;
+        uint32_t flags; // 0x02 = is paused, 0x80 = is visible
         uint64_t qword110;
         hh::needle::NeedleRefcountObject* qword118;
         uint64_t qword120;

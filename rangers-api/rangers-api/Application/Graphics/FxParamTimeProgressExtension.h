@@ -9,10 +9,12 @@ namespace app::gfx {
         evt::EventPlayer* eventPlayer;
         heur::rfl::TimeProgressNeedleFxParam timeProgressNeedleFxParam;
         hh::needle::FxAtmosphereParameter atmosphereParameter;
-        uint16_t unk1;
+        bool cutscenePlaying;
+        bool unk2;
         
     public:
         FxParamTimeProgressExtension(csl::fnd::IAllocator* allocator);
+        virtual void* GetRuntimeTypeInfo() override;
         virtual void Initialize() override;
         virtual void Destroy() override;
         virtual void BeforeUpdate(hh::fnd::SUpdateInfo* updateInfo) override;

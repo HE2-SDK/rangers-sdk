@@ -3,7 +3,7 @@
 namespace hh::gfx {
     class ResAnimMaterial : public fnd::ManagedResource {
     public:
-        void* resource;
+        needle::intrusive_ptr<needle::MaterialAnimationResource> resource;
 
         virtual void Load(void* data, size_t size) override;
         virtual void Unload() override;

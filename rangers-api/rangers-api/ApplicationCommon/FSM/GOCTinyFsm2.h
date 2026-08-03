@@ -79,6 +79,12 @@ namespace app_cmn::fsm {
             bool setGOCFlag1;
             bool setGOCFlag2;
             bool setFlag4;
+
+            void SetInitialState(const State_t& state) {
+                initialState = state;
+                if (initialState.type != hh::ut::TinyFsmStateType::DELEGATE)
+                    initialState.data = nullptr;
+            };
         };
 
         static hh::game::GOComponentClass* GetClass() {

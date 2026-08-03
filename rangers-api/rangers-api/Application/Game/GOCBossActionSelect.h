@@ -9,47 +9,95 @@ namespace app::game{
 
     class BossActionPluginBase : public hh::fnd::ReferencedObject{
     public:
-        struct StateInfo{
+        struct PossibleAction {
+            unsigned int attackId;
             int stateId;
-            float timeSinceLastChange;
+            unsigned int priority;
+            float readyTime;
+        };
+
+        struct PossibleActionName {
+            csl::ut::String stateName;
+        private:
+            char stateNameAllocation[0x80];
         };
 
         short unk0;
         short unk1;
-        int unk2;
+        int unk2; // priority?
         app::BossBaseContext* context;
 
         virtual int GetNameHash() const { return 0; }
         virtual int64_t UnkFunc0() { return 0; }
-        virtual void UnkFunc1() {}
-        virtual void UnkFunc2() {}
-        virtual void UnkFunc3() {}
-        virtual bool UnkFunc4() { return false; }
+        virtual void OnAdded() {}
+        virtual void OnRemoved() {}
+        virtual void Reset() {}
+        virtual bool IsInState() { return false; }
         virtual bool UnkFunc5() { return false; }
-        virtual bool UpdateState(int a2, float deltaTime) { return false; } //maybe some sort of update when state?
+        virtual bool UpdateState(hh::fnd::UpdatingPhase phase, float deltaTime) { return false; }
         virtual bool UnkFunc7() { return false; }
         virtual bool ProcessMessage(hh::fnd::Message& msg) { return false; }
         virtual bool UnkFunc9(int64_t a2) { return false; }
-        virtual bool UnkFunc10(csl::ut::MoveArray<int64_t>& a2) { return false; }
-        virtual bool UnkFunc11(int64_t a2) { return false; }
-        virtual bool UnkFunc12(int64_t a2, csl::ut::String& a3) { return false; }
-        virtual void UnkFunc13(int64_t a2, int64_t a3) {}
-        virtual void ExecuteState0(int stateIdx) {}
-        virtual void ExecuteState1(StateInfo& stateInfo) {}
+        virtual bool GetPossibleActions(csl::ut::MoveArray<PossibleAction>& actions) { return false; }
+        virtual bool GetPossibleActionNames(csl::ut::MoveArray<PossibleActionName>& actionNames) { return false; }
+        virtual bool GetState(int64_t& id, csl::ut::String& name) { return false; }
+        virtual bool GetPreparedAction(int64_t* stateId, float* readyTime) { return false;  }
+        virtual void ExecuteState(int& stateIdx) {}
+        virtual void ExecuteState1(int& state, unsigned char unk0) {}
 
         inline BossActionPluginBase(csl::fnd::IAllocator* allocator) : ReferencedObject{ allocator, true } {}
     };
 
     template<typename T>
-    class BossActionPluginManager : public hh::fnd::BaseObject{
-    public:
-        csl::ut::MoveArray<GOCBossActionSelect*> gocs;
-        T* context;
-        csl::ut::MoveArray<BossActionPluginBase*> plugins;
-        void* unk1;
+    class BossActionPlugin : public BossActionPluginBase {
+
     };
 
-    class GOCBossActionSelect : public hh::game::GOComponent {
+    class BossActionPluginListener {
+    public:
+        virtual void OnPluginAdded(BossActionPluginBase* plugin) = 0;
+        virtual void OnPluginRemoved(BossActionPluginBase* plugin) = 0; // Guessed
+    };
+
+    template<typename T>
+    class BossActionPluginManager : public hh::fnd::BaseObject{
+    public:
+        csl::ut::MoveArray<BossActionPluginListener*> listeners;
+        T* context;
+        csl::ut::MoveArray<hh::fnd::Reference<BossActionPluginBase>> plugins;
+        bool paused;
+
+        BossActionPluginBase* GetPlugin(unsigned int nameHash) const {
+            for (auto& plugin : plugins)
+                if (plugin->GetNameHash() == nameHash)
+                    return &plugin;
+
+            return nullptr;
+        }
+        template<typename X>
+        inline X* GetPlugin() const {
+            return reinterpret_cast<X*>(GetPlugin(X::name));
+        }
+        void AddPlugin(BossActionPluginBase* plugin, short priority) {
+            plugin->unk2 = priority;
+            plugin->OnAdded();
+            plugins.push_back({ plugin });
+            for (auto* listener : listeners)
+                listener->OnPluginAdded(plugin);
+        } // unsure on priority
+    };
+
+    class BossActionSelectListener {
+    public:
+        virtual void OnExecuteState(int& state, const char* stateName) {};
+        virtual void BASL_UnkFunc1() {};
+        virtual void BASL_UnkFunc2() {};
+        virtual void ExecuteState1(int& state, unsigned char unk0) {};
+        virtual void BASL_UnkFunc4() {};
+        virtual void BASL_UnkFunc5() {};
+    };
+
+    class GOCBossActionSelect : public hh::game::GOComponent, public BossActionPluginListener {
     public:
         struct Unk0{
             float unk0;
@@ -61,6 +109,7 @@ namespace app::game{
             int unk6;
             int unk7;
             int unk8;
+            char unk9;
         };
 
         struct Description{
@@ -69,15 +118,14 @@ namespace app::game{
             bool finalUpdate;
         };
 
-        int64_t vftable;
-        csl::ut::MoveArray<void*> states;
-        app::BossBaseContext* context;
+        csl::ut::MoveArray<BossActionSelectListener*> listeners;
+        hh::fnd::Reference<app::BossBaseContext> context;
         BossActionPluginManager<app::BossBaseContext>* bossActionPluginMgr;
-        int unk0;
-        int unk1;
+        int currentState;
+        float timeSinceLastChange;
         float timeSinceLastAction;
         csl::ut::InplaceMoveArray<Unk0, 4> unk3;
-        int unk4;
+        int flags;
 
         virtual void* GetRuntimeTypeInfo() const override;
 		virtual void Update(hh::fnd::UpdatingPhase phase, const hh::fnd::SUpdateInfo& updateInfo) override;
@@ -85,7 +133,14 @@ namespace app::game{
 		virtual bool ProcessMessage(hh::fnd::Message& msg) override;
 		virtual void OnGOCEvent(GOCEvent event, hh::game::GameObject& ownerGameObject, void* data) override;
 
+        virtual void OnPluginAdded(BossActionPluginBase* plugin) override;
+        virtual void OnPluginRemoved(BossActionPluginBase* plugin) override;
+
         void Setup(Description& desc);
+
+        void AddListener(BossActionSelectListener* listener);
+        void RemoveListener(BossActionSelectListener* listener);
+        void ExecuteState1(unsigned char unk0);
 
         GOCOMPONENT_CLASS_DECLARATION(GOCBossActionSelect)
     };

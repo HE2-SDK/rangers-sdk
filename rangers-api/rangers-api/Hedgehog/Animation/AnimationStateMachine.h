@@ -2,7 +2,9 @@
 
 namespace hh::anim {
     class AnimationStateMachine;
-    struct AnimationStateInfo {};
+    struct AnimationStateInfo {
+        const char* stateName;
+    };
 
     class AnimationStateListener {
     public:

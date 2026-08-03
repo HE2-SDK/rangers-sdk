@@ -8,7 +8,7 @@ namespace app::text {
         , public app::fnd::AppResourceManagerListener
     {
         void* unk101;
-        void* unk102;
+        hh::fnd::Reference<hh::fnd::ResReflectionT<heur::rfl::DecoTechParams>> decoTechParams;
         void* unk103;
         hh::text::TagReplacer* tagReplacer;
         void* unk104;
@@ -22,6 +22,9 @@ namespace app::text {
         virtual void ResourceUnloadedCallback(hh::fnd::ManagedResource* resource) override;
         virtual void EVL_UnkFunc2(int unkParam1, int unkParam2, int& unkParam3) override;
         virtual void ARML_UnkFunc1(int unkParam1) override;
+
+        const char* GetSpeakerAttributeValue(const char* translationName);
+        const char* GetSpokenToAttributeValue(const char* translationName);
 
         GAMESERVICE_CLASS_DECLARATION(TextManager)
     };

@@ -186,6 +186,11 @@ namespace hh::ui {
              *     SCISSOR_OFFSET_B
              */
             ScissorOffsets offsets;
+
+            virtual void BeginRenderCastEx(SurfRide::Cast* cast, SurfRide::DrawInterface* drawInterface, void* uiRenderInfo) override;
+            virtual void EndRenderCastEx(SurfRide::Cast* cast, SurfRide::DrawInterface* drawInterface, void* uiRenderInfo) override;
+            virtual void BeginRenderCast(SurfRide::Cast* cast, SurfRide::DrawInterface* drawInterface, void* uiRenderInfo) override;
+            virtual void EndRenderCast(SurfRide::Cast* cast, SurfRide::DrawInterface* drawInterface, void* uiRenderInfo) override;
         };
 
         struct UIListViewLayout {
@@ -223,7 +228,7 @@ namespace hh::ui {
             UIPanel* panel;
             ScrollController* pScrollController;
             UIScrollBarElement* scrollBarElement;
-            uint64_t unk45;
+            fnd::Reference<ScissorCastListener> castListener;
         };
 
         class CursorType : public fnd::ReferencedObject {

@@ -18,9 +18,9 @@ namespace hh::dv{
         };
 
         Description binaryData;
-        int64_t unk0;
-        int64_t unk1;
-        int64_t unk2;
+        csl::math::Vector4 unk0;
+        int32_t unk1;
+        int32_t unk2;
 
         virtual void Update(int currentFrame, csl::math::Transform& transform) override;
         virtual bool AddCallback(int currentFrame, csl::math::Transform& transform) override;

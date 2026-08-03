@@ -1,16 +1,20 @@
 #pragma once
 
 namespace SurfRide {
+    class Cast;
+    class DrawInterface;
+    class CastExtension;
+
     class CastListener {
     public:
         virtual ~CastListener();
-        virtual void* GetRuntimeTypeInfo() const;
+        virtual void BeginRenderCastEx(Cast* cast, DrawInterface* drawInterface, void* uiRenderInfo);
         virtual int64_t Unk1();
-        virtual int64_t Unk2();
+        virtual void EndRenderCastEx(Cast* cast, DrawInterface* drawInterface, void* uiRenderInfo);
         virtual int64_t Unk3();
-        virtual int64_t Unk4();
+        virtual void BeginRenderCast(Cast* cast, DrawInterface* drawInterface, void* uiRenderInfo);
         virtual int64_t Unk5();
-        virtual int64_t Unk6();
+        virtual void EndRenderCast(Cast* cast, DrawInterface* drawInterface, void* uiRenderInfo);
         virtual int64_t Unk7();
         virtual int64_t Unk8();
     };
@@ -18,11 +22,12 @@ namespace SurfRide {
     class Scene;
     class Cast : public ReferencedObject {
     public:
-		struct Unk1 {
-			// This is actually an unknown structure containing this movearray, it's used in multiple resources.
-			csl::ut::MoveArray<void*> unk1;
+		struct ExtensionCollection {
+			csl::ut::MoveArray<CastExtension*> extensions;
 			Cast* cast;
-			Unk1(csl::fnd::IAllocator* allocator);
+
+			ExtensionCollection(csl::fnd::IAllocator* allocator);
+            void AddExtension(CastExtension* extension);
 		};
 
         enum class Flag {
@@ -34,7 +39,7 @@ namespace SurfRide {
         RefPtr<Blur> blurEffect;
         RefPtr<Reflect> reflectEffect;
         uint32_t unk4;
-        uint64_t unk5;
+        CastListener* listener;
         SRS_CASTNODE* castData;
         Layer* layer;
         Cast* parentCast;
@@ -47,7 +52,7 @@ namespace SurfRide {
         uint16_t unk9a;
         uint64_t unk10;
         Vector3 position;
-        Unk1 unk12;
+        ExtensionCollection extensionCollection;
         bool unk14;
 
         Cast(SRS_CASTNODE* castData, Cast* parentCast, Layer* layer);
@@ -58,12 +63,13 @@ namespace SurfRide {
         Scene* GetScene();
         void CreateEffectCast(void* effectData);
         SRS_TEXTURELIST* GetTextureListData(int index) const;
+        TextureList** GetTextureLists() const;
 
         static Vector2 CalcPivot(float width, float height, EPivotType pivotType, const Vector2& customPivot);
 
         virtual void* GetRuntimeTypeInfo() const;
         virtual bool UnkFunc2();
-        virtual void UnkFunc3() {}
+        virtual void Render(DrawInterface* drawInterface, void* uiRenderInfo) {}
         virtual void CalcTrackTypeWidth(float time, const SRS_TRACK* track) {}
         virtual void CalcTrackTypeHeight(float time, const SRS_TRACK* track) {}
         virtual void CalcTrackTypeCropIndex0(float time, const SRS_TRACK* track) {}

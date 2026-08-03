@@ -9,10 +9,9 @@ namespace app::player {
 
         DEFAULT_CREATE_FUNC(VisualLocatorNormal);
 
-        virtual uint64_t UnkFunc1();
-        virtual uint64_t UnkFunc2();
-        virtual uint64_t UnkFunc3();
-        virtual uint64_t UnkFunc4() {}
-        virtual uint64_t UnkFunc5();
+        virtual unsigned int GetNameHash() override;
+        virtual uint64_t UnkFunc2() override { return 0; }
+        virtual void AddCallback(GOCPlayerVisual* gocPlayerVisual) override;
+        virtual void UnkFunc5(GOCPlayerVisual* gocPlayerVisual, float a3) override;
     };
 }

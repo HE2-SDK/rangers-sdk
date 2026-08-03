@@ -14,7 +14,7 @@ namespace app {
         virtual void UnkFunc2() override;
         virtual void UnkFunc4() override;
         virtual void UnkFunc5() override;
-        virtual uint64_t UnkFunc9() override;
+        virtual uint64_t Tick() override;
 
         template<size_t Len>
         inline game::ApplicationExtension* GetExtension(const char (&name)[Len]) {

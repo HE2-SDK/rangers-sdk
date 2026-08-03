@@ -55,6 +55,8 @@ namespace app::player {
 
         void AddListener(PlayerVisualListener* listener);
         void RemoveListener(PlayerVisualListener* listener);
+        
+        csl::math::Transform& GetPlayerTransform() const;
 
         GOCOMPONENT_CLASS_DECLARATION(GOCPlayerVisual)
     };

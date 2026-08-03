@@ -29,7 +29,7 @@ namespace hh::gfx {
     public:
         fnd::Handle<game::GOComponent> model;
         fnd::Reference<ResAnimTexPat> resource;
-        uint64_t unk3;
+        needle::AnimTexPatControl* control;
         float fps;
 
         virtual void Initialize(TexPatDesc& description) override;

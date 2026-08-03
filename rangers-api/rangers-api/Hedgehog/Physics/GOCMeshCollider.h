@@ -4,12 +4,12 @@ namespace hh::physics {
     class GOCMeshCollider : public GOCCollider {
     public:
         struct SetupInfo : public GOCCollider::SetupInfo {
-            hh::fnd::ReferencedObject* meshResource;
+            ResPhysicsMesh* meshResource;
 
             inline SetupInfo() : GOCCollider::SetupInfo(ColliShape::Type::MESH) {}
         };
 
-        fnd::Reference<hh::fnd::ReferencedObject> meshResource;
+        fnd::Reference<ResPhysicsMesh> meshResource;
 
 		virtual void* GetRuntimeTypeInfo() const override;
         virtual void GetShape(ColliShape& shape) const override;

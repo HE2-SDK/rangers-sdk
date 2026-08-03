@@ -11,9 +11,9 @@ namespace hh::dv {
         virtual void* ReturnA2(void* a2);
         virtual void SetModelResource(hh::gfx::ResModel* resource) {};
         virtual void* VisualModelRelated0(gfx::ResVertexAnimationTexture* resVAT, void* a3, bool a4);
-        virtual void* VisualModelRelated1(void* a2, float a3, bool a4);
-        virtual void* VisualModelRelated2(void* a2, float a3, bool a4);
-        virtual void* VisualModelRelated3(void* a2, float a3, bool a4);
+        virtual void SetMatAnimTime(gfx::ResAnimMaterial* matAnim, float time, bool loop);
+        virtual void SetVisAnimTime(gfx::ResAnimVis* visAnim, float time, bool loop);
+        virtual void SetTexSrtTime(gfx::ResAnimTexSrt* uvAnim, float time, bool loop);
         virtual void* VisualModelRelated4(void* a2);
         virtual void* VisualModelRelated5(void* a2);
         virtual void* VisualModelRelated6(void* a2);

@@ -19,7 +19,7 @@ namespace hh::gfx{
         int32_t dwordD8;
         int8_t byteDC;
 
-        virtual void AddCallback() override;
+        virtual void AddCallback(hh::fw::Application* app) override;
         virtual void RemoveCallback() override;
 
         ResTextureStreamingPackage* GetPackage(const char* name);

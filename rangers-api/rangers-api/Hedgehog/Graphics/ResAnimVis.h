@@ -3,7 +3,7 @@
 namespace hh::gfx {
     class ResAnimVis : public fnd::ManagedResource {
     public:
-        void* resource;
+        needle::intrusive_ptr<needle::VisibilityAnimationResource> resource;
 
         virtual void Load(void* data, size_t size) override;
         virtual void Unload() override;

@@ -3,10 +3,16 @@
 namespace hh::needle {
     class ProbeNode : public NeedleRefcountObject {
     public:
+        enum class Flags : unsigned int {
+            USE_RADIUS_SCALING,
+            UNK0,
+            IS_OBB_SHAPE
+        };
+
         csl::geom::Aabb aabb;
         csl::math::Position extents;
         float index;
-        unsigned int flagsAndShape; // 0x10 = AABB, 0x0 = SPHERE
+        csl::ut::Bitset<Flags> flags;
         float radius;
         float maxExtent; // maximum scale along all axes
         float dword4C;

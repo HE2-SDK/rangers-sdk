@@ -1,11 +1,19 @@
 #pragma once
 
-#define OBJINFO_CLASS_DECLARATION(ClassName) private:\
+#define OBJINFO_CLASS_DECLARATION_BASE(ClassName) public:\
 		static const hh::game::ObjInfoClass objInfoClass;\
 		ClassName(csl::fnd::IAllocator* allocator);\
 		static hh::game::ObjInfo* Create(csl::fnd::IAllocator* allocator);\
+
+#define OBJINFO_CLASS_DECLARATION(ClassName) OBJINFO_CLASS_DECLARATION_BASE(ClassName)\
 	public:\
 		static const hh::game::ObjInfoClass* GetClass();
+
+#define OBJINFO_CLASS_DECLARATION_INLINE(ClassName) OBJINFO_CLASS_DECLARATION_BASE(ClassName)\
+	public:\
+		static inline const hh::game::ObjInfoClass* GetClass() {\
+			return &RESOLVE_STATIC_VARIABLE(objInfoClass);\
+		}
 
 namespace hh::game {
     class ObjInfo;

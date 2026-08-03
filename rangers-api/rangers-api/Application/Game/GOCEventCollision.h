@@ -17,9 +17,9 @@ namespace app::game {
             uint32_t unk3;
             Condition condition;
 
-            virtual void GOCCL_UnkFunc1(hh::physics::GOCCollider* collider) override;
-            virtual void GOCCL_UnkFunc2(hh::physics::GOCCollider* collider) override;
-            virtual void GOCCL_UnkFunc3(hh::physics::GOCCollider* collider) override;
+            virtual void OnEnter(hh::physics::MsgTriggerEnter& msg) override;
+            virtual void OnLeave(hh::physics::MsgTriggerLeave& msg) override;
+            virtual void OnStay(hh::physics::MsgTriggerStay& msg) override;
         };
 
     public:

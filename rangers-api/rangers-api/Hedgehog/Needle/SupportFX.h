@@ -93,8 +93,8 @@ namespace hh::needle {
         Texture* textures[13];
         void* unk13_0;
         void* unk13_1;
-        CopyColor* copyColor1;
-        CopyColor* copyColor2;
+        CopyColor* copyColor;
+        CopyColor* copyDepthColor;
         RenderTarget* renderTarget;
         Texture* renderTargetTextureView;
         csl::ut::MoveArray<void*> unk13_6;
@@ -159,6 +159,7 @@ namespace hh::needle {
         ComputeShader* GetComputeShader(void* data, size_t size);
         void DestroyRenderUnit(const char* name);
         PBRModelInstance* CreatePBRModelInstance(Model* model, const PBRModelCreationInfo& info);
+        static Rectangle GetRenderTargetRect(RenderTargetManager* manager, const RenderTargetReference& rtRef, SupportFX::FxViewport& viewport);
 
         void SetupLightField(LightFieldDescription& desc, const char* sceneName);
 
@@ -166,9 +167,9 @@ namespace hh::needle {
 
         SupportFX();
         virtual ~SupportFX();
-        virtual void UnkFunc1(RenderManager* renderManager) = 0;
+        virtual void OnCreateRenderManager(RenderManager* renderManager) = 0;
         virtual bool Render(const FxRenderParam& renderParam, RenderTarget* renderTarget) { return true; }
-        virtual bool UnkFunc3();
+        virtual bool Present();
         virtual void UnkFunc4(float unkParam1, uint32_t numCameras, FxCamera** cameras);
     };
 
@@ -189,9 +190,9 @@ namespace hh::needle {
 
         SupportFXAll();
 
-        virtual void UnkFunc1(RenderManager* renderManager) override;
+        virtual void OnCreateRenderManager(RenderManager* renderManager) override;
         virtual bool Render(const FxRenderParam& renderParam, RenderTarget* renderTarget) override;
-        virtual bool UnkFunc3() override;
+        virtual bool Present() override;
         virtual void UnkFunc4(float unkParam1, uint32_t numCameras, FxCamera** cameras) override;
 
         RenderTextureHandle* CreateRenderTextureHandle(const RenderTextureCreateArgs& createArgs);

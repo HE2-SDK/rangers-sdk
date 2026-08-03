@@ -96,6 +96,8 @@ namespace csl::geom {
 		bool Intersect(const Aabb& aabb) const;
 		math::Vector3 Extent() const;
 		float DistanceSq(const math::Vector3& point, math::Vector3* distanceByAxis) const;
+		static Aabb FromPoints(const math::Vector3* points, unsigned int pointCount);
+		static Aabb Merge(const Aabb& a, const Aabb& b);
 
 #ifdef NO_EIGEN_MATH
 		inline void AddPoint(const csl::math::Vector3& point);
@@ -152,6 +154,7 @@ namespace csl::math {
 	Vector3 Vector3NormalBetween(const Vector3& x, const Vector3& y);
 	Vector3 Vector3Rotate(const Quaternion& rotation, const Vector3& vec);
 	Vector3 Vector3MulAdd(const Vector3 x, const Vector3 y, float scale);
+	Vector3 Vector3Add(const Vector3& lhs, const Vector3& rhs);
 	Vector3 Vector3Sub(const Vector3& lhs, const Vector3& rhs);
 	Vector3 Vector3Scale(const Vector3& vec, float scalar);
 	float Vector3Distance(const Vector3& x, const Vector3& y);

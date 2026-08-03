@@ -19,5 +19,6 @@ namespace hh::fw {
         virtual uint64_t UnkFunc4(FrameworkEnvironment& frameworkEnvironment) = 0;
         virtual uint64_t UnkFunc5() = 0;
         unsigned int Main(const FrameworkConfig& config, FrameworkOptions* options);
+        unsigned int Step(Application* application, FrameworkEnvironment* env);
     };
 }

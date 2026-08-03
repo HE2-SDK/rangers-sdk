@@ -8,7 +8,7 @@ namespace app::dv{
             char asmNameTarget[64];
         };
 
-        void* unk0;
+        hh::dv::DvNodeCharacter* parentCharacter;
 
         virtual void Update(int currentFrame, csl::math::Transform& transform) override;
         virtual bool AddCallback(int currentFrame, csl::math::Transform& transform) override;

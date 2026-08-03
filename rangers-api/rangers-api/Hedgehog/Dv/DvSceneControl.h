@@ -38,7 +38,7 @@ namespace hh::dv {
         int dvsceneDvCommon34;
         int unk3;
         int64_t state;
-        ResDvScene* resource;
+        fnd::Reference<ResDvScene> resource;
         char layerTimeScaleIdx;
         float speed;
         bool update;

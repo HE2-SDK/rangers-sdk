@@ -7,8 +7,8 @@ namespace hh::hid{
         int dataIdx;
         int idx; //unsure @ 0x140F27686
         char vibrationDataId;
-        int unk3;
-        float unk4;
+        float freq;
+        float freqScale;
         int unk5;
         VibrationHapticPlayer* vibHapticPlayer;
     };

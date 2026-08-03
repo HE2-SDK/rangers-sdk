@@ -22,7 +22,13 @@ namespace hh::needle {
                     SCALE_Y
                 };
 
+                enum class Interpolation : unsigned char {
+                    LINEAR,
+                    CONSTANT
+                };
+
                 Type type;
+                Interpolation interpolation;
                 unsigned int count;
                 Keyframe* keyframes;
             };
@@ -47,28 +53,39 @@ namespace hh::needle {
     TexcoordAnimationResource* LoadTexcoordAnimation(RenderingDevice* device, const void* data);
 
     struct AnimTexSrtResult {
-        struct Texture {
-            int idx;
-            CNameIDObject** name; // cmnisl_obj_dashpanel_arrow had emission here
-        };
-
-        int unkCount0;
-        Texture texture;
-        float unk0;
-        int unk1;
-        int unk2;
-        float unk3;
-        int64_t unk4;
-        int unk5;
+        unsigned int animCount;
+        unsigned int inputCount;
+        float maybeTime;
+        CNameIDObject** inputNames;
+        float affineMatrix2D[9];
     };
+
+    void CalcTexcoordAnimation(const TexcoordAnimationResource::Animation* resource, float time, float* retMatrix);
 
     class AnimTexSrtControl : public MirageAnimController<int, AnimTexSrtResult> {
     public:
+        typedef int ID;
         typedef AnimTexSrtResult Result;
 
+        struct Anim {
+            unsigned int animationIdx;
+            unsigned int curFrame0;
+            unsigned int curFrame1;
+            int unk1;
+            int unk2;
+            int unk3;
+            int unk4; // related to inputNames?
+            unsigned int inputCountSet;
+            CNameIDObject* inputNamesReserved[8];
+            unsigned int inputCount;
+            float maybeTime;
+            CNameIDObject** inputNames;
+            float affineMatrix2D[9];
+        };
+
         unsigned int animationCount;
-        int unk1Count;
-        void* unk1;
+        unsigned int animCount;
+        Anim* anims;
         int flags;
         intrusive_ptr<MeshResource> mesh;
         intrusive_ptr<TexcoordAnimationResource> resource;

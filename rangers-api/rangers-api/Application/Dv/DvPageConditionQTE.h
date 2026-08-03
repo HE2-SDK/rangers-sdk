@@ -19,7 +19,7 @@ namespace app::dv {
         bool unk0;
 
         virtual void Setup(hh::dv::DvPageConditionBase::Description& description) override;
-        virtual bool UnkFunc5() override;
+        virtual bool ShouldSkip(hh::dv::PageInfo& pageInfo) override;
 
         APP_DV_PAGE_CONDITION_DECLARATION_BASE(DvPageConditionQTE)
     };

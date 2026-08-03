@@ -24,6 +24,7 @@ namespace hh::gfnd {
         void SetUnk4(bool unkParam);
         void SetUnk5(uint16_t unkParam);
         void RemoveFromCurrentContainer();
+        void SetPreferredContainer(unsigned char container);
 
         virtual void Render(const RenderableParameter* renderableParameter) = 0;
         virtual void UnkFunc2() {} //UpdateFrame

@@ -1,8 +1,17 @@
 #pragma once
 
 namespace hh::physics::bullet {
-    class OverlapFilterCallback {
+    class OverlapFilterCallback : public btOverlapFilterCallback {
     public:
-        OverlapFilterCallback();
+        int* unk0;
+
+        virtual bool needBroadphaseCollision(btBroadphaseProxy* proxy0, btBroadphaseProxy* proxy1) const override;
+
+        OverlapFilterCallback(int* unk0);
+    };
+
+    class GhostOverlapFilterCallback : public btOverlapFilterCallback {
+    public:
+        virtual bool needBroadphaseCollision(btBroadphaseProxy* proxy0, btBroadphaseProxy* proxy1) const override;
     };
 }

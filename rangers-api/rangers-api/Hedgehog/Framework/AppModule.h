@@ -16,7 +16,7 @@ namespace hh::fw {
 
     class AppModule : public fnd::ReferencedObject {
         AppModuleClass* appModuleClass;
-        virtual void AddCallback() {}
+        virtual void AddCallback(Application* app) {}
         virtual void RemoveCallback() {}
         virtual void UnkFunc3() {}
         virtual void UnkFunc4() {}

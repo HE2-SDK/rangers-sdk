@@ -4,8 +4,8 @@ namespace app::player {
     class GOCPlayerVisual;
     class VisualLocatorManager : public hh::fnd::ReferencedObject {
         GOCPlayerVisual* gocPlayerVisual;
-        uint64_t unk1;
-        uint64_t unk2;
+        hh::fnd::Reference<VisualLocator> currentLocator;
+        hh::fnd::Reference<VisualLocator> previousLocator;
         csl::math::Transform playerTransformBuf1;
         csl::math::Transform playerTransformBuf2;
         float unk5;
@@ -16,5 +16,7 @@ namespace app::player {
         VisualLocatorManager(csl::fnd::IAllocator* allocator, GOCPlayerVisual* gocPlayerVisual);
 
         void SetPlayerTransform(const csl::math::Transform& transform);
+        csl::math::Transform& GetPlayerTransform() const;
+        void SetVisualLocator(VisualLocator* newLocator, float a3, char a4);
     };
 }

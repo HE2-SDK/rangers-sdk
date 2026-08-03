@@ -32,7 +32,7 @@ namespace app::dv{
             Style style;
         };
 
-        int unk0; // adds +1 whenver it appears
+        int overlayJob;
 
         virtual bool AddCallback(int currentFrame, csl::math::Transform& transform) override;
         virtual void RemoveCallback() override;

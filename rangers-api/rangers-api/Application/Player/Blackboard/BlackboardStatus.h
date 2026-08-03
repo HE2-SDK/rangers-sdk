@@ -61,6 +61,7 @@ namespace app::player {
             DAMAGED_OR_REPELLED = 0x02,
             OUT_OF_CONTROL = 0x07,
             AUTO_RUN = 0x0A,
+            FIXED = 0x0E,
             CYBER_SPACE = 0x1E,
             WALL_JUMP_LAND = 0x22,
             POWER_BOOST = 0x28,

@@ -13,7 +13,7 @@ namespace app_cmn::rfl {
         void Setup(const SetupInfo& setupInfo);
 		virtual void* GetRuntimeTypeInfo() const override;
         void SetParameter(hh::fnd::ResReflection* resource, int idx);
-        hh::fnd::ResReflection* GetParameter(int idx, hh::fnd::RflClass* rflClass) const;
+        void* GetParameter(int idx, hh::fnd::RflClass* rflClass) const;
 
         template<typename T>
         inline T* GetParameter(int idx) const {

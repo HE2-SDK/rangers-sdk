@@ -46,7 +46,7 @@ namespace hh::gfx {
         hh::needle::RenderTextureCreateArgs::Flag rtFlags;
         uint8_t byte1E4;
         hh::needle::RenderingPipeline* pipeline;
-        uint64_t copyColor;
+        hh::needle::intrusive_ptr<hh::needle::CopyColor> copyColor;
         ShaderSettings shaderSettings;
         csl::ut::String name;
         NeedleRenderer* renderables[10];

@@ -21,8 +21,7 @@ namespace hh::fmv{
 
         MovieRenderObject* movieRenderObj;
         MyRenderable* renderable;
-        const char* usmFilePath;
-        int64_t qword30;
+        csl::ut::VariableString usmFilePath;
         csl::fnd::Thread thread;
         UnkStr1 unkStr1[3];
         float secondsRunning;

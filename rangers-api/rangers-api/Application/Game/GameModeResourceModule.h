@@ -36,5 +36,8 @@ namespace app::game {
         void SetLevelLoader(hh::game::LevelLoader* levelLoader);
         level::StageData* GetStageData();
         void CallUnkFunc3();
+        void LoadLevelOnce(const char* name); // doesn't load the level if it's already loaded
+        void LoadLevel(const char* name);
+        hh::game::GameManager* GetGameManager() const;
     };
 }

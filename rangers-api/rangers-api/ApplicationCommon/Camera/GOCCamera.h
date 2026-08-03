@@ -26,6 +26,7 @@ namespace app_cmn::camera {
         void DestroyControllerAll(CameraInterpolator* interpolator);
         bool PushController(hh::fnd::Handle<hh::fnd::Messenger>& cameraFrame, unsigned int controllerId, unsigned int unkParam1, CameraInterpolator* interpolator);
         bool PopController(unsigned int controllerId, CameraInterpolator* interpolator);
+        CameraController* GetControllerByID(unsigned int id) const;
 
     private:
         void PopCameraController(ControllerUnit& controllerUnit, CameraInterpolator* interpolator);

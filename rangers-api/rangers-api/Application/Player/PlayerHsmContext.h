@@ -67,11 +67,18 @@ namespace app::player {
         int GetCurrentState() const;
         bool SendMessageImm(hh::fnd::Handle<hh::fnd::Messenger>& receiver, hh::fnd::Message& message);
         csl::math::Vector3 GetKinematicParamsPosition() const;
+        csl::math::Quaternion GetKinematicParamsRotation() const;
         void ResetKinematicParamsVelocity();
         void CreateCameraInterpolator(unsigned int controllerId, int type);
         csl::math::Vector3 GetForwardTargetPosition() const;
         void Update(hh::fnd::UpdatingPhase phase, float deltaTime);
+		void SetPause(bool paused);
+		void SetFixed(bool paused);
+        void ChangeBottomState(int state);
+        void SetVisualLocatorStandFlat();
 
         static hh::snd::SoundHandle PlaySound(PlayerHsmContext* ctx, const char* soundName);
+        
+        virtual void OnSave(save::SaveManager* saveMgr) override;
     };
 }

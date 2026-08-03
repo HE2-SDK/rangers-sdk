@@ -1,9 +1,9 @@
 #pragma once
 
 namespace hh::ut {
-    class StateImpl;
-
     namespace internal {
+        class StateImpl;
+
         class StateDescImpl {
         public:
             typedef StateImpl* (*Instantiator)(csl::fnd::IAllocator* pAllocator);
@@ -22,5 +22,10 @@ namespace hh::ut {
             : StateDescImpl { name, instantiator, superState } {}
 
         virtual ~StateDesc() {}
+    };
+
+    struct StateDescID {
+        unsigned int id;
+        const StateDesc* desc;
     };
 }

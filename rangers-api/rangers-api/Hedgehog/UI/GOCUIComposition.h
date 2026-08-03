@@ -5,6 +5,7 @@ namespace hh::ui {
     class UIElementSearchIndex;
     class UIElementGroup;
     class UIElementGroupContainer;
+    class UIListener;
     class GOCUIComposition : public game::GOComponent {
     public:
         csl::ut::MoveArray<void*> unk101;
@@ -16,7 +17,7 @@ namespace hh::ui {
         csl::ut::MoveArray<UIElementGroup*> elementGroupsToBeUpdated;
         csl::ut::MoveArray<void*> unk108;
         SurfRide::Project* project;
-        uint64_t unk110;
+        UIListener* uiListener;
         uint32_t unk111;
         UITextInterface* textInterface;
         csl::ut::MoveArray<fnd::Reference<CastSizeBinder>> castSizeBinders;
@@ -30,7 +31,7 @@ namespace hh::ui {
 
         struct SetupInfo {
             uint32_t updatePriority;
-            uint64_t unk2;
+            UIListener* uiListener;
             uint32_t unk3;
         };
 

@@ -133,9 +133,14 @@ namespace app::player {
         void SetPosition(const csl::math::Vector4& position);
         void SetRotation(const csl::math::Matrix34& rotation);
         void SetRotation(const csl::math::Quaternion& rotation);
+        csl::math::Quaternion& GetRotation() const;
         void SetVelocity(const csl::math::Vector4& velocity);
         void SetGravityScale(float gravityScale);
         csl::math::Vector3 GetForwardTargetPosition() const;
+        csl::math::Vector3 GetRightVector() const;
+        GravityController* GetGravityController() const;
+        float GetLateralSpeed() const;
+        csl::math::Vector3 GetLateralVelocity() const;
 
         GOCOMPONENT_CLASS_DECLARATION(GOCPlayerKinematicParams)
     };

@@ -6,16 +6,10 @@ namespace hh::dv {
         class ScenePlaybackInfo : public hh::fnd::ReferencedObject{
         public:
             struct Info {
-                float dword0;
-                int dword4;
-                int dword8;
-                int dwordC;
-                int qword10;
-                int qword14;
-                int qword18;
-                int qword1C;
-                int qword20;
-                int qword24;
+                float curPageStart;
+                float curPageEnd;
+                int pageIndex;
+                char curPageName[32];
                 int qword28;
                 int qword2C;
                 int qword30;
@@ -36,6 +30,8 @@ namespace hh::dv {
                 Info();
 
                 bool UseInfo() const;
+                void SetPageIndex(int pageIdx);
+                void SetPage(const char* page);
             };
 
             hh::fnd::Handle<DvSceneControl> dvSceneControl;
@@ -61,7 +57,7 @@ namespace hh::dv {
         virtual bool ReceiveMessage(hh::fnd::Message& message) override;
         virtual void OnAddedToGame() override;
         virtual void OnRemovedFromGame() override;
-        virtual void OnCutsceneEnd() override;
+        virtual void OnCutsceneEnd(OnCutsceneEndInfo& info) override;
 
         virtual void Setup(Description& desc);
         virtual bool UnkFunc1() { return false; }

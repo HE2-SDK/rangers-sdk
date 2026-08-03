@@ -1,6 +1,8 @@
 #pragma once
 
 namespace SurfRide {
+    class DrawInterface;
+    
     struct BLUR3D_DATA {
         SRS_CELL3D cells[9];
         uint8_t unk1;
@@ -28,7 +30,7 @@ namespace SurfRide {
         float GetGainFrame(float deltaTime) const;
 
         virtual int64_t UnkFunc1() = 0;
-        virtual int64_t UnkFunc2() = 0;
+        virtual void Render(DrawInterface* drawInterface, void* uiRenderInfo, TextureList **textureLists) = 0;
         virtual int64_t UnkFunc3() = 0;
     };
 
@@ -40,7 +42,7 @@ namespace SurfRide {
         Blur3D(SRS_BLUR3D* binaryData, Cast* cast);
 
         virtual int64_t UnkFunc1();
-        virtual int64_t UnkFunc2();
+        virtual void Render(DrawInterface* drawInterface, void* uiRenderInfo, TextureList **textureLists);
         virtual int64_t UnkFunc3();
     };
 }

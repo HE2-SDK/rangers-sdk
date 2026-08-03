@@ -1,13 +1,16 @@
 #pragma once
+#include <ucsl/resources/sklpxd/v200.h>
 
 namespace hh::anim {
+    UCSL_NEWTYPE_STRUCT_SIMPLE(SkeletonPXDData, ucsl::resources::sklpxd::v200::SkeletonPXDData<rangerssdk::ucsl::AllocatorSystem>);
+
     class ResSkeletonPxd : public ResSkeleton {
     public:
-        uint64_t unk101;
+        SkeletonPXDData* sklPxdData;
         uint64_t unk102;
         csl::ut::MoveArray<void*> unk103;
         uint64_t unk104;
-        csl::ut::PointerMap<void*, void*> unk105;
+        csl::ut::StringMap<short> boneIndicesByName;
         uint64_t unk106;
 
         MANAGED_RESOURCE_CLASS_DECLARATION(ResSkeletonPxd)

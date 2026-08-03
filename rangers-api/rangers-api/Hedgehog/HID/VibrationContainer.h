@@ -11,7 +11,7 @@ namespace hh::hid{
             hh::hid::VibrationContainer* container;
             int handle;
 
-            VibrationObj();
+            inline VibrationObj() : container{ nullptr }, handle{ 0 } {}
             void Initialize();
             bool NotExists();
             void UnkFunc1();

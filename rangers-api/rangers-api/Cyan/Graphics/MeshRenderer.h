@@ -1,10 +1,26 @@
 #pragma once
 
 namespace Cyan::Graphics {
-    // class MeshRendererNeedle : public hh::needle::ModelInstanceRenderer {
+    class CyanModelCreationInfoCreator : public hh::needle::ModelCreationInfoCreator {
+    public:
+        virtual void SetupMaterialPass(
+            const hh::needle::MaterialResource* material, 
+            hh::needle::CNameIDObject* a3, 
+            const hh::needle::MaterialResourcePassSetupInfo* setupInfo, 
+            hh::needle::MaterialResourcePassMeasureInfo* measureInfo) const override;
+    };
 
-    // };
-    class MeshRendererNeedle;
+    class MeshRendererNeedle : public hh::needle::ModelInstanceRenderer {
+    public:
+        ManagerImpl* manager;
+        hh::needle::intrusive_ptr<hh::needle::ParameterValueObject> gammaCorrect;
+
+        virtual void SetupGatherRenderingPassContext(unsigned int idx, hh::needle::GatherRenderingPassContext* ctx) const override;
+        virtual void* CreateModel(hh::needle::MeshResource* mesh, hh::needle::RenderingDevice* renderingDevice, const Resource::ModelOption& modelOption) const;
+        virtual hh::needle::ParameterValueObject* CreateGlobalparamContainer(unsigned int unk0) const;
+
+        static MeshRendererNeedle* Create(System::IAllocator* allocator);
+    };
 
     class MeshRenderer : public Renderer {
     public:

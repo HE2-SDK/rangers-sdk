@@ -19,5 +19,7 @@ namespace SurfRide
 		inline SRS_CAMERA& GetCameraData() { return camera; }
 	};
 
+	static SrScreenResolution srScreenResolution;
 	SrScreenResolution GetScreenResolution();
+	void SetScreenResolution(const SrScreenResolution& resolution);
 }

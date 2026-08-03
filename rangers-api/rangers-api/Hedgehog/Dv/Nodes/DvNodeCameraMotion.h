@@ -17,7 +17,7 @@ namespace hh::dv{
         };
 
         Description binaryData;
-        csl::ut::MoveArray<void*> cameras;
+        csl::ut::MoveArray<needle::intrusive_ptr<needle::AnimCameraControl>> cameras;
         int unk3;
         bool cameraEnabled;
 

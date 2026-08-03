@@ -69,6 +69,7 @@ namespace hh::game {
         void DespawnByIndex(int index);
         ObjectDataAccessor GetObjectDataByObjectId(ObjectId id) const;
         ObjectDataAccessor GetObjectDataByName(const char* name) const;
+        void GetObjectDataByClass(csl::ut::MoveArray<ObjectDataAccessor>& out, const GameObjectClass* objectClass);
         GameObject* Spawn(const ObjectData* objectData);
         GameObject* SpawnByObjectId(ObjectId id);
         GameObject* SpawnByObjectId(ObjectId id, ObjectAttribute filter);

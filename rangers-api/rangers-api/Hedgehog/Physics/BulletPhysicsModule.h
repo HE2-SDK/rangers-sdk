@@ -9,7 +9,7 @@ namespace hh::physics {
 
         static BulletPhysicsModule* instance;
         static BulletPhysicsModule* Create(csl::fnd::IAllocator*);
-        virtual void AddCallback() override;
+        virtual void AddCallback(hh::fw::Application* app) override;
         virtual void RemoveCallback() override;
     };
 }

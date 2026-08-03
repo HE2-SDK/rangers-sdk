@@ -21,7 +21,7 @@ namespace hh::game {
 
         virtual void Reset() override;
         virtual void Shutdown() override;
-        virtual uint64_t UnkFunc9() override;
+        virtual uint64_t Tick() override;
         virtual void UnkFunc10() {}
     };
 }

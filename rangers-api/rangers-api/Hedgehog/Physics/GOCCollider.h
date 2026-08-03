@@ -54,13 +54,15 @@ namespace hh::physics {
         ColliShapeParameters parameters;
     };
 
-    class GOCCollider;
+    class MsgTriggerEnter;
+    class MsgTriggerLeave;
+    class MsgTriggerStay;
     class GOCColliderListener {
     public:
         virtual ~GOCColliderListener() = default;
-        virtual void GOCCL_UnkFunc1(GOCCollider* collider) {}
-        virtual void GOCCL_UnkFunc2(GOCCollider* collider) {}
-        virtual void GOCCL_UnkFunc3(GOCCollider* collider) {}
+        virtual void OnEnter(hh::physics::MsgTriggerEnter& msg) {}
+        virtual void OnStay(hh::physics::MsgTriggerStay& msg) {}
+        virtual void OnLeave(hh::physics::MsgTriggerLeave& msg) {}
     };
 
     class GOCCollider : public game::GOComponent, public fnd::HFrame::Listener {
@@ -69,6 +71,41 @@ namespace hh::physics {
             ENTER, //reacts to MsgColliderQueryStart
             LEAVE, //reacts to MsgColliderQueryLeave
             STAY //reacts to MsgColliderQueryStay
+        };
+
+        enum class LayerType : int8_t {
+            NONE = 0,
+            SOLID = 1,
+            LIQUID = 2,
+            THROUGH = 3,
+            CAMERA = 4,
+            SOLID_ONEWAY = 5,
+            SOLID_THROUGH = 6,
+            SOLID_TINY = 7,
+            SOLID_DETAIL = 8,
+            LEAF = 9,
+            LAND = 10,
+            RAYBLOCK = 11,
+            EVENT = 12,
+            RESERVED13 = 13,
+            RESERVED14 = 14,
+            PLAYER = 15,
+            ENEMY = 16,
+            ENEMY_BODY = 17,
+            GIMMICK = 18,
+            DYNAMICS = 19,
+            RING = 20,
+            CHARACTER_CONTROL = 21,
+            PLAYER_ONLY = 22,
+            DYNAMICS_THROUGH = 23,
+            ENEMY_ONLY = 24,
+            SENSOR_PLAYER = 25,
+            SENSOR_RING = 26,
+            SENSOR_GIMMICK = 27,
+            SENSOR_LAND = 28,
+            SENSOR_ALL = 29,
+            RESERVED30 = 30,
+            RESERVED31 = 31,
         };
 
         struct SetupInfo {
@@ -81,9 +118,10 @@ namespace hh::physics {
             ColliShape::Type shapeType;
             uint8_t unk2;
             csl::ut::Bitset<Flag> flags;
-            uint16_t filterCategory;
+            char unk0;
+            LayerType layer;
             csl::ut::Bitset<OverlapFlag> overlapFlags;
-            uint32_t unk4;
+            uint32_t hitFlags;
             uint32_t unk5;
             uint32_t unk6;
             uint32_t unk7;
@@ -104,7 +142,7 @@ namespace hh::physics {
         };
 
         uint64_t pad; // probably some of the next data is actually one big block that's 16 aligned
-        uint64_t unk101;
+        GOCColliderImpl* impl;
         fnd::HFrame* frame;
         fnd::HFrame* frame2;
         fnd::WorldPosition transformedWorldPosition;
@@ -112,18 +150,18 @@ namespace hh::physics {
         csl::math::Vector3 scale;
         ColliShape::Type shapeType;
         uint8_t unk104b;
-        uint8_t filterCategory;
+        /*LayerType*/ char filterCategory;
         csl::ut::Bitset<Flag> flags;
         csl::ut::Bitset<OverlapFlag> overlapFlags;
-        uint32_t unk106;
+        uint32_t filterFlags;
         uint32_t unk106b;
         uint32_t unk107;
         PhysicsWorld* physicsWorld;
-        csl::ut::InplaceMoveArray<void*, 1> unk109; // incorrect, the inner obj here is actually 2 floats
+        csl::ut::InplaceMoveArray<GOCColliderListener*, 1> listeners;
         csl::ut::MoveArray<void*> unk110;
         uint64_t unk111;
-        float unk112;
-        float unk113;
+        float friction;
+        float restitution;
 
         GOCCollider(csl::fnd::IAllocator* allocator);
 
@@ -139,7 +177,11 @@ namespace hh::physics {
         void RemoveListener(GOCColliderListener* listener);
         void SetEnabled(bool enabled);
         void SetFrame(fnd::HFrame* frame);
+        void SetPosition(const csl::math::Vector3& position);
         void SetRotation(const csl::math::Quaternion& rotation);
+        void SendEnterMessage(GOCCollider* actor);
+        void SendStayMessage(GOCCollider* actor);
+        void SendLeaveMessage(GOCCollider* actor);
 
 #ifndef NO_EIGEN_MATH
         inline csl::math::Matrix34 GetWorldTransform() const {

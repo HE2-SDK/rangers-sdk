@@ -32,7 +32,8 @@ namespace Cyan {
             System::Random* random;
             char flags;
             float fps;
-            float unk2b[2];
+            float currentTime;
+            float unk2b;
             void* colorSet;
             RandomSetType randomSetType;
             int32_t unk4;
@@ -55,7 +56,7 @@ namespace Cyan {
 
         void InitAnimation(const CreateParam& createParam);
         void Update(float time);
-        unsigned int GetValue(int count) const;
+        float GetValue(int idx) const;
         unsigned int GetValues(float* values, int count) const;
         float GetKeyValue(const CurveStatus* curveStatus, int key);
         unsigned short GetCurveNum() const;

@@ -78,7 +78,7 @@ namespace hh::needle {
         virtual void SetBlendModeWithAlpha(bool enabled, BlendMode src, BlendMode dst, BlendOp op, BlendMode alphaSrc, BlendMode alphaDst, BlendOp alphaOp) = 0;
         virtual void SetBlendMode(bool enabled, BlendMode src, BlendMode dst, BlendOp op) = 0;
         virtual void SetViewport(const ViewportSetting* viewportSetting, unsigned int count) = 0;
-        virtual void UnkFunc66() = 0;
+        virtual void SetViewportSetting(const ViewportSetting* viewportSetting, unsigned int count) = 0;
         virtual void SetScissor(const Rectangle* scissorRects, unsigned int count) = 0;
         virtual uint64_t UnkFunc68() = 0;
         virtual uint64_t UnkFunc69(bool enabled, int64_t* bits) = 0;

@@ -158,6 +158,7 @@ namespace hh::needle {
         uint32_t GetMaterialInstanceParameterCount() const;
         void* GetElementData() const;
         uint32_t GetElementSize() const;
+        int GetHintParameter(CNameIDObject* textureName, CNameIDObject* name, ParameterHintValue* values, unsigned int count) const;
     };
 
     bool LoadMirageMaterial2(RenderingDevice* renderingDevice, const void* data, MaterialResource** resource);
@@ -173,4 +174,7 @@ namespace hh::needle {
         bool unk1;
     };
     void ExecuteChunk(SCheckexec& check, const MaterialChunkBuilder::ParameterInfo* parameterInfos, unsigned int parameterCount, void* data, bool unk);
+    CNameIDObject* GetMirageMaterialTextureNameType();
+    CNameIDObject* GetMaterialParameterGatherRenderingPassType();
+    CNameIDObject* GetMaterialParameterPriorityName();
 }

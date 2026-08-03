@@ -45,5 +45,9 @@ namespace hh::game {
         virtual void* DoStep(const GameStepInfo& stepInfo) override;
 		virtual void ObjectAddedToLayerCallback(GameObject* gameObject, int layer) override;
 		virtual void ObjectRemovedFromLayerCallback(GameObject* gameObject, int layer) override;
+
+        void UpdateGameManagerTime(const GameStepInfo& stepInfo);
+        void FireGameManagerObjectOperations(const GameStepInfo& stepInfo);
+        void UpdateBucket(unsigned int idx, const GameStepInfo& stepInfo);
     };
 }

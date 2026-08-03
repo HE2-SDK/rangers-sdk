@@ -3,7 +3,7 @@
 namespace app::snd {
     class BgmIdExtension : public SoundDirectorExtension, public app::evt::EventPlayerListener {
     public:
-        static constexpr const char* name = "BgmId";
+        static constexpr const char* name = "BgmIdExtension";
 
         struct Unk1 {
             uint32_t dwordA0;

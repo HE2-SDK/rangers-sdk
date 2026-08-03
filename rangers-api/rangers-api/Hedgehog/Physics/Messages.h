@@ -7,6 +7,8 @@ namespace hh::physics {
         GOCCollider* actor;
 
         MsgTriggerBase(fnd::MessageID id, GOCCollider* subject, GOCCollider* actor);
+        hh::fnd::Handle<hh::game::GameObject> GetActorObject() const;
+        csl::math::Vector3 GetContactPoint() const;
     };
     class MsgTriggerEnter : public MsgTriggerBase {
     public:
@@ -22,7 +24,9 @@ namespace hh::physics {
     public:
         fnd::Handle<GOCCollider> subject;
         fnd::Handle<GOCCollider> actor;
+        
         MsgTriggerLeave(const fnd::Handle<GOCCollider>& subject, const fnd::Handle<GOCCollider>& actor);
 		virtual fnd::MessageAsyncHandler* CreateAsyncHandler(csl::fnd::IAllocator* allocator) override;
+        hh::fnd::Handle<hh::game::GameObject> GetActorObject() const;
     };
 }

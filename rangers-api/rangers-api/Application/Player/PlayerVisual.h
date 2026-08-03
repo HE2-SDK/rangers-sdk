@@ -49,7 +49,7 @@ namespace app::player {
         virtual void SetupEffects() {}
         virtual void UnkFunc4() {}
         virtual void UnkFunc5();
-        virtual void UnkFunc6();
+        virtual void SetEffectsVisibility(bool visible);
         virtual void OnStart() = 0;
         virtual void OnEnd() = 0;
 

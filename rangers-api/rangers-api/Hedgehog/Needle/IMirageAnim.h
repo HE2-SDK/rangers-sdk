@@ -19,12 +19,12 @@ namespace hh::needle{
     };
 
     template<typename T>
-    class AnimBlender : public IMirageAnim<int, typename T::Result> {
+    class AnimBlender : public IMirageAnim<typename T::ID, typename T::Result> {
     public:
         unsigned int animationCount;
         T** controls;
 
-        virtual bool GetResult(int* idx, T::Result* ret) override;
+        virtual bool GetResult(T::ID* idx, T::Result* ret) override;
         virtual void* UnkFunc1() override;
         virtual int UnkFunc2() override;
     };

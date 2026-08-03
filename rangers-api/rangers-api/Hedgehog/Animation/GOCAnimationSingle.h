@@ -17,6 +17,7 @@ namespace hh::anim {
             UNK2,
         };
         enum class Flag : uint8_t {
+            ENABLED = 0,
             UNK2 = 2,
             HAS_SKELETON = 5, // uses model skeleton if not
             SET_POSE = 6,
@@ -61,6 +62,7 @@ namespace hh::anim {
         void SetStateUpdateFlag(bool enabled);
         void SetPose(bool enabled);
         Pose* GetPose() const;
+        void Enable(bool enabled);
 
         void AddAnimationEnabledListener(AnimationEnabledListener* listener);
         void RemoveAnimationEnabledListener(AnimationEnabledListener* listener);

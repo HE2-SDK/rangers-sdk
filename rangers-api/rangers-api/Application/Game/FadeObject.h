@@ -10,13 +10,19 @@ namespace app::game{
         };
 
         hh::ui::LayerController* layerController;
-        int64_t unk1;
+        float currentFadeTime;
+        float endFadeTime;
         char renderPriority;
-        float unk3;
+        float curDeltaFadeTime; // 0.0 -> 1.0
 
         virtual void AddCallback(hh::game::GameManager* gameManager) override;
 
         void Setup(Description& desc);
+        void Fade(float endTime);
+        void FadeOut(float endTime);
+        void Fade(float endTime, char startAlpha);
+        bool IsFading();
+        bool IsFadeOver();
 
         GAMEOBJECT_CLASS_DECLARATION(FadeObject)
     };

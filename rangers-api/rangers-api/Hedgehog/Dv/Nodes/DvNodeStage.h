@@ -5,8 +5,7 @@ namespace hh::dv{
     public:
         struct Description : DvNodeBase::Description {
             int unk0;
-            int unk1;
-            char unk2[132];
+            char stageName[136];
             int unk3;
             int unk4;
         };

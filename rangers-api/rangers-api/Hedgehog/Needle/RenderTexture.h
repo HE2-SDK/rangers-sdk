@@ -60,7 +60,7 @@ namespace hh::needle {
             UNK9,
         };
 
-        uint8_t unk101;
+        bool destroySceneContextManager;
         intrusive_ptr<RenderTarget> renderTargets1[4];
         intrusive_ptr<Texture> renderTargetTextures1[4];
         intrusive_ptr<RenderTarget> renderTargets2[4];
@@ -74,7 +74,7 @@ namespace hh::needle {
         csl::math::Vector4 clearColor;
         unsigned int clearedTextureCount;
         RenderTextureCreateArgs::Flag flags;
-        FxRenderTextureCamera* camera;
+        intrusive_ptr<FxRenderTextureCamera> camera;
         uint32_t unk115;
         int unk116;
         int unk117;

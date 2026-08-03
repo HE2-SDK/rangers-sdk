@@ -38,9 +38,17 @@ namespace hh::physics {
         uint32_t unk109;
         uint16_t unk110;
         bool unk111;
-        uint64_t unk112;
+        float deltaTime;
+        uint32_t unk112;
         uint64_t unk113;
     public:
+        struct Description {
+            short unk110;
+            bool unk111;
+            int unk112;
+            int unk113;
+        };
+
         PhysicsWorld(csl::fnd::IAllocator* allocator);
         virtual void* GetRuntimeTypeInfo() const override;
 		virtual void OnAddedToGame() override;
@@ -64,6 +72,9 @@ namespace hh::physics {
         void RemoveCollider(GOCCollider* collider);
         bool RayCastClosest(const csl::math::Vector3& from, const csl::math::Vector3& to, uint32_t filterMask, PhysicsQueryResult& result);
         bool RayCastAllHits(const csl::math::Vector3& from, const csl::math::Vector3& to, uint32_t filterMask, csl::ut::MoveArray<PhysicsQueryResult>& result);
+        void SetDeltaTime(float deltaTime);
+        void Setup(Description& desc);
+        void AddToQueue(const EventQueue::QueueEntryDesc& desc);
         
         inline static const hh::game::GameServiceClass* GetClass();
     };
