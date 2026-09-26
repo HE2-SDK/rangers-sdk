@@ -11,7 +11,7 @@ set(CMAKE_ASM_MASM_CREATE_STATIC_LIBRARY "<CMAKE_AR> /OUT:<TARGET> <LINK_FLAGS> 
 set(UCSL_EIGEN_MATH ON)
 
 include(FetchContent)
-FetchContent_Declare(universal-cslib GIT_REPOSITORY https://github.com/Ashrindy/universal-cslib.git GIT_TAG main FIND_PACKAGE_ARGS)
+FetchContent_Declare(universal-cslib GIT_REPOSITORY https://github.com/angryzor/universal-cslib.git GIT_TAG v1.0.52 FIND_PACKAGE_ARGS)
 FetchContent_MakeAvailable(universal-cslib)
 
 add_library(rangers-sdk STATIC)
