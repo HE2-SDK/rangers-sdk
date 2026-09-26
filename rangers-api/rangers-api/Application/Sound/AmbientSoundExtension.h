@@ -22,8 +22,8 @@ namespace app::snd {
 
         virtual ~AmbientSoundExtension();
         virtual unsigned int GetNameHash() const;
-        virtual void UnkFunc2() {}
-        virtual void UnkFunc3();
+        virtual void AddCallback() {}
+        virtual void RemoveCallback();
         virtual void Update(hh::fnd::SUpdateInfo updateInfo);
         virtual bool ProcessMessage(hh::fnd::Message& message);
     };

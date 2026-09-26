@@ -3,17 +3,15 @@
 namespace app::game {
     class GravityManager : public hh::game::GameService, public hh::game::GameStepListener, public hh::game::EditorStepListener {
     public:
-        class UnkStr : public hh::ut::KdTreeBuilder {
-        public:
-            void* unk0;
-            void* unk1;
-        };
-
         int unk0;
-        UnkStr unk1[5];
-        csl::math::Vector4 unk2;
-        hh::ut::AabbTree* aabbTree;
-        int64_t unk3;
+        csl::ut::LinkList<GOCGravity::GravityPhantom> unk1;
+        csl::ut::LinkList<GOCGravity::GravityPhantom> unk2;
+        csl::ut::LinkList<GOCGravity::GravityPhantom> unk4;
+        csl::ut::LinkList<GOCGravity::GravityPhantom> gravityPhantoms;
+        csl::ut::LinkList<GOCGravity::GravityPhantom> unk5;
+        csl::math::Vector3 gravityDirection;
+        hh::fnd::Reference<hh::ut::AabbTree> aabbTree;
+        int64_t unk6;
 
         virtual void OnAddedToGame() override;
         virtual void OnRemovedFromGame() override;

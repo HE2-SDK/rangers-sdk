@@ -14,7 +14,7 @@ namespace app::player {
         csl::ut::MoveArray<hh::fnd::Reference<EffectList>> effectLists;
         csl::ut::StringMap<void*> unk203;
         uint64_t unk204;
-        uint32_t unk205;
+        uint32_t currentEffectLocatorId;
         uint8_t unk206;
 
         virtual void* GetRuntimeTypeInfo() const override;

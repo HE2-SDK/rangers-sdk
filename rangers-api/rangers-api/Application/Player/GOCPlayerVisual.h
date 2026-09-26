@@ -57,6 +57,10 @@ namespace app::player {
         void RemoveListener(PlayerVisualListener* listener);
         
         csl::math::Transform& GetPlayerTransform() const;
+        
+        bool IsFlagContained(const char* flag, int layer);
+        void ChangeAnimatorState(const char* stateName, char componentCollectionIndex);
+        bool IsAnimatorFinished(int layer);
 
         GOCOMPONENT_CLASS_DECLARATION(GOCPlayerVisual)
     };

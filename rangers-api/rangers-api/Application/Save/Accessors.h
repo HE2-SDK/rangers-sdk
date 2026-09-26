@@ -144,9 +144,9 @@ namespace app::save {
     class OptionAudioAc : public SaveDataAccessor<OptionAudioData> {
     public:
         unsigned char GetMasterVolume() const;
-        unsigned char GetSfxVolume() const;
-        unsigned char GetMusicVolume() const;
-        unsigned char GetVoiceVolume() const;
+        float GetSfxVolume() const;
+        float GetMusicVolume() const;
+        float GetVoiceVolume() const;
         app::save::OptionAudioData::MusicSelect GetMusicSelectEnable() const;
         app::save::OptionAudioData::MusicSelectType GetMusicSelectType() const;
         bool GetBoostAisac() const; // == flag 0

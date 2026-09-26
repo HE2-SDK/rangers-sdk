@@ -6,8 +6,9 @@ namespace app::player {
         struct Unk2 {
             csl::math::Vector3 pad1[5];
         };
-        uint64_t qword18;
-        hh::game::GOComponent* gocCollisionCache;
+
+        hh::physics::PhysicsWorldBullet* physicsWorldBullet;
+        hh::physics::GOCCollisionCache* gocCollisionCache;
         float distance;
         float qword2C;
         float dword30;
@@ -15,6 +16,8 @@ namespace app::player {
         csl::ut::InplaceMoveArray<Unk2, 64> unk40;
         csl::ut::MoveArray<void*> unk1460;
         uint8_t byte1480;
+
+        void SetCollisionCache(hh::physics::GOCCollisionCache* gocCollisionCache);
 
         DEFAULT_CREATE_FUNC(PlayerCollision);
     };

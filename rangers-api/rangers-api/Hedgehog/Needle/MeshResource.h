@@ -3,14 +3,16 @@
 #define NEEDLE_RESOURCE_MESH_RESOURCE 0x305345524853454Dui64 // '0SERHSEM'
 
 namespace hh::needle {
+    class GraphicsBlob;
+
     class MeshResource : public TNeedleRefcountResource<NEEDLE_RESOURCE_MESH_RESOURCE, NeedleRefcountResource> {
     public:
-        uint64_t qword18;
-        uint64_t qword20;
+        CNameIDObject* qword18;
+        MaterialResourceReference** materialResourceReferences;
         unsigned short* materialIndices;
         CNameIDObject** materialNames;
         MaterialResource** materialResources;
-        uint64_t qword40;
+        GraphicsBlob* qword40;
         char pad48[32];
         MaterialResource** nodeMaterialResources;
         uint64_t qword70;

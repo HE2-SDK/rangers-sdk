@@ -292,6 +292,7 @@ namespace hh::ui {
         LayerController* GetItemLayerController(UIListViewItem* item);
         LayerController* GetCurrentItemViewLayerController();
         void NUnkFunc1(int a2, char a3, char a4);
+        UIScrollBarElement* GetScrollBarElement() const;
         virtual void* GetRuntimeTypeInfo() const override;
         virtual void Update(const fnd::SUpdateInfo& updateInfo) override;
         virtual void UpdateAsync(const fnd::SUpdateInfo& updateInfo) override;

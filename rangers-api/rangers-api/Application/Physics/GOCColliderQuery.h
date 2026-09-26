@@ -24,7 +24,7 @@ namespace app::physics {
         struct Description {
             hh::fnd::HFrame* hframe;
             int32_t hitFlags;
-            int32_t qword148;
+            int32_t layer;
             csl::ut::Bitset<OverlapFlag> ownerOverlapFlags;
             int64_t qword158;
             csl::math::Transform worldTransform;
@@ -39,7 +39,7 @@ namespace app::physics {
         csl::math::Transform worldTransform;
         Shape shape;
         uint32_t hitFlags;
-        uint32_t qword148;
+        uint32_t layer;
         hh::physics::PhysicsWorldBullet* physicsWorld;
         uint64_t qword158;
         csl::ut::Bitset<OverlapFlag> ownerOverlapFlags;
@@ -48,7 +48,7 @@ namespace app::physics {
         GOCColliderQuery(csl::fnd::IAllocator* allocator);
 		virtual void* GetRuntimeTypeInfo() const override;
 		virtual void OnGOCEvent(GOCEvent event, hh::game::GameObject& ownerGameObject, void* data) override;
-        virtual bool UnkFunc101(void* unkParam1, void* unkParam2);
+        virtual bool UpdatePhysicsJob(const hh::game::GameStepInfo& gameStepInfo, hh::physics::PhysicsOverlapJob* physicsJob) = 0;
         virtual void HFrameUpdatedCallback(const hh::fnd::HFrame* frame, bool unkParam) override;
 		virtual void PostStepCallback(hh::game::GameManager* gameManager, const hh::game::GameStepInfo& gameStepInfo) override;
 		virtual void UpdateCallback(hh::game::GameManager* gameManager, const hh::game::GameStepInfo& gameStepInfo) override;
@@ -57,6 +57,7 @@ namespace app::physics {
         void SetPosition(csl::math::Vector3& position);
         void SetEnabled(bool enabled);
         void Setup(const Description& desc);
+        bool IsEnabled() const;
 
         GOCOMPONENT_CLASS_DECLARATION(GOCColliderQuery);
     };

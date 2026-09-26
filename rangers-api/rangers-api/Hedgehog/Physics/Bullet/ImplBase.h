@@ -1,11 +1,14 @@
 #pragma once
 
-namespace hh::physics::bullet{
+namespace hh::physics {
+    class PhysicsWorldBullet;
+}
+
+namespace hh::physics::bullet {
     class ImplBase {
     public:
-        virtual void Init() = 0;
-        virtual void UnkFunc1(int64_t a2) = 0;
+        virtual void OnAddedCallback() = 0;
+        virtual void OnRemovedCallback(PhysicsWorldBullet* physicsWorldBullet, game::GameObject& ownerGameObject, void* data) = 0;
         virtual void* GetRuntimeTypeInfo() const = 0;
-        virtual ~ImplBase() = 0;
     };
 }

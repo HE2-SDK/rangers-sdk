@@ -11,7 +11,7 @@ namespace app::snd {
             uint64_t qwordA8;
         };
 
-        uint64_t qword20;
+        level::StageData* stageData;
         uint32_t dword28;
         int qword2C;
         unsigned int qword30;
@@ -37,8 +37,8 @@ namespace app::snd {
 
         virtual ~BgmIdExtension();
         virtual unsigned int GetNameHash() const override;
-        virtual void UnkFunc2() override;
-        virtual void UnkFunc3() override;
+        virtual void AddCallback() override;
+        virtual void RemoveCallback() override;
         virtual void Update(hh::fnd::SUpdateInfo updateInfo) override;
         virtual bool ProcessMessage(hh::fnd::Message& message) override;
 

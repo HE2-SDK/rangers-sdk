@@ -3,15 +3,11 @@
 namespace app::player {
     class GOCPlayerPath : public hh::game::GOComponent {
     public:
-        struct UnkStr {
-            hh::fnd::Handle<hh::path::PathComponent> pathComponent;
-            int dword4;
-            int dword8;
-        };
-
-        UnkStr qword80[6];
+        hh::path::PathEvaluator pathEvaluators[6];
 
 		virtual void* GetRuntimeTypeInfo() const override;
+
+        hh::path::PathEvaluator& GetPathEvaluator(int index) const;
 
         GOCOMPONENT_CLASS_DECLARATION(GOCPlayerPath);
     };

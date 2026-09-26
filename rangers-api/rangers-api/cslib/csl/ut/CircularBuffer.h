@@ -21,7 +21,7 @@ namespace csl::ut {
 	
 	public:
 		void reserve(size_t capacity) {
-			m_pBegin = static_cast<T*>(m_pAllocator->Alloc(sizeof(T) * capacity, 16));
+			m_pBegin = static_cast<T*>(m_pAllocator->Alloc(sizeof(T) * capacity, alignof(T)));
 			m_pEnd = m_pBegin + capacity;
 			m_pFirst = m_pBegin;
 			m_pLast = m_pBegin;

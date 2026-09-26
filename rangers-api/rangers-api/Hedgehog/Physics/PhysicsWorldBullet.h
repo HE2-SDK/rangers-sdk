@@ -23,12 +23,12 @@ namespace hh::physics {
         };
 
         uint32_t unk201[32];
-        uint64_t unk202;
-        uint64_t unk203;
-        uint64_t unk204;
-        uint64_t unk205;
-        uint64_t unk206;
-        uint64_t unk207;
+        btSoftBodyRigidBodyCollisionConfiguration* bulletSoftBodyCollisionConfig;
+        btCollisionDispatcher* bulletCollisionDispatcher;
+        btDbvtBroadphase* bulletDbvtBroadPhase;
+        btConstraintSolver* bulletConstraintSolver;
+        btDiscreteDynamicsWorld* bulletDynamicsWorld;
+        btITaskScheduler* bulletTaskScheduler;
         bullet::OverlapFilterCallback overlapFilterCallback;
         btGhostPairCallback ghostPairCallback;
         csl::ut::MoveArray<int64_t> qword288;

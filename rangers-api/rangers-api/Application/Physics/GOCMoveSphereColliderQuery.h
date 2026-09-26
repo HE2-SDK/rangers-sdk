@@ -14,7 +14,7 @@ namespace app::physics {
 
         GOCMoveSphereColliderQuery(csl::fnd::IAllocator* allocator);
 		virtual void* GetRuntimeTypeInfo() const override;
-        virtual bool UnkFunc101(void* unkParam1, void* unkParam2) override;
+        virtual bool UpdatePhysicsJob(const hh::game::GameStepInfo& gameStepInfo, hh::physics::PhysicsOverlapJob* physicsJob) override;
 
         void SetRadius(float radius);
         void Setup(const Description& desc);

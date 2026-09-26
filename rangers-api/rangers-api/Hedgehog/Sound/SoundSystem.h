@@ -11,7 +11,7 @@ namespace hh::snd {
     class SoundSystem : public fnd::BaseObject, public csl::fnd::Singleton<SoundSystem> {
     public:
         char rootDirectory[64];
-        csl::ut::InplaceMoveArray<void*, 6> unk2;
+        csl::ut::InplaceMoveArray<SoundPlaybackObject*, 6> playbackObjects;
 
         SoundSystem(csl::fnd::IAllocator* allocator);
         virtual void* GetRuntimeTypeInfo() const;
@@ -25,7 +25,7 @@ namespace hh::snd {
 
     class SoundSystemCri : public SoundSystem {
     public:
-        csl::ut::MoveArray<void*> unk101;
+        csl::ut::MoveArray<SoundCueCri*> cues;
 
         CREATE_FUNC(SoundSystemCri, const SoundCueCri::PoolParam* poolParam);
         virtual void* GetRuntimeTypeInfo() const override;
@@ -38,5 +38,6 @@ namespace hh::snd {
         void RemoveListener(SoundSystemListener* listener);
         void OnPostRegisterData(unsigned int index);
         void OnPreUnregisterData(unsigned int index);
+        SoundCueCri* GetCue(unsigned int category);
     };
 }

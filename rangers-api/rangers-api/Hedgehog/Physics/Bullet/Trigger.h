@@ -10,8 +10,8 @@ namespace hh::physics::bullet {
         GhostOverlapFilterCallback overlapFilterCallback;
         csl::ut::InplaceMoveArray<int64_t, 10> qword70;
 
-        virtual void Init() override;
-        virtual void UnkFunc1(int64_t a2) override;
+        virtual void OnAddedCallback() override;
+        virtual void OnRemovedCallback(PhysicsWorldBullet* physicsWorldBullet, game::GameObject& ownerGameObject, void* data) override;
         virtual void* GetRuntimeTypeInfo() const override;
         virtual void SetTransform(fnd::WorldPosition& transform, char stateUpdateType, void* data) override;
         virtual void SetObjectLayer(char objectLayer, void* unk, void* data) override;

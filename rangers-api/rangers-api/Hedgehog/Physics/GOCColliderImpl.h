@@ -39,9 +39,9 @@ namespace hh::physics {
 
     class GOCColliderBullet : public GOCColliderImpl {
     public:
-        bullet::Trigger* collider;
+        bullet::Collider* collider;
         bullet::Trigger trigger;
-        char byteF0;
+        bool hasCustomCollider;
         fnd::Reference<bullet::CollisionShape> collisionShape;
 
         virtual void OnAdded(GOCCollider* gocCollider) override;
@@ -54,6 +54,8 @@ namespace hh::physics {
         virtual void UnkFunc7() override;
         virtual void UnkFunc8() override;
         virtual void UnkFunc9() override;
+
+        void SetCollider(GOCCollider* gocCollider, bullet::Collider* collider);
 
         GOCColliderBullet();
     };

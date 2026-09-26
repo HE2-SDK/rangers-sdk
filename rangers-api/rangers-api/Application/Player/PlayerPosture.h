@@ -14,6 +14,10 @@ namespace app::player {
 
         bool IsFixed() const;
         Player* GetPlayerObject() const;
+        bool IsGrounded() const;
+        GOCPlayerKinematicParams::GroundInfo& GetGroundInfo() const;
+        hh::path::PathEvaluator& GetPathEvaluator(int index) const;
+        bool IsBoosting() const;
 
         PlayerPostureContext(csl::fnd::IAllocator* allocator, Player* playerObject);
     };

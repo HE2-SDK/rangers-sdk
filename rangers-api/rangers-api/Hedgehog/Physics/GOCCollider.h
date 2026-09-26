@@ -108,6 +108,69 @@ namespace hh::physics {
             RESERVED31 = 31,
         };
 
+        enum class MaterialType : unsigned char {
+            NONE,
+            STONE,
+            EARTH,
+            WOOD,
+            GRASS,
+            IRON,
+            SAND,
+            LAVA,
+            GLASS,
+            SNOW,
+            NO_ENTRY,
+            ICE,
+            WATER,
+            SEA,
+            DAMAGE,
+            DEAD,
+            FLOWER0,
+            FLOWER1,
+            FLOWER2,
+            AIR,
+            DEADLEAVES,
+            WIREMESH,
+            DEAD_ANYDIR,
+            DAMAGE_THROUGH,
+            DRY_GRASS,
+            RELIC,
+            GIANT,
+            GRAVEL,
+            MUD_WATER,
+            SAND2,
+            SAND3
+        };
+
+        struct CollisionInfo {
+            LayerType layer;
+            uint8_t unk0;
+            uint8_t unk1;
+            MaterialType material;
+
+            CollisionInfo();
+            void Reset();
+            MaterialType GetMaterialType() const;
+            CollisionInfo& operator=(unsigned int other);
+            inline CollisionInfo& operator=(LayerType layerType) {
+                layer = layerType;
+                return *this;
+            }
+            inline CollisionInfo& operator=(MaterialType materialType) {
+                material = materialType;
+                return *this;
+            }
+            inline bool operator==(LayerType layerType) {
+                return layer == layerType;
+            }
+            inline bool operator==(MaterialType materialType) {
+                return material == materialType;
+            }
+            inline operator unsigned int() const {
+                return *(unsigned int*)this;
+            }
+        };
+
         struct SetupInfo {
             enum class Flag : uint8_t {
                 HAS_POSITION,

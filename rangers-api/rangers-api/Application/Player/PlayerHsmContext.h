@@ -76,6 +76,13 @@ namespace app::player {
 		void SetFixed(bool paused);
         void ChangeBottomState(int state);
         void SetVisualLocatorStandFlat();
+        csl::math::Matrix34 GetKinematicsParamsWorldMatrix() const;
+        unsigned int GetRingCount() const;
+        bool IsPowerBoost() const;
+        bool TestActionMonitor(int actionMonitorIndex, float priorityInputTime, int requiredCount);
+        void ClearActionMonitorHistory(int actionMonitorIndex);
+        bool IsGrounded() const;
+        hh::game::GameManager* GetGameManager() const;
 
         static hh::snd::SoundHandle PlaySound(PlayerHsmContext* ctx, const char* soundName);
         

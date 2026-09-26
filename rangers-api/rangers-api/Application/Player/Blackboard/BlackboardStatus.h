@@ -36,9 +36,11 @@ namespace app::player {
             SIDE_STEP = 0x05,
             PARRY = 0x0F,
             PERFECT_PARRY = 0x10,
+            HOMING_ATTACK = 0x15,
             AIR_TRICK = 0x1A,
             CAMERA_MOVEMENT = 0x1F,
             MOVEMENT = 0x20,
+            IDLE_HURT = 0x21,
             GRAND_SLAM = 0x22,
             QUICK_CYLOOP = 0x28,
             PHANTOM_RUSH = 0x2A,
@@ -52,6 +54,8 @@ namespace app::player {
             HOMING_SHOT = 0x34,
             CROSS_SLASH = 0x35,
             AUTO_COMBO = 0x39,
+            IDLE_CORRUPTION_WEAK = 0x3D,
+            IDLE_CORRUPTION_STRONG = 0x3E,
             SPIN_DASH = 0x3F,
         };
 
@@ -59,9 +63,11 @@ namespace app::player {
         {
             KILLED = 0x01,
             DAMAGED_OR_REPELLED = 0x02,
+            IDLE_EMPTY = 0x06,
             OUT_OF_CONTROL = 0x07,
             AUTO_RUN = 0x0A,
             FIXED = 0x0E,
+            IDLE_BATTLE = 0x17,
             CYBER_SPACE = 0x1E,
             WALL_JUMP_LAND = 0x22,
             POWER_BOOST = 0x28,
@@ -117,8 +123,8 @@ namespace app::player {
         ut::PriorityList<Dimension, hh::fnd::Handle<hh::fnd::Messenger>> dimension;
         csl::math::Vector4 oword160;
         uint32_t dword170; //handle
-        uint32_t qword174;
-        uint32_t qword178;
+        float qword174;
+        float qword178;
         uint32_t dword17C;
         Difficulty byte180;
         uint32_t qword184;

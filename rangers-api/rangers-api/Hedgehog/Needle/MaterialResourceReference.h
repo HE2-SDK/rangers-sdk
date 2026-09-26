@@ -6,6 +6,7 @@ namespace hh::needle {
     class MaterialResourceReference : TResourceReference<MaterialResource, NEEDLE_RESOURCE_MATERIAL_REFERENCE> {
     public:
         static MaterialResourceReference* Create();
-    };
 
+        virtual void SetDebugObjectName(char const* name) override;
+    };
 }

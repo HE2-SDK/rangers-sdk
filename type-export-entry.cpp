@@ -290,3 +290,18 @@ template class hh::needle::AnimBlender<hh::needle::AnimTexSrtControl>;
 template class app::game::BossActionPluginManager<app::BossBaseContext>;
 template class hh::fnd::Reference<hh::ui::surfride::SurfRideShaderManager>;
 template class hh::fnd::Reference<app::player::StatePluginInWater::WaterDepthProcess>;
+
+template class app_cmn::hid::CharacterInputHistory<char>;
+template class app_cmn::hid::CharacterInputHistory<csl::math::Vector2>;
+template class csl::ut::MoveArray<hh::fnd::Reference<app_cmn::hid::CharacterActionHistory>>;
+template class csl::ut::MoveArray<hh::fnd::Reference<app_cmn::hid::CharacterStickHistory>>;
+template class hh::fnd::Reference<app_cmn::hid::CharacterActionHistory>;
+template class hh::fnd::Reference<app_cmn::hid::CharacterStickHistory>;
+template class app::db::Database<app::player::EffectRecord, app::player::EffectRecordBaseTable, app::player::EffectRecordTable>;
+template class app::db::Database<app::level::EnemyAttackRecord,app::db::EnemyAttackRecordBaseTable,app::db::EnemyAttackRecordTable>;
+template class app::db::Database<app::level::EnemyDefenceRecord,app::db::EnemyDefenceRecordBaseTable,app::db::EnemyDefenceRecordTable>;
+
+template class hh::gfx::ResDefaultBindCallback<hh::gfx::ResModelNeedle>;
+template class hh::gfx::ResDefaultBindCallback<hh::gfx::ResMaterial>;
+
+template class hh::ui::RenderFunctionBridge<hh::ui::TextObject>;

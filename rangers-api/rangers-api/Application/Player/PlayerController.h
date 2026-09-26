@@ -9,10 +9,10 @@ namespace app::player {
             csl::math::Vector3 playerPosition;
             csl::math::Quaternion playerRotation;
             csl::math::Vector3 unk5;
-            csl::math::Vector3 unk6;
+            csl::math::Vector3 previousPlayerVelocity;
             csl::math::Vector3 playerVelocity;
-            uint32_t unk8;
-            GOCPlayerKinematicParams::JumpInfo unk1;
+            float unk8;
+            GOCPlayerKinematicParams::GroundInfo groundInfo;
             uint32_t flags;
 
             PlayerInfo();
@@ -28,7 +28,11 @@ namespace app::player {
         MoveCommand* moveCommandQueueBuffer;
 
         void SendMoveCommand(MoveCommand* moveCommand);
+        inline void SendMoveCommand(const MoveCommand& moveCommand) {
+            SendMoveCommand((MoveCommand*)&moveCommand);
+        }
         void UpdateKinematics(GOCPlayerKinematicParams* kinematics);
+        void SetCollisionCache(hh::physics::GOCCollisionCache* gocCollisionCache);
 
         CREATE_FUNC(PlayerController, PlayerCollision* playerCollision);
     };

@@ -239,7 +239,7 @@ namespace app::evt {
         void PlayEvent(EventSetupData& setupData);
         bool IsPlaying();
         bool IsntPlaying();
-        bool UnkFadeObjectFSM();
+        bool IsFadeOver();
         void HideObject(hh::fnd::Handle<hh::game::GameObject>& object);
         void SetMovie(const char* movieName, bool playing);
 

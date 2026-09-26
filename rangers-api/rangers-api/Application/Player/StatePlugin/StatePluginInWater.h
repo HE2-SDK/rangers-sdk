@@ -7,7 +7,7 @@ namespace app::player {
         public:
             virtual void AddCallback(PlayerHsmContext* context) = 0;
             virtual void RemoveCallback(PlayerHsmContext* context) = 0;
-            virtual void Update(PlayerHsmContext* context, GOCPlayerKinematicParams::Unk6& unk6, GOCPlayerKinematicParams::Unk6& partialUnk6, float deltaTime) = 0;
+            virtual void Update(PlayerHsmContext* context, GOCPlayerKinematicParams::LiquidInfo& liquidInfo, GOCPlayerKinematicParams::LiquidInfo& partialLiquidInfo, float deltaTime) = 0;
         };
 
         class InWaterStatusProcess : public WaterDepthProcess {
@@ -17,12 +17,12 @@ namespace app::player {
 
             virtual void AddCallback(PlayerHsmContext* context) override {}
             virtual void RemoveCallback(PlayerHsmContext* context) override {}
-            virtual void Update(PlayerHsmContext* context, GOCPlayerKinematicParams::Unk6& unk6, GOCPlayerKinematicParams::Unk6& partialUnk6, float deltaTime) override;
+            virtual void Update(PlayerHsmContext* context, GOCPlayerKinematicParams::LiquidInfo& liquidInfo, GOCPlayerKinematicParams::LiquidInfo& partialLiquidInfo, float deltaTime) override;
         };
 
         static constexpr const char* name = "StatePluginInWater";
 
-        GOCPlayerKinematicParams::Unk6 qword30;
+        GOCPlayerKinematicParams::LiquidInfo liquidInfo;
         csl::ut::MoveArray<hh::fnd::Reference<WaterDepthProcess>> waterDepthProcesses;
         int qword80;
 

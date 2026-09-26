@@ -48,12 +48,12 @@ namespace app::player {
         hh::fnd::WorldPosition releasePosition{}; // guessed
         char unk1{ 0 };
 
-        MsgHoldRelease() : fnd::AppMessage<MsgHoldRelease>{ hh::fnd::MessageID::HOLD_RELEASE} {}
+        MsgHoldRelease() : fnd::AppMessage<MsgHoldRelease>{ hh::fnd::MessageID::HOLD_RELEASE } {}
     };
     
     class MsgHoldEnd : public fnd::AppMessage<MsgHoldEnd> {
     public:
-        MsgHoldEnd() : fnd::AppMessage<MsgHoldEnd>{ hh::fnd::MessageID::HOLD_END} {}
+        MsgHoldEnd() : fnd::AppMessage<MsgHoldEnd>{ hh::fnd::MessageID::HOLD_END } {}
     }; 
 
     class MsgWarpToPoint : public fnd::AppMessage<MsgWarpToPoint> {
@@ -62,7 +62,7 @@ namespace app::player {
         int64_t unk0{ 0 };
         char unk1{ 0 };
 
-        MsgWarpToPoint() : fnd::AppMessage<MsgWarpToPoint>{ hh::fnd::MessageID::WARP_TO_POINT} {}
+        MsgWarpToPoint() : fnd::AppMessage<MsgWarpToPoint>{ hh::fnd::MessageID::WARP_TO_POINT } {}
     };
 
     class MsgBeginExternalControl : public fnd::AppMessage<MsgBeginExternalControl> {
@@ -72,14 +72,14 @@ namespace app::player {
         char unk2{ 0 };
         char unk3{ 0 };
 
-        MsgBeginExternalControl() : fnd::AppMessage<MsgBeginExternalControl>{ hh::fnd::MessageID::BEGIN_EXTERNAL_CONTROL} {}
+        MsgBeginExternalControl() : fnd::AppMessage<MsgBeginExternalControl>{ hh::fnd::MessageID::BEGIN_EXTERNAL_CONTROL } {}
     };
 
     class MsgEndExternalControl : public fnd::AppMessage<MsgEndExternalControl> {
     public:
         short unk0{ 0 };
 
-        MsgEndExternalControl() : fnd::AppMessage<MsgEndExternalControl>{ hh::fnd::MessageID::END_EXTERNAL_CONTROL} {}
+        MsgEndExternalControl() : fnd::AppMessage<MsgEndExternalControl>{ hh::fnd::MessageID::END_EXTERNAL_CONTROL } {}
     };
 
     class MsgChangeDamageState : public fnd::AppMessage<MsgChangeDamageState> {
@@ -89,6 +89,45 @@ namespace app::player {
         int unk1{ 0 };
 
         MsgChangeDamageState(csl::math::Vector3& attackVelocity);
-        MsgChangeDamageState() : fnd::AppMessage<MsgChangeDamageState>{ hh::fnd::MessageID::CHANGE_DAMAGE_STATE} {}
+        MsgChangeDamageState() : fnd::AppMessage<MsgChangeDamageState>{ hh::fnd::MessageID::CHANGE_DAMAGE_STATE } {}
+    };
+
+    class MsgHasUniqueSmash : public fnd::AppMessage<MsgHasUniqueSmash> {
+    public:
+        bool hasUniqueSmash{ false };
+
+        MsgHasUniqueSmash() : fnd::AppMessage<MsgHasUniqueSmash>{ hh::fnd::MessageID::HAS_UNIQUE_SMASH } {}
+    };
+
+    class MsgRideOnGround : public fnd::AppMessage<MsgRideOnGround> {
+    public:
+        hh::fnd::Handle<hh::game::GameObject> playerObject{};
+        hh::fnd::Handle<hh::physics::GOCCollider> unk0{};
+        csl::math::Vector4 unk1{ 0, 0, 0, 0 };
+
+        MsgRideOnGround() : fnd::AppMessage<MsgRideOnGround>{ hh::fnd::MessageID::RIDE_ON_GROUND } {}
+    };
+
+    class MsgLeaveGround : public fnd::AppMessage<MsgLeaveGround> {
+    public:
+        hh::fnd::Handle<hh::game::GameObject> playerObject{};
+        hh::fnd::Handle<hh::physics::GOCCollider> unk0{};
+
+        MsgLeaveGround() : fnd::AppMessage<MsgLeaveGround>{ hh::fnd::MessageID::LEAVE_GROUND } {}
+    };
+
+    class MsgBeginOutOfControl : public fnd::AppMessage<MsgBeginOutOfControl> {
+    public:
+        bool releaseByGround{ false };
+        int id{ 0 };
+
+        MsgBeginOutOfControl() : fnd::AppMessage<MsgBeginOutOfControl>{ hh::fnd::MessageID::BEGIN_OUT_OF_CONTROL } {}
+    };
+
+    class MsgEndOutOfControl : public fnd::AppMessage<MsgEndOutOfControl> {
+    public:
+        int id{ 0 };
+
+        MsgEndOutOfControl() : fnd::AppMessage<MsgEndOutOfControl>{ hh::fnd::MessageID::END_OUT_OF_CONTROL } {}
     };
 }

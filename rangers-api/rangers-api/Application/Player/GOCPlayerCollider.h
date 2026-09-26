@@ -4,18 +4,18 @@ namespace app::player {
     class GOCPlayerCollider : public hh::game::GOComponent {
     public:
         struct SetupInfo {
-            bool unk1;
+            bool isNonBossStage;
         };
 
         csl::ut::MoveArray<hh::fnd::Handle<hh::physics::GOCCollider>> eventColliders; // unsure
         csl::ut::MoveArray<hh::fnd::Handle<hh::physics::GOCCollider>> ringColliders;
         hh::fnd::Reference<hh::physics::PhysicsRaycastJob> physicsRaycastJob;
-        csl::ut::MoveArray<void*> unk204;
+        csl::ut::MoveArray<hh::physics::PhysicsQueryResult> physicsQueryResults;
         hh::fnd::Reference<PlayerCollision> playerCollision;
         hh::fnd::Reference<PlayerController> playerController;
-        bool unk207;
+        bool isNonBossStage;
         bool unk208;
-        bool unk209;
+        bool havePlayerCollisionParametersBeenSet;
         bool unk210;
         hh::fnd::Handle<hh::physics::GOCCollider> unk211;
 

@@ -31,6 +31,7 @@ namespace app_cmn::game{
         void SetGOC(GOCMovement* goc);
         MovementTransform& GetPrevious() const;
         hh::game::GameObject* GetOwner() const;
+        GOCMovement* GetGOCMovement() const;
         bool IsFlagSet(Flags flag) const;
         void FireAddCallbackEx(Flags flag);
         void FireAddCallback();

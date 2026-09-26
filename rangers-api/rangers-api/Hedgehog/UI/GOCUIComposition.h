@@ -48,6 +48,7 @@ namespace hh::ui {
         UIElement* FindElement(const char* container, const char* name);
         UIElement* FindElementByType(const char* typeName, const char* name);
         UIElement* FindElement(const char* name);
+        UIElement* FindElementRecursively(const char* name);
         UIElementGroupContainer* GetRootContainer() const;
 
     private:
