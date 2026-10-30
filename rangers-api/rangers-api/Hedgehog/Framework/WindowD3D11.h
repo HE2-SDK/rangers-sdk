@@ -39,9 +39,9 @@ namespace hh::fw {
         virtual void UnkFunc6() override;
         virtual void UnkFunc7() override;
         virtual void UnkFunc8() override;
-        virtual bool UnkFunc9() override;
-        virtual bool UnkFunc10() override;
-        virtual void UnkFunc11() override;
+        virtual bool IsFullscreen() override;
+        virtual bool GetMonitorResolution(uint32_t& width, uint32_t& height) override;
+        virtual void SetWindowResolutionAndPosition(uint32_t x, uint32_t y, uint32_t width, uint32_t height, bool setRect) override;
         virtual void UnkFunc12() override;
         virtual bool UnkFunc13() override;
         virtual void UnkFunc14() override;
@@ -50,5 +50,10 @@ namespace hh::fw {
         virtual void UnkFunc17() override;
 
         static LRESULT WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+
+        static WindowD3D11* instance;
+        inline static WindowD3D11* GetInstance() {
+            return RESOLVE_STATIC_VARIABLE(instance);
+        }
     };
 }

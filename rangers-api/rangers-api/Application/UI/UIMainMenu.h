@@ -54,9 +54,9 @@ namespace app::ui {
     class UIMainMenuContext : public app_cmn::fsm::GOCHsmContext, hh::hid::ActiveDeviceManagerListener {
     public:
         class State {
+        public:
             csl::ut::MoveArray<csl::ut::Pair<size_t, size_t>> values;
             
-        public:
             void SetValue(size_t id, unsigned int value);
             unsigned int GetValue(size_t id) const;
         };

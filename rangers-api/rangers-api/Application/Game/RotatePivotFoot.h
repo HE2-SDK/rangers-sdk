@@ -3,7 +3,7 @@
 namespace app::game{
     class RotatePivotFoot : public app_cmn::game::MoveController {
     public:
-        static constexpr const char* name = "RotatePivotFoot";
+        static const char* name;
 
         int64_t unk0;
         float unk1;

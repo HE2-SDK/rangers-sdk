@@ -166,6 +166,7 @@ namespace csl::math {
 	bool Vector3DistanceLessThan(const Vector3& x, const Vector3& y, float threshold);
 	void Vector3Normalize(const Vector3& vec, Vector3* result);
 	bool Vector3NearZero(const Vector3& vec);
+	bool Vector3RotateTowards(const Vector3& from, const Vector3& to, const Vector3& fallback, float maxAngle, Vector3& out); // Returns true, if reached target
 	
 	Quaternion QuaternionRotationBetweenNormals(const Vector3& from, const Vector3& to);
 	Quaternion QuaternionRotationBetweenNormalsAxis(const Vector3& from, const Vector3& to, const Vector3& axis);

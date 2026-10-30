@@ -13760,7 +13760,7 @@ namespace heur::rfl {
     };
 }
 
-namespace heur::rfl {
+namespace app {
     struct EnemyMotoraSpawner {
         enum class Placement : uint8_t {
             WhereItsSet = 0,

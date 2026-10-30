@@ -70,6 +70,7 @@ namespace hh::dv {
         void AddScenePlaybackInfo(const char* sceneName);
         void AddScenePlaybackInfo(const char* sceneName, ScenePlaybackInfo::Info& info);
         void AddScenePlaybackInfo(ResDvScene* resource, ScenePlaybackInfo::Info& info);
+        ScenePlaybackInfo* GetScenePlaybackInfo(const char* sceneName);
 
         GAMESERVICE_CLASS_DECLARATION(DiEventManager)
     };

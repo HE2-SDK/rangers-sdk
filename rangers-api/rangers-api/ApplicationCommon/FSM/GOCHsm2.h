@@ -1,12 +1,10 @@
 #pragma once
 
-namespace app_cmn::fsm {
-    class GOCHsm2;
-    class GOCHsmContext : public hh::fnd::ReferencedObject {
-    public:
-        GOCHsm2* gocHsm2;
-    };
+#define DECLARE_STATE(NAME) DEFAULT_CREATE_FUNC(NAME) \
+    static const hh::ut::StateDesc stateDesc;
 
+namespace app_cmn::fsm {
+    class GOCHsmContext;
     class GOCHsm2 : public hh::game::GOComponent {
         hh::ut::StateManager* stateManager;
         hh::ut::HsmBase hsm;
@@ -28,16 +26,16 @@ namespace app_cmn::fsm {
             bool preAnimUpdate;
             bool postAnimUpdate;
             bool finalUpdate;
-            bool unkFlag;
+            bool updateAsync;
             app_cmn::fsm::GOCHsmContext* hsmContext;
         };
 
         GOCHsm2(csl::fnd::IAllocator* pAllocator);
-		virtual void* GetRuntimeTypeInfo() const override;
-		virtual void Update(hh::fnd::UpdatingPhase phase, const hh::fnd::SUpdateInfo& updateInfo) override;
-		virtual void UpdateAsync(hh::fnd::UpdatingPhase phase, const hh::fnd::SUpdateInfo& updateInfo, void* unkParam) override;
-		virtual bool ProcessMessage(hh::fnd::Message& msg) override;
-		virtual void OnGOCEvent(GOCEvent event, hh::game::GameObject& ownerGameObject, void* data) override;
+        virtual void* GetRuntimeTypeInfo() const override;
+        virtual void Update(hh::fnd::UpdatingPhase phase, const hh::fnd::SUpdateInfo& updateInfo) override;
+        virtual void UpdateAsync(hh::fnd::UpdatingPhase phase, const hh::fnd::SUpdateInfo& updateInfo, void* unkParam) override;
+        virtual bool ProcessMessage(hh::fnd::Message& msg) override;
+        virtual void OnGOCEvent(GOCEvent event, hh::game::GameObject& ownerGameObject, void* data) override;
         void Setup(Description& desc);
 
         int GetBottomStateIdx() const;
@@ -48,6 +46,21 @@ namespace app_cmn::fsm {
         }
 
         GOCOMPONENT_CLASS_DECLARATION(GOCHsm2)
+    };
+
+    class GOCHsmContext : public hh::fnd::ReferencedObject {
+    public:
+        GOCHsm2* gocHsm2;
+
+        inline GOCHsmContext(csl::fnd::IAllocator* allocator) : hh::fnd::ReferencedObject{ allocator, true } {}
+
+        inline hh::game::GOComponent* GetComponentByClass(const hh::game::GOComponentClass& compClass) const {
+            return gocHsm2->GetComponentByClass(compClass);
+        }
+        template<typename T>
+        inline T* GetComponent() const {
+            return (T*)gocHsm2->GetComponentByClass(*T::GetClass());
+        }
     };
 
     template<typename T>

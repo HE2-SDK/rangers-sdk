@@ -23,9 +23,9 @@ namespace hh::dv{
             gfnd::ViewportData* viewportData;
         };
 
-        struct OnUpdateInfo {
+        struct CameraCutInfo {
             DvSceneControl* dvSceneControl;
-            int unk;
+            int newCameraIndex; // Guessed
         };
 
         virtual bool DSCL_UnkFunc1(UnkFunc1Info& info, void** retElement) { return false; }
@@ -39,7 +39,7 @@ namespace hh::dv{
         virtual void DSCL_UnkFunc9() {}
         virtual void DSCL_UnkFunc10() {}
         virtual void DSCL_UnkFunc11(UnkFunc11Info info) {}
-        virtual void OnUpdateInfo(OnUpdateInfo& info) {}
+        virtual void OnCameraCut(CameraCutInfo& info) {}
         virtual bool DSCL_UnkFunc13(void* unk0) { return false; }
         virtual bool DSCL_UnkFunc14() { return false; }
         virtual void DSCL_UnkFunc15() {}

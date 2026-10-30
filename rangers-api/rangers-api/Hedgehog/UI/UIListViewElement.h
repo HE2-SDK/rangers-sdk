@@ -22,6 +22,7 @@ namespace hh::ui {
     };
 
     class UIListViewItemView : public UIElement {
+    public:
         int unk101;
         void* unk102[9];
         fnd::Handle<SurfRideCastHandle> hCast;
@@ -37,18 +38,19 @@ namespace hh::ui {
         uint32_t unk112;
         float unk113;
         csl::fnd::Delegate<void ()> unk114;
-    public:
+
         UIListViewItemView(csl::fnd::IAllocator *pAllocator, int a3, GOCSprite* gocSprite, SurfRide::Cast* cast, hh::ui::UITextInterface textInterface, GOCUIComposition* gocUIComposition, UIListViewElement* listViewElement);
     };
 
     class UIListViewItemBase : public UIObject {
+    public:
         UIListViewElement* listView;
         UIListViewItemView* view;
         uint64_t unk103;
         int32_t index;
         uint16_t unk105;
         bool unk106;
-    public:
+
         UIListViewItemBase(csl::fnd::IAllocator* pAllocator);
         void SetListViewElement(hh::ui::UIListViewElement* listViewElement);
         void SetDimensions(const Dimensions& dimensions);

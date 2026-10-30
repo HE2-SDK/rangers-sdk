@@ -102,7 +102,7 @@ namespace hh::needle {
         virtual void PopMarker() = 0;
         virtual void SetMarker(const char* id) = 0;
         virtual void GenerateMips(Texture* texture) = 0;
-        virtual void Map(const NeedleRefcountResource* resource, unsigned int unkParam, MapType mapType, SRawImageInfo* rawImageInfo) = 0;
+        virtual void Map(const NeedleRefcountResource* resource, unsigned int unkParam, MapType mapType, SRawImageInfo* rawImageInfo, char unkParam1) = 0;
         virtual void Unmap(const NeedleRefcountResource* resource, const SRawImageInfo* rawImageInfo) = 0;
         virtual void UpdateResource(const NeedleRefcountResource* resource, unsigned int level, const Box& box, const SRawImageInfo rawImageInfo) = 0;
         virtual uint64_t UnkFunc93() = 0;

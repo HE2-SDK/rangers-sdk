@@ -112,7 +112,7 @@ namespace app::evt {
         hh::ut::TinyFsm<EventScene, hh::ut::TinyFsmEvent> fsm;
         hh::dv::DiEventManager* diEvtMgr;
         EventSetupData setupData;
-        void* resourceCollection;
+        hh::game::LevelLoader* levelLoader;
         hh::fnd::Handle<hh::fmv::MovieHandleObj> movieHandle;
         hh::snd::SoundHandle soundHandle;
         long long unk2;

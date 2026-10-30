@@ -645,6 +645,7 @@ namespace rangerssdk::ucsl {
 
 #include "Hedgehog/GraphicsFoundation/RenderManagerBase.h"
 
+#include "Hedgehog/Graphics/PlacementCollisionService.h"
 #include "Hedgehog/Graphics/NeedleRenderer.h"
 #include "Hedgehog/Graphics/RenderingWorld.h"
 #include "Hedgehog/Graphics/RenderingComponent.h"
@@ -1104,6 +1105,7 @@ namespace rangerssdk::ucsl {
 
 #include "Application/Game/ApplyFootGroundHeight.h"
 #include "Application/Game/CheckHitOnGround.h"
+#include "Application/Game/CheckBarrier.h"
 
 #include "Application/Move/Messages.h"
 
@@ -1248,8 +1250,13 @@ namespace rangerssdk::ucsl {
 #include "Application/Game/GOCBossMoveableRange.h"
 #include "Application/Game/GOCBossCyloopColliderHelper.h"
 #include "Application/Game/GOCBossPillar.h"
+#include "Application/Game/GOCEyesight.h"
 #include "Application/Game/Messages.h"
 #include "Application/Game/Posture.h"
+#include "Application/Game/ResDebris.h"
+
+#include "Application/Tutorial/TutorialManager.h"
+
 #include "Application/Game/Script.h"
 #include "Application/Game/ObjectWorldService.h"
 #include "Application/Game/GravityManager.h"
@@ -1270,6 +1277,7 @@ namespace rangerssdk::ucsl {
 #include "Application/Game/ReactiveService.h"
 #include "Application/Game/GOCBossActionSelect.h"
 #include "Application/Game/GOCBossAnimatorTriggerHelper.h"
+#include "Application/Game/GOCDensity.h"
 
 #include "Application/UI/AppUITextInterface.h"
 #include "Application/UI/UIMusicSelect.h"
@@ -1296,7 +1304,10 @@ namespace rangerssdk::ucsl {
 #include "Application/Physics/GOCCapsuleColliderQuery.h"
 #include "Application/Physics/GOCSphereColliderQuery.h"
 #include "Application/Physics/ColliderContainer.h"
+#include "Application/Physics/GOCCharacterController2.h"
 #include "Application/Physics/Messages.h"
+
+#include "Application/Enemy/EnemyMotora.h"
 
 #include "Application/Graphics/ResFxColFile2.h"
 #include "Application/Graphics/ResPointcloudLight.h"

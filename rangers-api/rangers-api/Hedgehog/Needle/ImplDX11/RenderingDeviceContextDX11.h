@@ -106,7 +106,7 @@ namespace hh::needle::ImplDX11 {
         virtual void PopMarker() override;
         virtual void SetMarker(const char* id) override;
         virtual void GenerateMips(Texture* texture) override;
-        virtual void Map(const NeedleRefcountResource* resource, unsigned int unkParam, MapType mapType, SRawImageInfo* rawImageInfo) override;
+        virtual void Map(const NeedleRefcountResource* resource, unsigned int unkParam, MapType mapType, SRawImageInfo* rawImageInfo, char unkParam1) override;
         virtual void Unmap(const NeedleRefcountResource* resource, const SRawImageInfo* rawImageInfo) override;
         virtual void UpdateResource(const NeedleRefcountResource* resource, unsigned int level, const Box& box, const SRawImageInfo rawImageInfo) override;
         virtual uint64_t UnkFunc93() override;

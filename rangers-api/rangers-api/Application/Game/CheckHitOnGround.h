@@ -3,6 +3,8 @@
 namespace app::game {
     class CheckHitOnGround : public app_cmn::game::MoveController {
     public:
+        static const char* name;
+
         csl::ut::MoveArray<int64_t> qword18;
         float dword38;
         int dword3C;

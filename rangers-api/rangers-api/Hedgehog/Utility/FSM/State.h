@@ -23,6 +23,10 @@ namespace hh::ut {
     template<typename T>
     class StateBase : public internal::StateImpl {
     public:
+        inline T* GetContext() const {
+            return (T*)context;
+        }
+
         inline StateBase(csl::fnd::IAllocator* allocator) : StateImpl{ allocator } {}
 
         virtual bool DoInit() override { return Init(*(T*)context); }

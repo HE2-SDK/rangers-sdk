@@ -51,4 +51,6 @@ namespace app::game {
 
         GAMESERVICE_CLASS_DECLARATION(RespawnTimeManager);
     };
+
+    static void SetRespawnTimeForObject(hh::game::GameObject* object, float respawnTime, uint8_t unk2Param, uint32_t unk3Param);
 }

@@ -305,3 +305,6 @@ template class hh::gfx::ResDefaultBindCallback<hh::gfx::ResModelNeedle>;
 template class hh::gfx::ResDefaultBindCallback<hh::gfx::ResMaterial>;
 
 template class hh::ui::RenderFunctionBridge<hh::ui::TextObject>;
+
+template class hh::fnd::Reference<app::game::GOCEyesight::TargetInfo>;
+template class csl::ut::MoveArray<hh::fnd::Reference<app::game::GOCEyesight::TargetInfo>>;

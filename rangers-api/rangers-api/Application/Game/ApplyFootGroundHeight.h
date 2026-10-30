@@ -3,6 +3,8 @@
 namespace app::game {
     class ApplyFootGroundHeight : public app_cmn::game::MoveController {
     public:
+        static const char* name;
+
         hh::game::GOComponent* gocFoot;
         float dword20;
 
