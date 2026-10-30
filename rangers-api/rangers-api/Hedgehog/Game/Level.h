@@ -48,5 +48,6 @@ namespace hh::game {
         void Load2();
         void Load3(const LoadInfo& loadInfo);
         void Unload();
+        void SetResourceAllocator(csl::fnd::IAllocator* allocator);
     };
 }

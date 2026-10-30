@@ -1,23 +1,42 @@
 #pragma once
 
 namespace app::game {
+    class GravityManager;
+
+    class GravityPhantomListener {
+    public:
+        virtual void GP_UnkFunc0(int64_t a2) = 0;
+    };
+
+    class MyCharacterRBListener : public hh::physics::CharacterRigidBodyListener {
+    public:
+        virtual void CRBL_UnkFunc0(int64_t a2) override;
+    };
+
     class GOCGravity : public hh::game::GOComponent, public hh::fnd::HFrameListener {
     public:
-        struct Unk1 {
-            uint64_t qword0;
-            uint16_t word8;
+        struct GravityPhantom {
+            enum class Flags : unsigned char {
+                IS_POSITION_SET
+            };
+
+            GravityManager* gravityManager;
+            csl::ut::Bitset<Flags> flags;
+            uint8_t byte9;
             uint64_t qword10;
             uint64_t qword18;
             uint64_t qword20;
             uint64_t qword28;
             uint64_t qword30;
-            uint32_t dword38;
-            csl::math::Vector3 csl__math__vector340;
-            csl::math::Vector3 csl__math__vector350;
+            hh::fnd::Handle<hh::game::GOComponent> dword38;
+            csl::math::Vector3 position;
+            csl::math::Vector3 direction;
             uint32_t dword60;
-            uint64_t qword68;
+            GravityPhantomListener* listener;
 
-            Unk1();
+            GravityPhantom();
+            void SetPosition(const csl::math::Vector3& position);
+            csl::math::Vector3& GetPosition() const;
         };
 
         struct SetupInfo {
@@ -29,9 +48,9 @@ namespace app::game {
         };
 
         csl::math::Vector3 direction;
-        Unk1 unk1;
-        uint64_t unk2;
-        uint8_t unk3;
+        GravityPhantom gravityPhantom;
+        hh::fnd::HFrame* frame;
+        bool hasGravityPhantom;
 
         GOCGravity(csl::fnd::IAllocator* allocator);
 
@@ -40,6 +59,8 @@ namespace app::game {
         virtual void HFrameUpdatedCallback(const hh::fnd::HFrame* frame, bool unkParam) override;
 
         void Setup(const SetupInfo& setupInfo);
+        void SetListener(GravityPhantomListener* listener);
+        csl::math::Vector3& GetDirection() const;
 
         GOCOMPONENT_CLASS_DECLARATION(GOCGravity);
     };

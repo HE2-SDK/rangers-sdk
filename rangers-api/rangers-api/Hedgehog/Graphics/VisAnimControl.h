@@ -29,7 +29,7 @@ namespace hh::gfx {
     public:
         fnd::Handle<game::GOComponent> model;
         fnd::Reference<ResAnimVis> resource;
-        uint64_t unk3;
+        needle::AnimVisControl* control;
         float fps;
 
         virtual void Initialize(VisAnimDesc& description) override;

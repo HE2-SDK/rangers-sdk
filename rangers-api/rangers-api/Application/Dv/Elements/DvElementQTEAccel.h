@@ -19,7 +19,7 @@ namespace app::dv{
             char soundName[64];
         };
 
-        void* unk0;
+        hh::fnd::Reference<hh::game::InputComponent> inputComp;
         int startFrame;
         int unk1;
         void* unk2;

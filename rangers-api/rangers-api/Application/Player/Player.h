@@ -32,6 +32,9 @@ namespace app::player {
         };
 
         PlayerSetupInfo setupInfo;
+		int64_t qword2C0;
+		int dword2C8;
+		int64_t qword2D0;
 
         Player(csl::fnd::IAllocator* allocator);
         

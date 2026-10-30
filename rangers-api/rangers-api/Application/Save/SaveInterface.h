@@ -33,12 +33,17 @@ namespace app::save {
 
         SaveInterface(csl::fnd::IAllocator* allocator);
 
+        void Initialize();
+
         UserElement* AddUserElement(const hh::fnd::UserId& userId);
 
         GameDataAc GetGameDataAccessor();
         ArcadeDataAc GetArcadeDataAccessor();
         OptionAc GetOptionAccessor();
         ChallengeDataAc GetChallengeDataAccessor();
+        csl::ut::MoveArray<HeaderData>& GetSaveHeaderData(bool isExtra);
+
+        hh::fw::SaveAsyncHandler SaveOptionData();
     };
 
     GameDataAc GetGameDataAccessor(hh::game::GameManager* gameManager);
@@ -49,7 +54,11 @@ namespace app::save {
     OptionAc GetOptionAccessor(hh::game::GameObject* gameObject);
     ChallengeDataAc GetChallengeDataAccessor(hh::game::GameObject* gameObject);
     ExtraFlagAc GetExtraFlagAccessor(hh::game::GameManager* gameManager);
+    ExtraCharacterAc GetExtraCharacterAccessor(hh::game::GameManager* gameObject, unsigned int idx);
     ExtraCharacterAc GetExtraCharacterAccessor(hh::game::GameObject* gameObject, unsigned int idx);
     CharacterAc GetCharacterAccessor(hh::game::GameManager* gameManager, unsigned int idx);
+    CharacterAc GetCharacterAccessor(GameDataAc* gameDataAc, unsigned int idx);
+    CharacterAc GetSelectedCharacterAccessor(GameDataAc* gameDataAc, hh::game::GameManager* gameManager);
     CharacterAc GetCharacterAccessor(hh::game::GameObject* gameObject, unsigned int idx);
+    bool IsBirthdayEnabled(hh::game::GameManager* gameManager);
 }

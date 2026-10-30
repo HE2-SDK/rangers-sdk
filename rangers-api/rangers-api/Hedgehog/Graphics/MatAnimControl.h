@@ -30,7 +30,7 @@ namespace hh::gfx {
     public:
         fnd::Handle<game::GOComponent> model;
         fnd::Reference<ResAnimMaterial> resource;
-        uint64_t unk3;
+        needle::AnimMaterialControl* control;
         float fps;
 
         virtual void Initialize(MatAnimDesc& description) override;

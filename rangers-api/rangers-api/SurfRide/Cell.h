@@ -12,7 +12,7 @@ namespace SurfRide {
 
 	struct SRS_CELL3D
 	{
-		uint32_t flags;
+		uint32_t flags; // & 0xF - blend mode
 		uint32_t qword4;
 		uint32_t qword8;
 		uint32_t qwordC;

@@ -17,5 +17,6 @@ namespace app::fnd {
 
         AppHeapManager(csl::fnd::IAllocator* memoryRouterAllocator, const AppMemoryParam* appMemoryParams);
         static csl::fnd::IAllocator* GetResidentAllocator();
+        static csl::fnd::IAllocator* GetHeightFieldAllocator();
     };
 }

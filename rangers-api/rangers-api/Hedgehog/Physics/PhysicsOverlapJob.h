@@ -1,11 +1,11 @@
 #pragma once
 
 namespace hh::physics{
-    class PhysicsOverlapJob : public PhysicsQueryJob{
+    class PhysicsOverlapJob : public PhysicsQueryJob {
     public:
-        csl::ut::InplaceMoveArray<csl::math::Vector4, 10> unk0; 
+        csl::ut::InplaceMoveArray<PhysicsOverlapResult, 1> results; 
         int64_t qwordE0;
-        csl::math::Matrix44 unk1[10];
+        PhysicsOverlapResult otherResults[2];
 
         PhysicsOverlapJob(csl::fnd::IAllocator* allocator);
     };

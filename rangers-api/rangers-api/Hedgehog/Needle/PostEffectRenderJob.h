@@ -14,7 +14,7 @@ namespace hh::needle {
         virtual void Stop() override;
         virtual void SetTexture(unsigned int index, Texture* texture);
         virtual void SetRenderTarget(unsigned int index, RenderTarget* renderTarget);
-        virtual void Setup(intrusive_ptr<RenderingDevice>& device);
+        virtual void Setup(const RenderJobContext& context);
         virtual void UnkFunc23();
         virtual void UnkFunc24();
     };

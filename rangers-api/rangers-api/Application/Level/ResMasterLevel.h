@@ -8,6 +8,7 @@ namespace app::level {
     using ucsl::resources::master_level::v0::MasterLevelData;
 
     class ResMasterLevel : public hh::fnd::ManagedResource {
+    public:
         MasterLevelData* masterLevelData;
 
         MANAGED_RESOURCE_CLASS_DECLARATION(ResMasterLevel)    

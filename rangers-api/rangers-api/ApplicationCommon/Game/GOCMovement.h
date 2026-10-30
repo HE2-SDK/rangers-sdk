@@ -31,6 +31,7 @@ namespace app_cmn::game{
         void SetGOC(GOCMovement* goc);
         MovementTransform& GetPrevious() const;
         hh::game::GameObject* GetOwner() const;
+        GOCMovement* GetGOCMovement() const;
         bool IsFlagSet(Flags flag) const;
         void FireAddCallbackEx(Flags flag);
         void FireAddCallback();
@@ -72,13 +73,25 @@ namespace app_cmn::game{
 
         void Setup(Description& desc);
         MoveController* GetController(const char* name);
+        template<typename T>
+        inline T* GetController() {
+            return (T*)GetController(T::name);
+        }
         void AddController(MoveController* controller);
         MovementTransform& GetPrevious() const;
         bool IsFlagSet(Flags flag) const;
         void AllFireRemoveCallback();
         void FireRemoveCallback(const char* controllerName);
+        template<typename T>
+        inline void FireRemoveCallback() {
+            FireRemoveCallback(T::name);
+        }
         void AllFireAddCallback();
         void FireAddCallback(const char* controllerName);
+        template<typename T>
+        inline void FireAddCallback() {
+            FireAddCallback(T::name);
+        }
         void SetCurrentAngularVelocity(const csl::math::Vector3& angularVelocity);
         void SetCurrentVelocity(const csl::math::Vector3& velocity);
 

@@ -151,6 +151,8 @@ namespace app::game {
         void SetDamageEffectDamage(DamageEffectType effect, float damage);
         void ResetDamageEffect(DamageEffectType effect);
 
+        void SetUnk3(Unk3& unk3);
+
         GOCOMPONENT_CLASS_DECLARATION(GOCHealth);
     };
 }

@@ -17,6 +17,7 @@ namespace hh::physics {
         virtual void GetShape(ColliShape& shape) const override;
 
         void Setup(const SetupInfo& setupInfo);
+        void SetRadius(float radius);
 
         GOCOMPONENT_CLASS_DECLARATION(GOCSphereCollider);
     };

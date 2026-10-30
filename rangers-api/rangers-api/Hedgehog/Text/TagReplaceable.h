@@ -8,10 +8,10 @@ namespace hh::text {
 
         virtual void* UnkFunc1() = 0;
         virtual void* UnkFunc2() = 0;
-        virtual uint32_t UnkFunc3(void* unkParam1, void* unkParam2) = 0;
+        virtual uint32_t UnkFunc3(const char* entityName, void* unkParam2) = 0;
         virtual void* UnkFunc4(void* unkParam1) = 0;
-        virtual bool UnkFunc5(void* unkParam1, void* unkParam2) = 0;
-        virtual void* UnkFunc6(void* unkParam1, void* unkParam2, void* unkParam3) = 0;
-        virtual void* UnkFunc7(void* unkParam1, void* unkParam2) = 0;
+        virtual bool UnkFunc5(const char* entityName, void* unkParam2) = 0;
+        virtual void* UnkFunc6(wchar_t* text, unsigned int textLength, void* unkParam3) = 0;
+        virtual void* UnkFunc7(const char* tag, void* unkParam2) = 0;
     };
 }

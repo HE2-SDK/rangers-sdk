@@ -8,4 +8,9 @@ namespace Cyan {
     public:
         T* object;
     };
+
+    struct Matrix23 {
+        csl::math::Vector3 x;
+        csl::math::Vector3 y;
+    };
 }

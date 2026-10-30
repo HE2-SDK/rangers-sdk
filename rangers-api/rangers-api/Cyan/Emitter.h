@@ -129,7 +129,8 @@ namespace Cyan {
         uint8_t gap6C8[88];
         csl::math::Vector3 inheritPosition;
         float fps;
-        uint8_t gap6C8bb[8];
+        float maybeTime; // used in Element::CalcTexcoordImpl
+        uint8_t gap6C8bb[4];
         float frequency;
         float subDivisionCount;
         uint8_t gap6C8bbb[12];

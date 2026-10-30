@@ -23,7 +23,7 @@ namespace hh::game {
         csl::ut::MoveArray<Level*> levels;
         csl::ut::StringMap<Level*> levelsByName;
         csl::ut::InplaceMoveArray<MasterLevelListener*, 1> listeners;
-        csl::ut::MoveArray<void*> unk4;
+        csl::ut::MoveArray<Level*> unloadingLevels; // guessed from Level::Unload
 
         DEFAULT_CREATE_FUNC(MasterLevel);
         virtual void LL_UnkFunc1(Level* level) override;
@@ -41,6 +41,7 @@ namespace hh::game {
         void LoadLevel(const char* name);
         Unk1 LoadLevel(const char* name, const Level::LoadInfo& loadInfo);
         Unk1 UnloadLevel(const char* name);
+        void SetLevelResourceAllocator(const char* levelName, csl::fnd::IAllocator* allocator);
 
         inline void AddLevel(Level* level) {
             levels.push_back(level);

@@ -49,7 +49,7 @@ namespace app::gfx {
 
         csl::ut::MoveArray<Animation> animations;
         hh::fnd::Handle<hh::gfx::GOCVisualModel> model;
-        uint32_t unk3;
+        uint32_t totalAnimationCount;
 
         CREATE_FUNC(ModelAnimationPlayer, uint32_t unk3Param);
 
@@ -62,6 +62,8 @@ namespace app::gfx {
         void AddAnimation(size_t id, hh::fnd::ManagedResource* resource);
         void ClearAnimations();
         void Initialize();
+        void CreateAnimations(size_t id, bool unkParam2);
+        void CreateAnimations(size_t id, bool loop, bool unkParam2);
         void SetAnimation(size_t id, bool loop, bool unkParam2);
         void SetAnimationOnce(size_t id, bool unkParam2);
         void SetAnimationLooping(size_t id, bool unkParam2);

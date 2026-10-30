@@ -107,6 +107,7 @@ namespace hh::gfx {
         uint64_t OnGOCVisualEvent(GOCVisualModel* visualModel, int unkParam1, unsigned int unkParam2, void* unkParam3);
         void Setup(GOCVisualModel& model, const GOCVisualModelDescription& description);
         void GetModelSpaceAabb(csl::geom::Aabb* aabb) const;
+        void SetShaderParameterFloat(const char* materialName, const char* shaderParamName, const float* value);
 
         // TexSrtControl* SetTexSrtAnimation(hh::gfx::TexSrtDesc& description);
         TexSrtBlender* SetTexSrtBlender(hh::gfx::TexSrtBlenderDesc& description);
@@ -168,6 +169,8 @@ namespace hh::gfx {
         void SetWorld(needle::World* world);
         void SetPose(anim::Pose* pose);
         void ClearPose(anim::Pose* pose);
+        void SetShaderParameterFloat(const char* materialName, const char* shaderParamName, const float* value);
+		void ClearAABB();
 
         // TexSrtControl* SetTexSrtAnimation(hh::gfx::TexSrtDesc& description);
         TexSrtBlender* SetTexSrtBlender(hh::gfx::TexSrtBlenderDesc& description);

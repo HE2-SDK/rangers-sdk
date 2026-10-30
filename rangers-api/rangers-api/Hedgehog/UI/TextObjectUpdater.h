@@ -9,9 +9,8 @@ namespace hh::ui {
     };
 
     class UIManager;
-    class TextObjectUpdater : public fnd::ReferencedObject {
+    class TextObjectUpdater : public fnd::ReferencedObject, public TextFeedTriggerControllerListener {
     public:
-        void* unknownListenerVftable;
         csl::ut::MoveArray<void*> unk1; // delegates
         csl::ut::MoveArray<void*> unk2;
         csl::ut::MoveArray<void*> unk3;
@@ -19,20 +18,20 @@ namespace hh::ui {
         csl::ut::MoveArray<void*> unk5;
         bool unk6;
         fnd::Handle<SurfRideCastHandle> hCast;
-        csl::ut::VariableString unk7;
+        csl::ut::VariableString textTag;
         UITextInterface* textInterface;
         fnd::Handle<GOCSprite> hGOCSprite;
-        hh::ui::UIManager* uiManager;
-        hh::fnd::Reference<TextObject> textObject;
-        uint64_t unk9;
-        uint64_t unk10;
-        uint64_t unk11;
+        UIManager* uiManager;
+        fnd::Reference<TextObject> textObject;
+        fnd::Reference<TextObjectCastAdapter> textObjectCastAdapter;
+        fnd::Reference<TextFeedAnimationController> textFeedAnimationController;
+        fnd::Reference<TextFeedTriggerController> textFeedTriggerController;
         void* unk12; // set in constructor
         text::TagReplacer* tagReplacer;
         csl::ut::MoveArray<TextObjectUpdaterListener*> listeners;
         bool unk15a;
         bool unk15b;
-        uint32_t unk16;
+        uint32_t localeIndex;
 
         TextObjectUpdater(csl::fnd::IAllocator* pAllocator, UITextInterface* textInterface, GOCSprite* gocSprite, SurfRide::Cast* cast, void* unkParam1);
         void AddListener(TextObjectUpdaterListener* listener);
@@ -46,5 +45,7 @@ namespace hh::ui {
         void SetStyleParameters(const TextStyleParameters& styleParams);
         void Update();
         text::TagReplacer& GetTagReplacer();
+
+        virtual void TFTCL_UnkFunc0(int64_t a2) override;
     };
 }

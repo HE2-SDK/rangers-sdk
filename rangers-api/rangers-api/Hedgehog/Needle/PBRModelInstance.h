@@ -19,21 +19,26 @@ namespace hh::needle {
     
     MaterialparamSetting* GetMaterialparamSetting(int index);
 
+    class AnimMaterialControl;
     class AnimTexSrtControl;
+    class AnimTexPatControl;
+    class AnimVisControl;
 
     class PBRModelInstance : public ModelInstance {
     public:
         int64_t unk3;
         int64_t unk4;
-        int64_t unk5;
-        int64_t unk6;
+        AnimBlender<AnimMaterialControl>* matBlender;
+        AnimBlender<AnimTexPatControl>* texPatBlender;
         AnimBlender<AnimTexSrtControl>* texSrtBlender;
-        int64_t unk8;
+        AnimBlender<AnimVisControl>* visBlender;
         int64_t unk9;
         int64_t unk10;
         char unk11[0x30];
         char unk12[0x30];
         short unk13;
+        bool isVisible;
+        int unk15;
 
         virtual void UnkFunc8() override;
         virtual void UnkFunc9() override;
@@ -50,5 +55,9 @@ namespace hh::needle {
         static ParameterValueObject* CreateGlobalParamContainer();
         static PBRModelInstance* Create(Model* model, const PBRModelCreationInfo& info, const PBRModelInstanceRenderer* renderer);
         void SetTexSrtBlender(AnimBlender<AnimTexSrtControl>* blender);
+        void SetMaterialBlender(AnimBlender<AnimMaterialControl>* blender);
+        void SetTexPatBlender(AnimBlender<AnimTexPatControl>* blender);
+        void SetVisibilityBlender(AnimBlender<AnimVisControl>* blender);
+        void SetVisible(bool visible);
     };
 }

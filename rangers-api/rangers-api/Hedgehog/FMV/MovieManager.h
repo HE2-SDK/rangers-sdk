@@ -25,9 +25,12 @@ namespace hh::fmv{
                 UNK7,
             };
 
-            int unk0a[3];
-            int unk0;
-            int unk1[5];
+            int unk0a[2];
+            float sfxVolume;
+            float voiceVolume;
+            float musicVolume;
+            int languageType; // app::save::OptionGamePlayData::VoiceLanguageType + 2
+            int unk1[3];
             int pass;
             short priority;
             csl::ut::Bitset<Flags> flags;

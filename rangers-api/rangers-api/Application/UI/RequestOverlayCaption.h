@@ -20,16 +20,22 @@ namespace app::ui {
     };
 
     struct CaptionInfo {
+        enum class Style : unsigned char {
+            NONE,
+            DEFAULT,
+            SPARE,
+            TOP,
+            MIDDLE,
+            BOTTOM
+        };
+
         CaptionCollection captions;
-        uint8_t unk202;
-        uint8_t unk203;
-        uint8_t unk204;
-        uint8_t unk205;
+        float unk202;
         uint8_t unk206;
-        uint8_t unk207;
-        uint8_t unk208;
+        Style style;
+        uint8_t renderPriority;
         uint8_t unk209;
-        uint8_t unk210;
+        bool unk210; // sets the UICaption object layer to 19 instead of 18
         uint8_t unk211;
     };
 
@@ -38,5 +44,28 @@ namespace app::ui {
         CaptionInfo captionInfo;
 
         DEFAULT_CREATE_FUNC(RequestOverlayCaption);
+    };
+
+    class UICaption : public hh::game::GameObject {
+    public:
+        struct Description {
+            RequestOverlayCaption* captionRequest;
+        };
+
+        hh::fnd::Reference<RequestOverlayCaption> requestOverlay;
+        hh::ui::LayerController* subtitleLc;
+        hh::ui::LayerController* textFeedIconLc;
+        int currentCaption;
+        float currentCaptionDuration;
+        hh::snd::SoundHandle subtitleSound;
+        char byte26C;
+        char byte26D;
+
+		virtual bool ProcessMessage(hh::fnd::Message& message) override;
+		virtual void AddCallback(hh::game::GameManager* gameManager) override;
+
+        void Setup(const Description& desc);
+
+        GAMEOBJECT_CLASS_DECLARATION(UICaption);
     };
 }

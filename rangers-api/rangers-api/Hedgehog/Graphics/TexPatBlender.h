@@ -21,7 +21,7 @@ namespace hh::gfx {
     public:
         GOCVisualModel* model;
         csl::ut::MoveArray<fnd::Reference<TexPatControlHH>> animations;
-        uint64_t unk2;
+        needle::AnimBlender<needle::AnimTexPatControl>* needleBlender;
 
         virtual void Initialize(TexPatBlenderDesc& description) override;
         virtual void Deinitialize() override;

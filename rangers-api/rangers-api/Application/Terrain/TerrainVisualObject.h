@@ -9,7 +9,7 @@ namespace app::trr {
                 hh::fnd::Reference<hh::gfx::ResAnimLightContainer> lightAnimationResource;
                 hh::fnd::HFrame* hFrame;
                 float loadingRange;
-                char unk1;
+                bool animationOn;
                 const char* instanceName;
                 int idx;
 
@@ -48,6 +48,8 @@ namespace app::trr {
         virtual void UnkFunc13() = 0;
         virtual bool UnkFunc14() = 0;
         virtual void UnkFunc15() {}
+
+        void CreateSector(unsigned int sectorId);
 
         struct SetupInfo {
             TerrainWorld* world;

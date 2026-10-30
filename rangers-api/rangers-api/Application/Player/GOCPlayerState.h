@@ -5,18 +5,17 @@ namespace app::player {
     class GOCPlayerStateBase : public hh::ut::StateBase<T> {
     public:
         struct Unk1 {
-            uint64_t a;
-            uint64_t b;
-            uint64_t c;
+            int a, b, c;
         };
 
         typedef bool MessageHandler(GOCPlayerHsm& gocPlayerHsm, hh::fnd::Message& message);
 
         csl::ut::MoveArray<MessageHandler*> messageHandlers;
         csl::ut::InplaceMoveArray<Unk1, 4> unk5;
-        uint64_t unk9;
-        uint32_t unk10;
-        int unk11;
+        float dwordA0;
+        float dwordA4;
+        int currentAnimationState;
+        int previousAnimationState;
 
         virtual bool Init(PlayerHsmContext& context) override;
         virtual void Enter(PlayerHsmContext& context, int previousState) override;

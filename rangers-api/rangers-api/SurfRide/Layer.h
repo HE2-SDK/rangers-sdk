@@ -30,6 +30,7 @@ namespace SurfRide
 	public:
 		enum class Flag : uint32_t {
 			IS_3D,
+			HIDE = 8
 		};
 
 		csl::ut::MoveArray<void*> unk1;

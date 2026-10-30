@@ -2,8 +2,8 @@
 
 namespace hh::ui {
     struct TextStyleParameters {
-        csl::ut::MoveArray<hh::fnd::Reference<hh::fnd::ReferencedObject>> fonts;
-        uint64_t qword20;
+        csl::ut::MoveArray<fnd::Reference<font::IFont>> fonts;
+        fnd::Reference<fnd::ReferencedObject> qword20;
         uint8_t dword28;
         uint8_t dword29;
         uint8_t dword2A;
@@ -24,11 +24,9 @@ namespace hh::ui {
         heur::rfl::DecoTechParam decoTechParam;
         float dword160;
         float dword164;
-        uint32_t dword168;
-        uint32_t dword16C;
-        uint64_t qword170;
-        uint64_t qword178;
-        int dword180;
+        float imageCastSize[2];
+        float qword170[4];
+        float defaultSize;
         float dword184;
         float qword188;
         float qword18C;
@@ -60,17 +58,17 @@ namespace hh::ui {
     class TextObjectPage : public fnd::ReferencedObject {
     public:
         unsigned int index;
-        hh::fnd::Reference<hh::ui::PageInfo> pageInfo;
-        uint64_t unk0;
-        hh::fnd::Reference<TextTextureBuilder> textureBuilder;
+        fnd::Reference<PageInfo> pageInfo;
+        fnd::Reference<font::TextTagWriter> textTagWriter;
+        fnd::Reference<TextTextureBuilder> textureBuilder;
 
         CREATE_FUNC(TextObjectPage, unsigned int index, TextData* textData);
     };
 
     class TextObjectPageCollection : public fnd::ReferencedObject {
     public:
-        csl::ut::MoveArray<void*> unk1;
-        csl::ut::MoveArray<hh::fnd::Reference<TextObjectPage>> pages;
+        csl::ut::MoveArray<void*> unkDelegatesRelatedToTextObject;
+        csl::ut::MoveArray<fnd::Reference<TextObjectPage>> pages;
 
         DEFAULT_CREATE_FUNC(TextObjectPageCollection);
 
@@ -83,8 +81,8 @@ namespace hh::ui {
             uint32_t unk1;
             uint32_t unk2;
             uint32_t unk3;
-            uint32_t unk4;
-            uint32_t unk5;
+            float unk4;
+            float unk5;
             uint32_t unk6;
             uint32_t unk7;
 
@@ -112,7 +110,7 @@ namespace hh::ui {
         TextStyleParameters styleParameters;
         hh::fnd::Reference<TextData> textData;
         hh::fnd::Reference<TextObjectPageCollection> pageCollection;
-        int qword248;
+        int currentPage;
         uint32_t qword24C;
         uint8_t byte250;
         uint8_t byte251;
@@ -123,10 +121,10 @@ namespace hh::ui {
         uint16_t word25C;
         uint8_t byte25E;
         uint64_t qword260;
-        uint64_t qword268;
+        fnd::Reference<RenderFunctionBridge<TextObject>> renderable;
         Unk1 char270[4];
         Unk1 char2E0[4];
-        uint64_t qword350;
+        float imageCastSize[2];
         Unk2 unk358;
         csl::ut::MoveArray<void*> unk3A8;
         csl::ut::MoveArray<void*> unk3C8;
@@ -135,7 +133,7 @@ namespace hh::ui {
         hh::fnd::Reference<hh::text::TagReplaceableCollection> tagReplaceableCollection1;
         hh::fnd::Reference<hh::text::TagReplaceableCollection> tagReplaceableCollection2;
         float dword408;
-        csl::ut::VariableString str410;
+        csl::ut::VariableString castNamePath;
 
         CREATE_FUNC(TextObject, TextData* textData);
 
@@ -143,10 +141,11 @@ namespace hh::ui {
         virtual int TL_UnkFunc2() override;
         virtual void TTWFL_UnkFunc1() override;
         virtual void TTWFL_UnkFunc2() override;
-        virtual void TTWFL_UnkFunc3() override;
-        virtual void TTWFL_UnkFunc4() override;
+        virtual int64_t TTWFL_UnkFunc3() override;
+        virtual int64_t TTWFL_UnkFunc4() override;
 
         void SetTextData(TextData* textData);
         void SetStyleParameters(const TextStyleParameters& styleParams);
+        void AddTagWriterFeedListener(font::TextTagWriterFeedListener* listener);
     };
 }

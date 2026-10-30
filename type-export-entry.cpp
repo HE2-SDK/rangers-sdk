@@ -1,5 +1,6 @@
 #define EXPORTING_TYPES
 #define RESOLVE_STATIC_VARIABLE(x) x
+#define _ALLOW_COMPILER_AND_STL_VERSION_MISMATCH
 
 #include "rangers-api/rangers-api/rangers-api.h"
 
@@ -276,6 +277,7 @@ template class csl::ut::MoveArray<hh::needle::uint_vector4>;
 template class csl::ut::MoveArray<hh::needle::float_vector4>;
 template class hh::needle::intrusive_ptr<hh::needle::SceneContext, hh::needle::SRefCountAddReleaseNeedleObject, 1>;
 template class hh::needle::intrusive_ptr<hh::needle::Renderable, hh::needle::SRefCountAddReleaseNeedleObject, 1>;
+template class hh::needle::intrusive_ptr<hh::needle::AnimCameraControl>;
 
 template class app::game::ConditionArgumentFixed<bool>;
 template class app::game::ConditionArgumentFixed<int>;
@@ -284,3 +286,25 @@ template class app::game::ConditionArgumentFixed<float>;
 template class hh::fnd::Reference<app::ui::UIMainMenuContext>;
 
 template class hh::needle::AnimBlender<hh::needle::AnimTexSrtControl>;
+
+template class app::game::BossActionPluginManager<app::BossBaseContext>;
+template class hh::fnd::Reference<hh::ui::surfride::SurfRideShaderManager>;
+template class hh::fnd::Reference<app::player::StatePluginInWater::WaterDepthProcess>;
+
+template class app_cmn::hid::CharacterInputHistory<char>;
+template class app_cmn::hid::CharacterInputHistory<csl::math::Vector2>;
+template class csl::ut::MoveArray<hh::fnd::Reference<app_cmn::hid::CharacterActionHistory>>;
+template class csl::ut::MoveArray<hh::fnd::Reference<app_cmn::hid::CharacterStickHistory>>;
+template class hh::fnd::Reference<app_cmn::hid::CharacterActionHistory>;
+template class hh::fnd::Reference<app_cmn::hid::CharacterStickHistory>;
+template class app::db::Database<app::player::EffectRecord, app::player::EffectRecordBaseTable, app::player::EffectRecordTable>;
+template class app::db::Database<app::level::EnemyAttackRecord,app::db::EnemyAttackRecordBaseTable,app::db::EnemyAttackRecordTable>;
+template class app::db::Database<app::level::EnemyDefenceRecord,app::db::EnemyDefenceRecordBaseTable,app::db::EnemyDefenceRecordTable>;
+
+template class hh::gfx::ResDefaultBindCallback<hh::gfx::ResModelNeedle>;
+template class hh::gfx::ResDefaultBindCallback<hh::gfx::ResMaterial>;
+
+template class hh::ui::RenderFunctionBridge<hh::ui::TextObject>;
+
+template class hh::fnd::Reference<app::game::GOCEyesight::TargetInfo>;
+template class csl::ut::MoveArray<hh::fnd::Reference<app::game::GOCEyesight::TargetInfo>>;

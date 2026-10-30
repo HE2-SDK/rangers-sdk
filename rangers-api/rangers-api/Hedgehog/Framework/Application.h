@@ -44,6 +44,6 @@ namespace hh::fw {
         virtual void UnkFunc6() {}
         virtual void Reset() {} // Actually startup or something
         virtual void Shutdown() {}
-        virtual uint64_t UnkFunc9();
+        virtual uint64_t Tick();
     };
 }

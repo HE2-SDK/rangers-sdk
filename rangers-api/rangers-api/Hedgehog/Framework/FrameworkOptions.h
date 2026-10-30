@@ -33,8 +33,8 @@ namespace hh::fw {
         uint64_t qword70;
         uint64_t qword78;
         uint64_t qword80;
-        uint32_t dword88;
-        uint64_t qword90;
+        uint32_t argc;
+        const char* argv;
         uint64_t bts;
         bool disableDialog;
         bool disableBts;

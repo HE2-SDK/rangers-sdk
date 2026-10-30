@@ -4,8 +4,8 @@ namespace hh::fw {
     class Window : public fnd::ReferencedObject {
     public:
         uint64_t hWnd;
-        uint64_t unk2;
-        uint64_t unk3;
+        uint32_t width, height;
+        uint32_t posX, posY;
         uint64_t unk4;
         uint64_t unk5;
         uint64_t unk6;
@@ -20,9 +20,9 @@ namespace hh::fw {
         virtual void UnkFunc6() {}
         virtual void UnkFunc7() {}
         virtual void UnkFunc8() {}
-        virtual bool UnkFunc9() { return false; }
-        virtual bool UnkFunc10() { return false; }
-        virtual void UnkFunc11() {}
+        virtual bool IsFullscreen() { return false; }
+        virtual bool GetMonitorResolution(uint32_t& width, uint32_t& height) { return false; }
+        virtual void SetWindowResolutionAndPosition(uint32_t x, uint32_t y, uint32_t width, uint32_t height, bool setRect) {}
         virtual void UnkFunc12() {}
         virtual bool UnkFunc13() { return true; }
         virtual void UnkFunc14() {}

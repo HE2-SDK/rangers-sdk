@@ -8,6 +8,7 @@ namespace hh::dv{
     class DvSceneControl;
     class DvPage;
     class DvPageTransition;
+    struct PageInfo;
 
     class DvPageConditionBase : public fnd::ReferencedObject{
     public:
@@ -23,7 +24,7 @@ namespace hh::dv{
         virtual void UnkFunc2() {};
         virtual int UnkFunc3() {}; // is playing?
         virtual int UnkFunc4() {}; // is playing?
-        virtual bool UnkFunc5() { return false; };
+        virtual bool ShouldSkip(PageInfo& pageInfo) { return false; };
 
         game::GameManager* GetGameManager();
         
@@ -41,6 +42,8 @@ namespace hh::dv{
         DvPage* page;
         Description binaryData;
         DvPageConditionBase* condition;
+
+        bool ShouldTransition(PageInfo& pageInfo);
 
         DvPageTransition(csl::fnd::IAllocator* allocator);
     };
@@ -79,6 +82,8 @@ namespace hh::dv{
 
         virtual int GetStart();
         int GetEnd() const;
+        bool ShouldTransition(PageInfo& pageInfo, int& destinationPageId);
+        char* GetName() const;
 
         DvPage(csl::fnd::IAllocator* allocator);
     };

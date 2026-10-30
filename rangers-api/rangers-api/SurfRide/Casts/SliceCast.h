@@ -16,7 +16,7 @@ namespace SurfRide {
     public:
         SRS_SLICECAST* sliceCastData;
         EPivotType pivotType;
-        uint64_t qwordE0;
+        SRS_CELL3D* cell;
         Vector2 size;
         Color vertexColorTopLeft;
         Color vertexColorBottomLeft;
@@ -31,7 +31,7 @@ namespace SurfRide {
 
         virtual void* GetRuntimeTypeInfo() const override;
         virtual bool UnkFunc2() override;
-        virtual void UnkFunc3() override;
+        virtual void Render(DrawInterface* drawInterface, void* uiRenderInfo) override;
         virtual void CalcTrackTypeWidth(float time, const SRS_TRACK* track) override;
         virtual void CalcTrackTypeHeight(float time, const SRS_TRACK* track) override;
         virtual void* GetCellProbably() const override;

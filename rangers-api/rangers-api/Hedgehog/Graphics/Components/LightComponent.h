@@ -5,7 +5,10 @@ namespace hh::gfx {
         class Impl : public fnd::ReferencedObject {
         public:
             class MyReloadListener : public fnd::ReloaderListener {
+            public:
                 Impl* lightComponentImplementation;
+
+                virtual void PostResourceReloadCallback(fnd::ManagedResource* resource) override;
             };
 
         private:

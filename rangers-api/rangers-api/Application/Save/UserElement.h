@@ -13,9 +13,9 @@ namespace app::save {
         ArcadeData arcadedata15124C;
         ChallengeData challengedata151588;
         ChallengeData challengedata1531A0;
-        csl::ut::MoveArray<void*> unk154DB8;
+        csl::ut::MoveArray<HeaderData> mainSaveHeaderData;
         csl::ut::MoveArray<void*> unk154DD8;
-        csl::ut::MoveArray<void*> unk154DF8;
+        csl::ut::MoveArray<HeaderData> extraSaveHeaderData;
         csl::ut::MoveArray<void*> unk154E18;
         uint8_t byte154E38;
 

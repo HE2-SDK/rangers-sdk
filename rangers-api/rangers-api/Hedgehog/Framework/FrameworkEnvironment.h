@@ -15,8 +15,8 @@ namespace hh::fw {
         fnd::SUpdateInfo updateInfo;
         Window* window;
         FrameworkOptions* options;
-        uint64_t unk7;
-        uint32_t unk8;
+        const char* buildDate;
+        uint32_t revision;
         uint32_t unk8b;
         uint64_t unk9;
         uint64_t unk10;

@@ -16,5 +16,6 @@ namespace hh::needle {
         IBLGGXSamplingTexture();
         void Initialize();
         void CreateTexture(SupportFXAll* supportFX, unsigned int size, SurfaceFormat format, int cubeCount);
+        intrusive_ptr<Texture> GetTexture() const;
     };
 }

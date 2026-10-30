@@ -32,6 +32,7 @@ namespace hh::snd {
 
         SoundHandle Play(unsigned int category, const char* name, const SoundParam& soundParam);
         SoundHandle Play3D(unsigned int category, const char* name, const csl::math::Vector3& position, const SoundParam& soundParam);
+        void SetMasterVolume(unsigned int category, float volume);
 
         GAMESERVICE_CLASS_DECLARATION(SoundManager);
     };

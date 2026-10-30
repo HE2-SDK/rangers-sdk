@@ -20,7 +20,7 @@ namespace app{
         int unk4;
         char currentObjectName[0x40];
         short unk5;
-        CRITICAL_SECTION criticalSection;
+        csl::fnd::Mutex mutex;
         csl::ut::StringMap<Function*> luaFunctions;
         hh::fnd::ResReflectionT<heur::rfl::ScriptParameter>* scriptParams;
         int64_t unk8;

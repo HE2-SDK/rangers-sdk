@@ -49,6 +49,7 @@ namespace hh::game {
         void UnloadLevel(const char* name);
         void Setup(Description& desc);
         void FireMasterLevelLoadedCallback(MasterLevel* masterLevel);
+        void SetLevelResourceAllocator(const char* levelName, csl::fnd::IAllocator* allocator);
 
         GAMESERVICE_CLASS_DECLARATION(LevelManager);
     };

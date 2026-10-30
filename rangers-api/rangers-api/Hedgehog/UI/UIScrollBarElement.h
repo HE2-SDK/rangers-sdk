@@ -14,6 +14,8 @@ namespace hh::ui {
         uint32_t unk107;
         int unk108;
     public:
+        SurfRide::Layer* GetLayer() const;
+
         UIScrollBarElement(csl::fnd::IAllocator* allocator, SurfRide::Cast* cast, GOCUIComposition* gocUIComposition);
     };
 }

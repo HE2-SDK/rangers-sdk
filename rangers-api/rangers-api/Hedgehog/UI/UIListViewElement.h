@@ -22,6 +22,7 @@ namespace hh::ui {
     };
 
     class UIListViewItemView : public UIElement {
+    public:
         int unk101;
         void* unk102[9];
         fnd::Handle<SurfRideCastHandle> hCast;
@@ -37,18 +38,19 @@ namespace hh::ui {
         uint32_t unk112;
         float unk113;
         csl::fnd::Delegate<void ()> unk114;
-    public:
+
         UIListViewItemView(csl::fnd::IAllocator *pAllocator, int a3, GOCSprite* gocSprite, SurfRide::Cast* cast, hh::ui::UITextInterface textInterface, GOCUIComposition* gocUIComposition, UIListViewElement* listViewElement);
     };
 
     class UIListViewItemBase : public UIObject {
+    public:
         UIListViewElement* listView;
         UIListViewItemView* view;
         uint64_t unk103;
         int32_t index;
         uint16_t unk105;
         bool unk106;
-    public:
+
         UIListViewItemBase(csl::fnd::IAllocator* pAllocator);
         void SetListViewElement(hh::ui::UIListViewElement* listViewElement);
         void SetDimensions(const Dimensions& dimensions);
@@ -186,6 +188,11 @@ namespace hh::ui {
              *     SCISSOR_OFFSET_B
              */
             ScissorOffsets offsets;
+
+            virtual void BeginRenderCastEx(SurfRide::Cast* cast, SurfRide::DrawInterface* drawInterface, void* uiRenderInfo) override;
+            virtual void EndRenderCastEx(SurfRide::Cast* cast, SurfRide::DrawInterface* drawInterface, void* uiRenderInfo) override;
+            virtual void BeginRenderCast(SurfRide::Cast* cast, SurfRide::DrawInterface* drawInterface, void* uiRenderInfo) override;
+            virtual void EndRenderCast(SurfRide::Cast* cast, SurfRide::DrawInterface* drawInterface, void* uiRenderInfo) override;
         };
 
         struct UIListViewLayout {
@@ -223,7 +230,7 @@ namespace hh::ui {
             UIPanel* panel;
             ScrollController* pScrollController;
             UIScrollBarElement* scrollBarElement;
-            uint64_t unk45;
+            fnd::Reference<ScissorCastListener> castListener;
         };
 
         class CursorType : public fnd::ReferencedObject {
@@ -287,6 +294,7 @@ namespace hh::ui {
         LayerController* GetItemLayerController(UIListViewItem* item);
         LayerController* GetCurrentItemViewLayerController();
         void NUnkFunc1(int a2, char a3, char a4);
+        UIScrollBarElement* GetScrollBarElement() const;
         virtual void* GetRuntimeTypeInfo() const override;
         virtual void Update(const fnd::SUpdateInfo& updateInfo) override;
         virtual void UpdateAsync(const fnd::SUpdateInfo& updateInfo) override;

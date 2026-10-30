@@ -11,7 +11,9 @@ namespace app::physics{
 
         csl::ut::MoveArray<Element> colliders;
 
-        void GetCollidersBasedOnUnk(int unk, csl::ut::MoveArray<hh::physics::GOCCollider*>& value);
+        void GetCollidersByFlag(int flag, csl::ut::MoveArray<hh::physics::GOCCollider*>& out);
+        void SetCollidersEnabled(bool enabled);
+        void AddCollider(hh::physics::GOCCollider* collider, int flags);
 
         ColliderContainer(csl::fnd::IAllocator* allocator);
     };

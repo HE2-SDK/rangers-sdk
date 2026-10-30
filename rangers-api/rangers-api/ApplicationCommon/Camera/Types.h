@@ -15,7 +15,9 @@ namespace app_cmn::camera {
             csl::math::Vector4 unk3;
 
             csl::math::Vector3& GetPosition() const;
+            csl::math::Vector3 GetFullPosition() const; // Position + Offset
             void SetPosition(csl::math::Vector3& position);
+            void SetOffset(const csl::math::Vector3& offset);
         };
 
         struct Orientation {
@@ -28,16 +30,19 @@ namespace app_cmn::camera {
             };
             struct Target {
                 csl::math::Vector4 upVector;
-                uint32_t unk8b;  
+                float zRot;  
 
-                void SetUnk8b(uint32_t unk8b);
-                uint32_t GetUnk8b() const;
+                void SetZRot(float zRot);
+                float GetZRot() const;
             };
 
             Offset offset;
             Target target;
 
             void SetTargetPosition(csl::math::Vector3& targetPosition);
+            void SetAngleX(float angleX);
+            void SetAngleY(float angleY);
+            void SetDistance(float distance);
         };
 
         Positioning positioning;

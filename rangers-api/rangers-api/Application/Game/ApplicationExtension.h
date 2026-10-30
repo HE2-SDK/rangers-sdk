@@ -12,8 +12,8 @@ namespace app::game {
     
     public:
         virtual uint64_t GetNameHash() = 0;
-        virtual uint64_t UnkFunc2() = 0;
-        virtual uint64_t UnkFunc3() = 0;
+        virtual void AddCallback() = 0;
+        virtual void RemoveCallback() = 0;
         virtual uint64_t UnkFunc4() = 0;
         virtual uint64_t UnkFunc5() = 0;
     };

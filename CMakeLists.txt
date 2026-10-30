@@ -24,3 +24,6 @@ target_sources(rangers-sdk
     PUBLIC FILE_SET HEADERS BASE_DIRS include FILES
         include/rangers-sdk.h
 )
+if(MSVC)
+    target_link_options(rangers-sdk PUBLIC /NATVIS:${CMAKE_CURRENT_LIST_DIR}/debug/csl.natvis)
+endif()

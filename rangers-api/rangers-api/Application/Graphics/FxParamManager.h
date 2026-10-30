@@ -7,9 +7,9 @@
 namespace app::gfx {
     class FxParamManager;
     class FxParamExtension : public hh::fnd::BaseObject {
+    public:
         FxParamManager* fxParamManager;
 
-    public:
         FxParamExtension(csl::fnd::IAllocator* allocator);
         virtual void* GetRuntimeTypeInfo() = 0;
         virtual void Initialize() = 0;
@@ -407,6 +407,8 @@ namespace app::gfx {
         unsigned int GetFxDetailParameterSceneConfigId() const;
         unsigned int GetFxDynamicResolutionParameterSceneConfigId() const;
         unsigned int GetStageCommonTimeProgressParameterSceneConfigId() const;
+
+        void AddInterpolatorJob(uint32_t id, uint64_t ownerId, const void* value, unsigned int interpolationGroupMemberBits, unsigned int priority);
 
         void AddFxRenderTargetSettingSceneConfigInterpolatorJob(uint64_t ownerId, const hh::gfx::FxRenderTargetSetting* value, unsigned int interpolationGroupMemberBits, unsigned int priority, float interpolationTime);
         void AddFxAntiAliasingSceneConfigInterpolatorJob(uint64_t ownerId, const hh::needle::FxAntiAliasing* value, unsigned int interpolationGroupMemberBits, unsigned int priority, float interpolationTime);

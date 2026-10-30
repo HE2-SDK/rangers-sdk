@@ -8,7 +8,7 @@ namespace hh::fnd
 
 		inline PropertyValue() { m_Data = 0; }
 		inline PropertyValue(const float f);
-		inline PropertyValue(const int32_t i);
+		inline PropertyValue(const int32_t i) { m_Data = i; }
 		inline PropertyValue(void* p);
 		inline PropertyValue(uint64_t i);
 
