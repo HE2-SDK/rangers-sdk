@@ -14,7 +14,7 @@ namespace hh::anim {
         virtual uint64_t UnkFunc4() = 0;
         virtual ResAnimation* CreateMirrorAnimation(csl::fnd::IAllocator* allocator, ResSkeleton* skeleton, ResAnimation* resolvedAnimation) = 0;
         virtual uint64_t UnkFunc6() = 0;
-        virtual uint64_t UnkFunc7() = 0;
+        virtual int GetMirroredBoneIndex(int boneIdx) const = 0;
         virtual bool UnkFunc8() = 0;
         virtual uint64_t UnkFunc9() = 0;
     };

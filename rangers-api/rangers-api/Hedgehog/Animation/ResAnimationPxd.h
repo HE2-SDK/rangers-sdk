@@ -24,7 +24,7 @@ namespace hh::anim {
         virtual uint64_t UnkFunc4() override;
         virtual ResAnimationPxd* CreateMirrorAnimation(csl::fnd::IAllocator* allocator, ResSkeleton* skeleton, ResAnimation* resolvedAnimation) override;
         virtual uint64_t UnkFunc6() override;
-        virtual uint64_t UnkFunc7() override;
+        virtual int GetMirroredBoneIndex(int boneIdx) const override;
         virtual bool UnkFunc8() override;
         virtual uint64_t UnkFunc9() override;
     };

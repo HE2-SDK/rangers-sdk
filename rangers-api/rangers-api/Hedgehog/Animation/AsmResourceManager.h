@@ -32,7 +32,7 @@ namespace hh::anim {
         csl::ut::MoveArray<BlendMaskInfo> blendMaskInfos;
         BlendMaskInfo defaultBlendMaskInfo;
         BlendMaskInfo unk5;
-        float unk6;
+        float fps; // tentative
         uint8_t unk7;
 
         static AsmResourceManager* Load(const char* resourceName, hh::anim::ResSkeleton* skeleton, csl::fnd::IAllocator* allocator);

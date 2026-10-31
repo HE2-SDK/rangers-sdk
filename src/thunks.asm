@@ -93775,6 +93775,11 @@ PUBLIC ?UnkFunc6@CyanRenderHandler@eff@hh@@UEAAXPEAVPBRModelInstance@needle@3@PE
     mov rax, 0140daf930h
     jmp rax
 
+PUBLIC ?RaycastCallback@Impl@EffectManager@eff@hh@@SA_NAEBVVector3@math@csl@@0IAEAV567@1AEAI@Z
+?RaycastCallback@Impl@EffectManager@eff@hh@@SA_NAEBVVector3@math@csl@@0IAEAV567@1AEAI@Z:
+    mov rax, 0140db0380h
+    jmp rax
+
 PUBLIC ?RequestComputeShaderCallback@Impl@EffectManager@eff@hh@@SA_NPEAVEffect@Cyan@@PEAV?$ResObject@VComputeShader@Resource@Cyan@@@Resource@6@PEAX@Z
 ?RequestComputeShaderCallback@Impl@EffectManager@eff@hh@@SA_NPEAVEffect@Cyan@@PEAV?$ResObject@VComputeShader@Resource@Cyan@@@Resource@6@PEAX@Z:
     mov rax, 0140db0de0h
@@ -94110,8 +94115,8 @@ PUBLIC ??_DGOCPlayerReplayPlayer@player@app@@QEAAXXZ
     mov rax, 0140db3b40h
     jmp rax
 
-PUBLIC ?Stop@EffectHandle@eff@hh@@QEAAXXZ
-?Stop@EffectHandle@eff@hh@@QEAAXXZ:
+PUBLIC ?Stop@EffectHandle@eff@hh@@QEAAX_N@Z
+?Stop@EffectHandle@eff@hh@@QEAAX_N@Z:
     mov rax, 0140db3b40h
     jmp rax
 
@@ -94130,9 +94135,14 @@ PUBLIC ?CreateEffectHandle@GOCEffect@eff@hh@@QEAA?AVEffectHandle@23@PEBDAEBVMatr
     mov rax, 0140db4900h
     jmp rax
 
-PUBLIC ?StopEffectAll@GOCEffect@eff@hh@@QEAAXXZ
-?StopEffectAll@GOCEffect@eff@hh@@QEAAXXZ:
+PUBLIC ?ClearEffects@GOCEffect@eff@hh@@QEAAXXZ
+?ClearEffects@GOCEffect@eff@hh@@QEAAXXZ:
     mov rax, 0140db4be0h
+    jmp rax
+
+PUBLIC ?GetEffects@GOCEffect@eff@hh@@QEBAXAEAV?$MoveArray@VEffectHandle@eff@hh@@@ut@csl@@@Z
+?GetEffects@GOCEffect@eff@hh@@QEBAXAEAV?$MoveArray@VEffectHandle@eff@hh@@@ut@csl@@@Z:
+    mov rax, 0140db4f10h
     jmp rax
 
 PUBLIC ?GetRuntimeTypeInfo@GOCEffect@eff@hh@@UEAAPEAXXZ
@@ -94143,6 +94153,11 @@ PUBLIC ?GetRuntimeTypeInfo@GOCEffect@eff@hh@@UEAAPEAXXZ
 PUBLIC ?GetRuntimeTypeInfo@GOCEffect@eff@hh@@UEBAPEAXXZ
 ?GetRuntimeTypeInfo@GOCEffect@eff@hh@@UEBAPEAXXZ:
     mov rax, 0140db50a0h
+    jmp rax
+
+PUBLIC ?SetAttachTime@GOCEffect@eff@hh@@QEAAXPEAVEffectHandle@23@M@Z
+?SetAttachTime@GOCEffect@eff@hh@@QEAAXPEAVEffectHandle@23@M@Z:
+    mov rax, 0140db52c0h
     jmp rax
 
 PUBLIC ?SetModel@GOCEffect@eff@hh@@QEAAXPEAI@Z
@@ -94163,6 +94178,21 @@ PUBLIC ?GetClass@GOCEffect@gocs@heur@@SAPEBVGOComponentClass@game@hh@@XZ
 PUBLIC ?GetClass@GOCEffect@eff@hh@@SAPEBVGOComponentClass@game@3@XZ
 ?GetClass@GOCEffect@eff@hh@@SAPEBVGOComponentClass@game@3@XZ:
     mov rax, 0140db5740h
+    jmp rax
+
+PUBLIC ?DetachEffect@GOCEffect@eff@hh@@QEAA_NVEffectHandle@23@@Z
+?DetachEffect@GOCEffect@eff@hh@@QEAA_NVEffectHandle@23@@Z:
+    mov rax, 0140db5750h
+    jmp rax
+
+PUBLIC ?StopAttachedEffectAll@GOCEffect@eff@hh@@QEAAX_N@Z
+?StopAttachedEffectAll@GOCEffect@eff@hh@@QEAAX_N@Z:
+    mov rax, 0140db58f0h
+    jmp rax
+
+PUBLIC ?StopEffect@GOCEffect@eff@hh@@QEAA_NVEffectHandle@23@_N@Z
+?StopEffect@GOCEffect@eff@hh@@QEAA_NVEffectHandle@23@_N@Z:
+    mov rax, 0140db5980h
     jmp rax
 
 PUBLIC ?GetDebugInfoMaybe@GOCEffect@eff@hh@@UEAAXXZ
@@ -94358,6 +94388,16 @@ PUBLIC ?GetClass@GOCParticleLocator@animeff@hh@@SAPEBVGOComponentClass@game@3@XZ
 PUBLIC ?TransitionEndedCallback@GOCParticleLocator@animeff@hh@@UEAAXPEAVAnimationStateMachine@anim@3@H@Z
 ?TransitionEndedCallback@GOCParticleLocator@animeff@hh@@UEAAXPEAVAnimationStateMachine@anim@3@H@Z:
     mov rax, 0140e8aec0h
+    jmp rax
+
+PUBLIC ?LoadParticleConfig@GOCParticleLocator@animeff@hh@@QEAA_NPEAUParticle@v100@effdb@resources@ucsl@@FAEAUParticleConfig@123@@Z
+?LoadParticleConfig@GOCParticleLocator@animeff@hh@@QEAA_NPEAUParticle@v100@effdb@resources@ucsl@@FAEAUParticleConfig@123@@Z:
+    mov rax, 0140e8b060h
+    jmp rax
+
+PUBLIC ?LoadEmitterConfig@GOCParticleLocator@animeff@hh@@QEAA_NPEAUEmitter@v100@effdb@resources@ucsl@@FAEAUEmitterConfig@123@@Z
+?LoadEmitterConfig@GOCParticleLocator@animeff@hh@@QEAA_NPEAUEmitter@v100@effdb@resources@ucsl@@FAEAUEmitterConfig@123@@Z:
+    mov rax, 0140e8b060h
     jmp rax
 
 PUBLIC ?UpdateAsync@GOCParticleLocator@animeff@hh@@UEAAXW4UpdatingPhase@fnd@3@AEBUSUpdateInfo@53@PEAX@Z
@@ -95002,11 +95042,6 @@ PUBLIC ??_DGOCCharacterIk@anim@hh@@QEAAXXZ
 
 PUBLIC ?AEL_UnkFunc2@AnimationEnabledListener@anim@hh@@UEAAXPEAX_N@Z
 ?AEL_UnkFunc2@AnimationEnabledListener@anim@hh@@UEAAXPEAX_N@Z:
-    mov rax, 0140e9abd0h
-    jmp rax
-
-PUBLIC ?AEL_UnkFunc2@AnimationEnabledListener@anim@hh@@UEAAXPEAVGOCAnimationSingle@23@_N@Z
-?AEL_UnkFunc2@AnimationEnabledListener@anim@hh@@UEAAXPEAVGOCAnimationSingle@23@_N@Z:
     mov rax, 0140e9abd0h
     jmp rax
 
@@ -95850,6 +95885,11 @@ PUBLIC ?GetUnk18@FootSolver@iksolver@anim@hh@@UEBA_NW4SolverType@SolverBase@234@
     mov rax, 0140ebcfc0h
     jmp rax
 
+PUBLIC ?GetFloatParameter@FootSolver@iksolver@anim@hh@@UEBA_NW4SolverType@SolverBase@234@AEAMH@Z
+?GetFloatParameter@FootSolver@iksolver@anim@hh@@UEBA_NW4SolverType@SolverBase@234@AEAMH@Z:
+    mov rax, 0140ebcfc0h
+    jmp rax
+
 PUBLIC ?UnkFunc1@FootSolver@iksolver@anim@hh@@UEBA_NE@Z
 ?UnkFunc1@FootSolver@iksolver@anim@hh@@UEBA_NE@Z:
     mov rax, 0140ebcfe0h
@@ -95882,6 +95922,11 @@ PUBLIC ?SetUnkFunc4@FootSolver@iksolver@anim@hh@@UEAA_NW4SolverType@SolverBase@2
 
 PUBLIC ?SetUnk18@FootSolver@iksolver@anim@hh@@UEAA_NW4SolverType@SolverBase@234@MH@Z
 ?SetUnk18@FootSolver@iksolver@anim@hh@@UEAA_NW4SolverType@SolverBase@234@MH@Z:
+    mov rax, 0140ebd2e0h
+    jmp rax
+
+PUBLIC ?SetFloatParameter@FootSolver@iksolver@anim@hh@@UEAA_NW4SolverType@SolverBase@234@MH@Z
+?SetFloatParameter@FootSolver@iksolver@anim@hh@@UEAA_NW4SolverType@SolverBase@234@MH@Z:
     mov rax, 0140ebd2e0h
     jmp rax
 
@@ -95940,6 +95985,11 @@ PUBLIC ?GetUnkFunc8@HandSolver@iksolver@anim@hh@@UEBA_NW4SolverType@SolverBase@2
     mov rax, 0140ebdef0h
     jmp rax
 
+PUBLIC ?GetUnk1Parameter@HandSolver@iksolver@anim@hh@@UEBA_NW4SolverType@SolverBase@234@AEAUUnk1@6234@H@Z
+?GetUnk1Parameter@HandSolver@iksolver@anim@hh@@UEBA_NW4SolverType@SolverBase@234@AEAUUnk1@6234@H@Z:
+    mov rax, 0140ebdef0h
+    jmp rax
+
 PUBLIC ?UnkFunc5@HandSolver@iksolver@anim@hh@@UEAA_N_NAEAII@Z
 ?UnkFunc5@HandSolver@iksolver@anim@hh@@UEAA_N_NAEAII@Z:
     mov rax, 0140ebdf20h
@@ -95962,6 +96012,11 @@ PUBLIC ?GetUnkFunc4@HandSolver@iksolver@anim@hh@@UEBA_NW4SolverType@SolverBase@2
 
 PUBLIC ?GetUnk18@HandSolver@iksolver@anim@hh@@UEBA_NW4SolverType@SolverBase@234@AEAMH@Z
 ?GetUnk18@HandSolver@iksolver@anim@hh@@UEBA_NW4SolverType@SolverBase@234@AEAMH@Z:
+    mov rax, 0140ebdf20h
+    jmp rax
+
+PUBLIC ?GetFloatParameter@HandSolver@iksolver@anim@hh@@UEBA_NW4SolverType@SolverBase@234@AEAMH@Z
+?GetFloatParameter@HandSolver@iksolver@anim@hh@@UEBA_NW4SolverType@SolverBase@234@AEAMH@Z:
     mov rax, 0140ebdf20h
     jmp rax
 
@@ -96005,6 +96060,11 @@ PUBLIC ?SetUnkFunc8@HandSolver@iksolver@anim@hh@@UEAA_NW4SolverType@SolverBase@2
     mov rax, 0140ebe0a0h
     jmp rax
 
+PUBLIC ?SetUnk1Parameter@HandSolver@iksolver@anim@hh@@UEAA_NW4SolverType@SolverBase@234@AEBUUnk1@6234@H@Z
+?SetUnk1Parameter@HandSolver@iksolver@anim@hh@@UEAA_NW4SolverType@SolverBase@234@AEBUUnk1@6234@H@Z:
+    mov rax, 0140ebe0a0h
+    jmp rax
+
 PUBLIC ?UnkFunc4@HandSolver@iksolver@anim@hh@@UEAA_N_NMI@Z
 ?UnkFunc4@HandSolver@iksolver@anim@hh@@UEAA_N_NMI@Z:
     mov rax, 0140ebe0d0h
@@ -96022,6 +96082,11 @@ PUBLIC ?SetUnkFunc4@HandSolver@iksolver@anim@hh@@UEAA_NW4SolverType@SolverBase@2
 
 PUBLIC ?SetUnk18@HandSolver@iksolver@anim@hh@@UEAA_NW4SolverType@SolverBase@234@MH@Z
 ?SetUnk18@HandSolver@iksolver@anim@hh@@UEAA_NW4SolverType@SolverBase@234@MH@Z:
+    mov rax, 0140ebe0d0h
+    jmp rax
+
+PUBLIC ?SetFloatParameter@HandSolver@iksolver@anim@hh@@UEAA_NW4SolverType@SolverBase@234@MH@Z
+?SetFloatParameter@HandSolver@iksolver@anim@hh@@UEAA_NW4SolverType@SolverBase@234@MH@Z:
     mov rax, 0140ebe0d0h
     jmp rax
 
@@ -96070,6 +96135,11 @@ PUBLIC ?GetUnkFunc6@LookAtSolver@iksolver@anim@hh@@UEBA_NW4SolverType@SolverBase
     mov rax, 0140ebe8c0h
     jmp rax
 
+PUBLIC ?GetVectorParameter@LookAtSolver@iksolver@anim@hh@@UEBA_NW4SolverType@SolverBase@234@AEAVVector3@math@csl@@H@Z
+?GetVectorParameter@LookAtSolver@iksolver@anim@hh@@UEBA_NW4SolverType@SolverBase@234@AEAVVector3@math@csl@@H@Z:
+    mov rax, 0140ebe8c0h
+    jmp rax
+
 PUBLIC ?GetUnkFunc4@LookAtSolver@iksolver@anim@hh@@UEAA_N_NAEAMH@Z
 ?GetUnkFunc4@LookAtSolver@iksolver@anim@hh@@UEAA_N_NAEAMH@Z:
     mov rax, 0140ebe8e0h
@@ -96087,6 +96157,11 @@ PUBLIC ?GetUnkFunc4@LookAtSolver@iksolver@anim@hh@@UEBA_NW4SolverType@SolverBase
 
 PUBLIC ?GetUnk18@LookAtSolver@iksolver@anim@hh@@UEBA_NW4SolverType@SolverBase@234@AEAMH@Z
 ?GetUnk18@LookAtSolver@iksolver@anim@hh@@UEBA_NW4SolverType@SolverBase@234@AEAMH@Z:
+    mov rax, 0140ebe8e0h
+    jmp rax
+
+PUBLIC ?GetFloatParameter@LookAtSolver@iksolver@anim@hh@@UEBA_NW4SolverType@SolverBase@234@AEAMH@Z
+?GetFloatParameter@LookAtSolver@iksolver@anim@hh@@UEBA_NW4SolverType@SolverBase@234@AEAMH@Z:
     mov rax, 0140ebe8e0h
     jmp rax
 
@@ -96115,6 +96190,11 @@ PUBLIC ?SetUnkFunc6@LookAtSolver@iksolver@anim@hh@@UEAA_NW4SolverType@SolverBase
     mov rax, 0140ebe910h
     jmp rax
 
+PUBLIC ?SetVectorParameter@LookAtSolver@iksolver@anim@hh@@UEAA_NW4SolverType@SolverBase@234@AEBVVector3@math@csl@@H@Z
+?SetVectorParameter@LookAtSolver@iksolver@anim@hh@@UEAA_NW4SolverType@SolverBase@234@AEBVVector3@math@csl@@H@Z:
+    mov rax, 0140ebe910h
+    jmp rax
+
 PUBLIC ?SetUnkFunc4@LookAtSolver@iksolver@anim@hh@@UEAA_N_NMH@Z
 ?SetUnkFunc4@LookAtSolver@iksolver@anim@hh@@UEAA_N_NMH@Z:
     mov rax, 0140ebe930h
@@ -96127,6 +96207,11 @@ PUBLIC ?SetUnkFunc4@LookAtSolver@iksolver@anim@hh@@UEAA_NW4SolverType@SolverBase
 
 PUBLIC ?SetUnk18@LookAtSolver@iksolver@anim@hh@@UEAA_NW4SolverType@SolverBase@234@MH@Z
 ?SetUnk18@LookAtSolver@iksolver@anim@hh@@UEAA_NW4SolverType@SolverBase@234@MH@Z:
+    mov rax, 0140ebe930h
+    jmp rax
+
+PUBLIC ?SetFloatParameter@LookAtSolver@iksolver@anim@hh@@UEAA_NW4SolverType@SolverBase@234@MH@Z
+?SetFloatParameter@LookAtSolver@iksolver@anim@hh@@UEAA_NW4SolverType@SolverBase@234@MH@Z:
     mov rax, 0140ebe930h
     jmp rax
 
@@ -102175,6 +102260,11 @@ PUBLIC ?CreateEmitter@ManagerImpl@Cyan@@QEAAPEAVEmitter@2@PEAVEffectImpl@2@PEBUE
     mov rax, 0140fe09d0h
     jmp rax
 
+PUBLIC ?DestroyEffect@ManagerImpl@Cyan@@QEAAXPEAVEffectImpl@2@@Z
+?DestroyEffect@ManagerImpl@Cyan@@QEAAXPEAVEffectImpl@2@@Z:
+    mov rax, 0140fe0a80h
+    jmp rax
+
 PUBLIC ?DestroyEffect@ManagerImpl@Cyan@@UEAAHAEBVEffectHandle@2@@Z
 ?DestroyEffect@ManagerImpl@Cyan@@UEAAHAEBVEffectHandle@2@@Z:
     mov rax, 0140fe0b30h
@@ -102325,6 +102415,21 @@ PUBLIC ?Render@ManagerImpl@Cyan@@UEAAXAEAVDeviceContainer@Graphics@2@@Z
     mov rax, 0140fe1840h
     jmp rax
 
+PUBLIC ?CalculateLOD@ManagerImpl@Cyan@@QEAA_NAEBVVector3@math@csl@@0IAEAV345@1AEAM@Z
+?CalculateLOD@ManagerImpl@Cyan@@QEAA_NAEBVVector3@math@csl@@0IAEAV345@1AEAM@Z:
+    mov rax, 0140fe18f0h
+    jmp rax
+
+PUBLIC ?CalculateLOD@ManagerImpl@Cyan@@QEAA_NAEBVVector3@math@csl@@0AEBTLODParam@v100000@cemt@resources@ucsl@@AEAV345@2AEAM@Z
+?CalculateLOD@ManagerImpl@Cyan@@QEAA_NAEBVVector3@math@csl@@0AEBTLODParam@v100000@cemt@resources@ucsl@@AEAV345@2AEAM@Z:
+    mov rax, 0140fe18f0h
+    jmp rax
+
+PUBLIC ?Raycast@ManagerImpl@Cyan@@QEAA_NAEBVVector3@math@csl@@0AEBTLODParam@v100000@cemt@resources@ucsl@@AEAV345@2AEAI@Z
+?Raycast@ManagerImpl@Cyan@@QEAA_NAEBVVector3@math@csl@@0AEBTLODParam@v100000@cemt@resources@ucsl@@AEAV345@2AEAI@Z:
+    mov rax, 0140fe18f0h
+    jmp rax
+
 PUBLIC ?UnkFunc2@ManagerImpl@Cyan@@UEAAHPEBDPEAX@Z
 ?UnkFunc2@ManagerImpl@Cyan@@UEAAHPEBDPEAX@Z:
     mov rax, 0140fe1960h
@@ -102460,6 +102565,16 @@ PUBLIC ?UnkFunc56@ManagerImpl@Cyan@@UEAAXPEAX0@Z
     mov rax, 0140fe21c0h
     jmp rax
 
+PUBLIC ?SetLODHandler@ManagerImpl@Cyan@@UEAAXP6A_NAEBVVector3@math@csl@@0IAEAV345@1AEAM@ZPEAX@Z
+?SetLODHandler@ManagerImpl@Cyan@@UEAAXP6A_NAEBVVector3@math@csl@@0IAEAV345@1AEAM@ZPEAX@Z:
+    mov rax, 0140fe21c0h
+    jmp rax
+
+PUBLIC ?SetRaycastHandler@ManagerImpl@Cyan@@UEAAXP6A_NAEBVVector3@math@csl@@0IAEAV345@1AEAI@ZPEAX@Z
+?SetRaycastHandler@ManagerImpl@Cyan@@UEAAXP6A_NAEBVVector3@math@csl@@0IAEAV345@1AEAI@ZPEAX@Z:
+    mov rax, 0140fe21c0h
+    jmp rax
+
 PUBLIC ?SetRequestResourceHandler@ManagerImpl@Cyan@@UEAAXP6A_NPEAV?$ResObject@VSkeleton@Resource@Cyan@@@Resource@2@PEAX@Z1@Z
 ?SetRequestResourceHandler@ManagerImpl@Cyan@@UEAAXP6A_NPEAV?$ResObject@VSkeleton@Resource@Cyan@@@Resource@2@PEAX@Z1@Z:
     mov rax, 0140fe21d0h
@@ -102545,6 +102660,11 @@ PUBLIC ?SetUpdateLightHandler@ManagerImpl@Cyan@@UEAAXPEAX0@Z
     mov rax, 0140fe2270h
     jmp rax
 
+PUBLIC ?SetUpdateLightHandler@ManagerImpl@Cyan@@UEAAXP6A_NPEAUUpdateLightParam@2@PEAX@Z1@Z
+?SetUpdateLightHandler@ManagerImpl@Cyan@@UEAAXP6A_NPEAUUpdateLightParam@2@PEAX@Z1@Z:
+    mov rax, 0140fe2270h
+    jmp rax
+
 PUBLIC ?UnkFunc24@ManagerImpl@Cyan@@UEAA_NIHHHH@Z
 ?UnkFunc24@ManagerImpl@Cyan@@UEAA_NIHHHH@Z:
     mov rax, 0140fe2280h
@@ -102568,6 +102688,11 @@ PUBLIC ?Step@ManagerImpl@Cyan@@UEAAXXZ
 PUBLIC ?Update@ManagerImpl@Cyan@@UEAAXXZ
 ?Update@ManagerImpl@Cyan@@UEAAXXZ:
     mov rax, 0140fe2690h
+    jmp rax
+
+PUBLIC ?UpdateEffect@ManagerImpl@Cyan@@QEAAXXZ
+?UpdateEffect@ManagerImpl@Cyan@@QEAAXXZ:
+    mov rax, 0140fe2700h
     jmp rax
 
 PUBLIC ?UpdateLight@ManagerImpl@Cyan@@QEAAXAEAUUpdateLightParam@2@@Z
@@ -102950,6 +103075,11 @@ PUBLIC ?Stop@EffectImpl@Cyan@@UEAAX_N@Z
     mov rax, 0140fe3eb0h
     jmp rax
 
+PUBLIC ?Update@EffectImpl@Cyan@@QEAAXM@Z
+?Update@EffectImpl@Cyan@@QEAAXM@Z:
+    mov rax, 0140fe3f10h
+    jmp rax
+
 PUBLIC ?CreateAnimCtrl@Emitter@Cyan@@QEAAPEAVAnimCtrl@2@AEBV?$PtrData@UAnimationParam@Resource@Cyan@@@Resource@2@I@Z
 ?CreateAnimCtrl@Emitter@Cyan@@QEAAPEAVAnimCtrl@2@AEBV?$PtrData@UAnimationParam@Resource@Cyan@@@Resource@2@I@Z:
     mov rax, 0140fe3f90h
@@ -103295,6 +103425,11 @@ PUBLIC ?UnkFunc1@AliveState@Emitter@Cyan@@UEAAXPEAVFSMContext@System@3@@Z
     mov rax, 0140feae80h
     jmp rax
 
+PUBLIC ?Update@Emitter@Cyan@@QEAAXM@Z
+?Update@Emitter@Cyan@@QEAAXM@Z:
+    mov rax, 0140feae90h
+    jmp rax
+
 PUBLIC ?ProcessAnimations@Emitter@Cyan@@QEAAXM@Z
 ?ProcessAnimations@Emitter@Cyan@@QEAAXM@Z:
     mov rax, 0140feb190h
@@ -103310,9 +103445,24 @@ PUBLIC ?UnkFunc9@Emitter@Cyan@@UEAAXPEAX@Z
     mov rax, 0140feb7e0h
     jmp rax
 
+PUBLIC ?UnkFunc9@Emitter@Cyan@@UEAAXM@Z
+?UnkFunc9@Emitter@Cyan@@UEAAXM@Z:
+    mov rax, 0140feb7e0h
+    jmp rax
+
 PUBLIC ?UpdateEmitter@Emitter@Cyan@@UEAAXM@Z
 ?UpdateEmitter@Emitter@Cyan@@UEAAXM@Z:
     mov rax, 0140feb830h
+    jmp rax
+
+PUBLIC ?UpdateBasicLODEffects@Emitter@Cyan@@QEAAXM@Z
+?UpdateBasicLODEffects@Emitter@Cyan@@QEAAXM@Z:
+    mov rax, 0140febcc0h
+    jmp rax
+
+PUBLIC ?UpdateRaycastLODEffects@Emitter@Cyan@@QEAAXM@Z
+?UpdateRaycastLODEffects@Emitter@Cyan@@QEAAXM@Z:
+    mov rax, 0140febe70h
     jmp rax
 
 PUBLIC ?RandomizeStartAndEndAngles@Emitter@Cyan@@QEAAXXZ
@@ -103328,6 +103478,11 @@ PUBLIC ??0Scene@Cyan@@QEAA@PEAVManagerImpl@1@@Z
 PUBLIC ?PrepareRender@Scene@Cyan@@QEAAXAEBVDeviceContainer@Graphics@2@@Z
 ?PrepareRender@Scene@Cyan@@QEAAXAEBVDeviceContainer@Graphics@2@@Z:
     mov rax, 0140fec670h
+    jmp rax
+
+PUBLIC ?RemoveEffect@Scene@Cyan@@QEAAXPEAVEffect@2@@Z
+?RemoveEffect@Scene@Cyan@@QEAAXPEAVEffect@2@@Z:
+    mov rax, 0140fec8e0h
     jmp rax
 
 PUBLIC ?SetGammaCorrect@Scene@Cyan@@QEAAX_N@Z
@@ -103372,6 +103527,11 @@ PUBLIC ?ProcessEmitter@EmitterGpu@Cyan@@UEAAXM@Z
 
 PUBLIC ?UnkFunc9@EmitterGpu@Cyan@@UEAAXPEAX@Z
 ?UnkFunc9@EmitterGpu@Cyan@@UEAAXPEAX@Z:
+    mov rax, 0140fed8f0h
+    jmp rax
+
+PUBLIC ?UnkFunc9@EmitterGpu@Cyan@@UEAAXM@Z
+?UnkFunc9@EmitterGpu@Cyan@@UEAAXM@Z:
     mov rax, 0140fed8f0h
     jmp rax
 
@@ -109915,6 +110075,11 @@ PUBLIC ?Transform@Aabb@geom@csl@@SA?AV123@AEBVMatrix34@math@3@AEBV123@@Z
     mov rax, 0141138850h
     jmp rax
 
+PUBLIC ?ThreadSleep@fnd@csl@@YAXH@Z
+?ThreadSleep@fnd@csl@@YAXH@Z:
+    mov rax, 014113af50h
+    jmp rax
+
 PUBLIC ?Intersection@math@csl@@YA_NAEBVSphere@geom@2@AEBVObb@42@@Z
 ?Intersection@math@csl@@YA_NAEBVSphere@geom@2@AEBVObb@42@@Z:
     mov rax, 014113bb40h
@@ -113647,6 +113812,21 @@ PUBLIC ?UnkFunc5@UpdaterGpuBase@Cyan@@UEAA_KXZ
 
 PUBLIC ?CreateEffect@Manager@Cyan@@UEAA?AVEffectHandle@2@PEAUEffectParam@Resource@2@AEBUEffectInstanceParam@2@_NHM@Z
 ?CreateEffect@Manager@Cyan@@UEAA?AVEffectHandle@2@PEAUEffectParam@Resource@2@AEBUEffectInstanceParam@2@_NHM@Z:
+    mov rax, 014118f6e0h
+    jmp rax
+
+PUBLIC ?SetUpdateLightHandler@Manager@Cyan@@UEAAXP6A_NPEAUUpdateLightParam@2@PEAX@Z1@Z
+?SetUpdateLightHandler@Manager@Cyan@@UEAAXP6A_NPEAUUpdateLightParam@2@PEAX@Z1@Z:
+    mov rax, 014118f6e0h
+    jmp rax
+
+PUBLIC ?SetLODHandler@Manager@Cyan@@UEAAXP6A_NAEBVVector3@math@csl@@0IAEAV345@1AEAM@ZPEAX@Z
+?SetLODHandler@Manager@Cyan@@UEAAXP6A_NAEBVVector3@math@csl@@0IAEAV345@1AEAM@ZPEAX@Z:
+    mov rax, 014118f6e0h
+    jmp rax
+
+PUBLIC ?SetRaycastHandler@Manager@Cyan@@UEAAXP6A_NAEBVVector3@math@csl@@0IAEAV345@1AEAI@ZPEAX@Z
+?SetRaycastHandler@Manager@Cyan@@UEAAXP6A_NAEBVVector3@math@csl@@0IAEAV345@1AEAI@ZPEAX@Z:
     mov rax, 014118f6e0h
     jmp rax
 
@@ -183600,6 +183780,16 @@ PUBLIC ?SetupGlobalScale@GOCEffect@eff@hh@@QEAAXXZ
     mov rax, 0150fffb90h
     jmp rax
 
+PUBLIC ?StopAttachedEffect@GOCEffect@eff@hh@@QEAA_NVEffectHandle@23@_N@Z
+?StopAttachedEffect@GOCEffect@eff@hh@@QEAA_NVEffectHandle@23@_N@Z:
+    mov rax, 015100b180h
+    jmp rax
+
+PUBLIC ?StopEffectAll@GOCEffect@eff@hh@@QEAAX_N@Z
+?StopEffectAll@GOCEffect@eff@hh@@QEAAX_N@Z:
+    mov rax, 0151019a40h
+    jmp rax
+
 PUBLIC ??_DCriMana@cri@hh@@QEAAXXZ
 ??_DCriMana@cri@hh@@QEAAXXZ:
     mov rax, 0151049b60h
@@ -183968,6 +184158,11 @@ PUBLIC ??0GOCCharacterIk@anim@hh@@QEAA@PEAVIAllocator@fnd@csl@@@Z
 PUBLIC ??_DGOCCharacterIk@gocs@heur@@QEAAXXZ
 ??_DGOCCharacterIk@gocs@heur@@QEAAXXZ:
     mov rax, 0151e8e0d0h
+    jmp rax
+
+PUBLIC ?AEL_UnkFunc2@AnimationEnabledListener@anim@hh@@UEAAXPEAVGOCAnimationSingle@23@_N@Z
+?AEL_UnkFunc2@AnimationEnabledListener@anim@hh@@UEAAXPEAVGOCAnimationSingle@23@_N@Z:
+    mov rax, 0151e942c0h
     jmp rax
 
 PUBLIC ??0GOCAnimationSingle@anim@hh@@QEAA@PEAVIAllocator@fnd@csl@@@Z
