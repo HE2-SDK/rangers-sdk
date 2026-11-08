@@ -1,6 +1,19 @@
 #pragma once
 
 namespace app{
+    class ObjNpcSonicInfo : public hh::game::ObjInfo {
+    public:
+        hh::gfx::ResModel* model;
+        hh::anim::ResSkeletonPxd* skl;
+        hh::fnd::Reference<hh::anim::AsmResourceManager> asmRes;
+
+        virtual void Load() override;
+        virtual void Initialize(hh::game::GameManager* gameManager) override;
+        virtual const char* GetInfoName() override;
+
+        OBJINFO_CLASS_DECLARATION_INLINE(ObjNpcSonicInfo)
+    };
+
     class ObjNpcSonic : 
         public ObjNpcBase, 
         public game::ContactListener, 

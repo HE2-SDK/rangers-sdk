@@ -1,6 +1,31 @@
 #pragma once
 
+namespace hh::gfx {
+    class ResMirageLight;
+}
+
 namespace hh::needle {
+    class SCLocalLight;
+
+    class LocalLightParamBuildJob : public ParamBuildJob {
+    public:
+        struct LocalLightContextDataCBuffer {
+            int lightCount;
+            float worldScale;
+            float sqrtWorldScale;
+            float unk0;
+            char lightData[64000];
+        };
+
+        SCLocalLight* scLocalLight;
+        intrusive_ptr<ConstantBuffer> cbuffer;
+
+        static int64_t cbufferSize;
+
+        virtual void Prepare(ParameterValueObject* parameters, PipelineInfo* pipelineInfo) override;
+        virtual void Run(ParamValueOverrideHelper* paramOverrides, PipelineInfo* pipelineInfo, unsigned int viewportId, unsigned int parameterId) override {}
+    };
+
     class SCLocalLight : public SceneContext {
     public:
         class Impl : public NeedleRefcountObject {
@@ -27,7 +52,7 @@ namespace hh::needle {
         };
 
         intrusive_ptr<Impl> implementation;
-        uint64_t unk4;
+        intrusive_ptr<LocalLightParamBuildJob> paramBuildJob;
 
         SCENECONTEXT_CLASS_DECLARATION(SCLocalLight);
 

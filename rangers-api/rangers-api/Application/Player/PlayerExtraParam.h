@@ -11,7 +11,7 @@ namespace app::player {
         };
 
         struct ParamData {
-            uint32_t unk1;
+            unsigned int id;
             Params param1;
             Params param2;
         };
@@ -21,7 +21,7 @@ namespace app::player {
 
         DEFAULT_CREATE_FUNC(PlayerExtraParam);
 
-        void LoadParams(unsigned int unkParam1, const Params& params1, const Params& params2);
+        void LoadParams(unsigned int id, const Params& params1, const Params& params2);
         void SetAcceleForceRate(float value);
         void SetRotateForceRate(float value);
         void SetGravityRate(float value);

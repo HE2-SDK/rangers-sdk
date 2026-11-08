@@ -3,7 +3,7 @@
 namespace hh::gfx {
     class ResAnimCameraContainer : public fnd::ManagedResource {
     public:
-        void* binaryData;
+        needle::intrusive_ptr<needle::CameraMotionResource> resource;
 
         virtual void Load(void* data, size_t size) override;
         virtual void Unload() override;

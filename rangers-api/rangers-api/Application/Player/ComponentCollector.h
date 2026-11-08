@@ -4,22 +4,28 @@ namespace app::player {
     struct ComponentCollection;
 
     class ComponentHolderListener {
+	public:
         virtual void CHL_UnkFunc1(ComponentCollection* collection) {}
     };
 
     struct Component {
+		enum class Flags : unsigned char {
+			OCCLUSION_CAPSULES_VISIBLE = 0,
+			EFFECTS_VISIBLE = 1
+		};
+		
         ComponentCollection* collection;
         csl::ut::MoveArray<hh::fnd::Reference<hh::game::GOComponent>> components;
         hh::fnd::Reference<hh::gfx::GOCVisualModel> visual;
         hh::fnd::Reference<hh::anim::GOCAnimator> animator;
         csl::ut::MoveArray<hh::eff::EffectHandle> effects;
-        uint64_t unk3;
+        csl::ut::Bitset<Flags> flags;
 
         void AddComponent(hh::game::GOComponent* component);
         void RemoveComponent(hh::game::GOComponent* component);
         void UpdateVisibility();
-        void ChangeVisibility(bool unkParam1, bool unkParam2);
-        void SetVisibility(bool visible);
+		void SetVisibility(bool visible, bool forceUpdate);
+		void SetEffectVisibility(bool visible);
     };
 
     class ComponentCollector;
@@ -41,7 +47,7 @@ namespace app::player {
         void SetVisibility(bool visible);
         unsigned int GetSize() const;
     };
-
+	
     class GOCPlayerVisual;
     class ComponentCollector : public hh::fnd::ReferencedObject {
     public:

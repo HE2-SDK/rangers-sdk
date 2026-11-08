@@ -10,8 +10,8 @@ namespace app::snd {
         virtual ~SoundDirectorExtension();
 
         virtual unsigned int GetNameHash() const = 0;
-        virtual void UnkFunc2() = 0;
-        virtual void UnkFunc3() = 0;
+        virtual void AddCallback() = 0;
+        virtual void RemoveCallback() = 0;
         virtual void Update(hh::fnd::SUpdateInfo updateInfo) {}
         virtual bool ProcessMessage(hh::fnd::Message& message) {} 
     };
@@ -80,6 +80,10 @@ namespace app::snd {
         void PlayBgm(const PlayBgmInfo& playBgmInfo);
         void PlayBgm(unsigned int staticChannel, const PlayBgmInfo& playBgmInfo);
         hh::snd::SoundHandle GetBgmSoundHandle(int index);
+        heur::rfl::SoundCommonParameter* GetSoundCommonParameter() const;
+        void TweenVolume(unsigned int category, bool enabled, float fadeTime);
+        void UpdateVolumes();
+        void SetMasterVolume(unsigned int category, float volume);
 
         template<typename T>
         T* GetExtension() {

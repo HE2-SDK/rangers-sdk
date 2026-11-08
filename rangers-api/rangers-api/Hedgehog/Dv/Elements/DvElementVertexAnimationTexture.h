@@ -7,19 +7,19 @@ namespace hh::dv{
         public:
             enum class Flags : unsigned int {
                 UNK0,
-                UNK1, // used in setup
+                LOOP,
             };
 
             csl::ut::Bitset<Flags> flags;
             char vatAnimName[64];
             int unk1;
-            float speed; // perhaps speed
+            float speed;
             int unk3;
             int unk4;
         };
 
         Description binaryData;
-        hh::fnd::ManagedResource* vatAnimRes; // hasn't been reversed
+        fnd::Reference<gfx::ResVertexAnimationTexture> vatAnimRes;
 
         virtual void Update(int currentFrame, csl::math::Transform& transform) override;
         virtual void RemoveCallback() override;

@@ -11,6 +11,11 @@ namespace hh::needle {
         unsigned int w;
     };
 
+    struct float_vector2 {
+        float x;
+        float y;
+    };
+
     struct float_vector3 {
         float x;
         float y;
@@ -119,6 +124,36 @@ namespace hh::needle {
     struct SmoothnessParameter {
         float unk1;
         float unk2;
+    };
+
+    struct ViewParameter {
+        enum class RotationType : unsigned int {
+            NO_ROT = 1,
+            ROT,
+            AIM
+        };
+
+        float position[3];
+        float targetPosition[3];
+        float twist;
+        float rotation[4];
+        RotationType rotType;
+    };
+
+    struct ProjParameter {
+        float zNear;
+        float zFar;
+        float fov;
+        float aspectRatio;
+        float unk10;
+        float unk11;
+        float unk12;
+        float unk13;
+        float unk14;
+    };
+
+    struct Resolution {
+        unsigned int x, y;
     };
 
     void EntryUniqueElementControl(unsigned int uniqueElementHash);

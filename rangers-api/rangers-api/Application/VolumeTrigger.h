@@ -3,16 +3,16 @@
 namespace app {
     class VolumeListener {
     public:
-        virtual void VL_UnkFunc1(); // Enter, MsgTriggerEnter&
-        virtual void VL_UnkFunc2();
-        virtual void VL_UnkFunc3(); // Leave, MsgTriggerLeave&
+        virtual void OnEnter(hh::physics::MsgTriggerEnter& msg);
+        virtual void OnStay(hh::physics::MsgTriggerStay& msg);
+        virtual void OnLeave(hh::physics::MsgTriggerLeave& msg);
     };
 
     class VolumeTrigger : public hh::physics::GOCColliderListener {
     public:
         hh::game::GameObject* gameObject;
         uint32_t unk2;
-        bool unk3;
+        bool detectStay;
         hh::physics::GOCCollider* collider;
         hh::gfx::GOCVisualDebugDraw* debugVisual;
         csl::ut::MoveArray<VolumeListener*> listeners;
@@ -31,11 +31,11 @@ namespace app {
     
         DEFAULT_CREATE_FUNC(VolumeTrigger)
 
-        virtual void GOCCL_UnkFunc1(hh::physics::GOCCollider* collider) override;
-        virtual void GOCCL_UnkFunc2(hh::physics::GOCCollider* collider) override;
-        virtual void GOCCL_UnkFunc3(hh::physics::GOCCollider* collider) override;
+        virtual void OnEnter(hh::physics::MsgTriggerEnter& msg) override;
+        virtual void OnStay(hh::physics::MsgTriggerStay& msg) override;
+        virtual void OnLeave(hh::physics::MsgTriggerLeave& msg) override;
 
-        void Setup(hh::game::GameObject* object, const heur::rfl::VolumeTriggerSpawner& config, uint32_t unkParam1, bool unkParam2);
+        void Setup(hh::game::GameObject* object, const heur::rfl::VolumeTriggerSpawner& config, uint32_t unkParam1, bool detectStay);
         void SetupDebugVisual();
         void UpdateConfig(const heur::rfl::VolumeTriggerSpawner& config);
         void UpdateDebugVisual(const heur::rfl::VolumeTriggerSpawner& config);

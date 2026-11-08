@@ -19,7 +19,8 @@ namespace hh::dv{
             MODEL,
             MODEL_MOTION = 10,
             MODEL_NODE,
-            ELEMENT
+            ELEMENT,
+            STAGE = 13
         };
 
         enum class Flags : uint32_t {
@@ -29,12 +30,12 @@ namespace hh::dv{
         uint32_t flags; //prolly a bitset
         NodeType nodeType;
         char guid[16];
-        char padding[16];
+        char parentGuid[16];
         csl::ut::String nodeName;
         csl::math::Transform transform;
         csl::math::Matrix44 matrix;
-        DvResource* dvResource;
-        DvNodeBase* parent;
+        hh::fnd::Reference<DvResource> dvResource;
+        hh::fnd::Reference<DvNodeBase> parent;
         csl::ut::MoveArray<DvNodeBase*> childrenElements0;
         csl::ut::MoveArray<DvNodeBase*> childrenPath;
         csl::ut::MoveArray<DvNodeBase*> childrenCamera;

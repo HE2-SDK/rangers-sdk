@@ -11,6 +11,6 @@ namespace hh::needle{
         virtual unsigned int GetNameHash() override;
         virtual const char* GetName() override;
         virtual unsigned int GetClassSize() override;
-        virtual void Setup(intrusive_ptr<RenderingDevice>& device) override;
+        virtual void Setup(const RenderJobContext& context) override;
     };
 }

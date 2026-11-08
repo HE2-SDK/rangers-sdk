@@ -279,6 +279,7 @@ template class csl::ut::MoveArray<hh::needle::uint_vector4>;
 template class csl::ut::MoveArray<hh::needle::float_vector4>;
 template class hh::needle::intrusive_ptr<hh::needle::SceneContext, hh::needle::SRefCountAddReleaseNeedleObject, 1>;
 template class hh::needle::intrusive_ptr<hh::needle::Renderable, hh::needle::SRefCountAddReleaseNeedleObject, 1>;
+template class hh::needle::intrusive_ptr<hh::needle::AnimCameraControl>;
 
 template class app::game::ConditionArgumentFixed<bool>;
 template class app::game::ConditionArgumentFixed<int>;
@@ -308,3 +309,24 @@ template class Cyan::Resource::ResObject<Cyan::Resource::Skeleton>;
 template class Cyan::Resource::ResObject<Cyan::Resource::NodeAnim>;
 template class Cyan::Graphics::ExternalMeshInstance<hh::needle::Model, hh::needle::PBRModelInstance>;
 template class Cyan::System::LinkPool<Cyan::EffectHandle, 32>;
+template class app::game::BossActionPluginManager<app::BossBaseContext>;
+template class hh::fnd::Reference<hh::ui::surfride::SurfRideShaderManager>;
+template class hh::fnd::Reference<app::player::StatePluginInWater::WaterDepthProcess>;
+
+template class app_cmn::hid::CharacterInputHistory<char>;
+template class app_cmn::hid::CharacterInputHistory<csl::math::Vector2>;
+template class csl::ut::MoveArray<hh::fnd::Reference<app_cmn::hid::CharacterActionHistory>>;
+template class csl::ut::MoveArray<hh::fnd::Reference<app_cmn::hid::CharacterStickHistory>>;
+template class hh::fnd::Reference<app_cmn::hid::CharacterActionHistory>;
+template class hh::fnd::Reference<app_cmn::hid::CharacterStickHistory>;
+template class app::db::Database<app::player::EffectRecord, app::player::EffectRecordBaseTable, app::player::EffectRecordTable>;
+template class app::db::Database<app::level::EnemyAttackRecord,app::db::EnemyAttackRecordBaseTable,app::db::EnemyAttackRecordTable>;
+template class app::db::Database<app::level::EnemyDefenceRecord,app::db::EnemyDefenceRecordBaseTable,app::db::EnemyDefenceRecordTable>;
+
+template class hh::gfx::ResDefaultBindCallback<hh::gfx::ResModelNeedle>;
+template class hh::gfx::ResDefaultBindCallback<hh::gfx::ResMaterial>;
+
+template class hh::ui::RenderFunctionBridge<hh::ui::TextObject>;
+
+template class hh::fnd::Reference<app::game::GOCEyesight::TargetInfo>;
+template class csl::ut::MoveArray<hh::fnd::Reference<app::game::GOCEyesight::TargetInfo>>;

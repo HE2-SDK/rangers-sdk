@@ -3,6 +3,8 @@
 namespace app::game {
     class GameModeLayerStatusExtension : public GameModeExtension {
     public:
+        static constexpr const char* name = "GameModeLayerStatusExtension";
+
         struct Unk1 {
             uint32_t unk1;
             uint32_t unk2;
@@ -23,8 +25,7 @@ namespace app::game {
             float timeScale;
         };
 
-        uint64_t unk1;
-        uint64_t unk1a;
+        hh::fnd::Reference<hh::fnd::ResReflectionT<heur::rfl::GameHitStopParameter>> hitstopParam;
         csl::ut::MoveArray<Unk1> layersActiveDuringNormalOperation;
         csl::ut::MoveArray<Unk1> layersActiveDuringIngamePause;
         csl::ut::MoveArray<TimeScaleInterpolator> timeScaleInterpolators;
@@ -36,5 +37,7 @@ namespace app::game {
         virtual unsigned int GetNameHash() override;
         virtual void Update(hh::fnd::UpdatingPhase phase, const hh::fnd::SUpdateInfo& updateInfo) override;
         virtual uint64_t UnkFunc1() override;
+
+        void SetHitstopParam(hh::fnd::Reference<hh::fnd::ResReflectionT<heur::rfl::GameHitStopParameter>>& param);
     };
 }

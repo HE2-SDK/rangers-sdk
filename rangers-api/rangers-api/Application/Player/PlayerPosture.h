@@ -14,12 +14,19 @@ namespace app::player {
         uint8_t unk1;
         unsigned char neutralDecelerationRate;
 
-        CREATE_FUNC(PlayerPostureContext, Player* player);
-
         PlayerSpeedParam* GetSpeedParam() const;
         PlayerExtraParam* GetExtraParam() const;
         void LoadSpeedAndExtraParameters();
         void SetNeutralDecelerationRate(unsigned char value);
+
+        bool IsFixed() const;
+        Player* GetPlayerObject() const;
+        bool IsGrounded() const;
+        GOCPlayerKinematicParams::GroundInfo& GetGroundInfo() const;
+        hh::path::PathEvaluator& GetPathEvaluator(int index) const;
+        bool IsBoosting() const;
+
+        PlayerPostureContext(csl::fnd::IAllocator* allocator, Player* player);
     };
 
     class PlayerPosture : public game::PostureBase<PlayerPostureContext> {};

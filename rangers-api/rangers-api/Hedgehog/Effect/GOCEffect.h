@@ -153,14 +153,14 @@ namespace hh::eff {
         };
 
         struct Description {
-            uint32_t unkB0Count{};
-            uint32_t unk2{ 1 };
+            uint32_t newEffectsCount{};
+            uint32_t unkType{ 1 }; // if == 3 set scale
             float scale{ 1.0f };
-            uint32_t unk4{};
+            float unk4{};
             int unk5{ -1 };
             unsigned int modelNameHash{};
             uint8_t unk7{};
-            bool unk8{};
+            bool notUpdateFinal{};
         };
 
         struct EffectTransInfo {
@@ -209,7 +209,7 @@ namespace hh::eff {
         hh::eff::EffectManager* effectManager;
         fnd::Reference<fnd::HFrame> frame;
         float scale;
-        uint8_t byte94;
+        uint8_t unkType;
         csl::ut::Color8 color;
         float dword9C;
         uint32_t dwordA0;

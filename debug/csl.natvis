@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+    <Type Name="csl::ut::Array&lt;*,*&gt;">
+        <DisplayString>size={m_length}, capacity={m_capacity &amp; 0x7FFFFFFF}</DisplayString>
+        <Expand>
+            <Item Name="[size]">m_length</Item>
+            <Item Name="[capacity]">m_capacity &amp; 0x7FFFFFFF</Item>
+            <ArrayItems>
+                <Size>m_length</Size>
+                <ValuePointer>m_pBuffer</ValuePointer>
+            </ArrayItems>
+        </Expand>
+    </Type>
+	<Type Name="csl::ut::FixedArray&lt;*,*&gt;">
+        <DisplayString>size={Len}</DisplayString>
+        <Expand>
+            <Item Name="[size]">Len</Item>
+            <ArrayItems>
+                <Size>Len</Size>
+                <ValuePointer>m_Items</ValuePointer>
+            </ArrayItems>
+        </Expand>
+    </Type>
+	<Type Name="csl::ut::HashMap&lt;*,*,*&gt;">
+        <DisplayString>size={m_Length}, capacity={m_Capacity &amp; 0x7FFFFFFF}</DisplayString>
+        <Expand>
+            <Item Name="[size]">m_Length</Item>
+            <Item Name="[capacity]">m_Capacity &amp; 0x7FFFFFFF</Item>
+            <ArrayItems>
+                <Size>m_Length</Size>
+                <ValuePointer>m_pElements</ValuePointer>
+            </ArrayItems>
+        </Expand>
+    </Type>
+	<Type Name="csl::ut::String">
+        <DisplayString>{m_pBuffer}</DisplayString>
+        <Expand>
+			<Item Name="[size]">m_length</Item>
+            <Item Name="[capacity]">m_capacity &amp; 0x7FFFFFFF</Item>
+        </Expand>
+    </Type>
+	<Type Name="ucsl::strings::VariableString">
+        <DisplayString>{buffer}</DisplayString>
+        <Expand>
+        </Expand>
+    </Type>
+</AutoVisualizer>

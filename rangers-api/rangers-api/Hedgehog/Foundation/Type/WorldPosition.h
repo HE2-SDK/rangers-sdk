@@ -7,6 +7,7 @@ namespace hh::fnd {
 
         WorldPosition();
         WorldPosition(csl::math::Vector3& position, csl::math::Quaternion& rotation);
+        WorldPosition(csl::math::Transform& transform);
         void SetRotation(csl::math::Quaternion rotation);
         void SetFromTransformedWorldPosition(const csl::math::Transform& transform, const WorldPosition& worldPosition);
         csl::math::Matrix34 GetTransformationMatrix() const;

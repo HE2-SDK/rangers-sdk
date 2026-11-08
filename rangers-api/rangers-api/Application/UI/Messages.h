@@ -37,4 +37,40 @@ namespace app::ui {
         
         MsgUICharacterActionGuide() : fnd::AppMessage<MsgUICharacterActionGuide>{ hh::fnd::MessageID::UI_CHARACTER_ACTION_GUIDE } {}
     };
+
+    class MsgUIEndGameCockpitDestination : public fnd::AppMessage<MsgUIEndGameCockpitDestination> {
+    public:
+        int unk{ 0 };
+        
+        MsgUIEndGameCockpitDestination() : fnd::AppMessage<MsgUIEndGameCockpitDestination>{ hh::fnd::MessageID::UI_END_GAME_COCKPIT_DESTINATION } {}
+    };
+
+    class MsgUIBossLifeGaugeAppear : public fnd::AppMessage<MsgUIBossLifeGaugeAppear> {
+    public:
+        enum class BOSS_TYPE : unsigned char {
+            NONE,
+            GIANT,
+            DRAGON,
+            KNIGHT,
+            RIFLE,
+            THE_END,
+            THE_END2
+        };
+
+        BOSS_TYPE bossType{ BOSS_TYPE::NONE };
+        
+        MsgUIBossLifeGaugeAppear() : fnd::AppMessage<MsgUIBossLifeGaugeAppear>{ hh::fnd::MessageID::UI_BOSS_LIFE_GAUGE_APPEAR } {}
+    };
+
+    class MsgUIBossLifeGaugeVisibility : public fnd::AppMessage<MsgUIBossLifeGaugeVisibility> {
+    public:
+        bool isVisible{ true };
+        
+        MsgUIBossLifeGaugeVisibility() : fnd::AppMessage<MsgUIBossLifeGaugeVisibility>{ hh::fnd::MessageID::UI_BOSS_LIFE_GAUGE_VISIBILITY } {}
+    };
+
+    class MsgUIBossLifeGaugeDisappear : public fnd::AppMessage<MsgUIBossLifeGaugeDisappear> {
+    public:
+        MsgUIBossLifeGaugeDisappear() : fnd::AppMessage<MsgUIBossLifeGaugeDisappear>{ hh::fnd::MessageID::UI_BOSS_LIFE_GAUGE_DISAPPEAR } {}
+    };
 }

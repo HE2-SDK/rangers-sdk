@@ -76,7 +76,7 @@ namespace app::gfx {
 		virtual void GameServiceRemovedCallback(hh::game::GameService* gameService) override;
 		virtual void PostStepCallback(hh::game::GameManager* gameManager, const hh::game::GameStepInfo& gameStepInfo) override;
 		virtual void UpdateCallback(hh::game::GameManager* gameManager, const hh::game::GameStepInfo& gameStepInfo) override;
-        virtual void OnCutsceneEnd() override;
+        virtual void OnCutsceneEnd(OnCutsceneEndInfo& info) override;
         virtual void DSCL_UnkFunc9() override;
 
 		void StartLevel(const char* stageName);

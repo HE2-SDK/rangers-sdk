@@ -2,7 +2,13 @@
 
 namespace app::dlc {
     enum class DLCType : unsigned char {
-        KOCOTOY = 3,
+        PREORDER,
+        DELUXE,
+        MONSTERHUNTER,
+        KOCOTOY,
+        KORONE,
+        SOAPSHOES = 7,
+        XMAS
     };
 
     class DLCManagerSteam {

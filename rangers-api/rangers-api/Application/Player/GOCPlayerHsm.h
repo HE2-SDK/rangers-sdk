@@ -62,6 +62,7 @@ namespace app::player {
         int GetCurrentState() const;
         int GetNextState() const;
         void AddParam(const StateParameter& param);
+        void ChangeBottomState(int state);
 
         GOCOMPONENT_CLASS_DECLARATION(GOCPlayerHsm);
     };

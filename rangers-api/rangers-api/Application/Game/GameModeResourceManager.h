@@ -7,8 +7,8 @@ namespace app::game {
     public:
         class ModuleList : public csl::ut::MoveArray<hh::fnd::Reference<GameModeResourceModule>> {
         public:
-            void AddModule(GameModeResourceModule* module);
-            void RemoveModule(GameModeResourceModule* module);
+            void AddModule(hh::fnd::Reference<GameModeResourceModule>& module);
+            void RemoveModule(hh::fnd::Reference<GameModeResourceModule>& module);
         };
 
         struct LevelLoaderEntry {
@@ -27,6 +27,7 @@ namespace app::game {
         hh::game::LevelLoader* CreateLevelLoader(GameModeResourceModule* module);
         void AddModule(GameModeResourceModule* module);
         void RemoveModule(GameModeResourceModule* module);
+        void CreateLevelLoaders(int namehash);
 
         GAMESERVICE_CLASS_DECLARATION(GameModeResourceManager)
     };

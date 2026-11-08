@@ -5,7 +5,7 @@ namespace hh::gfx {
     public:
         bool unk201;
         needle::intrusive_ptr<needle::MeshResource> meshResource;
-        csl::ut::MoveArray<gfx::ResMaterial*> materials;
+        csl::ut::MoveArray<fnd::ManagedResource*> dependencies; // Materials, textures, models, etc.
         csl::ut::MoveArray<csl::math::Matrix44> nodeMatrices;
 
         ResModelNeedle();

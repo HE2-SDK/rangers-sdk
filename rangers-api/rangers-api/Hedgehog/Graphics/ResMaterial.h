@@ -6,6 +6,7 @@ namespace hh::gfx {
         needle::MaterialResource* resource;
         // needle::MaterialResourceReference* resourceReference;
         void* resourceReference;
+        csl::ut::MoveArray<fnd::ManagedResource*> qword88;
 
         virtual void Load(void* data, size_t size) override;
         virtual void Unload() override;

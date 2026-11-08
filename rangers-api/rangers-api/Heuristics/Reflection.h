@@ -13760,7 +13760,7 @@ namespace heur::rfl {
     };
 }
 
-namespace heur::rfl {
+namespace app {
     struct EnemyMotoraSpawner {
         enum class Placement : uint8_t {
             WhereItsSet = 0,
@@ -21926,7 +21926,7 @@ namespace heur::rfl {
     };
 }
 
-namespace heur::rfl {
+namespace app::level {
     struct EnemyAttackRecord : heur::rfl::Record {
         enum class Kind : int16_t {
             InvalidKind = -1,
@@ -22131,9 +22131,9 @@ namespace heur::rfl {
     };
 }
 
-namespace heur::rfl {
+namespace app::db {
     struct EnemyAttackRecordBaseTable {
-        heur::rfl::EnemyAttackRecord data[192];
+        app::level::EnemyAttackRecord data[192];
 
         static const hh::fnd::RflTypeInfo typeInfo;
         static const hh::fnd::RflClass rflClass;
@@ -22144,9 +22144,9 @@ namespace heur::rfl {
     };
 }
 
-namespace heur::rfl {
+namespace app::db {
     struct EnemyAttackRecordTable {
-        heur::rfl::EnemyAttackRecord data[192];
+        app::level::EnemyAttackRecord data[192];
 
         static const hh::fnd::RflTypeInfo typeInfo;
         static const hh::fnd::RflClass rflClass;
@@ -22157,7 +22157,7 @@ namespace heur::rfl {
     };
 }
 
-namespace heur::rfl {
+namespace app::level {
     struct EnemyDefenceRecord : heur::rfl::Record {
         csl::ut::VariableString name;
         float baseRate;
@@ -22175,9 +22175,9 @@ namespace heur::rfl {
     };
 }
 
-namespace heur::rfl {
+namespace app::db {
     struct EnemyDefenceRecordBaseTable {
-        heur::rfl::EnemyDefenceRecord data[64];
+        app::level::EnemyDefenceRecord data[64];
 
         static const hh::fnd::RflTypeInfo typeInfo;
         static const hh::fnd::RflClass rflClass;
@@ -22188,9 +22188,9 @@ namespace heur::rfl {
     };
 }
 
-namespace heur::rfl {
+namespace app::db {
     struct EnemyDefenceRecordTable {
-        heur::rfl::EnemyDefenceRecord data[128];
+        app::level::EnemyDefenceRecord data[128];
 
         static const hh::fnd::RflTypeInfo typeInfo;
         static const hh::fnd::RflClass rflClass;
@@ -37179,7 +37179,7 @@ namespace heur::rfl {
     };
 }
 
-namespace heur::rfl {
+namespace app::player {
     struct EffectRecord : heur::rfl::Record {
         csl::ut::VariableString emitterSetName[5];
 
@@ -37192,9 +37192,9 @@ namespace heur::rfl {
     };
 }
 
-namespace heur::rfl {
+namespace app::player {
     struct EffectRecordBaseTable {
-        heur::rfl::EffectRecord data[100];
+        app::player::EffectRecord data[100];
 
         static const hh::fnd::RflTypeInfo typeInfo;
         static const hh::fnd::RflClass rflClass;
@@ -37205,9 +37205,9 @@ namespace heur::rfl {
     };
 }
 
-namespace heur::rfl {
+namespace app::player {
     struct EffectRecordTable {
-        heur::rfl::EffectRecord data[255];
+        app::player::EffectRecord data[255];
 
         static const hh::fnd::RflTypeInfo typeInfo;
         static const hh::fnd::RflClass rflClass;

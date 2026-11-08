@@ -19,5 +19,6 @@ namespace app::ui {
         };
 
         OverlayTextVariable* AddVariable(const AddInfo& addInfo);
+        inline RequestOverlayTagReplace(csl::fnd::IAllocator* allocator) : variables{ allocator } {}
     };
 }

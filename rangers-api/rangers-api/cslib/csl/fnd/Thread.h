@@ -19,5 +19,7 @@ namespace csl::fnd{
             int processor,
             const char* name
         );
+        char Exit(); // Returns exit code
+        ~Thread();
     };
 }

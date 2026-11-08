@@ -10,11 +10,11 @@ namespace app::game {
         
         unsigned int gocCharacterIkNameHash;
         uint64_t qword88;
-        uint16_t word90;
+        uint16_t flags;
         uint64_t qword98;
         uint64_t qwordA0;
-        csl::math::Vector3 csl__math__vector3B0;
-        csl::math::Transform csl__math__transformC0;
+        csl::math::Vector3 targetPosition;
+        csl::math::Transform targetTransform;
         ut::TransitionValue<float> unkD0;
         uint8_t byte138;
 
@@ -25,6 +25,7 @@ namespace app::game {
 		virtual void OnGOCEvent(GOCEvent event, hh::game::GameObject& ownerGameObject, void* data) override;
 
         void Setup(const SetupInfo& setupInfo);
+        void SetTargetPosition(const csl::math::Vector3& position);
 
         GOCOMPONENT_CLASS_DECLARATION(GOCLookAt);
     };

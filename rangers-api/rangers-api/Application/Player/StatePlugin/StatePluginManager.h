@@ -17,6 +17,11 @@ namespace app::player {
             plugin->context = context;
             return plugin;
         }
+        bool RemovePlugin(unsigned int nameHash);
+        template<typename T>
+        inline bool RemovePlugin() {
+            return RemovePlugin(csl::ut::HashString(T::name));
+        }
         void AddPlugin(StatePlugin<Ctx>* plugin);
         void RemovePlugin(StatePlugin<Ctx>* plugin);
         template<typename T>

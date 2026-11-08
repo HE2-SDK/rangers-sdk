@@ -8,7 +8,13 @@ namespace app::game{
 
     class ReactiveService : public hh::game::GameService, public hh::game::GameStepListener {
     public:
-        char unk0[0x140];
+        class ReactiveData : public hh::fnd::ReferencedObject {
+        public:
+            ReactiveListener* listener;
+            int unk0;
+        };
+
+        csl::ut::MoveArray<hh::fnd::Reference<ReactiveData>> reactiveDatas[10];
         csl::ut::MoveArray<ReactiveListener*> listeners;
 
         virtual void* GetRuntimeTypeInfo() const override;

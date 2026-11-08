@@ -4,11 +4,32 @@ namespace hh::physics {
     struct PhysicsQueryResult {
         csl::math::Vector3 hitLocation;
         csl::math::Vector3 hitNormal;
-        uint32_t hitFlags;
+        GOCCollider::CollisionInfo collisionInfo;
         float unk3;
         fnd::Handle<GOCCollider> collider;
         uint32_t unk4;
         uint8_t unk5;
+        uint8_t unk6;
+        uint8_t unk7;
+        uint8_t unk8;
+        uint8_t unk9;
+        uint8_t unk10;
+        uint8_t unk11;
+    };
+
+    struct PhysicsOverlapResult {
+        char type;
+        float radius;
+        float height;
+        csl::math::Vector4 oword10;
+        csl::math::Vector4 oword20;
+        csl::math::Vector4 oword30;
+        csl::math::Matrix44 colliderTransform;
+        uint32_t hitFlags;
+        uint32_t unk4;
+        uint64_t unk5;
+        uint64_t unk6;
+        uint32_t layer;
     };
 
     class PhysicsWorldListener {
@@ -36,11 +57,20 @@ namespace hh::physics {
         csl::ut::MoveArray<void*> unk108b;
         EventQueue* eventQueue;
         uint32_t unk109;
-        uint16_t unk110;
-        bool unk111;
-        uint64_t unk112;
-        uint64_t unk113;
+        bool unk110;
+        bool unk110b;
+        bool latencyMotionStateInterpolation;
+        float deltaTime;
+        uint32_t defaultMaxPersistentManifoldPoolSize;
+        uint32_t defaultMaxCollisionAlgorithmPoolSize;
     public:
+        struct Description {
+            short unk110;
+            bool unk111;
+            int unk112;
+            int unk113;
+        };
+
         PhysicsWorld(csl::fnd::IAllocator* allocator);
         virtual void* GetRuntimeTypeInfo() const override;
 		virtual void OnAddedToGame() override;
@@ -64,6 +94,9 @@ namespace hh::physics {
         void RemoveCollider(GOCCollider* collider);
         bool RayCastClosest(const csl::math::Vector3& from, const csl::math::Vector3& to, uint32_t filterMask, PhysicsQueryResult& result);
         bool RayCastAllHits(const csl::math::Vector3& from, const csl::math::Vector3& to, uint32_t filterMask, csl::ut::MoveArray<PhysicsQueryResult>& result);
+        void SetDeltaTime(float deltaTime);
+        void Setup(Description& desc);
+        void AddToQueue(const EventQueue::QueueEntryDesc& desc);
         
         inline static const hh::game::GameServiceClass* GetClass();
     };

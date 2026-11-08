@@ -8,7 +8,7 @@ namespace app::game {
         virtual unsigned int UnkFunc2() = 0;
         virtual void Enter() {}
         virtual void Leave() {}
-        virtual void Update(const hh::fnd::SUpdateInfo& updateInfo) {}
+        virtual void Update(float deltaTime, const hh::fnd::SUpdateInfo& updateInfo) {}
         virtual void UnkFunc6() {}
     };
 

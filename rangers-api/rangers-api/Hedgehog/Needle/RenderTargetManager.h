@@ -38,10 +38,8 @@ namespace hh::needle {
 
         int unk9;
         csl::ut::StringMap<void*> unk10;
-        unsigned int renderResX;
-        unsigned int renderResY;
-        unsigned int resX;
-        unsigned int resY;
+        Resolution renderRes;
+        Resolution res;
         uint8_t unk10a; // set in RenderManager::InitializeMainRenderTarget
         uint32_t unk11;
         uint32_t unk11a;
@@ -71,5 +69,7 @@ namespace hh::needle {
         Texture* GetRenderTargetView(const RenderTargetReference& renderTargetReference) const;
         RenderTarget* GetDepthStencil(const RenderTargetReference& renderTargetReference) const;
         Texture* GetDepthStencilView(const RenderTargetReference& renderTargetReference) const;
+        Resolution GetRenderResolution() const;
+        Resolution GetResolution() const;
     };
 }

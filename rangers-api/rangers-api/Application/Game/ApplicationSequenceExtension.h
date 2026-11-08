@@ -44,8 +44,8 @@ namespace app::game {
         inline static const char name[] = "ApplicationSequenceExtension";
         ApplicationSequenceExtension(csl::fnd::IAllocator* allocator);
         virtual uint64_t GetNameHash() override;
-        virtual uint64_t UnkFunc2() override;
-        virtual uint64_t UnkFunc3() override;
+        virtual void AddCallback() override;
+        virtual void RemoveCallback() override;
         virtual uint64_t UnkFunc4() override;
         virtual uint64_t UnkFunc5() override {}
 		virtual void MessageProcessedCallback(hh::game::GameManager* gameManager, const hh::fnd::Message& msg) override;

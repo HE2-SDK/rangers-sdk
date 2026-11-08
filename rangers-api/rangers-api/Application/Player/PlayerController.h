@@ -1,29 +1,38 @@
 #pragma once
 
 namespace app::player {
+    class MoveCommand;
+
     class PlayerController : public hh::fnd::ReferencedObject {
     public:
-        struct Unk1 {
-            csl::math::Vector3 unk3;
-            csl::math::Quaternion unk4;
+        struct PlayerInfo {
+            csl::math::Vector3 playerPosition;
+            csl::math::Quaternion playerRotation;
             csl::math::Vector3 unk5;
-            csl::math::Vector3 unk6;
-            csl::math::Vector3 unk7;
-            uint32_t unk8;
-            GOCPlayerKinematicParams::Unk1 unk1;
-            uint32_t unk10;
+            csl::math::Vector3 previousPlayerVelocity;
+            csl::math::Vector3 playerVelocity;
+            float unk8;
+            GOCPlayerKinematicParams::GroundInfo groundInfo;
+            uint32_t flags;
 
-            Unk1();
+            PlayerInfo();
         };
 
         hh::fnd::Reference<PlayerCollision> playerCollision;
-        csl::ut::MoveArray<void*> unk20;
-        Unk1 unk40;
-        Unk1 unkF0;
+        csl::ut::MoveArray<MoveCommand*> moveCommandQueue;
+        PlayerInfo unk40;
+        PlayerInfo unkF0;
         uint8_t byte1A0;
         csl::ut::InplaceMoveArray<void*, 1> unk1A8;
         uint64_t qword1D0;
-        uint64_t qword1D8;
+        MoveCommand* moveCommandQueueBuffer;
+
+        void SendMoveCommand(MoveCommand* moveCommand);
+        inline void SendMoveCommand(const MoveCommand& moveCommand) {
+            SendMoveCommand((MoveCommand*)&moveCommand);
+        }
+        void UpdateKinematics(GOCPlayerKinematicParams* kinematics);
+        void SetCollisionCache(hh::physics::GOCCollisionCache* gocCollisionCache);
 
         CREATE_FUNC(PlayerController, PlayerCollision* playerCollision);
     };

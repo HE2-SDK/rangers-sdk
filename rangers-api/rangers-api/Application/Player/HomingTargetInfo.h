@@ -2,7 +2,7 @@
 
 namespace app::player {
     struct HomingTargetInfo {
-        hh::fnd::Handle<hh::fnd::Messenger> unk1;
+        hh::fnd::Handle<hh::physics::GOCCollider> target;
         bool unk2;
         uint16_t unk2a;
         uint32_t unk2b;
@@ -18,6 +18,7 @@ namespace app::player {
         uint32_t unk9;
 
         HomingTargetInfo();
+        HomingTargetInfo(hh::physics::GOCCollider* target);
         void SetUnk1(const csl::math::Vector3& position, const csl::math::Vector3& normal, float height);
         void SetUnk2(bool unk2Param);
         void SetSize(float radius, float height);

@@ -60,7 +60,7 @@ namespace app::game {
         char stageId[16];
         char unkName[32];
         csl::ut::MoveArray<int64_t> unk31;
-        int64_t unk32;
+        int64_t uiIndicatorLifeTime;
         csl::ut::InplaceMoveArray<int, 4> unk33;
         csl::ut::InplaceMoveArray<int, 4> unk34;
         csl::ut::InplaceMoveArray<int, 4> unk35;
@@ -77,19 +77,19 @@ namespace app::game {
         csl::math::Vector4 unk45;
         int unk46;
         csl::fnd::Mutex unk47;
-        int unk48;
-        char unk49;
+        int celebrationOverlayId;
+        uint8_t characterId;
 
 		virtual void* GetRuntimeTypeInfo() const override;
 		virtual bool ProcessMessage(hh::fnd::Message& message) override;
-        virtual bool Initialize() override;
-        virtual bool UnkFunc6(bool a2) override;
-        virtual bool UnkFunc7() override;
-        virtual bool UnkFunc8() override;
-        virtual bool UnkFunc9() override;
-        virtual bool UnkFunc10() override;
-        virtual bool Shutdown() override;
-        virtual bool UnkFunc13() override;
+        virtual void Initialize() override;
+        virtual void Deinitialize(bool a2) override;
+        virtual void UnkFunc7() override;
+        virtual void UnkFunc8() override;
+        virtual void UnkFunc9() override;
+        virtual void UnkFunc10() override;
+        virtual int Shutdown() override;
+        virtual void UnkFunc13() override;
 
         virtual void SML_UnkFunc2() override;
 

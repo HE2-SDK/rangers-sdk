@@ -5,7 +5,7 @@ namespace app::player {
     public:
         VisualSpin(csl::fnd::IAllocator* allocator, hh::game::GameObject* gameObject, ComponentCollection* componentCollection);
 
-        virtual bool GetUnk() const = 0;
-        virtual void SetUnk(bool enabled) {}
+		virtual bool IsSuper() const = 0;
+		virtual void SetIsSuper(bool enabled) {};
     };
 }

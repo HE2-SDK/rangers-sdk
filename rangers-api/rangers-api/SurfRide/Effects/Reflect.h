@@ -1,6 +1,8 @@
 #pragma once
 
 namespace SurfRide {
+    class DrawInterface;
+
     class Reflect : public ReferencedObject {
     public:
         SRS_REFLECT* binaryData;
@@ -26,7 +28,7 @@ namespace SurfRide {
         float GetGainFrame(float deltaTime) const;
 
         virtual int64_t UnkFunc1() = 0;
-        virtual int64_t UnkFunc2() = 0;
+        virtual void Render(DrawInterface* drawInterface, void* uiRenderInfo, TextureList **textureLists) = 0;
     };
 
     class Reflect3D : public Reflect {
@@ -35,7 +37,7 @@ namespace SurfRide {
 
         Reflect3D(SRS_REFLECT3D* binaryData, Cast* cast);
 
-        virtual int64_t UnkFunc1();
-        virtual int64_t UnkFunc2();
+        virtual int64_t UnkFunc1() override;
+        virtual void Render(DrawInterface* drawInterface, void* uiRenderInfo, TextureList **textureLists) override;
     };
 }

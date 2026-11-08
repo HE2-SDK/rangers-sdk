@@ -3,7 +3,8 @@
 namespace app::game{
     class GameModeFishingExtension : public GameModeExtension{
     public:
-        GameModeFishing* gameMode;
+        static constexpr const char* name = "GameModeFishingExtension";
+        
         hh::fnd::Handle<FadeObject> fadeObj;
         float unkCounter;
         float unk2; //related to fadeobject

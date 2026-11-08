@@ -303,5 +303,7 @@ namespace hh::game
 		bool HasDLCSonicCostume() const;
 		uint8_t GetDLCSonicCostume() const;
 		const char* GetDLCSonicCostumeModelName() const;
+		bool TryGetObjectTransformByID(ObjectId id, csl::math::Transform& out);
+		bool TryGetObjectWorldPosByID(ObjectId id, fnd::WorldPosition& out);
 	};
 }

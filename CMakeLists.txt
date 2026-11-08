@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.28)
-project(rangers-sdk VERSION 0.1.8
+project(rangers-sdk VERSION 0.1.9
                    DESCRIPTION "An SDK for Sonic Frontiers"
                    LANGUAGES CXX ASM_MASM)
 
@@ -11,7 +11,7 @@ set(CMAKE_ASM_MASM_CREATE_STATIC_LIBRARY "<CMAKE_AR> /OUT:<TARGET> <LINK_FLAGS> 
 set(UCSL_EIGEN_MATH ON)
 
 include(FetchContent)
-FetchContent_Declare(universal-cslib GIT_REPOSITORY https://github.com/angryzor/universal-cslib.git GIT_TAG v1.0.53 FIND_PACKAGE_ARGS)
+FetchContent_Declare(universal-cslib GIT_REPOSITORY https://github.com/angryzor/universal-cslib.git GIT_TAG v1.0.55 FIND_PACKAGE_ARGS)
 FetchContent_MakeAvailable(universal-cslib)
 
 add_library(rangers-sdk STATIC)
@@ -24,3 +24,6 @@ target_sources(rangers-sdk
     PUBLIC FILE_SET HEADERS BASE_DIRS include FILES
         include/rangers-sdk.h
 )
+if(MSVC)
+    target_link_options(rangers-sdk PUBLIC /NATVIS:${CMAKE_CURRENT_LIST_DIR}/debug/csl.natvis)
+endif()

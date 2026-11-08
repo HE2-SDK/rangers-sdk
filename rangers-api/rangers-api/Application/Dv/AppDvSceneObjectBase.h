@@ -12,7 +12,7 @@ namespace app::dv {
         short unk4;
 
         virtual void SetModelResource(hh::gfx::ResModel* resource) override;
-        virtual void* VisualModelRelated3(void* a2, float a3, bool a4) override;
+        virtual void SetTexSrtTime(hh::gfx::ResAnimTexSrt* uvAnim, float time, bool loop) override;
         virtual void* VisualModelRelated7(void* a2) override;
 
         AppDvSceneObjectBase(csl::fnd::IAllocator* allocator, hh::dv::DvStandardCharacter* character);

@@ -12,7 +12,10 @@ namespace hh::gfx {
             };
 
             class MyReloadListener : public fnd::ReloaderListener {
+            public:
                 Impl* lightComponentImplementation;
+
+                virtual void PostResourceReloadCallback(fnd::ManagedResource* resource) override;
             };
 
             void MakeLocalLightParam(needle::FxLightParam* lightParam, const fnd::ResLightParameter& resource);

@@ -23,7 +23,7 @@ namespace SurfRide {
         
         virtual void* GetRuntimeTypeInfo() const override;
         virtual bool UnkFunc2() override;
-        virtual void UnkFunc3() override;
+        virtual void Render(DrawInterface* drawInterface, void* uiRenderInfo) override;
         virtual void CalcTrackTypeWidth(float time, const SRS_TRACK* track) override;
         virtual void CalcTrackTypeHeight(float time, const SRS_TRACK* track) override;
         virtual void CalcTrackTypeCropIndex0(float time, const SRS_TRACK* track) override;

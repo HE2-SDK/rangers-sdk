@@ -17,19 +17,19 @@ namespace app::player {
         };
 
         struct ParamData {
-            uint32_t unk1;
+            int id;
             Params param1;
             Params param2;
         };
 
         csl::ut::MoveArray<ParamData> params[3];
         Params speedRates[3];
-        float floatA0;
-        float floatA4;
+        float optionMaxSpeedLimitMin;
+        float optionMaxSpeedLimitMax;
         float maxSpeedRate;
         csl::ut::InplaceMoveArray<void*, 4> unkB0;
 
-        DEFAULT_CREATE_FUNC(PlayerSpeedParam);
+        PlayerSpeedParam(csl::fnd::IAllocator* allocator);
 
         void LoadParams(unsigned int unkParam1, Mode mode, const Params& param1, const Params& param2);
         void SetMaxSpeedLimits(float min, float max);
@@ -37,5 +37,6 @@ namespace app::player {
         void SetInitialSpeedRate(Mode mode, float value);
         void SetMinTurnSpeedRate(Mode mode, float value);
         void SetMaxSpeedRate(float value);
+        float GetSpeed() const;
     };
 }

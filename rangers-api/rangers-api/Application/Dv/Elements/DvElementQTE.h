@@ -5,7 +5,7 @@ namespace app::dv{
     public:
         struct Description : hh::dv::DvElementBase::Description {
         public:
-            enum class QTEType : unsigned int {
+            enum class QTEType : unsigned char {
                 PRESS_PROMPT,
                 MASH,
                 RED_CIRCLE,
@@ -13,7 +13,7 @@ namespace app::dv{
                 NONE
             };
 
-            enum class QTEButton : unsigned int {
+            enum class QTEButton : unsigned char {
                 A,
                 B,
                 X,
@@ -33,8 +33,8 @@ namespace app::dv{
                 RB_ALT
             };
 
-            QTEType qteType;
-            QTEButton qteButton;
+            alignas(4) QTEType qteType;
+            alignas(4) QTEButton qteButton;
             float redCircleSize;
             float redCircleThickness;
             float whiteLineThickness;

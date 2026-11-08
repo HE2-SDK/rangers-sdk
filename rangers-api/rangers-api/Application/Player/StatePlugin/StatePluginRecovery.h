@@ -3,19 +3,26 @@
 namespace app::player {
     class StatePluginRecovery : public PlayerStatePlugin {
     public:
-        void* qword28;
-        void* qword30;
-        void* qword38;
-        void* qword40;
-        uint64_t qword48;
-        uint64_t qword50;
-        csl::ut::MoveArray<void*> unk58;
-        uint8_t byte78;
+        static constexpr const char* name = "StatePluginRecovery";
+        
+        struct UnkStr {
+            hh::fnd::HandleBase unk0;
+            hh::fnd::WorldPosition unk2;
+            char unk6a;
+            char unk6b;
+            char unk6c;
+        };
+
+        csl::ut::CircularBuffer<hh::fnd::WorldPosition> playerWorldPositions;
+        csl::ut::MoveArray<UnkStr> qword58;
+        char flags;
 
         virtual unsigned int GetNameHash() const override;
         virtual void AddCallback() override;
         virtual void Update(hh::fnd::UpdatingPhase phase, const float deltaTime) override;
 
-        DEFAULT_CREATE_FUNC(StatePluginRecovery);
-    };
+        hh::fnd::WorldPosition GetRecoveryPosition(bool lastStandingPosition) const;
+
+        StatePluginRecovery(csl::fnd::IAllocator* allocator);
+	};
 }

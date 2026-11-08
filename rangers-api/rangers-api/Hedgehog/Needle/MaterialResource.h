@@ -140,8 +140,25 @@ namespace hh::needle {
 
     class MaterialResource : public TNeedleRefcountUniqueObjectBase<TNeedleRefcountResource<NEEDLE_RESOURCE_MATERIAL, NeedleRefcountResource>> {
     public:
+        struct TextureNameValue {
+            CNameIDObject* name;
+            int64_t qword8;
+        };
+
+        struct SInstanceParameterLocalData {
+            void* qword0;
+            int64_t qword8;
+            int64_t qword10;
+            intrusive_ptr<VertexShader> vertexShader;
+            intrusive_ptr<PixelShader> pixelShader;
+            int64_t qword28;
+            int64_t qword30;
+            int64_t qword38;
+            int64_t qword40;
+        };
+
         struct MaterialResourceData {
-            void* instanceParameter;
+            SInstanceParameterLocalData* instanceParameter;
             uint64_t unk2;
             uint32_t instanceParameterCount;
             uint32_t unk3;
@@ -173,6 +190,9 @@ namespace hh::needle {
         uint32_t GetMaterialInstanceParameterCount() const;
         void* GetElementData() const;
         uint32_t GetElementSize() const;
+        int GetHintParameter(CNameIDObject* textureName, CNameIDObject* name, ParameterHintValue* values, unsigned int count) const;
+        int GetTextureNameParameter(TextureNameValue* value, unsigned int count) const;
+        virtual void ReleasePostDestroyInternal() override;
     };
 
     bool LoadMirageMaterial2(RenderingDevice* renderingDevice, const void* data, MaterialResource** resource);
@@ -188,4 +208,7 @@ namespace hh::needle {
         bool unk1;
     };
     void ExecuteChunk(SCheckexec& check, const MaterialChunkBuilder::ParameterInfo* parameterInfos, unsigned int parameterCount, void* data, bool unk);
+    CNameIDObject* GetMirageMaterialTextureNameType();
+    CNameIDObject* GetMaterialParameterGatherRenderingPassType();
+    CNameIDObject* GetMaterialParameterPriorityName();
 }

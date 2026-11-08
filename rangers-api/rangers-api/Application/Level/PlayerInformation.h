@@ -43,9 +43,9 @@ namespace app::level {
         std::optional<csl::math::Vector3> vector4150;
         std::optional<csl::math::Vector3> vector4170;
         std::optional<csl::math::Vector3> vector4190;
-        std::optional<csl::math::Vector3> vector41B0;
-        std::optional<csl::math::Vector3> vector41D0;
-        std::optional<csl::math::Vector3> vector41F0;
+        std::optional<csl::math::Vector3> playerUp;
+        std::optional<csl::math::Vector3> playerRight;
+        std::optional<csl::math::Vector3> playerForward;
         std::optional<csl::math::Vector3> vector4210;
         std::optional<csl::math::Vector3> vector4230;
         std::optional<csl::math::Vector3> vector4250;
@@ -100,7 +100,7 @@ namespace app::level {
         uint32_t dword3D4;
         uint32_t dword3D8;
         std::optional<Unk2> unk13241;
-        std::optional<csl::math::Vector3> vector4480;
+        std::optional<csl::math::Vector3> neckPosition; // Guessed, doesn't react with animations
         std::optional<Unk3> qword4A0;
         std::optional<uint32_t> dword4AC;
         std::optional<uint8_t> word4B4;

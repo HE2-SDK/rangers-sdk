@@ -11,18 +11,24 @@ namespace app::camera{
             int unk4;
         };
 
+        enum class EaseType : unsigned char {
+            SIN = 2,
+            CUBIC = 4,
+            QUADRATIC = 6
+        };
+
         struct Description{
             hh::fnd::HFrame* hFrame;
             csl::math::Vector4 unk0;
             char unk1;
         };
 
-        hh::fnd::HFrame* hFrame0;
-        hh::fnd::HFrame* hFrame1;
-        csl::math::Vector4 unk0;
+        hh::fnd::Reference<hh::fnd::HFrame> hFrame0;
+        hh::fnd::Reference<hh::fnd::HFrame> bossHFrame;
+        csl::math::Vector3 mainLookOffsetPos;
         hh::fnd::HFrame* hFrame2;
         hh::fnd::HFrame* hFrame3;
-        csl::math::Vector4 unk0b;
+        csl::math::Vector3 subLookOffsetPos;
         CameraBoom* camBooms[3];
         int64_t unk1;
         int64_t camDelayBehavior;
@@ -30,8 +36,13 @@ namespace app::camera{
         int64_t camPanBehavior;
         int64_t camInterpBehavior1;
         int64_t camSpringBehavior;
-        float unk2[6];
-        int unk3[8];
+        float unk2[5];
+        float easeTime;
+        int unk3;
+        EaseType easeType0;
+        float unk3b[2]; // sublookatoffsetpos.x is stored in [0]
+        EaseType easeType1;
+        int unk3c[3];
         csl::math::Vector4 unk4;
         csl::math::Vector4 unk5;
         Unk0 unk6[5];

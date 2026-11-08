@@ -5,9 +5,26 @@ namespace app::player {
     public:
         static constexpr const char* name = "StatePluginOutOfControl";
 
-        csl::ut::MoveArray<void*> unk201;
-        csl::ut::MoveArray<void*> unk202;
-        uint16_t unk203;
+        struct OutOfControlController {
+            enum class Flags : unsigned int {
+                RELEASE_BY_GROUND,
+                UNK0,
+                UNK1,
+            };
+
+            int nameHash;
+            float unk;
+            csl::ut::Bitset<Flags> flags;
+        };
+
+        enum class Flags : unsigned char {
+            IS_OUT_OF_CONTROL
+        };
+
+        csl::ut::MoveArray<OutOfControlController> controllers;
+        csl::ut::MoveArray<int64_t> qword48;
+        csl::ut::Bitset<Flags> flags;
+        char byte69;
 
         virtual unsigned int GetNameHash() const override;
         virtual void AddCallback() override;
@@ -16,6 +33,6 @@ namespace app::player {
 
         void UnkFunc1342(unsigned int nameHash, unsigned int unkParam1);
 
-        DEFAULT_CREATE_FUNC(StatePluginOutOfControl);
+        StatePluginOutOfControl(csl::fnd::IAllocator* allocator);
     };
 }

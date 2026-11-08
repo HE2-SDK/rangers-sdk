@@ -46,6 +46,8 @@ namespace app::player {
         csl::ut::MoveArray<int64_t> unk13;
         csl::ut::Bitset<Flag> flags;
 
+        DEFAULT_CREATE_FUNC(StatePluginBoost);
+
         virtual unsigned int GetNameHash() const override;
         virtual void AddCallback() override;
         virtual void RemoveCallback() override;
@@ -59,7 +61,8 @@ namespace app::player {
         void SetBoostType(uint8_t type);
         void SetUnk1(uint8_t type);
         void PlayShakeEffects();
-    
-        DEFAULT_CREATE_FUNC(StatePluginBoost);
+
+        bool IsHoldingBoost() const;
+        bool IsBoosting() const;
     };
 }

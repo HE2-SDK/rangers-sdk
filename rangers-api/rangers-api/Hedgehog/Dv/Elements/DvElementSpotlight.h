@@ -3,6 +3,25 @@
 namespace hh::dv{
     class DvElementSpotlight : public DvElementBase {
     public:
+        class SpotlightObject : public game::GameObject {
+        public:
+            int64_t unk0;
+            csl::math::Vector3 position;
+            csl::math::Quaternion rotation;
+            int32_t r,g,b;
+            float attenuationRadius;
+            float intensity;
+            float radius;
+            int64_t unk8;
+            int32_t lightIndex;
+            int32_t unk10;
+            
+		    virtual void AddCallback(game::GameManager* gameManager) override;
+            void SetVisible(bool enabled);
+
+            GAMEOBJECT_CLASS_DECLARATION_INLINE_GET_CLASS(SpotlightObject);
+        };
+
         struct Description : DvElementBase::Description {
         public:
             bool curveEnabled;
@@ -19,7 +38,7 @@ namespace hh::dv{
         };
 
         Description binaryData;
-        hh::fnd::Reference<hh::game::GameObject> light;
+        fnd::Reference<SpotlightObject> light;
         
         virtual void Update(int currentFrame, csl::math::Transform& transform) override;
         virtual bool AddCallback(int currentFrame, csl::math::Transform& transform) override;

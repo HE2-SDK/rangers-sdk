@@ -3,6 +3,8 @@
 namespace app::player {
     class StatePluginBattle : public PlayerStatePlugin {
     public:
+        static constexpr const char* name = "StatePluginBattle";
+
         uint8_t byte28;
         float dword2C;
         uint64_t qword30;

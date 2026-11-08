@@ -3,9 +3,28 @@
 namespace app::player {
     class StatePluginInWater : public PlayerStatePlugin {
     public:
-        GOCPlayerKinematicParams::Unk6 unk28;
-        csl::ut::MoveArray<void*> unk60;
-        uint32_t unk80;
+        class WaterDepthProcess : public hh::fnd::ReferencedObject {
+        public:
+            virtual void AddCallback(PlayerHsmContext* context) = 0;
+            virtual void RemoveCallback(PlayerHsmContext* context) = 0;
+            virtual void Update(PlayerHsmContext* context, GOCPlayerKinematicParams::LiquidInfo& liquidInfo, GOCPlayerKinematicParams::LiquidInfo& partialLiquidInfo, float deltaTime) = 0;
+        };
+
+        class InWaterStatusProcess : public WaterDepthProcess {
+        public:
+            bool isDrowning;
+            float drowningTimer;
+
+            virtual void AddCallback(PlayerHsmContext* context) override {}
+            virtual void RemoveCallback(PlayerHsmContext* context) override {}
+            virtual void Update(PlayerHsmContext* context, GOCPlayerKinematicParams::LiquidInfo& liquidInfo, GOCPlayerKinematicParams::LiquidInfo& partialLiquidInfo, float deltaTime) override;
+        };
+
+        static constexpr const char* name = "StatePluginInWater";
+
+        GOCPlayerKinematicParams::LiquidInfo liquidInfo;
+        csl::ut::MoveArray<hh::fnd::Reference<WaterDepthProcess>> waterDepthProcesses;
+        int qword80;
 
         virtual unsigned int GetNameHash() const override;
         virtual void AddCallback() override;

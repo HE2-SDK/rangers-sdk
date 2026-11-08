@@ -14,7 +14,7 @@ namespace app::player {
         };
 
         struct ParamData {
-            uint32_t unk1;
+            unsigned int id;
             Params param;
         };
 
@@ -22,6 +22,6 @@ namespace app::player {
 
         DEFAULT_CREATE_FUNC(PlayerGrindSpeedParam);
 
-        void LoadParams(unsigned int unkParam1, Mode mode, const Params& param);
+        void LoadParams(unsigned int id, Mode mode, const Params& param);
     };
 }

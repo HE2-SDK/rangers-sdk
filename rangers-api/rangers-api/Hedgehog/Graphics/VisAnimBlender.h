@@ -21,7 +21,7 @@ namespace hh::gfx {
     public:
         GOCVisualModel* model;
         csl::ut::MoveArray<fnd::Reference<VisAnimControlHH>> animations;
-        void* needleBlender;
+        needle::AnimBlender<needle::AnimVisControl>* needleBlender;
 
         virtual void Setup(const VisAnimBlenderDesc& description) override;
         virtual void Cleanup() override;

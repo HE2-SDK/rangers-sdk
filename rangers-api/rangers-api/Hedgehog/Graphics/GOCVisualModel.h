@@ -113,6 +113,7 @@ namespace hh::gfx {
         void Setup(GOCVisualModel& model, const GOCVisualModelDescription& description);
         void GetModelSpaceAabb(csl::geom::Aabb* aabb) const;
         void SetInstanceTransform(const InstanceTransformInfo& instanceTransformInfo, unsigned int instanceIndex);
+        void SetShaderParameterFloat(const char* materialName, const char* shaderParamName, const float* value);
 
         // TexSrtControl* SetTexSrtAnimation(hh::gfx::TexSrtDesc& description);
         TexSrtBlender* SetTexSrtBlender(hh::gfx::TexSrtBlenderDesc& description);
@@ -175,6 +176,8 @@ namespace hh::gfx {
         void SetPose(anim::Pose* pose);
         void ClearPose(anim::Pose* pose);
         void SetInstanceTransform(const GOCVisualModelImpl::InstanceTransformInfo& instanceTransformInfo, unsigned int instanceIndex);
+        void SetShaderParameterFloat(const char* materialName, const char* shaderParamName, const float* value);
+		void ClearAABB();
 
         // TexSrtControl* SetTexSrtAnimation(hh::gfx::TexSrtDesc& description);
         TexSrtBlender* SetTexSrtBlender(const hh::gfx::TexSrtBlenderDesc& description);

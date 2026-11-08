@@ -93,7 +93,7 @@ namespace Cyan{
 
         void UpdatePattern(float deltaTime, const Resource::TextureParam* textureParam, unsigned int textureIndex, float* stepSizes, float* unk3);
         void CalcTexcoordImpl(
-            float arg0,
+            float time,
             const Resource::TextureParam* texParam,
             _Texcoord* texcoord,
             Cyan::Matrix23* matrix,
