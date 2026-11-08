@@ -22,6 +22,9 @@ namespace hh::needle {
             uint32_t drawPassCount;
             RenderParameters renderParameters;
             uint8_t unk111;
+
+            inline SetupInfo() {}
+            SetupInfo(PBRModelInstanceRenderer* modelInstanceRenderer);
         };
 
         csl::fnd::Mutex mutex;

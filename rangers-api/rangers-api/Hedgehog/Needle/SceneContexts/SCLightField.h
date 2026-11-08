@@ -23,5 +23,6 @@ namespace hh::needle {
         virtual const char* GetName();
 
         SupportFX::SFXAllocator* GetSFXAllocator() const;
+        void Setup(SupportFX::LightFieldDescription& desc);
     };
 }

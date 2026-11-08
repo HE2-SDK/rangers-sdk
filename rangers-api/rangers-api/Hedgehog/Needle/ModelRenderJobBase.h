@@ -6,11 +6,11 @@ namespace hh::needle {
         struct RenderLayer {
             int32_t unk1;
             int32_t unk1a;
-            int32_t unk2;
-            int32_t unk2a; //related to priority?
+            int32_t unk2; // used for GatherDrawPassInfoJob::AddUnk2
+            int32_t unk2a; // related to priority?
             CNameIDObject* name;
-            uint32_t unk4; //related to priority?
-            int unk5; //related to priority?
+            uint32_t unk4; // related to priority?
+            int drawPassIndex; // unsure. used for GatherDrawPassInfoJob::AddUnk1
         };
 
         uint32_t unk101;

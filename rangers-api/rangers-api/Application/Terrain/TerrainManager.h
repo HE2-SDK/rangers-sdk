@@ -16,6 +16,16 @@ namespace app::trr {
             virtual void PostResourceReloadCallback(hh::fnd::ManagedResource* resource) override;
         };
 
+        class TerrainCaptureListener : public hh::fnd::ReferencedObject, public hh::gfx::CaptureComponent::Listener {
+        public:
+            TerrainManager* trrManager;
+            char byte28;
+
+            virtual void CCL_UnkFunc0() override;
+            virtual int64_t CCL_UnkFunc1() override;
+            virtual void CCL_UnkFunc2() override;
+        };
+
         struct SetupInfo {
             const char* stageId;
             const char* stageName;
@@ -33,12 +43,12 @@ namespace app::trr {
         };
 
 		csl::ut::Bitset<Flag> flags;
-        uint64_t unk2;
+        level::LevelInfo* levelInfo;
         uint32_t unk3;
         float unk4;
         uint64_t unk5;
         uint32_t unk6;
-        uint64_t unk7;
+        hh::fnd::Reference<TerrainCaptureListener> captureListener;
         uint32_t unk8;
         csl::ut::InplaceMoveArray<csl::math::Vector3, 1> playerPositions;
         csl::ut::MoveArray<hh::fnd::Reference<TerrainWorld>> terrains;

@@ -20,8 +20,8 @@ namespace hh::gfx {
 
     public:
         LightComponent(csl::fnd::IAllocator* allocator);
-        virtual void UnkFunc1() override;
-        virtual void UnkFunc2() override;
+        virtual void Initialize() override;
+        virtual void Deinitialize() override;
         virtual void UnkFunc3() override {}
         virtual int GetNameHash() override;
         virtual const char* GetName() override;

@@ -3,7 +3,7 @@
 namespace hh::gfx {
     class RenderingEngine : public fnd::ReferencedObject {
         csl::ut::MoveArray<RenderingComponent*> components;
-        bool callUnkFunc1OnNewComponents;
+        bool autoInitializeComponents;
     public:
         RenderingEngine(csl::fnd::IAllocator* allocator);
         virtual unsigned int GetModelGatherBufferSize();

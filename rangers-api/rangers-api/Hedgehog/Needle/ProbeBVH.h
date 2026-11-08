@@ -33,6 +33,8 @@ namespace hh::needle {
             int MakeRecursive(const csl::ut::Array<intrusive_ptr<Node>, uint64_t>& nodes);
         };
 
+        // In the assembly, `Impl` is created at 0x18, but when playing the game it's not the case..?
+        //int64_t gap10;
         intrusive_ptr<Impl> implementation;
 
         ProbeBVH(csl::fnd::IAllocator* allocator);

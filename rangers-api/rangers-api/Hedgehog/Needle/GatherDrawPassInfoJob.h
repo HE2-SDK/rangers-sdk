@@ -23,5 +23,7 @@ namespace hh::needle {
 
         GatherDrawPassInfoJob(RenderJob* renderJob, csl::fnd::IAllocator* allocator, unsigned int viewportId);
         virtual void Run(DrawPassState& drawPassState, const PipelineInfo& pipelineInfo);
+        void AddUnk1(int64_t value);
+        void AddUnk2(int64_t value);
     };
 }

@@ -7,11 +7,12 @@ namespace hh::needle {
     class RenderUnit;
     class RenderTextureHandle;
     class RenderTextureCreateArgs;
+    class SupportFX;
 
     class FxPerformanceCounter {
     public:
-        virtual void BeginPerformanceCounter() {}
-        virtual void EndPerformanceCounter() {}
+        virtual void BeginPerformanceCounter(SupportFX* supportFx) {}
+        virtual void EndPerformanceCounter(SupportFX* supportFx) {}
         virtual void DrawPerformanceCounter() {}
     };
 
@@ -39,14 +40,43 @@ namespace hh::needle {
             // uint32_t unk6;
             FxViewport viewports[5];
             uint32_t numViewports;
-            float unk32;
-            float unk33;
-            float unk34;
-            float unk35;
+            float clearColor[4];
+        };
+
+        struct LightFieldDescription {
+            ucsl::resources::shlightfield::v1::SHLightFieldData* binaryData;
+            csl::ut::MoveArray<hh::needle::Texture*>* textures;
+        };
+
+        class CaptureIBLListener {
+        public:
+            virtual void CIL_UnkFunc0() = 0;
+            virtual void CIL_UnkFunc1() = 0;
+            virtual void CIL_UnkFunc2() = 0;
         };
 
         class SFXAllocator : public csl::fnd::IAllocator {
         public:
+            struct ProbeNode {
+                int probeCounts[3];
+                csl::math::Matrix44 transform;
+                csl::math::Matrix44 transform1;
+                intrusive_ptr<Texture> texture;
+                char byte98;
+                float dword9C;
+                float dword100;
+                float dword104;
+                int dword108;
+            };
+
+            SupportFX* supportFx;
+            char byte10;
+            float defaultProbeLightingData[36];
+            csl::ut::MoveArray<ProbeNode> probeNodes;
+            csl::ut::MoveArray<ProbeNode> qwordC8;
+            csl::ut::MoveArray<int64_t> qwordE8;
+            intrusive_ptr<PickColorShaderObject> pickColorShaderObject;
+
             inline SFXAllocator() {}
             virtual ~SFXAllocator();
             
@@ -57,6 +87,8 @@ namespace hh::needle {
             static inline SFXAllocator* GetInstance() {
                 return &RESOLVE_STATIC_VARIABLE(instance);
             }
+
+            void Setup(SupportFX::LightFieldDescription& desc);
         };
     
         uint32_t vertexShaderCount;
@@ -106,9 +138,9 @@ namespace hh::needle {
         uint32_t unk16b;
         uint8_t unk17;
         uint32_t unk18;
-        uint32_t unk19;
-        void* unk20;
-        FxPerformanceCounter performanceCounter;
+        FillMode fillMode;
+        CaptureIBLListener* captureIBLListener;
+        FxPerformanceCounter* performanceCounter;
         uint64_t unk21;
         uint64_t unk22;
         int32_t unk23;
@@ -122,22 +154,12 @@ namespace hh::needle {
         void* unk30;
         void* unk31;
 
-        class CaptureIBLListener {
-        public:
-            virtual ~CaptureIBLListener() = default;
-            virtual void CIL_UnkFunc1();
-            virtual void CIL_UnkFunc2();
-        };
-
-        struct LightFieldDescription {
-            ucsl::resources::shlightfield::v1::SHLightFieldData* binaryData;
-            csl::ut::MoveArray<hh::needle::Texture*>* textures;
-        };
-
         bool CreateDevice(unsigned int resX, unsigned int resY, void* unkParam3, intrusive_ptr<RenderingDevice>& renderingDevice, bool unkParam4, void* unkParam5, void* unkParam6);
         void CreateRenderManager(unsigned int resX, unsigned int resY, unsigned int renderResX, unsigned int renderResY, intrusive_ptr<RenderingDevice>& renderingDevice, void* unkParam5);
         RenderingDevice* GetRenderingDevice() const;
+        // Gets Immediate context
         RenderingDeviceContext* GetRenderingContext() const;
+        // Gets Deferred context
         RenderingDeviceContext* GetRenderingContext2() const;
         RenderingContextManager* GetRenderingContextManager() const;
         RenderManager* GetRenderManager() const;
@@ -161,6 +183,7 @@ namespace hh::needle {
         PBRModelInstance* CreatePBRModelInstance(Model* model, const PBRModelCreationInfo& info);
         static Rectangle GetRenderTargetRect(RenderTargetManager* manager, const RenderTargetReference& rtRef, SupportFX::FxViewport& viewport);
 
+        void SetListener(CaptureIBLListener* listener);
         void SetupLightField(LightFieldDescription& desc, const char* sceneName);
 
         static SupportFX* instance;
@@ -196,6 +219,7 @@ namespace hh::needle {
         virtual void UnkFunc4(float unkParam1, uint32_t numCameras, FxCamera** cameras) override;
 
         RenderTextureHandle* CreateRenderTextureHandle(const RenderTextureCreateArgs& createArgs);
+        RenderUnit* GetRenderUnitByName(const char* name) const;
         RenderUnit* GetRenderUnitByName(const CNameIDObject* name) const;
     };
 }

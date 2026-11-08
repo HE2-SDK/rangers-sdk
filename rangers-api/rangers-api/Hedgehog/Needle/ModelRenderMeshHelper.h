@@ -19,6 +19,6 @@ namespace hh::needle {
         virtual void UnkFunc1(RenderingDeviceContext* renderingDeviceContext, void* unkParam2) override;
         virtual ~ModelRenderMeshHelper();
         virtual void SetDrawPassIndex(const DrawPassIdToIndexMap* drawPassIdToIndexMap, unsigned int drawPassId) override;
-        virtual void UnkFunc3(RenderingDeviceContext* renderingDeviceContext, void* unkParam2) override;
+        virtual void Render(RenderingDeviceContext* renderingDeviceContext, CNameIDObject* name) override;
     };
 }

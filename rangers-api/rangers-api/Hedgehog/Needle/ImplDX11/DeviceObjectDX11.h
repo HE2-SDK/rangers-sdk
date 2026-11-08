@@ -31,7 +31,7 @@ namespace hh::needle {
             Unk1<Unk2, 512> unk3;
             intrusive_ptr<NeedleRefcountObject> unk3a[48];
             Unk1<Unk2, 16> unk4;
-            intrusive_ptr<NeedleRefcountObject> unk5[17];
+            ID3D11DepthStencilState* unk5[17]; // 0x1410F7746
             Unk1<Unk3, 256> unk6;
             intrusive_ptr<NeedleRefcountObject> unk7[1504];
             uint64_t pad2[86];

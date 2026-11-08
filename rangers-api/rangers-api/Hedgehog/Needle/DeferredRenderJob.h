@@ -1,40 +1,52 @@
 #pragma once
 
 namespace hh::needle {
+    class DeferredShadingJob;
+
     class DeferredRenderJob : public RenderJob {
     public:
+        struct UnkStr {
+            int renderLayer012_unk1a{};
+            int renderLayer0_unk1{};
+            int renderLayer1_unk1{};
+            int renderLayer0_drawPassIndex{};
+            int renderLayer1_drawPassIndex{};
+            CNameIDObject* renderLayer0_name{};
+            CNameIDObject* renderLayer1_name{};
+            uint32_t renderLayer02_unk2{};
+            uint32_t viewportId1{};
+            int renderLayer0_unk2a{};
+            int renderLayer1_unk2a{};
+            RenderJobCallback::Function* onDeferredBeforeRender{};
+            RenderJobCallback::Function* onDeferredAfterRender{};
+            int renderLayer2_unk1{};
+            int renderLayer2_drawPassIndex{};
+            CNameIDObject* renderLayer2_name{};
+            int renderLayer2_unk2a{};
+            int renderLayer0b_unk1a{};
+            int renderLayer0b_unk1{};
+            int renderLayer0b_drawPassIndex{};
+            CNameIDObject* renderLayer0b_name{};
+            uint32_t renderLayer0b_unk2a{};
+            uint8_t byteDC{};
+            uint64_t qwordE0{};
+            uint32_t dwordE8{};
+            uint64_t qwordF0{};
+            uint64_t qwordF8{};
+            uint64_t qword100{};
+            uint64_t qword108{};
+        };
+
         uint32_t viewportId0;
         RenderingPipeline* deferredRenderingPipeline;
         GatherDrawPassInfoJob* gatherDrawPassJob;
         ParamBuildJob* paramBuildJob;
-        uint64_t qword68;
-        uint64_t qword70;
-        uint32_t dword78;
-        uint64_t qword80;
-        uint64_t qword88;
-        uint32_t dword90;
-        uint32_t viewportId1;
-        uint64_t qword98;
-        uint64_t qwordA0;
-        uint64_t qwordA8;
-        uint64_t qwordB0;
-        uint64_t qwordB8;
-        uint64_t qwordC0;
-        uint64_t qwordC8;
-        uint64_t qwordD0;
-        uint32_t dwordD8;
-        uint8_t byteDC;
-        uint64_t qwordE0;
-        uint32_t dwordE8;
-        uint64_t qwordF0;
-        uint64_t qwordF8;
-        uint64_t qword100;
-        uint64_t qword108;
+        UnkStr unkStr68;
         uint64_t enabledBitsCopy;
-        uint64_t qword118;
+        DeferredShadingJob* shadingJob;
         void (*getRenderResolutionOverride)(void* userData, float& renderResX, float& renderResY);
         void* getRenderResolutionOverrideUserData;
-        uint64_t qword130;
+        void* WorldRenderingPipelineSettings;
 
         DeferredRenderJob(csl::fnd::IAllocator* allocator, unsigned int viewportId);
 
@@ -47,9 +59,9 @@ namespace hh::needle {
         virtual const char* GetName() override;
         virtual unsigned int GetClassSize() override;
         virtual unsigned int UnkFunc17() override;
-        virtual void UnkFunc19() {}
-        virtual void UnkFunc20() {}
-        virtual void UnkFunc21() {}
-        virtual void SetupDeferredRenderingPipeline();
+        virtual void UnkFunc19(const RenderJobContext& context) {}
+        virtual void UnkFunc20(const RenderJobContext& context) {}
+        virtual void UnkFunc21(const RenderJobContext& context) {}
+        virtual void SetupDeferredRenderingPipeline(const RenderJobContext& context);
     };
 }
