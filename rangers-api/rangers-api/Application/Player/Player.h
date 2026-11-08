@@ -9,6 +9,13 @@ namespace app::player {
             FALL = 2,
             DOWN = 3,
             BOARDING = 4,
+            SLEEP = 5,
+        };
+
+        enum class Unk1Flag : uint8_t {
+            UNK0,
+            UNK1,
+            UNK2,
         };
 
         struct PlayerSetupInfo {
@@ -27,14 +34,15 @@ namespace app::player {
             float startSpeed;
             float startTime;
             float startOutOfControlTime;
-            uint8_t unk14;
+            csl::ut::Bitset<Unk1Flag> unk14;
             PlayerSetupInfo();
         };
 
         PlayerSetupInfo setupInfo;
-		int64_t qword2C0;
-		int dword2C8;
-		int64_t qword2D0;
+        uint32_t unk101;
+        hh::fnd::Handle<hh::game::GameObject> uiCursor;
+        unsigned int maybeInputId;
+        uint64_t unk104;
 
         Player(csl::fnd::IAllocator* allocator);
         
@@ -48,5 +56,6 @@ namespace app::player {
         void Setup(const PlayerSetupInfo& setupInfo);
 		static void Kill(hh::game::GameManager* gameManager, uint8_t playerId);
         static Player* Spawn(hh::game::GameManager* gameManager, const PlayerSetupInfo& playerSetupInfo);
+        unsigned int GetMaybeInputId() const;
     };
 }

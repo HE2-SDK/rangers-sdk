@@ -7,15 +7,12 @@ namespace Cyan {
         Graphics::MeshRenderer meshRenderer;
         Graphics::ExternalMeshRenderer externalMeshRenderer;
         ManagerImpl* managerImpl;
-        uint64_t unk1_1;
-        uint64_t unk1_2;
-        uint64_t unk1_3;
-        volatile long long unk1_4;
-        volatile int unk1_5;
+        System::LinkList<EffectImpl> effects;
 
         Scene(ManagerImpl* managerImpl);
 
         void PrepareRender(const Graphics::DeviceContainer& deviceContainer);
         void SetGammaCorrect(bool enabled);
+        void RemoveEffect(Effect* effect);
     };
 }

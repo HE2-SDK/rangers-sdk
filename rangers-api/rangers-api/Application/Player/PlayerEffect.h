@@ -16,7 +16,7 @@ namespace app::player {
 
         CREATE_FUNC(PlayerEffect, hh::game::GameObject* playerObject, PlayerVisual* playerVisual);
 
-        virtual unsigned long long GetNameHash() const = 0;
+        virtual unsigned int GetNameHash() const = 0;
         virtual void Update(int64_t a2, float deltaTime) {}
         virtual void UnkFunc3() {}
         virtual void UnkFunc4() {}

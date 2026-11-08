@@ -37,6 +37,8 @@ namespace app::player {
         PlayerHsmContext(csl::fnd::IAllocator* pAllocator);
         ~PlayerHsmContext();
 
+        virtual void OnSave(app::save::SaveManager* saveMgr) override;
+
         void Setup(GOCPlayerHsm* gocPlayerHsm);
 
         app::player::Player* GetPlayerObject() const;
@@ -47,7 +49,7 @@ namespace app::player {
         CharacterIdU8 GetCharacterId() const;
         bool IsOutOfControl() const;
         bool IsAutoRun() const;
-        void AddParam(StateParameter* param);
+        void AddParam(const StateParameter& param);
         heur::rfl::PlayerParamCommon* GetPlayerParamCommon() const;
         heur::rfl::PlayerParamCombo& GetComboParameters() const;
         heur::rfl::PlayerParamSonicBoom& GetSonicBoomParameters() const;
@@ -85,7 +87,5 @@ namespace app::player {
         hh::game::GameManager* GetGameManager() const;
 
         static hh::snd::SoundHandle PlaySound(PlayerHsmContext* ctx, const char* soundName);
-        
-        virtual void OnSave(save::SaveManager* saveMgr) override;
     };
 }

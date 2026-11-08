@@ -61,7 +61,7 @@ namespace app::player {
         void ChangeStateRestart(int stateId, unsigned int priority);
         int GetCurrentState() const;
         int GetNextState() const;
-        void AddParam(StateParameter* param);
+        void AddParam(const StateParameter& param);
         void ChangeBottomState(int state);
 
         GOCOMPONENT_CLASS_DECLARATION(GOCPlayerHsm);

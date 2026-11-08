@@ -27,7 +27,8 @@ namespace hh::needle {
     class PBRModelInstance : public ModelInstance {
     public:
         int64_t unk3;
-        int64_t unk4;
+        int32_t unk4;
+        uint32_t flags;
         AnimBlender<AnimMaterialControl>* matBlender;
         AnimBlender<AnimTexPatControl>* texPatBlender;
         AnimBlender<AnimTexSrtControl>* texSrtBlender;

@@ -70,7 +70,7 @@ namespace app::game{
         BossActionPluginBase* GetPlugin(unsigned int nameHash) const {
             for (auto& plugin : plugins)
                 if (plugin->GetNameHash() == nameHash)
-                    return &plugin;
+                    return &*plugin;
 
             return nullptr;
         }

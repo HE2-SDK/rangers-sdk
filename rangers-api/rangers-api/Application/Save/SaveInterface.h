@@ -60,5 +60,7 @@ namespace app::save {
     CharacterAc GetCharacterAccessor(GameDataAc* gameDataAc, unsigned int idx);
     CharacterAc GetSelectedCharacterAccessor(GameDataAc* gameDataAc, hh::game::GameManager* gameManager);
     CharacterAc GetCharacterAccessor(hh::game::GameObject* gameObject, unsigned int idx);
+    unsigned char GetSequence(hh::game::GameManager* gameManager);
+    OptionGamePlayData::Value GetGameDifficulty(hh::game::GameObject* gameObject, bool easier);
     bool IsBirthdayEnabled(hh::game::GameManager* gameManager);
 }

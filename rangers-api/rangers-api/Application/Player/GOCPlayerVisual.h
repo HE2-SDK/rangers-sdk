@@ -44,7 +44,7 @@ namespace app::player {
 
         void Setup(const SetupInfo& setupInfo);
 
-        void AddVisual(PlayerVisualClass* playerVisualClass, char id, int unk7Unk1Param);
+        void AddVisual(const PlayerVisualClass* playerVisualClass, char id, int unk7Unk1Param);
         void SetupEffects();
 
         PlayerVisual* GetPlayerVisual(unsigned int nameHash) const;

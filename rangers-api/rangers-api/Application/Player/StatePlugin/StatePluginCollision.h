@@ -25,12 +25,17 @@ namespace app::player{
             int unk4;
         };
 
+        struct Unk1 {
+            app::ut::PriorityList<BodyAttackParam, unsigned int> bodyAttackParams;
+            physics::GOCMoveSphereColliderQuery* colliderQuery;
+            unsigned char currentType;
+        };
+
         static constexpr const char* name = "StatePluginCollision";
 
         csl::ut::MoveArray<DamageCollider> damageColliders;
-        app::ut::PriorityList<BodyAttackParam, unsigned int> bodyAttackParams;
-        physics::GOCMoveSphereColliderQuery* colliderQuery;
-        unsigned char currentType;
+        Unk1 colliderThings;
+        unsigned char unk202;
 
         virtual unsigned int GetNameHash() const override;
         virtual void AddCallback() override;
@@ -41,5 +46,7 @@ namespace app::player{
         void SetTypeAndRadius(unsigned char type, float radius);
         void CreateAttackCollision(heur::rfl::PlayerParamAcceleCombo& param, char type, const char* name);
         void DestroyAttackCollision(unsigned int nameHash);
+    
+        DEFAULT_CREATE_FUNC(StatePluginCollision);
     };
 }

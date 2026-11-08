@@ -86,6 +86,11 @@ namespace hh::gfx {
         };
 
     public:
+        struct InstanceTransformInfo {
+            csl::math::Matrix34 worldMatrix;
+            csl::math::Vector4 unk0;
+        };
+
         needle::PBRModelInstance* modelInstance;
         csl::fnd::IAllocator* allocator;
         uint16_t unk2;
@@ -107,6 +112,7 @@ namespace hh::gfx {
         uint64_t OnGOCVisualEvent(GOCVisualModel* visualModel, int unkParam1, unsigned int unkParam2, void* unkParam3);
         void Setup(GOCVisualModel& model, const GOCVisualModelDescription& description);
         void GetModelSpaceAabb(csl::geom::Aabb* aabb) const;
+        void SetInstanceTransform(const InstanceTransformInfo& instanceTransformInfo, unsigned int instanceIndex);
         void SetShaderParameterFloat(const char* materialName, const char* shaderParamName, const float* value);
 
         // TexSrtControl* SetTexSrtAnimation(hh::gfx::TexSrtDesc& description);
@@ -145,7 +151,7 @@ namespace hh::gfx {
         fnd::Reference<TexPatBlender> texPatBlender;
         fnd::Reference<MatAnimBlender> matAnimBlender;
         fnd::Reference<VisAnimBlender> visAnimBlender;
-        uint64_t unk306;
+        fnd::Reference<VertexAnimationTextureController> vertexAnimationTextureController;
         csl::ut::Bitset<AnimFlag> animFlags;
         uint8_t unk312;
         anim::Pose* pose;
@@ -169,28 +175,31 @@ namespace hh::gfx {
         void SetWorld(needle::World* world);
         void SetPose(anim::Pose* pose);
         void ClearPose(anim::Pose* pose);
+        void SetInstanceTransform(const GOCVisualModelImpl::InstanceTransformInfo& instanceTransformInfo, unsigned int instanceIndex);
         void SetShaderParameterFloat(const char* materialName, const char* shaderParamName, const float* value);
 		void ClearAABB();
 
         // TexSrtControl* SetTexSrtAnimation(hh::gfx::TexSrtDesc& description);
-        TexSrtBlender* SetTexSrtBlender(hh::gfx::TexSrtBlenderDesc& description);
+        TexSrtBlender* SetTexSrtBlender(const hh::gfx::TexSrtBlenderDesc& description);
         TexSrtBlender* GetTexSrtBlender() const;
         // void ResetTexSrtAnimation();
 
         // TexPatControl* SetTexPatAnimation(hh::gfx::TexPatDesc& description);
-        TexPatBlender* SetTexPatBlender(hh::gfx::TexPatBlenderDesc& description);
+        TexPatBlender* SetTexPatBlender(const hh::gfx::TexPatBlenderDesc& description);
         TexPatBlender* GetTexPatBlender() const;
         // void ResetTexPatAnimation();
 
         // MatAnimControl* SetMaterialAnimation(hh::gfx::MatAnimDesc& description);
-        MatAnimBlender* SetMatAnimBlender(hh::gfx::MatAnimBlenderDesc& description);
+        MatAnimBlender* SetMatAnimBlender(const hh::gfx::MatAnimBlenderDesc& description);
         MatAnimBlender* GetMatAnimBlender() const;
         // void ResetMaterialAnimation();
 
         // VisAnimControl* SetVisibilityAnimation(hh::gfx::VisAnimDesc& description);
-        VisAnimBlender* SetVisAnimBlender(hh::gfx::VisAnimBlenderDesc& description);
+        VisAnimBlender* SetVisAnimBlender(const hh::gfx::VisAnimBlenderDesc& description);
         VisAnimBlender* GetVisAnimBlender() const;
         // void ResetVisibilityAnimation();
+
+        VertexAnimationTextureController* SetVertexAnimationTextureController(const hh::gfx::VertexAnimationTextureControllerDesc& description);
 
         GOCOMPONENT_CLASS_DECLARATION(GOCVisualModel)
 

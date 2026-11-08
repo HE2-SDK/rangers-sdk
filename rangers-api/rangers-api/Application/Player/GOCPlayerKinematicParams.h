@@ -164,6 +164,7 @@ namespace app::player {
         csl::math::Quaternion& GetRotation() const;
         void SetVelocity(const csl::math::Vector3& velocity);
         void SetGravityScale(float gravityScale);
+        void SetLowGravityScale(float gravityScale);
         csl::math::Vector3 GetForwardTargetPosition() const;
         csl::math::Vector3 GetForwardVector() const;
         GravityController* GetGravityController() const;
@@ -172,6 +173,15 @@ namespace app::player {
         void SetLateralVelocity(const csl::math::Vector3& newVelocity);
         bool IsGrounded() const;
         void SetGroundInfo(const GroundInfo& groundInfo);
+
+        static void SetLandingMaxSlope(float value);
+        static void SetSlidingMaxSlope(float value);
+        static void SetWallAngleMaxSlope(float value);
+        static void SetMovableMaxSlope(float value);
+        static void SetOnStand(heur::rfl::PlayerParamCommon::SupportedPlane plane);
+        static void SetOnRunInAir(heur::rfl::PlayerParamCommon::SupportedPlane plane);
+        static void SetOnRun(heur::rfl::PlayerParamCommon::SupportedPlane plane);
+        static void SetAttrWallOnGround(bool enabled);
 
         GOCOMPONENT_CLASS_DECLARATION(GOCPlayerKinematicParams)
     };

@@ -25,7 +25,6 @@ template class hh::fnd::Reference<hh::ui::UIElementGroup>;
 template class hh::fnd::Reference<hh::ui::UIElementGroupContainer>;
 template class hh::fnd::Reference<hh::ui::UIManagerExtension>;
 template class hh::fnd::Reference<hh::ui::TextObjectPage>;
-template class hh::fnd::ResReflectionT<app::player::GOCPlayerParameter::CharacterParameters>;
 template class hh::fnd::ResReflectionT<heur::rfl::PlayerCameraSetParameters>;
 template class hh::needle::ImplDX11::NeedleResourceContainer<hh::needle::Texture, hh::needle::ImplDX11::TextureDX11Impl<hh::needle::ImplDX11::SBufferTexture2D, hh::needle::ImplDX11::SViewTexture2D, NEEDLE_RESOURCE_DX11_TEXTURE_VIEW>, NEEDLE_RESOURCE_CONTAINER, hh::needle::ImplDX11::SQueryTypeOwn, hh::needle::ImplDX11::SDupTypeSupport>;
 template class hh::needle::ImplDX11::NeedleResourceContainer<hh::needle::RenderTarget, hh::needle::ImplDX11::TextureDX11Impl<hh::needle::ImplDX11::SBufferTexture2D, hh::needle::ImplDX11::SViewRenderTarget, NEEDLE_RESOURCE_DX11_RENDER_TARGET_VIEW>, NEEDLE_RESOURCE_CONTAINER, hh::needle::ImplDX11::SQueryTypeOwn, hh::needle::ImplDX11::SDupTypeNotSupport>;
@@ -120,6 +119,9 @@ template class csl::ut::MoveArray<csl::ut::StringMap<hh::anim::EventData*>>;
 template class csl::ut::InplaceMoveArray<hh::anim::AsmResourceManager::ClipBindInfo, 5>;
 template class csl::ut::InplaceBitArray<4>;
 template class hh::fnd::Reference<app::player::PlayerEffect>;
+template class hh::fnd::Reference<hh::anim::iksolver::SolverBase>;
+template class csl::ut::InplaceMoveArray<hh::fnd::Reference<hh::anim::iksolver::SolverBase>, 3>;
+template class csl::ut::MoveArray<hh::anim::Trigger>;
 
 template class hh::fnd::Reference<hh::gfx::TexPatControlHH>;
 template class hh::fnd::Reference<hh::gfx::TexSrtControlHH>;
@@ -287,6 +289,26 @@ template class hh::fnd::Reference<app::ui::UIMainMenuContext>;
 
 template class hh::needle::AnimBlender<hh::needle::AnimTexSrtControl>;
 
+template class hh::needle::ImplDX11::SReflInfo<hh::needle::TParameterSlotRegisterReflection<hh::needle::ParameterValueBool, 4, hh::needle::ShaderReflectionType::BOOL_SLOT_REGISTER>>;
+template class hh::needle::ImplDX11::SReflInfo<hh::needle::TParameterSlotRegisterReflection<hh::needle::ParameterValueInt, 16, hh::needle::ShaderReflectionType::INT_SLOT_REGISTER>>;
+template class hh::needle::ImplDX11::SReflInfo<hh::needle::TParameterSlotRegisterReflection<hh::needle::ParameterValueFloat, 16, hh::needle::ShaderReflectionType::FLOAT_SLOT_REGISTER>>;
+template class hh::needle::ImplDX11::SReflInfo<hh::needle::TParameterSlotRegisterReflection<hh::needle::ParameterValueTexture, 0, hh::needle::ShaderReflectionType::TEXTURE_SLOT_REGISTER>>;
+template class hh::needle::ImplDX11::SReflInfo<hh::needle::TParameterSlotRegisterReflection<hh::needle::ParameterValueSampler, 0, hh::needle::ShaderReflectionType::SAMPLER_SLOT_REGISTER>>;
+template class hh::needle::ImplDX11::SReflInfo<hh::needle::ParameterConstantBufferReflection>;
+template class hh::needle::ImplDX11::SReflInfo<hh::needle::TParameterConstantReflection<hh::needle::ParameterValueBool, 4, hh::needle::ShaderReflectionType::BOOL_CONSTANT>>;
+template class hh::needle::ImplDX11::SReflInfo<hh::needle::TParameterConstantReflection<hh::needle::ParameterValueInt, 16, hh::needle::ShaderReflectionType::INT_CONSTANT>>;
+template class hh::needle::ImplDX11::SReflInfo<hh::needle::TParameterConstantReflection<hh::needle::ParameterValueFloat, 16, hh::needle::ShaderReflectionType::FLOAT_CONSTANT>>;
+template class hh::needle::ImplDX11::SReflInfo<hh::needle::ParameterUnorderedAccessViewReflection>;
+
+template class Cyan::Resource::ResObject<Cyan::Resource::Texture>;
+template class Cyan::Resource::ResObject<Cyan::Resource::Effect>;
+template class Cyan::Resource::ResObject<Cyan::Resource::Model>;
+template class Cyan::Resource::ResObject<Cyan::Resource::Shader>;
+template class Cyan::Resource::ResObject<Cyan::Resource::ComputeShader>;
+template class Cyan::Resource::ResObject<Cyan::Resource::Skeleton>;
+template class Cyan::Resource::ResObject<Cyan::Resource::NodeAnim>;
+template class Cyan::Graphics::ExternalMeshInstance<hh::needle::Model, hh::needle::PBRModelInstance>;
+template class Cyan::System::LinkPool<Cyan::EffectHandle, 32>;
 template class app::game::BossActionPluginManager<app::BossBaseContext>;
 template class hh::fnd::Reference<hh::ui::surfride::SurfRideShaderManager>;
 template class hh::fnd::Reference<app::player::StatePluginInWater::WaterDepthProcess>;

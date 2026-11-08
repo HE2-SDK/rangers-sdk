@@ -11,6 +11,7 @@ namespace hh::game {
         char unk9;
         char unk10;
         char gocTransformFlags;
+        bool immovable;
         uint32_t unk12;
 
         enum class Flag : unsigned char {
@@ -22,7 +23,7 @@ namespace hh::game {
             csl::math::Vector3 position;
             csl::math::Quaternion rotation;
             GOCTransform* parent;
-            uint8_t unk1;
+            bool immovable;
 
             SetupInfo();
         };
@@ -39,6 +40,7 @@ namespace hh::game {
         void SetLocalRotation(const csl::math::Quaternion& rotation);
         void SetLocalTranslationAndRotation(const csl::math::Vector3& position, const csl::math::Quaternion& rotation);
         void SetParent(GOCTransform* parent);
+        void SetImmovable(bool immovable);
         bool IsExistParent();
         
         inline GOCTransform* GetParent() {

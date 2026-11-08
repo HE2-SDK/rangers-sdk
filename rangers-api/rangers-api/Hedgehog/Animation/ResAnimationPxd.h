@@ -30,7 +30,7 @@ namespace hh::anim {
         virtual void GetTrackTransforms(float unk, csl::ut::MoveArray<csl::math::Transform>& transforms) override;
         virtual ResAnimationPxd* CreateMirrorAnimation(csl::fnd::IAllocator* allocator, ResSkeleton* skeleton, ResAnimation* resolvedAnimation) override;
         virtual bool IsMirrored() const override;
-        virtual uint64_t UnkFunc7() override;
+        virtual int GetMirroredBoneIndex(int boneIdx) const override;
         virtual bool UnkFunc8() override;
         virtual uint64_t UnkFunc9() override;
     };

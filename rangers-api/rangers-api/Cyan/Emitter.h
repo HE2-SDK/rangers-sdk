@@ -51,26 +51,33 @@ namespace Cyan {
             virtual void OnEnter(System::FSMContext* ctx) override;
         };
 
-        struct TextureInfo {
-            hh::needle::Texture* texture;
-            char index;
-            char unk0;
+        struct Unk1Resource {
+            uint64_t unk1;
+            uint64_t unk2;
+            uint64_t unk3;
         };
 
-        struct EntryElement {
-            Element* elem;
-            EntryElement* nextElem;
-            EntryElement* prevElem;
+        enum class Flag : unsigned int {
+            UNK0,
+            UNK1,
+            HAS_CHILD_EFFECTS,
+            UNK3,
+            UNK4,
+            UNK5,
+            UNK6,
+            USE_DISTANCE_ATTENUATION,
+            UNK8,
+            UNK9,
+            UNK10,
+            UNK11,
+            UNK12,
+            UNK13,
         };
 
-        uint32_t flags;
+        csl::ut::Bitset<Flag> flags;
         const Resource::EmitterParam* param;
         EffectImpl* effect;
-        uint64_t qword40;
-        uint64_t qword48;
-        uint64_t qword50;
-        EntryElement* entryElement;
-        uint32_t elementCount;
+        Cyan::System::LinkList<Element> elements;
         csl::math::Matrix34 emitterMatrix;
         csl::math::Matrix34 poseMatrix;
         csl::math::Matrix34 localMatrix;
@@ -78,47 +85,37 @@ namespace Cyan {
         csl::math::Matrix34 invInheritMatrix;
         csl::math::Matrix34 emissionMatrix;
         csl::math::Matrix34 invEmissionMatrix;
-        uint8_t gap64bbb[188];
+        csl::math::Matrix34 emissionMatrix2;
+        csl::math::Matrix34 poseMatrix2;
+        csl::math::Matrix34 whoKnowsMatrix;
         csl::math::Matrix34 worldMatrix;
         csl::math::Vector3 position;
         csl::math::Vector3 scale;
         csl::math::Vector3 elementScale;
         System::Random random;
         uint64_t pad0;
-        uint64_t qword370; //pointer to self, prolly struct here
-        uint64_t pad1;
-        uint64_t qword380;
-        uint64_t qword388;
-        uint64_t qword390;
-        uint64_t qword398;
-        uint64_t qword3A0;
-        uint64_t qword3A8;
-        uint64_t qword3B0;
-        uint64_t qword3B8;
-        csl::math::Vector4 csl__math__vector43C0;
-        uint32_t dword3D0;
-        uint8_t gap3D4[96];
-        Resource::EmitterParam::CullMode cullMode;
-        uint8_t gap3D4b[60];
-        uint32_t dword474;
-        TextureInfo textureInfos[4];
-        uint8_t gap4B8[176];
-        uint64_t qword568;
-        uint64_t qword570;
-        uint64_t qword578;
-        uint64_t qword580;
-        uint64_t qword588;
-        uint32_t dword590;
-        uint64_t qword598;
+        Graphics::EmitterDecl declaration;
         csl::ut::Color8 color;
         float emitRatio;
-        uint8_t gap5A0[152];
+        float playbackSpeed;
+        float elementLifetimeScale;
+        float distanceAttenuation;
+        float unk5AC;
+        float unk5B0;
+        uint8_t gap5BC[20];
+        csl::math::Vector3 unk5BC2;
+        csl::math::Vector3 maxEmitterSize;
+        csl::math::Vector3 unkVec2Offset;
+        uint8_t gap5EC[40];
+        uint8_t defaultRenderLayer;
+        uint8_t gap5A0b[15];
+        void* unk5A0c;
         //Particle* particle630;
         Emitter* parentEmitter;
         uint64_t qword648;
         uint64_t qword650;
-        uint32_t dword658;
-        uint8_t gap65C[4];
+        float renderPriority;
+        int dword65C;
         uint32_t billboardViewportId;
         uint8_t gap65Cb[4];
         FSMEmitter fsm;
@@ -126,72 +123,68 @@ namespace Cyan {
         WaitingState waitingState;
         AliveState aliveState;
         DeadState deadState;
-        uint8_t gap6C8[88];
+        uint64_t gap6C8;
+        csl::math::Vector3 position1;
+        csl::math::Vector3 rotation1;
+        csl::math::Vector3 scale1;
+        csl::math::Vector3 unkPosition;
+        csl::math::Vector3 unkPositionOffset;
         csl::math::Vector3 inheritPosition;
-        float fps;
-        float maybeTime; // used in Element::CalcTexcoordImpl
-        uint8_t gap6C8bb[4];
-        float frequency;
+        float lifetime;
+        float time;
+        float unkTime2;
+        float emitInterval;
         float subDivisionCount;
-        uint8_t gap6C8bbb[12];
+        float unkTime3;
+        uint8_t gap6C8bbb[8];
         float emitCount;
-        float accelarationMultiplier; 
-        float accelarationNormalMultiplier; 
-        float initialSpeed; 
-        float velocityMultiplier; 
-        float shapeRadius; 
-        float velocityScale;
-        float emitSize;
-        bool useEmitVector;
-        csl::math::Position emitVector;
-        float emitVectorJitter;
-        float directionJitter;
-        csl::math::Position randomPosition;
-        float spread;
+        Resource::EmitterParam::EmissionDynamicsParam::Settings emissionDynamicsSettings;
+        csl::math::Position emitPositionJitter;
+        float emissionSpread;
         float startAngle; //randomized, multiplied by Random::GetFloat
         float endAngle; //randomized, multiplied by Random::GetFloat
-        float sizeX;
-		float sizeXJitter;
-		float sizeY;
-		float sizeYJitter;
-		float sizeZ;
-		float sizeZJitter;
-        uint8_t gap6C8b[136];
-        uint64_t qword838;
-        uint64_t qword840;
-        Resource::TextureParam textures[4];
-        uint8_t byteA88;
-        uint8_t gapA89[127];
-        uint64_t qwordB08;
-        uint64_t qwordB10;
-        uint64_t qwordB18;
-        uint8_t gapB20[2304];
-        uint8_t byte1420;
-        uint8_t gap1421[127];
-        uint64_t qword14A0;
-        uint64_t qword14A8;
-        uint64_t qword14B0;
-        uint32_t dword14B8;
-        uint64_t qword14C0;
-        uint8_t byte14C8;
-        uint8_t gap14C9[127];
-        uint64_t qword1548;
-        uint64_t qword1550;
-        uint8_t byte1558;
-        uint8_t gap1559[127];
-        uint64_t qword15D8;
-        uint64_t qword15E0;
-        uint8_t gap15E8[1360];
-        uint64_t qword1B38;
+        Resource::JitteredValue sizeX;
+		Resource::JitteredValue sizeY;
+		Resource::JitteredValue sizeZ;
+        System::AnimCtrl* positionAnimation;
+        System::AnimCtrl* rotationAnimation;
+        System::AnimCtrl* scaleAnimation;
+        System::AnimCtrl* emissionCountAnimation;
+        System::AnimCtrl* direction1VelocityAnimation;
+        System::AnimCtrl* direction2VelocityAnimation;
+        System::AnimCtrl* localSpreadVelocityAnimation;
+        System::AnimCtrl* localSpreadAnimation;
+        System::AnimCtrl* worldSpreadVelocityAnimation;
+        System::AnimCtrl* worldSpreadAnimation;
+        System::AnimCtrl* worldSpreadAnglesOrDirectionAnimation;
+        System::AnimCtrl* emitPositionJitterAnimation;
+        System::AnimCtrl* emissionSpreadAnimation;
+        System::AnimCtrl* startAngleAnimation;
+        System::AnimCtrl* endAngleAnimation;
+        System::AnimCtrl* sizeAnimation;
+        System::AnimCtrl* animationBuffer;
+        System::AnimCtrl* nextFreeAnimCtrl;
+        Resource::ResObject<Resource::Texture> textures[4];
+        Resource::ResObject<Unk1Resource> unk1Resource;
+        Resource::ResObject<Resource::Effect> childEffects[16];
+        Resource::ResObject<Resource::Model> model;
+        Resource::ResObject<Resource::Skeleton> skeleton;
+        Resource::ResObject<Resource::NodeAnim> nodeAnim;
+        System::LinkPool<EffectHandle, 32> childEffectHandlePool;
+        Graphics::EffectObject* effectObject;
         Graphics::Renderer* renderer;
-        uint64_t qword1B48;
-        csl::math::Vector3 m1281B50;
-        csl::math::Vector3 oword1B60;
-        csl::math::Vector3 oword1B70;
-        csl::math::Vector3 oword1B80;
-        csl::math::Vector3 oword1B90;
-        csl::math::Vector3 oword1BA0;
-        csl::math::Vector3 oword1BB0;
+        Graphics::EmitterDecl* emitterDecl;
+        int unk1860;
+        float unk1864;
+        uint64_t gap1868;
+        csl::math::Vector3 raycastFrom;
+        csl::math::Vector3 raycastTo;
+        csl::math::Vector3 raycastRotation;
+        csl::math::Vector3 raycastOffset;
+        System::AnimCtrl* raycastFromAnimation;
+        System::AnimCtrl* raycastToAnimation;
+        System::AnimCtrl* raycastRotationAnimation;
+        System::AnimCtrl* raycastOffsetAnimation;
 
         Emitter(EffectImpl* effect, const Resource::EmitterParam* param);
 
@@ -210,6 +203,8 @@ namespace Cyan {
         inline csl::math::Vector3 GetScale() const { return scale; }
         void SetElementScale(const csl::math::Vector3& scale);
         inline csl::math::Vector3 GetElementScale() const { return elementScale; }
+        void SetElementLifetimeScale(float lifetime);
+        void SetPlaybackSpeed(float playbackSpeed);
         void SetEmitRatio(float emitRatio);
         inline float GetEmitRatio() const { return emitRatio; }
         void SetViewMask(unsigned int viewMask);
@@ -220,23 +215,36 @@ namespace Cyan {
         void CalcLocalMatrix();
         void CalcPoseMatrix(csl::math::Matrix34* outMatrix) const;
         void CalcInheritMatrix(const csl::math::Matrix34& poseMatrix, unsigned int flags, float inheritRate, csl::math::Matrix34* outMatrix, csl::math::Vector3* outTranslation) const;
+        void CalcDistanceAttenuation();
         void EntryElement(Element* element);
         csl::math::Matrix34& GetEmissionMatrix();
         bool IsEnableEmit() const;
 
-        virtual void Process(float unk) override;
+        virtual void Process(float deltaTime) override;
         virtual uint64_t UnkFunc2(float unkParam1) override;
         virtual uint64_t UnkFunc3(void* unkParam1) override;
         virtual void UnkFunc4(void* unkParam1);
-        virtual void UnkFunc5(const Resource::EmitterParam* param);
+        virtual void Reset(const Resource::EmitterParam* param);
         virtual void PrepareRender(Graphics::Renderer* renderer, const Graphics::DeviceContainer& deviceContainer);
         virtual System::FSMState* GetState(unsigned int stateId);
-        virtual void UnkFunc8();
-        virtual void UnkFunc9(void* unkParam1);
+        virtual void UnkFunc8(float deltaTime);
+        virtual void UnkFunc9(float deltaTime);
         virtual void InitEmitter(bool useLocalMatrix);
-        virtual void ProcessEmitter(float time);
-        virtual void UpdateEmitter(float time);
-        virtual void EmitElements(float time);
-        virtual void EmitElements2(float time);
+        virtual void ProcessEmitter(float deltaTime);
+        virtual void UpdateEmitter(float deltaTime);
+        virtual void EmitElements(float deltaTime);
+        virtual void EmitElements2(float deltaTime);
+
+        void ProcessAnimations(float time);
+        void RandomizeStartAndEndAngles();
+        void DeleteAllElements();
+        void DeleteAllChildren();
+        void DeleteAllAnimation();
+        void StopChildren();
+        void Update(float deltaTime);
+        void UpdateBasicLODEffects(float deltaTime);
+        void UpdateRaycastLODEffects(float deltaTime);
+
+        System::AnimCtrl* CreateAnimCtrl(const Resource::PtrData<Resource::AnimationParam>& param, unsigned int flags);
     };
 }

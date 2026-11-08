@@ -49,6 +49,6 @@ namespace app::player {
         virtual void Update(hh::fnd::UpdatingPhase phase, const float deltaTime) override;
         virtual bool ProcessMessage(hh::fnd::Message& message) override;
 
-        StatePluginCyloop(csl::fnd::IAllocator* allocator);
+        DEFAULT_CREATE_FUNC(StatePluginCyloop);
     };
 }

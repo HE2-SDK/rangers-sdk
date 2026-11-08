@@ -15,14 +15,22 @@ namespace Cyan {
         csl::math::Matrix44 unk6;
     };
 
+    struct EffectInstanceParam {
+        hh::eff::ResEffect* resource{};
+        hh::needle::intrusive_ptr<hh::needle::NeedleRefcountObject>* nodeUnkParam1{};
+        void* nodeUnkParam2{};
+        unsigned int nodeIndex{};
+        uint64_t unk1{};
+    };
+
     class Effect;
     class Emitter;
-    class EffectHandle {
+    class EffectTag {
     public:
-        int unk1;
+        int id;
         Effect* effect;
-        EffectHandle();
-        EffectHandle(const EffectHandle& other);
+        EffectTag();
+        EffectTag(const EffectTag& other);
 
         const csl::math::Vector3& GetScale() const;
         const csl::ut::Color8& GetColor() const;
@@ -31,6 +39,15 @@ namespace Cyan {
         void SetScale(const csl::math::Vector3& scale);
         void SetColor(const csl::ut::Color8& color);
         void SetAlpha(uint8_t alpha);
+    };
+
+    class EffectHandle {
+    public:
+        int unk1;
+        Cyan::EffectTag* tag;
+
+        EffectHandle();
+        EffectHandle(const EffectHandle& other);
     };
 
     class Effect {
@@ -66,10 +83,10 @@ namespace Cyan {
         virtual void SetVisibility(bool enabled) = 0;
         virtual bool GetVisibility() const = 0;
         virtual void SetBillboardViewportID(unsigned int viewportId) = 0;
-        virtual void* UnkFunc30() = 0;
+        virtual EffectInstanceParam& GetInstanceParam() const = 0;
         virtual void Setup(SetupInfo& setupInfo) = 0;
-        virtual void SetUnk3(float value) = 0;
-        virtual void SetUnk4(float value) = 0;
+        virtual void SetPlaybackSpeed(float value) = 0;
+        virtual void SetElementLifetimeScale(float value) = 0;
         virtual bool GetUnk5() const = 0;
         virtual bool GetUnk6() const = 0;
         virtual bool GetUnk7() const = 0;
@@ -78,6 +95,15 @@ namespace Cyan {
 
     class EffectImpl : public Effect {
     public:
+        enum class Flag {
+            UNK0,
+            FIXED_DELTA_TIME,
+            UNK2,
+            UNK3,
+            UNK4,
+            FIXED_REFRESH_RATE, // 60 fps
+        };
+
         struct SetupInfo : Effect::SetupInfo {
             hh::eff::ResEffect* resource;
             int64_t unk0;
@@ -89,32 +115,25 @@ namespace Cyan {
         char name[128];
         ManagerImpl* manager;
         uint64_t root;
-        Resource::EffectParam* effectParam;
-        uint32_t dwordA0;
+        const Resource::EffectParam* param;
+        unsigned int sceneId;
         uint32_t viewMask;
         uint32_t dwordA8;
         Emitter* emitter;
-        uint64_t qwordB8;
-        uint64_t qwordC0;
-        uint64_t qwordC8;
-        uint64_t qwordD0;
-        uint64_t qwordD8;
-        uint64_t qwordE0;
-        EffectHandle hh__eff__effecthandleE8;
-        EffectHandle hh__eff__effecthandleF8;
-        uint32_t flags; // 0x02 = is paused, 0x80 = is visible
-        uint64_t qword110;
-        hh::needle::NeedleRefcountObject* qword118;
-        uint64_t qword120;
-        uint32_t dword128;
-        uint64_t qword130;
+        System::LinkList<EffectImpl>::Entry managerLinkListEntry;
+        System::LinkList<EffectImpl>::Entry sceneLinkListEntry;
+        EffectHandle effecthandleE8;
+        EffectHandle effecthandleF8;
+        csl::ut::Bitset<Flag> flags;
+        EffectInstanceParam instanceParam;
         PerEffectData* perEffectData;
 
-        EffectImpl(ManagerImpl* managerImpl, Resource::EffectParam* effectParam, unsigned int unkParam1, void* unkParam2, const InheritChildParam* unkParam3, void* unkParam4, bool unkParam5, int unkParam6);
+        EffectImpl(ManagerImpl* managerImpl, Resource::EffectParam* effectParam, unsigned int unkParam1, const EffectInstanceParam& instanceParam, const InheritChildParam* unkParam3, EffectImpl* parent, bool unkParam5, float unkParam6);
 
         void SetDataBuffer(PerEffectData* data);
         void PrepareRender(Graphics::Renderer* renderer, const Graphics::DeviceContainer& deviceContainer);
         float GetWorldScale() const;
+        void Update(float deltaTime);
 
         virtual void Start() override;
         virtual void Stop(bool unk) override; //bool prolly means "immediately"
@@ -145,10 +164,10 @@ namespace Cyan {
         virtual void SetVisibility(bool enabled) override;
         virtual bool GetVisibility() const override;
         virtual void SetBillboardViewportID(unsigned int viewportId) override;
-        virtual void* UnkFunc30() override;
+        virtual EffectInstanceParam& GetInstanceParam() const override;
         virtual void Setup(Effect::SetupInfo& setupInfo) override;
-        virtual void SetUnk3(float value) override;
-        virtual void SetUnk4(float value) override;
+        virtual void SetPlaybackSpeed(float value) override;
+        virtual void SetElementLifetimeScale(float value) override;
         virtual bool GetUnk5() const override;
         virtual bool GetUnk6() const override;
         virtual bool GetUnk7() const override;

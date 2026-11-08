@@ -272,7 +272,7 @@ namespace hh::ut {
                     auto oldStateIt = oldStates.end();
                     auto newStateIt = newStates.end();
 
-                    while (oldStateIt != oldStates.begin() && newStateIt != newStates.begin());
+                    while (oldStateIt != oldStates.begin() && newStateIt != newStates.begin())
                     {
                         oldStateIt--;
                         newStateIt--;

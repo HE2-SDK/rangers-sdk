@@ -16,13 +16,6 @@ namespace app::player {
             SUPER_SONIC_2,
         };
 
-        union CharacterParameters {
-            hh::fnd::ResReflectionT<heur::rfl::SonicParameters> sonic;
-            hh::fnd::ResReflectionT<heur::rfl::AmyParameters> amy;
-            hh::fnd::ResReflectionT<heur::rfl::KnucklesParameters> knuckles;
-            hh::fnd::ResReflectionT<heur::rfl::TailsParameters> tails;
-        };
-
         union CharacterModePackage {
             heur::rfl::ModePackageSonic sonic;
             heur::rfl::ModePackageAmy amy;
@@ -31,7 +24,7 @@ namespace app::player {
             heur::rfl::ModePackage unknown;
         };
 
-        hh::fnd::Reference<CharacterParameters> characterParameters;
+        hh::fnd::Reference<hh::fnd::ResReflection> characterParameters;
         hh::fnd::Reference<hh::fnd::ResReflectionT<heur::rfl::PlayerCameraSetParameters>> cameraSetParameters;
         heur::rfl::ModePackage* modePackages[4];
         heur::rfl::WaterModePackage* waterModePackage;
@@ -49,15 +42,15 @@ namespace app::player {
     private:
         void* GetPlayerParameter(const hh::fnd::RflClass& rflClass);
     public:
-        struct Config {
+        struct SetupInfo {
             uint32_t flags;
-            hh::fnd::Reference<hh::fnd::ResReflectionT<CharacterParameters>> characterParameters;
+            hh::fnd::ResReflection* characterParameters;
             hh::fnd::Reference<hh::fnd::ResReflectionT<heur::rfl::PlayerCameraSetParameters>> cameraSetParameters;
             CharacterId characterId;
         };
 
         GOCPlayerParameter(csl::fnd::IAllocator* allocator);
-        void Initialize(const Config& config);
+        void Setup(const SetupInfo& setupInfo);
 
         heur::rfl::PlayerParamCommon& GetCommonParameters() const;
         heur::rfl::PlayerParamSpeed& GetSpeedParameters() const;
@@ -95,6 +88,8 @@ namespace app::player {
         virtual void* GetRuntimeTypeInfo() const override;
 		virtual void UpdateAsync(hh::fnd::UpdatingPhase phase, const hh::fnd::SUpdateInfo& updateInfo, void* unkParam) override;
 		virtual void OnGOCEvent(hh::game::GOComponent::GOCEvent event, hh::game::GameObject& ownerGameObject, void* data) override;
+
+        void LoadParameters();
 
         GOCOMPONENT_CLASS_DECLARATION(GOCPlayerParameter)
     };

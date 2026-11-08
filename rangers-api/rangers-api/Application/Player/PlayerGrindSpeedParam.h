@@ -3,17 +3,25 @@
 namespace app::player {
     class PlayerGrindSpeedParam : public hh::fnd::BaseObject {
     public:
-        struct GrindSpeedParam {
-            float min, max;
+        enum class Mode : unsigned int {
+            NORMAL,
+            BOOST,
         };
 
-        struct FullGrindSpeedParam {
-            int id;
-            GrindSpeedParam grindSpeedParam;
+        struct Params {
+            float minSpeed;
+            float maxSpeed;
         };
 
-        csl::ut::MoveArray<GrindSpeedParam> grindSpeedParams[2];
+        struct ParamData {
+            unsigned int id;
+            Params param;
+        };
 
-        PlayerGrindSpeedParam(csl::fnd::IAllocator* allocator);
+        csl::ut::MoveArray<ParamData> params[2];
+
+        DEFAULT_CREATE_FUNC(PlayerGrindSpeedParam);
+
+        void LoadParams(unsigned int id, Mode mode, const Params& param);
     };
 }

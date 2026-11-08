@@ -30,5 +30,7 @@ namespace app::player {
         virtual void AddCallback() override;
         virtual void RemoveCallback() override;
         virtual void Update(hh::fnd::UpdatingPhase phase, const float deltaTime) override;
+
+        DEFAULT_CREATE_FUNC(StatePluginInWater);
     };
 }

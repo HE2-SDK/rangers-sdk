@@ -32,6 +32,7 @@ namespace app::player {
         SpinVisual spinVisual;
         hh::gfx::ResModel* dlcKocoToyModel;
 
+        virtual ~SonicInfo() override;
         virtual void Load() override;
         virtual void Initialize(hh::game::GameManager* gameManager) override;
         virtual const char* GetInfoName() override;

@@ -1,38 +1,27 @@
 #pragma once
 
 namespace app::gfx{
-    class GOCVisualGeometryInstance : public hh::game::GOComponent{
+    class GOCVisualGeometryInstance : public hh::game::GOComponent {
     public:
-        struct Description{
-            hh::gfx::ResModel* resource;
+        struct Description {
+            hh::gfx::ResModel* model;
             hh::fnd::HFrame* frame;
-            int64_t unk0;
-            int64_t unk1;
-            csl::ut::InplaceMoveArray<int64_t, 8> unk2;
-            csl::math::Transform unk3;
-            char unk4;
-            csl::ut::MoveArray32<int64_t> unk5;
-            float unk6;
+            hh::anim::ResSkeleton* skeleton;
+            hh::anim::ResAnimation* animation;
+            csl::ut::InplaceMoveArray<hh::fnd::ManagedResource*, 8> modelAnimations;
+            csl::math::Transform worldPosition;
+            bool useCustomName;
+            csl::ut::String customName;
+            float startFrame;
         };
 
-        hh::gfx::ResModel* resource;
-        hh::fnd::HFrame* hFrame;
-        int64_t unk0;
-        int64_t unk1;
-        csl::ut::InplaceMoveArray<int64_t, 8> unk2;
-        csl::math::Transform unk3;
-        char unk4;
-        csl::ut::MoveArray32<int64_t> unk5;
-        float unk6;
-        int unk7;
-        int unk8;
-        int unk9;
+        Description description;
         hh::fnd::Handle<GeometryInstance> geometryInstance;
 
         virtual void* GetRuntimeTypeInfo() const override;
 		virtual void OnGOCEvent(GOCEvent event, hh::game::GameObject& ownerGameObject, void* data) override;
 
-        void Setup(Description& desc);
+        void Setup(const Description& desc);
 
         GOCOMPONENT_CLASS_DECLARATION(GOCVisualGeometryInstance)
     };

@@ -3,28 +3,40 @@
 namespace app::player {
     class PlayerSpeedParam : public hh::fnd::BaseObject {
     public:
-        // Initialization in PlayerPostureContext ctor
-        struct SpeedParam {
-            float min, max;
+        enum class Mode : unsigned int {
+            NORMAL,
+            BOOST,
+            BOOST_LVMAX,
+        };
+
+        struct Params {
+            float min;
+            float max;
             float initial;
             float minTurn;
         };
 
-        struct FullSpeedParam {
+        struct ParamData {
             int id;
-            SpeedParam speedParam1;
-            SpeedParam speedParam2;
+            Params param1;
+            Params param2;
         };
 
-        csl::ut::MoveArray<SpeedParam> speedParams[3];
-        SpeedParam currentSpeedParams[3]; // struct guessed
+        csl::ut::MoveArray<ParamData> params[3];
+        Params speedRates[3];
         float optionMaxSpeedLimitMin;
         float optionMaxSpeedLimitMax;
-        float dwordA8;
-        csl::ut::InplaceMoveArray<int64_t, 4> qwordA0;
-
-        float GetSpeed() const;
+        float maxSpeedRate;
+        csl::ut::InplaceMoveArray<void*, 4> unkB0;
 
         PlayerSpeedParam(csl::fnd::IAllocator* allocator);
+
+        void LoadParams(unsigned int unkParam1, Mode mode, const Params& param1, const Params& param2);
+        void SetMaxSpeedLimits(float min, float max);
+        void SetMaxSpeedRate(Mode mode, float value);
+        void SetInitialSpeedRate(Mode mode, float value);
+        void SetMinTurnSpeedRate(Mode mode, float value);
+        void SetMaxSpeedRate(float value);
+        float GetSpeed() const;
     };
 }

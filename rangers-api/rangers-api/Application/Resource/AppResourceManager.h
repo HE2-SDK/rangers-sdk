@@ -9,7 +9,7 @@ namespace app::fnd {
 
     class AppResourceManager : public hh::game::GameService, public hh::game::GameStepListener{
     public:
-        void* packFileListeners[7];
+        hh::fnd::ResourceLoader* resourceLoaders[7];
         hh::game::LevelLoader* levelLoaders[7];
         csl::ut::MoveArray<AppResourceManagerListener*> listeners;
         char languageCode[8];
@@ -23,6 +23,14 @@ namespace app::fnd {
 
         void AddListener(AppResourceManagerListener* listener);
         void RemoveListener(AppResourceManagerListener* listener);
+
+        void LoadResource(unsigned type, const hh::fnd::ResourceTypeInfo* typeInfo, const char* path);
+        template<typename T>
+        void LoadResource(unsigned type, const char* path) {
+            LoadResource(type, T::GetTypeInfo(), path);
+        }
+
+        void LoadLevel(unsigned type, const char* name);
 
         GAMESERVICE_CLASS_DECLARATION(AppResourceManager)
     };

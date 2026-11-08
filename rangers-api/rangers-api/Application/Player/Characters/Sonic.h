@@ -15,6 +15,11 @@ namespace app::player {
 		
 		hh::fnd::Reference<SonicContext> sonicContext;
 
+        hh::fnd::Reference<SonicContext> context;
+
+        virtual void InitializePlayer() override;
+        virtual void DeinitializePlayer() override;
+
         GAMEOBJECT_CLASS_DECLARATION(Sonic)
     };
 }

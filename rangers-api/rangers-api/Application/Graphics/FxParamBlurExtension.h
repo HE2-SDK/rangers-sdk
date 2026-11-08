@@ -17,9 +17,9 @@ namespace app::gfx {
         virtual void* GetRuntimeTypeInfo() override;
         virtual void Initialize() override;
         virtual void Destroy() override;
-
         virtual void MessageProcessedCallback(hh::game::GameManager* gameManager, const hh::fnd::Message& msg) override;
 
-        void RemoveBlurInterpolator(BlurInterpolatorType type, float interpTime);
+        void SetBlur(BlurInterpolatorType type, float interpTime);
+        void RemoveBlur(BlurInterpolatorType type, float interpTime);
     };
 }

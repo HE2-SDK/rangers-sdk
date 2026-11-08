@@ -3,6 +3,8 @@
 namespace app::player {
     class StatePluginOutOfControl : public PlayerStatePlugin {
     public:
+        static constexpr const char* name = "StatePluginOutOfControl";
+
         struct OutOfControlController {
             enum class Flags : unsigned int {
                 RELEASE_BY_GROUND,
@@ -28,6 +30,8 @@ namespace app::player {
         virtual void AddCallback() override;
         virtual void RemoveCallback() override;
         virtual void Update(hh::fnd::UpdatingPhase phase, const float deltaTime) override;
+
+        void UnkFunc1342(unsigned int nameHash, unsigned int unkParam1);
 
         StatePluginOutOfControl(csl::fnd::IAllocator* allocator);
     };

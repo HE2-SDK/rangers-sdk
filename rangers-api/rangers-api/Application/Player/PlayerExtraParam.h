@@ -3,22 +3,28 @@
 namespace app::player {
     class PlayerExtraParam : public hh::fnd::BaseObject {
     public:
-        struct ExtraParam {
-            float force;
-            float baseRotateForce;
-            float gravityScale;
-            float baseAirDragScaleMin;
+        struct Params {
+            float acceleForce;
+            float rotateForce;
+            float gravitySize;
+            float baseAirDragScaleMax;
         };
 
-        struct FullExtraParam {
-            int id;
-            ExtraParam extraParam1;
-            ExtraParam extraParam2;
+        struct ParamData {
+            unsigned int id;
+            Params param1;
+            Params param2;
         };
 
-        csl::ut::MoveArray<FullExtraParam> extraParams;
-        ExtraParam currentExtraParam;
+        csl::ut::MoveArray<ParamData> params;
+        Params rates;
 
-        PlayerExtraParam(csl::fnd::IAllocator* allocator);
+        DEFAULT_CREATE_FUNC(PlayerExtraParam);
+
+        void LoadParams(unsigned int id, const Params& params1, const Params& params2);
+        void SetAcceleForceRate(float value);
+        void SetRotateForceRate(float value);
+        void SetGravityRate(float value);
+        void SetBaseAirDragScaleRate(float value);
     };
 }

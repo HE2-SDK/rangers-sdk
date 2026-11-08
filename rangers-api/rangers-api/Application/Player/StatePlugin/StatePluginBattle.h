@@ -5,21 +5,18 @@ namespace app::player {
     public:
         static constexpr const char* name = "StatePluginBattle";
 
-        char byte28;
+        uint8_t byte28;
         float dword2C;
-        int64_t qword30;
-        int64_t qword38;
-        int64_t qword40;
-        int64_t qword48;
-        int64_t qword50;
-        int dword58;
-        int dword5C;
-        int dword60;
-        Timer timer64;
-        Timer timer6C;
-        int dword74;
-        int dword78;
-        int dword7C;
+        uint64_t qword30;
+        csl::ut::MoveArray<void*> unk38;
+        hh::snd::SoundHandle unk58;
+        uint32_t unk5C;
+        uint32_t unk60;
+        Timer qword64;
+        Timer qword6C;
+        uint32_t qword74;
+        float qword78;
+        unsigned int dword7C;
 
         virtual unsigned int GetNameHash() const override;
         virtual void AddCallback() override;

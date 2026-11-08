@@ -49,9 +49,7 @@ namespace app::player {
 		PlayerPostureContext* context;
 		PostureMoveManager* postureMoveManager;
 		PostureInputManager* postureInputManager;
-		char byte98;
-		int dword9C;
-		char byte100;
+        uint8_t unk204;
 	
 		virtual void* GetRuntimeTypeInfo() const override;
 		virtual void UpdateAsync(hh::fnd::UpdatingPhase phase, const hh::fnd::SUpdateInfo& updateInfo, void* unkParam) override;

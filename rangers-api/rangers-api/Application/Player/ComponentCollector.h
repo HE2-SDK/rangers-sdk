@@ -2,9 +2,15 @@
 
 namespace app::player {
     struct ComponentCollection;
+
+    class ComponentHolderListener {
+	public:
+        virtual void CHL_UnkFunc1(ComponentCollection* collection) {}
+    };
+
     struct Component {
 		enum class Flags : unsigned char {
-			HIDDEN = 0,
+			OCCLUSION_CAPSULES_VISIBLE = 0,
 			EFFECTS_VISIBLE = 1
 		};
 		
@@ -18,17 +24,12 @@ namespace app::player {
         void AddComponent(hh::game::GOComponent* component);
         void RemoveComponent(hh::game::GOComponent* component);
         void UpdateVisibility();
+		void SetVisibility(bool visible, bool forceUpdate);
 		void SetEffectVisibility(bool visible);
-		void SetHidden(bool hidden, bool forceUpdate);
     };
 
-	class ComponentHolderListener {
-	public:
-		virtual void CHL_UnkFunc0(ComponentCollection* compCollection) = 0;
-	};
-
     class ComponentCollector;
-    struct ComponentCollection {
+    struct ComponentCollection { // actuall ComponentHolder
         enum class Flag {
             UNK0,
             VISIBLE,

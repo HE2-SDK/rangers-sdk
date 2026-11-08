@@ -56,6 +56,8 @@ namespace app::save {
         short GetNumRings() const;
         short GetBoostGaugeLevel() const;
         bool HasChaosEmeralds() const;
+        bool GetFlag2And4() const;
+        bool IsConfiguredCombatFlagEnabled(unsigned char index);
 		void SetRingCount(uint16_t count);
 		void SetQuickCyloopGauge(float gauge);
     };
@@ -109,6 +111,7 @@ namespace app::save {
         void SetTime(game::Timestamp& time);
         bool GetTime(game::Timestamp& time);
         GamePlayData::SequenceDeprecated GetSequence() const;
+        bool GetFlag2() const;
         bool GetCharacter(uint8_t& id) const;
         void SetCharacter(uint8_t& id);
         bool GetWorldPosition(hh::fnd::WorldPosition& position) const;
@@ -167,6 +170,22 @@ namespace app::save {
     class OptionGamePlayAc : public SaveDataAccessor<OptionGamePlayData> {
     public:
         uint8_t GetDLCSonicCostume() const;
+        bool GetConfigFlag3() const;
+        bool GetConfig2Flag0() const;
+        bool GetConfig2Flag3() const;
+        bool GetConfig2Flag4() const;
+        bool GetConfig2Flag20() const;
+        float GetMaxSpeedRate() const;
+        float GetInitialSpeedRate() const;
+        float GetBoostInitialSpeedRate() const;
+        float GetMinTurnSpeedRate() const;
+        float GetBoostMinTurnSpeedRate() const;
+        float GetAcceleRate() const;
+        float GetRotateForceRate() const;
+        float GetBumpJumpGravityRate() const;
+        float GetBaseAirDragScaleRate() const;
+        OptionGamePlayData::Value GetDifficulty() const;
+        unsigned char GetNeutralDecelerationRate() const;
         uint8_t GetIslandVisual() const;
         OptionGamePlayData::LanguageType GetLanguageType() const;
     };

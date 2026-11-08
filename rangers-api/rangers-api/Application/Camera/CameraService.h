@@ -38,7 +38,7 @@ namespace app::camera {
 
         app_cmn::camera::CameraFrame* CreateDefaultCameraFrame(int componentId, int viewportId, int priority, float nearClip, float farClip, float fov);
         hh::fnd::Handle<Messenger> GetCameraFrame(int index);
-        static hh::fnd::Handle<Messenger> GetCameraFrame(hh::game::GameManager gameManager, int index);
+        static hh::fnd::Handle<Messenger> GetCameraFrame(hh::game::GameManager* gameManager, int index);
 
         GAMESERVICE_CLASS_DECLARATION(CameraService)
     };

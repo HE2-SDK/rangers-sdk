@@ -11,6 +11,12 @@ namespace app::player {
         StatePluginManager(csl::fnd::IAllocator* allocator);
         static StatePluginManager* Create(csl::fnd::IAllocator* allocator);
         StatePlugin<Ctx>* GetPlugin(unsigned int nameHash);
+        template<typename T>
+        inline T* CreatePlugin() {
+            T* plugin = new (GetAllocator()) T{ GetAllocator() };
+            plugin->context = context;
+            return plugin;
+        }
         bool RemovePlugin(unsigned int nameHash);
         template<typename T>
         inline bool RemovePlugin() {

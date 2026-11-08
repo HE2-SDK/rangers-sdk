@@ -3,8 +3,8 @@
 namespace hh::eff {
     class EffectHandle {
     public:
-        int unk1;
-        Cyan::EffectHandle* cyanEffectHandle;
+        Cyan::EffectHandle cyanEffectHandle;
+
         EffectHandle();
         EffectHandle(const EffectHandle& other);
 
@@ -28,16 +28,16 @@ namespace hh::eff {
         void SetEmitRatio(float emitRatio);
         void SetUnk2(unsigned int value);
         void SetMatrix(const csl::math::Matrix34& matrix);
-        void SetUnk4(float value);
+        void SetElementLifetimeScale(float value);
         void SetPause(bool paused);
-        void SetUnk3(float value);
+        void SetPlaybackSpeed(float value);
         void SetScale(const csl::math::Vector3& scale);
         void SetScale(float scale);
         void SetViewMask(unsigned int mask);
         void SetVisible(bool enabled);
         void SetWorldMatrix(const csl::math::Matrix34& matrix);
 
-        void Stop();
+        void Stop(bool immediate);
     };
 
     class EffectManager : public game::GameService, public game::GameStepListener, public game::GameUpdateListener {
@@ -108,6 +108,15 @@ namespace hh::eff {
                 Unk2 unk5[8];
             };
 
+            static bool RequestTextureCallback(Cyan::Effect* effect, Cyan::Resource::ResObject<Cyan::Resource::Texture>* resource, void* userData);
+            static bool RequestNodeAnimCallback(Cyan::Effect* effect, Cyan::Resource::ResObject<Cyan::Resource::NodeAnim>* resource, void* userData);
+            static bool RequestEffectCallback(Cyan::Effect* effect, Cyan::Resource::ResObject<Cyan::Resource::Effect>* resource, void* userData);
+            static bool RequestModelCallback(Cyan::Effect* effect, Cyan::Resource::ResObject<Cyan::Resource::Model>* resource, void* userData);
+            static bool RequestComputeShaderCallback(Cyan::Effect* effect, Cyan::Resource::ResObject<Cyan::Resource::ComputeShader>* resource, void* userData);
+            static bool RequestShaderCallback(Cyan::Effect* effect, Cyan::Resource::ResObject<Cyan::Resource::Shader>* resource, void* userData);
+            static bool UpdateLightCallback(Cyan::UpdateLightParam* updateLightParam, void* userData);
+            static bool RaycastCallback(const csl::math::Vector3& from, const csl::math::Vector3& to, unsigned int filterMask, csl::math::Vector3& hitLocation, csl::math::Vector3& hitNormal, unsigned int& raycastFlags);
+
             rsdx::SJobJoint* jobJoint1;
             rsdx::SJobJoint* jobJoint2;
             rsdx::SJobJoint* jobJoint3;
@@ -120,7 +129,7 @@ namespace hh::eff {
             uint32_t unk4;
             float unk5;
             uint8_t gap68[16];
-            float localLightIntensityScale;
+            float lightIntensity;
             ResourceListener resourceListener1;
             ResourceListener resourceListener2;
             csl::ut::MoveArray<void*> unkA0;
@@ -129,12 +138,13 @@ namespace hh::eff {
             uint32_t dwordD0;
             Unk1* unkD8;
             uint32_t dwordE0;
-            csl::ut::PointerMap<void*, void*>* unkE8;
+            csl::ut::StringMap<hh::needle::Model*>* modelsByName;
             csl::fnd::IAllocator* unkAllocator2;
             CyanRenderHandler cyanRenderHandler;
             CyanAllocator cyanAllocator;
 
             CREATE_FUNC(Impl, const SetupInfo& setupInfo);
+            void Initialize(const SetupInfo& setupInfo);
         };
 
         class Listener {

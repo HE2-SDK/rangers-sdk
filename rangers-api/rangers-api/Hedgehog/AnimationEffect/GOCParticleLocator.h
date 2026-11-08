@@ -36,10 +36,10 @@ namespace hh::animeff {
         template<typename T>
         struct BoundCollection {
             struct BoundItem {
-                uint16_t unk1;
-                uint16_t unk2;
-                uint8_t unk3;
-                uint64_t unk4;
+                uint16_t stateSequenceNr;
+                uint16_t id;
+                bool looping;
+                hh::animeff::Emitter* emitter;
                 T item;
             };
 
@@ -47,16 +47,29 @@ namespace hh::animeff {
             csl::fnd::IAllocator* allocator;
         };
 
+        struct EmitterConfig {
+            union AnyEffectCreateInfo {
+                hh::eff::EffectTransNodeCreateInfo node;
+                hh::eff::EffectTransNodeAndFrameCreateInfo nodeAndFrame;
+                hh::eff::EffectTransNodePositionCreateInfo nodePosition;
+            };
+
+            hh::eff::EffectCreateInfo* effectCreateInfo;
+            AnyEffectCreateInfo anyEffectCreateInfo;
+            bool mirrored;
+            csl::math::Vector3 scale;
+        };
+
         fnd::Reference<ResParticleLocation> resource;
         anim::GOCAnimator* gocAnimator;
         eff::GOCEffect* gocEffect;
         gfx::GOCVisualModel* gocVisualModel;
-        uint8_t byteB0;
+        bool sendMsgParticleSpawned;
         short effectTriggerTypeIndex;
         short soundTriggerTypeIndex;
         unsigned int gocVisualModelNameHash{};
         unsigned int gocAnimatorNameHash{};
-        uint8_t byteC0;
+        bool setPlaybackSpeed;
         uint32_t qwordC4;
         uint32_t qwordC8;
         csl::ut::MoveArray<void*> unkD0;
@@ -70,7 +83,7 @@ namespace hh::animeff {
 		virtual void UpdateAsync(hh::fnd::UpdatingPhase phase, const hh::fnd::SUpdateInfo& updateInfo, void* unkParam) override;
 		virtual void OnGOCEvent(GOCEvent event, game::GameObject& ownerGameObject, void* data) override;
         virtual void TransitionEndedCallback(anim::AnimationStateMachine* animationStateMachine, int stateId) override;
-        virtual void EventCallback(const hh::anim::TriggerListener::Trigger& trigger) override;
+        virtual void EventCallback(const hh::anim::Trigger& trigger) override;
 
         void Setup(const SetupInfo& setupInfo);
 
@@ -79,6 +92,8 @@ namespace hh::animeff {
 
         void AttachAnimator(anim::GOCAnimator* animator);
         void DetachAnimator();
+
+        bool LoadEmitterConfig(Emitter* emitter, short clipIndex, EmitterConfig& config);
 
         GOCOMPONENT_CLASS_DECLARATION(GOCParticleLocator);
     };

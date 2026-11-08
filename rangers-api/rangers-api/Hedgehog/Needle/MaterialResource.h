@@ -56,6 +56,21 @@ namespace hh::needle {
 
     class MaterialResource;
     struct MaterialChunkBuilder {
+        struct PriorityData {
+            bool useRenderCa;
+            bool usePriority;
+            bool useTransparencyPriority;
+            unsigned int renderCa;
+            unsigned int transparencyPriority;
+
+            // parameter[0] = (renderCa << 28) | ((transparencyPriority - 0x80000000) & 0x800FFFF)
+            // where the renderCa component is only added in if useRenderCa is on and
+            // the transparencyPriority component is only added in if useTransparencyPriority is on
+
+            // parameter[1] = 1 if both usePriority and useTransparencyPriority are on, otherwise 0
+            bool BuildParameter(uint_vector4& parameter);
+        };
+
         struct ParameterData {
             struct ParamMetadata {
                 ParameterType type;
@@ -98,8 +113,8 @@ namespace hh::needle {
         uint64_t totalDataSize;
         bool firstTraverse;
         RsFlagMask rsFlagMask;
-        uint8_t unk10;
-        uint32_t unk11;
+        unsigned int maxAniso;
+        unsigned int mipBias;
 
         MaterialChunkBuilder(CScratchMemoryContext& memCtx);
 

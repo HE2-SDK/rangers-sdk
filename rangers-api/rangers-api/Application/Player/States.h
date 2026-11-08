@@ -32,8 +32,8 @@ namespace app::player {
         public:
             char byte10;
 
-            virtual uint64_t Clone(csl::fnd::IAllocator* allocator) override;
-            virtual uint64_t GetNameHash() override;
+            virtual Parameter* Clone(csl::fnd::IAllocator* allocator) const override;
+            virtual unsigned int GetNameHash() const override;
         };
 
         Timer idleAnimationTimer;
@@ -67,8 +67,8 @@ namespace app::player {
             csl::math::Vector3 velocity;
             bool setVelocity;
 
-            virtual uint64_t Clone(csl::fnd::IAllocator* allocator) override;
-            virtual uint64_t GetNameHash() override;
+            virtual Parameter* Clone(csl::fnd::IAllocator* allocator) const override;
+            virtual unsigned int GetNameHash() const override;
         };
 
         char byteB0;
@@ -89,5 +89,30 @@ namespace app::player {
         virtual void UnkFunc12(void* hsm, uint32_t unkParam2);
         virtual void UnkFunc13(void* hsm, uint32_t unkParam2);
         virtual bool Update(void* hsm, float unkParam2);
+    };
+
+    class StateFall : public PlayerStateActionBase {
+    public:
+        class Parameter : public StateParameter {
+        public:
+            uint32_t unk101;
+            float outOfControlTime;
+
+            inline Parameter(unsigned int unk101Param, float startOutOfControlTime) : StateParameter{ 1 }, unk101 { unk101Param }, outOfControlTime{ startOutOfControlTime } {}
+            virtual Parameter* Clone(csl::fnd::IAllocator* allocator) const override;
+            virtual unsigned int GetNameHash() const override;
+        };
+    };
+
+    class StateBoarding : public PlayerStateActionBase {
+    public:
+        class Parameter : public StateParameter {
+        public:
+            float outOfControlTime;
+
+            inline Parameter(float startOutOfControlTime) : StateParameter{ 1 }, outOfControlTime{ startOutOfControlTime } {}
+            virtual Parameter* Clone(csl::fnd::IAllocator* allocator) const override;
+            virtual unsigned int GetNameHash() const override;
+        };
     };
 }

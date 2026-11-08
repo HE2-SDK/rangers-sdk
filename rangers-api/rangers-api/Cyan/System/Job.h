@@ -8,7 +8,7 @@ namespace Cyan::System {
         uint64_t unk3;
         uint32_t unk4;
 
-        virtual void Process(float unk) = 0;
+        virtual void Process(float deltaTime) = 0;
         virtual uint64_t UnkFunc2(float unkParam1) = 0;
         virtual uint64_t UnkFunc3(void* unkParam1) = 0;
         virtual ~Job();

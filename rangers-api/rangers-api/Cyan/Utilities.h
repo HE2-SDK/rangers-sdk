@@ -9,8 +9,9 @@ namespace Cyan {
         T* object;
     };
 
-    struct Matrix23 {
-        csl::math::Vector3 x;
-        csl::math::Vector3 y;
+    class Matrix23 {
+    public:
+        float m11; float m12; float m13; float m14;
+        float m21; float m22; float m23; float m24;
     };
 }

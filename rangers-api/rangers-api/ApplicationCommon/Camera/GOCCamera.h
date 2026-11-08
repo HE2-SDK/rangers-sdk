@@ -16,10 +16,10 @@ namespace app_cmn::camera {
         struct SetupInfo {
             int controllerUnitAmount;
         };
-        
+
         csl::ut::MoveArray<ControllerUnit> controllerUnits;
 
-        void Setup(SetupInfo& setupInfo);
+        void Setup(const SetupInfo& setupInfo);
 
         void AddController(CameraController* controller, unsigned int id);
         void DestroyController(unsigned int id, CameraInterpolator* interpolator);
