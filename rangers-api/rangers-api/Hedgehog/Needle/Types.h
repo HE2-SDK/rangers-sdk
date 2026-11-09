@@ -4,6 +4,12 @@
 typedef csl::math::Position float_vector3;
 
 namespace hh::needle {
+    struct uint_vector3 {
+        unsigned int x;
+        unsigned int y;
+        unsigned int z;
+    };
+
     struct uint_vector4 {
         unsigned int x;
         unsigned int y;
@@ -59,8 +65,8 @@ namespace hh::needle {
     };
 
     enum class FillMode {
-        SOLID,
-        WIREFRAME 
+        WIREFRAME,
+        SOLID
     }; // values guessed
 
     enum class BlendMode : uint32_t {
@@ -85,11 +91,25 @@ namespace hh::needle {
     };
 
     enum class ComparisonFunc {
-
+        NEVER,
+        LESS,
+        EQUAL,
+        LESS_EQUAL,
+        GREATER,
+        NOT_EQUAL,
+        GREATER_EQUAL,
+        ALWAYS
     };
 
     enum class StencilOp {
-
+        KEEP,
+        ZERO,
+        REPLACE,
+        INCR_SAT,
+        DECR_SAT,
+        INVERT,
+        INCR,
+        DECR
     };
 
     enum class ShaderStage : uint32_t {

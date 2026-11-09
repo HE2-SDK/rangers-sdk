@@ -161,5 +161,7 @@ namespace hh::needle {
         void SetLODLayerRanges(const float* ranges);
         void* GetParameterBuffer(size_t size);
         float* GetParameterFloatVector(size_t count, const float* vec);
+        int GetDrawPassInfoCount(unsigned int drawPassIndex, unsigned int a3) const;
+        int64_t GetDrawPassInfo(unsigned int drawPassIndex, unsigned int a3) const;
     };
 }

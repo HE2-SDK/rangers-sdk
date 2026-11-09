@@ -81,6 +81,7 @@ namespace hh::needle {
         unsigned int firstArraySlice{};
         uint32_t unk6{};
         bool unk7{};
+        uint32_t unk7b{};
         uint64_t unk8{};
         DXGI_FORMAT format{};
     };

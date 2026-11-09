@@ -42,7 +42,7 @@ namespace app::gfx {
 		csl::math::Vector3 previousPosition;
 		csl::math::Vector3 dvSceneCameraPosition;
 		csl::math::Vector3 dvSceneStrippedProbablyDebugCameraPosition;
-		csl::math::Vector4 shadowLightUnk105;
+		csl::math::Vector3 shadowLightPosition;
 		uint32_t currentSceneParamIndex;
 		uint32_t currentIBLIndex;
 		bool usingCameraBasedShadowmapParameter;

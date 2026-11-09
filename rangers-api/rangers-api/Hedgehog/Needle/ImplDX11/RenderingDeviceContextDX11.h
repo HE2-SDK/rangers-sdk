@@ -74,8 +74,8 @@ namespace hh::needle::ImplDX11 {
         virtual void SetDepthEnable(bool enabled) override;
         virtual void SetDepthWriteEnable(bool enabled) override;
         virtual void SetDepthComparisonFunc(ComparisonFunc comparisonFunc) override;
-        virtual void SetTwoSidedStencil(bool unkParam1, ComparisonFunc comparisonFunc1, int unkParam21, unsigned int unkParam31, StencilOp stencilOp11, StencilOp stencilOp12, StencilOp stencilOp13, unsigned int unkParam41, ComparisonFunc comparisonFunc2, int unkParam22, unsigned int unkParam32, StencilOp stencilOp21, StencilOp stencilOp22, StencilOp stencilOp23, unsigned int unkParam42) override;
-        virtual void SetStencil(bool unkParam1, ComparisonFunc comparisonFunc, int unkParam2, unsigned int unkParam3, StencilOp stencilOp1, StencilOp stencilOp2, StencilOp stencilOp3, unsigned int unkParam4) override;
+        virtual void SetTwoSidedStencil(bool enabled, ComparisonFunc frontFunc, int frontStencilRef, unsigned int frontReadMask, StencilOp frontFailOp, StencilOp frontDepthFailOp, StencilOp frontPassOp, unsigned int frontWriteMask, ComparisonFunc backFunc, int backStencilRef, unsigned int backReadMask, StencilOp backFailOp, StencilOp backDepthFailOp, StencilOp backPassOp, unsigned int backWriteMask) override;
+        virtual void SetStencil(bool enabled, ComparisonFunc func, int stencilRef, unsigned int readMask, StencilOp failOp, StencilOp depthFailOp, StencilOp passOp, unsigned int writeMask) override;
         virtual void SetColorWriteEnable(bool enabled) override;
         virtual void UnkFunc61() override;
         virtual void SetBlendDescSetting() override;
@@ -98,7 +98,7 @@ namespace hh::needle::ImplDX11 {
         virtual void ClearUnorderedAccessViewUint(const ::hh::needle::UnorderedAccessView* uav, const unsigned int (&values)[4]) override;
         virtual void Resolve(const NeedleRefcountResource* srcResource, unsigned int srcLevel, NeedleRefcountResource* dstResource, unsigned int dstLevel) override;
         virtual void ResolveMain(const NeedleRefcountResource* srcResource, NeedleRefcountResource* dstResource) override;
-        virtual void CopySubresourceRegion(const NeedleRefcountResource* srcResource, NeedleRefcountResource* dstResource) override;
+        virtual void CopySubresourceRegion(const NeedleRefcountResource* dstResource, unsigned int destSubresource, const uint_vector3* destXYZ, NeedleRefcountResource* srcResource, unsigned int srcSubresource, const Box* srcBox) override;
         virtual void CopyResource(const NeedleRefcountResource* srcResource, unsigned int srcLevel, NeedleRefcountResource* dstResource, unsigned int dstLevel) override;
         virtual bool DoNothing4() override;
         virtual bool Maybe_IsCapturingNow() override;

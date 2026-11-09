@@ -1970,6 +1970,11 @@ PUBLIC ??_DIdling@BossGiantState@app@@QEAAXXZ
     mov rax, 01400ba7c0h
     jmp rax
 
+PUBLIC ??_DTerrainCaptureListener@TerrainManager@trr@app@@QEAAXXZ
+??_DTerrainCaptureListener@TerrainManager@trr@app@@QEAAXXZ:
+    mov rax, 01400ba7c0h
+    jmp rax
+
 PUBLIC ?Create@Battle@StandardCameraState@camera@app@@CAPEAV1234@PEAVIAllocator@fnd@csl@@@Z
 ?Create@Battle@StandardCameraState@camera@app@@CAPEAV1234@PEAVIAllocator@fnd@csl@@@Z:
     mov rax, 01400bb620h
@@ -79750,9 +79755,19 @@ PUBLIC ??_DGameManagerListener@game@hh@@QEAAXXZ
     mov rax, 0140a02d4ch
     jmp rax
 
+PUBLIC ?CCL_UnkFunc0@TerrainCaptureListener@TerrainManager@trr@app@@UEAAXXZ
+?CCL_UnkFunc0@TerrainCaptureListener@TerrainManager@trr@app@@UEAAXXZ:
+    mov rax, 0140a02f10h
+    jmp rax
+
 PUBLIC ?Setup@TerrainManager@trr@app@@QEAAXAEBUSetupInfo@123@@Z
 ?Setup@TerrainManager@trr@app@@QEAAXAEBUSetupInfo@123@@Z:
     mov rax, 0140a02fe0h
+    jmp rax
+
+PUBLIC ?CCL_UnkFunc2@TerrainCaptureListener@TerrainManager@trr@app@@UEAAXXZ
+?CCL_UnkFunc2@TerrainCaptureListener@TerrainManager@trr@app@@UEAAXXZ:
+    mov rax, 0140a035b0h
     jmp rax
 
 PUBLIC ?GetRuntimeTypeInfo@TerrainManager@trr@app@@UEAAPEAXXZ
@@ -79773,6 +79788,11 @@ PUBLIC ?UpdateCallback@TerrainManager@trr@app@@UEAAXPEAVGameManager@game@hh@@AEB
 PUBLIC ?PostResourceReloadCallback@ReloaderListener@TerrainManager@trr@app@@UEAAXPEAVManagedResource@fnd@hh@@@Z
 ?PostResourceReloadCallback@ReloaderListener@TerrainManager@trr@app@@UEAAXPEAVManagedResource@fnd@hh@@@Z:
     mov rax, 0140a03af0h
+    jmp rax
+
+PUBLIC ?CCL_UnkFunc1@TerrainCaptureListener@TerrainManager@trr@app@@UEAA_JXZ
+?CCL_UnkFunc1@TerrainCaptureListener@TerrainManager@trr@app@@UEAA_JXZ:
+    mov rax, 0140a03b60h
     jmp rax
 
 PUBLIC ?ProcessMessage@TerrainManager@trr@app@@UEAA_NAEAVMessage@fnd@hh@@@Z
@@ -87930,6 +87950,16 @@ PUBLIC ?GetClassSize@CallbackJob@needle@hh@@UEAAIXZ
     mov rax, 0140c25fd0h
     jmp rax
 
+PUBLIC ?GetClassSize@FrameBufferCaptureJob@needle@hh@@UEAAIXZ
+?GetClassSize@FrameBufferCaptureJob@needle@hh@@UEAAIXZ:
+    mov rax, 0140c25fd0h
+    jmp rax
+
+PUBLIC ?GetClassSize@ResolveDepthJob@needle@hh@@UEAAIXZ
+?GetClassSize@ResolveDepthJob@needle@hh@@UEAAIXZ:
+    mov rax, 0140c25fd0h
+    jmp rax
+
 PUBLIC ?GetStreamReader@ResTextureStreamingPackage@gfx@hh@@QEBAPEAVStreamReaderWin32@fnd@3@XZ
 ?GetStreamReader@ResTextureStreamingPackage@gfx@hh@@QEBAPEAVStreamReaderWin32@fnd@3@XZ:
     mov rax, 0140c25fe0h
@@ -88393,6 +88423,16 @@ PUBLIC ?GetClass@GOCNavMeshCrowdAgent@gocs@heur@@SAPEBVGOComponentClass@game@hh@
 PUBLIC ?SetIncludeFlag@NavMeshAgent@navmesh@hh@@QEAAXE@Z
 ?SetIncludeFlag@NavMeshAgent@navmesh@hh@@QEAAXE@Z:
     mov rax, 0140cda060h
+    jmp rax
+
+PUBLIC ?GetName@DvPage@dv@hh@@QEBAPEADXZ
+?GetName@DvPage@dv@hh@@QEBAPEADXZ:
+    mov rax, 0140cda390h
+    jmp rax
+
+PUBLIC ??_DRenderingEngine@gfx@hh@@QEAAXXZ
+??_DRenderingEngine@gfx@hh@@QEAAXXZ:
+    mov rax, 0140ce8400h
     jmp rax
 
 PUBLIC ?GetComponentByHash@RenderingEngine@gfx@hh@@QEAAPEAVRenderingComponent@23@H@Z
@@ -89710,6 +89750,21 @@ PUBLIC ??_GResMirageLightField@resources@heur@@QEAAXXZ
     mov rax, 0140cfba70h
     jmp rax
 
+PUBLIC ??_DResMirageLightField@gfx@hh@@QEAAXXZ
+??_DResMirageLightField@gfx@hh@@QEAAXXZ:
+    mov rax, 0140cfba70h
+    jmp rax
+
+PUBLIC ?Load@ResMirageLightField@gfx@hh@@UEAAXPEAX_K@Z
+?Load@ResMirageLightField@gfx@hh@@UEAAXPEAX_K@Z:
+    mov rax, 0140cfbad0h
+    jmp rax
+
+PUBLIC ?Unload@ResMirageLightField@gfx@hh@@UEAAXXZ
+?Unload@ResMirageLightField@gfx@hh@@UEAAXXZ:
+    mov rax, 0140cfc850h
+    jmp rax
+
 PUBLIC ?Create@ResMirageTerrainInstanceInfo@resources@heur@@CAPEAV123@PEAVIAllocator@fnd@csl@@@Z
 ?Create@ResMirageTerrainInstanceInfo@resources@heur@@CAPEAV123@PEAVIAllocator@fnd@csl@@@Z:
     mov rax, 0140cfc860h
@@ -90630,6 +90685,16 @@ PUBLIC ?UnkFunc2@LightComponent@gfx@hh@@UEAAXXZ
     mov rax, 0140d0dd00h
     jmp rax
 
+PUBLIC ?Initialize@LightComponent@gfx@hh@@UEAAXXZ
+?Initialize@LightComponent@gfx@hh@@UEAAXXZ:
+    mov rax, 0140d0dd00h
+    jmp rax
+
+PUBLIC ?Deinitialize@LightComponent@gfx@hh@@UEAAXXZ
+?Deinitialize@LightComponent@gfx@hh@@UEAAXXZ:
+    mov rax, 0140d0dd00h
+    jmp rax
+
 PUBLIC ?GetNameHash@LightComponent@gfx@hh@@UEAAHXZ
 ?GetNameHash@LightComponent@gfx@hh@@UEAAHXZ:
     mov rax, 0140d0dd20h
@@ -90780,13 +90845,53 @@ PUBLIC ??0CaptureComponent@gfx@hh@@QEAA@PEAVIAllocator@fnd@csl@@@Z
     mov rax, 0140d11650h
     jmp rax
 
+PUBLIC ??_DMyCaptureListener@Impl@CaptureComponent@gfx@hh@@QEAAXXZ
+??_DMyCaptureListener@Impl@CaptureComponent@gfx@hh@@QEAAXXZ:
+    mov rax, 0140d11930h
+    jmp rax
+
+PUBLIC ?CIL_UnkFunc0@MyCaptureListener@Impl@CaptureComponent@gfx@hh@@EEAAXXZ
+?CIL_UnkFunc0@MyCaptureListener@Impl@CaptureComponent@gfx@hh@@EEAAXXZ:
+    mov rax, 0140d11930h
+    jmp rax
+
 PUBLIC ?CIL_UnkFunc1@CaptureIBLListener@SupportFX@needle@hh@@UEAAXXZ
 ?CIL_UnkFunc1@CaptureIBLListener@SupportFX@needle@hh@@UEAAXXZ:
     mov rax, 0140d119a0h
     jmp rax
 
+PUBLIC ?CIL_UnkFunc1@MyCaptureListener@Impl@CaptureComponent@gfx@hh@@EEAAXXZ
+?CIL_UnkFunc1@MyCaptureListener@Impl@CaptureComponent@gfx@hh@@EEAAXXZ:
+    mov rax, 0140d119a0h
+    jmp rax
+
+PUBLIC ?GetNameHash@CaptureComponent@gfx@hh@@UEAAHXZ
+?GetNameHash@CaptureComponent@gfx@hh@@UEAAHXZ:
+    mov rax, 0140d11a70h
+    jmp rax
+
+PUBLIC ?GetName@CaptureComponent@gfx@hh@@UEAAPEBDXZ
+?GetName@CaptureComponent@gfx@hh@@UEAAPEBDXZ:
+    mov rax, 0140d11a80h
+    jmp rax
+
+PUBLIC ?UnkFunc1@CaptureComponent@gfx@hh@@UEAAXXZ
+?UnkFunc1@CaptureComponent@gfx@hh@@UEAAXXZ:
+    mov rax, 0140d11a90h
+    jmp rax
+
+PUBLIC ?Initialize@CaptureComponent@gfx@hh@@UEAAXXZ
+?Initialize@CaptureComponent@gfx@hh@@UEAAXXZ:
+    mov rax, 0140d11a90h
+    jmp rax
+
 PUBLIC ?CIL_UnkFunc2@CaptureIBLListener@SupportFX@needle@hh@@UEAAXXZ
 ?CIL_UnkFunc2@CaptureIBLListener@SupportFX@needle@hh@@UEAAXXZ:
+    mov rax, 0140d11c20h
+    jmp rax
+
+PUBLIC ?CIL_UnkFunc2@MyCaptureListener@Impl@CaptureComponent@gfx@hh@@EEAAXXZ
+?CIL_UnkFunc2@MyCaptureListener@Impl@CaptureComponent@gfx@hh@@EEAAXXZ:
     mov rax, 0140d11c20h
     jmp rax
 
@@ -108005,6 +108110,11 @@ PUBLIC ?GetRenderUnitByName@SupportFXAll@needle@hh@@QEBAPEAVRenderUnit@23@PEBVCN
     mov rax, 014101b7a0h
     jmp rax
 
+PUBLIC ?GetRenderUnitByName@SupportFXAll@needle@hh@@QEBAPEAVRenderUnit@23@PEBD@Z
+?GetRenderUnitByName@SupportFXAll@needle@hh@@QEBAPEAVRenderUnit@23@PEBD@Z:
+    mov rax, 014101b810h
+    jmp rax
+
 PUBLIC ?UnkFunc3@SupportFXAll@needle@hh@@UEAA_NXZ
 ?UnkFunc3@SupportFXAll@needle@hh@@UEAA_NXZ:
     mov rax, 014101ba80h
@@ -108023,6 +108133,11 @@ PUBLIC ?UnkFunc2@SupportFXAll@needle@hh@@UEAA_NXZ
 PUBLIC ?Render@SupportFXAll@needle@hh@@UEAA_NAEBUFxRenderParam@SupportFX@23@PEAVRenderTarget@23@@Z
 ?Render@SupportFXAll@needle@hh@@UEAA_NAEBUFxRenderParam@SupportFX@23@PEAVRenderTarget@23@@Z:
     mov rax, 014101bc20h
+    jmp rax
+
+PUBLIC ?SetListener@SupportFX@needle@hh@@QEAAXPEAVCaptureIBLListener@123@@Z
+?SetListener@SupportFX@needle@hh@@QEAAXPEAVCaptureIBLListener@123@@Z:
+    mov rax, 014101c420h
     jmp rax
 
 PUBLIC ?UnkFunc4@SupportFXAll@needle@hh@@UEAAXXZ
@@ -108113,6 +108228,16 @@ PUBLIC ??0RenderTargetReference@needle@hh@@QEAA@PEAVRenderTarget@12@@Z
 PUBLIC ??0RenderTargetReference@needle@hh@@QEAA@I@Z
 ??0RenderTargetReference@needle@hh@@QEAA@I@Z:
     mov rax, 014101efe0h
+    jmp rax
+
+PUBLIC ?GetRenderTargetRect@SupportFX@needle@hh@@SA?AURectangle@23@PEAVRenderTargetManager@23@AEBURenderTargetReference@23@AEAUFxViewport@123@@Z
+?GetRenderTargetRect@SupportFX@needle@hh@@SA?AURectangle@23@PEAVRenderTargetManager@23@AEBURenderTargetReference@23@AEAUFxViewport@123@@Z:
+    mov rax, 014101f1f0h
+    jmp rax
+
+PUBLIC ?Render@PostEffectShader@needle@hh@@QEAAXPEAVRenderingDeviceContext@23@PEAVInstanceParameterContainerData@23@1_N1@Z
+?Render@PostEffectShader@needle@hh@@QEAAXPEAVRenderingDeviceContext@23@PEAVInstanceParameterContainerData@23@1_N1@Z:
+    mov rax, 014101f640h
     jmp rax
 
 PUBLIC ?ClearDepthStencil@RenderTargetManager@needle@hh@@QEAAXAEBURenderTargetReference@23@_N@Z
@@ -108985,6 +109110,16 @@ PUBLIC ?GetName@SCLightField@needle@hh@@UEAAPEBDXZ
     mov rax, 0141042df0h
     jmp rax
 
+PUBLIC ?Run@LightFieldParamBuildJob@needle@hh@@UEAAXPEAVParamValueOverrideHelper@23@PEAVPipelineInfo@23@II@Z
+?Run@LightFieldParamBuildJob@needle@hh@@UEAAXPEAVParamValueOverrideHelper@23@PEAVPipelineInfo@23@II@Z:
+    mov rax, 0141042e90h
+    jmp rax
+
+PUBLIC ?Setup@SCLightField@needle@hh@@QEAAXAEAULightFieldDescription@SupportFX@23@@Z
+?Setup@SCLightField@needle@hh@@QEAAXAEAULightFieldDescription@SupportFX@23@@Z:
+    mov rax, 01410430b0h
+    jmp rax
+
 PUBLIC ?UnkFunc2@SCLightField@needle@hh@@UEAAXXZ
 ?UnkFunc2@SCLightField@needle@hh@@UEAAXXZ:
     mov rax, 01410430c0h
@@ -109043,6 +109178,36 @@ PUBLIC ?GetWorldByIdx@SCWorld@needle@hh@@QEBAPEAVWorld@23@I@Z
 PUBLIC ??_DRenderTexturePipeline@needle@hh@@QEAAXXZ
 ??_DRenderTexturePipeline@needle@hh@@QEAAXXZ:
     mov rax, 01410452b0h
+    jmp rax
+
+PUBLIC ??_DDefaultCaptureRenderingPipeline@needle@hh@@QEAAXXZ
+??_DDefaultCaptureRenderingPipeline@needle@hh@@QEAAXXZ:
+    mov rax, 01410452b0h
+    jmp rax
+
+PUBLIC ??_DImpostorCaptureRenderingPipeline@needle@hh@@QEAAXXZ
+??_DImpostorCaptureRenderingPipeline@needle@hh@@QEAAXXZ:
+    mov rax, 01410452b0h
+    jmp rax
+
+PUBLIC ??_DBlendModelCaptureRenderingPipeline@needle@hh@@QEAAXXZ
+??_DBlendModelCaptureRenderingPipeline@needle@hh@@QEAAXXZ:
+    mov rax, 01410452b0h
+    jmp rax
+
+PUBLIC ?InitializeJobs@DefaultCaptureRenderingPipeline@needle@hh@@UEAAXXZ
+?InitializeJobs@DefaultCaptureRenderingPipeline@needle@hh@@UEAAXXZ:
+    mov rax, 0141045450h
+    jmp rax
+
+PUBLIC ?InitializeJobs@ImpostorCaptureRenderingPipeline@needle@hh@@UEAAXXZ
+?InitializeJobs@ImpostorCaptureRenderingPipeline@needle@hh@@UEAAXXZ:
+    mov rax, 0141045ed0h
+    jmp rax
+
+PUBLIC ?InitializeJobs@BlendModelCaptureRenderingPipeline@needle@hh@@UEAAXXZ
+?InitializeJobs@BlendModelCaptureRenderingPipeline@needle@hh@@UEAAXXZ:
+    mov rax, 0141046320h
     jmp rax
 
 PUBLIC ??0PipelineInfo@needle@hh@@QEAA@AEBV012@@Z
@@ -109137,6 +109302,11 @@ PUBLIC ?UnkFunc3@ModelRenderMeshHelper@needle@hh@@UEAAXPEAX0@Z
 
 PUBLIC ?UnkFunc3@ModelRenderMeshHelper@needle@hh@@UEAAXPEAVRenderingDeviceContext@23@PEAX@Z
 ?UnkFunc3@ModelRenderMeshHelper@needle@hh@@UEAAXPEAVRenderingDeviceContext@23@PEAX@Z:
+    mov rax, 0141049900h
+    jmp rax
+
+PUBLIC ?Render@ModelRenderMeshHelper@needle@hh@@UEAAXPEAVRenderingDeviceContext@23@PEAVCNameIDObject@23@@Z
+?Render@ModelRenderMeshHelper@needle@hh@@UEAAXPEAVRenderingDeviceContext@23@PEAVCNameIDObject@23@@Z:
     mov rax, 0141049900h
     jmp rax
 
@@ -109260,9 +109430,19 @@ PUBLIC ?GetNameHash@DeferredRenderJob@needle@hh@@UEAAIXZ
     mov rax, 014104f3d0h
     jmp rax
 
+PUBLIC ?GetNameHash@ResolveDepthJob@needle@hh@@UEAAIXZ
+?GetNameHash@ResolveDepthJob@needle@hh@@UEAAIXZ:
+    mov rax, 014104f400h
+    jmp rax
+
 PUBLIC ?GetName@DeferredRenderJob@needle@hh@@UEAAPEBDXZ
 ?GetName@DeferredRenderJob@needle@hh@@UEAAPEBDXZ:
     mov rax, 014104f410h
+    jmp rax
+
+PUBLIC ?GetName@ResolveDepthJob@needle@hh@@UEAAPEBDXZ
+?GetName@ResolveDepthJob@needle@hh@@UEAAPEBDXZ:
+    mov rax, 014104f440h
     jmp rax
 
 PUBLIC ?UnkFunc16@DeferredRenderJob@needle@hh@@UEAAIXZ
@@ -109295,9 +109475,19 @@ PUBLIC ?Start@DeferredRenderJob@needle@hh@@UEAAXAEBURenderJobContext@23@@Z
     mov rax, 014104f4a0h
     jmp rax
 
+PUBLIC ?Start@ResolveDepthJob@needle@hh@@UEAAXAEBURenderJobContext@23@@Z
+?Start@ResolveDepthJob@needle@hh@@UEAAXAEBURenderJobContext@23@@Z:
+    mov rax, 014104fed0h
+    jmp rax
+
 PUBLIC ?Render@DeferredRenderJob@needle@hh@@UEAAXPEAVPipelineInfo@23@@Z
 ?Render@DeferredRenderJob@needle@hh@@UEAAXPEAVPipelineInfo@23@@Z:
     mov rax, 0141050080h
+    jmp rax
+
+PUBLIC ?Render@ResolveDepthJob@needle@hh@@UEAAXPEAVPipelineInfo@23@@Z
+?Render@ResolveDepthJob@needle@hh@@UEAAXPEAVPipelineInfo@23@@Z:
+    mov rax, 01410503e0h
     jmp rax
 
 PUBLIC ?GetNameHash@DebugDrawJob@needle@hh@@UEAAIXZ
@@ -109460,6 +109650,11 @@ PUBLIC ?GetName@PostEffectLitePipelineJob@needle@hh@@UEAAPEBDXZ
     mov rax, 0141056880h
     jmp rax
 
+PUBLIC ?GetClassSize@SkyCubeJob@needle@hh@@UEAAIXZ
+?GetClassSize@SkyCubeJob@needle@hh@@UEAAIXZ:
+    mov rax, 0141056890h
+    jmp rax
+
 PUBLIC ?UnkFunc7@PostEffectLitePipelineJob@needle@hh@@UEAAXXZ
 ?UnkFunc7@PostEffectLitePipelineJob@needle@hh@@UEAAXXZ:
     mov rax, 01410568b0h
@@ -109585,6 +109780,11 @@ PUBLIC ?UnkFunc4@SCPostEffectResource@needle@hh@@UEAAXXZ
     mov rax, 0141074c80h
     jmp rax
 
+PUBLIC ?Setup@SFXAllocator@SupportFX@needle@hh@@QEAAXAEAULightFieldDescription@234@@Z
+?Setup@SFXAllocator@SupportFX@needle@hh@@QEAAXAEAULightFieldDescription@234@@Z:
+    mov rax, 0141077930h
+    jmp rax
+
 PUBLIC ?AddDrawContext@RenderingContextManager@needle@hh@@QEAAXPEAVSyncDrawContext@23@@Z
 ?AddDrawContext@RenderingContextManager@needle@hh@@QEAAXPEAVSyncDrawContext@23@@Z:
     mov rax, 0141079cf0h
@@ -109685,11 +109885,6 @@ PUBLIC ?GetName@ResolveJob@needle@hh@@UEAAPEBDXZ
     mov rax, 014108bcd0h
     jmp rax
 
-PUBLIC ?InitializeJobs@RenderingPipeline@needle@hh@@UEAAXXZ
-?InitializeJobs@RenderingPipeline@needle@hh@@UEAAXXZ:
-    mov rax, 014108bce0h
-    jmp rax
-
 PUBLIC ?InitializeJobs@RenderTexturePipeline@needle@hh@@UEAAXXZ
 ?InitializeJobs@RenderTexturePipeline@needle@hh@@UEAAXXZ:
     mov rax, 014108bce0h
@@ -109733,6 +109928,11 @@ PUBLIC ?LoadGlobalParams@RenderTextureHandle@needle@hh@@QEAAXXZ
 PUBLIC ?InitGlobalParams@SceneParamContainer@needle@hh@@QEAAXXZ
 ?InitGlobalParams@SceneParamContainer@needle@hh@@QEAAXXZ:
     mov rax, 014108f520h
+    jmp rax
+
+PUBLIC ?Initialize@SkyProbe@needle@hh@@QEAAXPEAVSupportFX@23@AEAV?$intrusive_ptr@VTexture@needle@hh@@USRefCountAddReleaseNeedleObject@23@$00@23@@Z
+?Initialize@SkyProbe@needle@hh@@QEAAXPEAVSupportFX@23@AEAV?$intrusive_ptr@VTexture@needle@hh@@USRefCountAddReleaseNeedleObject@23@$00@23@@Z:
+    mov rax, 0141093be0h
     jmp rax
 
 PUBLIC ??0PostEffectRenderJob@needle@hh@@QEAA@PEAVRenderManager@12@@Z
@@ -109803,6 +110003,91 @@ PUBLIC ?Start@ShadowMapRenderJob@needle@hh@@UEAAXAEBURenderJobContext@23@@Z
 PUBLIC ?Render@ShadowMapRenderJob@needle@hh@@UEAAXPEAVPipelineInfo@23@@Z
 ?Render@ShadowMapRenderJob@needle@hh@@UEAAXPEAVPipelineInfo@23@@Z:
     mov rax, 01410a7e50h
+    jmp rax
+
+PUBLIC ??0SkyCubeJob@needle@hh@@QEAA@XZ
+??0SkyCubeJob@needle@hh@@QEAA@XZ:
+    mov rax, 01410a8020h
+    jmp rax
+
+PUBLIC ??_DSkyCubeJob@needle@hh@@QEAAXXZ
+??_DSkyCubeJob@needle@hh@@QEAAXXZ:
+    mov rax, 01410a8090h
+    jmp rax
+
+PUBLIC ?Stop@SkyCubeJob@needle@hh@@UEAAXXZ
+?Stop@SkyCubeJob@needle@hh@@UEAAXXZ:
+    mov rax, 01410a8140h
+    jmp rax
+
+PUBLIC ?GetNameHash@SkyCubeJob@needle@hh@@UEAAIXZ
+?GetNameHash@SkyCubeJob@needle@hh@@UEAAIXZ:
+    mov rax, 01410a8150h
+    jmp rax
+
+PUBLIC ?GetName@SkyCubeJob@needle@hh@@UEAAPEBDXZ
+?GetName@SkyCubeJob@needle@hh@@UEAAPEBDXZ:
+    mov rax, 01410a8160h
+    jmp rax
+
+PUBLIC ?Start@SkyCubeJob@needle@hh@@UEAAXAEBURenderJobContext@23@@Z
+?Start@SkyCubeJob@needle@hh@@UEAAXAEBURenderJobContext@23@@Z:
+    mov rax, 01410a8170h
+    jmp rax
+
+PUBLIC ?Render@SkyCubeJob@needle@hh@@UEAAXPEAVPipelineInfo@23@@Z
+?Render@SkyCubeJob@needle@hh@@UEAAXPEAVPipelineInfo@23@@Z:
+    mov rax, 01410a8270h
+    jmp rax
+
+PUBLIC ?UnkFunc9@SkyCubeJob@needle@hh@@UEAAXPEAVPipelineInfo@23@@Z
+?UnkFunc9@SkyCubeJob@needle@hh@@UEAAXPEAVPipelineInfo@23@@Z:
+    mov rax, 01410a84e0h
+    jmp rax
+
+PUBLIC ?GetNameHash@DeferredShadingJob@needle@hh@@UEAAIXZ
+?GetNameHash@DeferredShadingJob@needle@hh@@UEAAIXZ:
+    mov rax, 01410acd30h
+    jmp rax
+
+PUBLIC ?GetName@DeferredShadingJob@needle@hh@@UEAAPEBDXZ
+?GetName@DeferredShadingJob@needle@hh@@UEAAPEBDXZ:
+    mov rax, 01410acd40h
+    jmp rax
+
+PUBLIC ?GetClassSize@DeferredShadingJob@needle@hh@@UEAAIXZ
+?GetClassSize@DeferredShadingJob@needle@hh@@UEAAIXZ:
+    mov rax, 01410acd50h
+    jmp rax
+
+PUBLIC ?Setup@DeferredShadingJob@needle@hh@@UEAAXAEBURenderJobContext@23@@Z
+?Setup@DeferredShadingJob@needle@hh@@UEAAXAEBURenderJobContext@23@@Z:
+    mov rax, 01410ace00h
+    jmp rax
+
+PUBLIC ?Render@DeferredShadingJob@needle@hh@@UEAAXPEAVPipelineInfo@23@@Z
+?Render@DeferredShadingJob@needle@hh@@UEAAXPEAVPipelineInfo@23@@Z:
+    mov rax, 01410ad220h
+    jmp rax
+
+PUBLIC ?UnkFunc9@DeferredShadingJob@needle@hh@@UEAAXPEAVPipelineInfo@23@@Z
+?UnkFunc9@DeferredShadingJob@needle@hh@@UEAAXPEAVPipelineInfo@23@@Z:
+    mov rax, 01410ae2e0h
+    jmp rax
+
+PUBLIC ??_DSimpleCaptureJob@needle@hh@@QEAAXXZ
+??_DSimpleCaptureJob@needle@hh@@QEAAXXZ:
+    mov rax, 01410b5540h
+    jmp rax
+
+PUBLIC ?Render@SimpleCaptureJob@needle@hh@@UEAAXPEAVPipelineInfo@23@@Z
+?Render@SimpleCaptureJob@needle@hh@@UEAAXPEAVPipelineInfo@23@@Z:
+    mov rax, 01410b55e0h
+    jmp rax
+
+PUBLIC ?GetTexture@IBLGGXSamplingTexture@needle@hh@@QEBA?AV?$intrusive_ptr@VTexture@needle@hh@@USRefCountAddReleaseNeedleObject@23@$00@23@XZ
+?GetTexture@IBLGGXSamplingTexture@needle@hh@@QEBA?AV?$intrusive_ptr@VTexture@needle@hh@@USRefCountAddReleaseNeedleObject@23@$00@23@XZ:
+    mov rax, 01410b77d0h
     jmp rax
 
 PUBLIC ??0ColorContrastJob@needle@hh@@QEAA@XZ
@@ -110460,6 +110745,21 @@ PUBLIC ??_DGatherRenderingPassContext@needle@hh@@QEAAXXZ
     mov rax, 01410cdef0h
     jmp rax
 
+PUBLIC ?GetDrawPassInfoCount@GatherRenderingPassContext@needle@hh@@QEBAHII@Z
+?GetDrawPassInfoCount@GatherRenderingPassContext@needle@hh@@QEBAHII@Z:
+    mov rax, 01410d1cd0h
+    jmp rax
+
+PUBLIC ?GetMaterialParameterPriorityName@needle@hh@@YAPEAVCNameIDObject@12@XZ
+?GetMaterialParameterPriorityName@needle@hh@@YAPEAVCNameIDObject@12@XZ:
+    mov rax, 01410d1d60h
+    jmp rax
+
+PUBLIC ?GetMaterialParameterGatherRenderingPassType@needle@hh@@YAPEAVCNameIDObject@12@XZ
+?GetMaterialParameterGatherRenderingPassType@needle@hh@@YAPEAVCNameIDObject@12@XZ:
+    mov rax, 01410d1d80h
+    jmp rax
+
 PUBLIC ?GetParameterBuffer@GatherRenderingPassContext@needle@hh@@QEAAPEAX_K@Z
 ?GetParameterBuffer@GatherRenderingPassContext@needle@hh@@QEAAPEAX_K@Z:
     mov rax, 01410d1d90h
@@ -110957,6 +111257,11 @@ PUBLIC ?UnkFunc82@RenderingDeviceContextDX11@ImplDX11@needle@hh@@UEAA_KXZ
 
 PUBLIC ?CopySubresourceRegion@RenderingDeviceContextDX11@ImplDX11@needle@hh@@UEAAXPEBVNeedleRefcountResource@34@PEAV534@@Z
 ?CopySubresourceRegion@RenderingDeviceContextDX11@ImplDX11@needle@hh@@UEAAXPEBVNeedleRefcountResource@34@PEAV534@@Z:
+    mov rax, 01410f32f0h
+    jmp rax
+
+PUBLIC ?CopySubresourceRegion@RenderingDeviceContextDX11@ImplDX11@needle@hh@@UEAAXPEBVNeedleRefcountResource@34@IPEBUuint_vector3@34@PEAV534@IPEBUBox@34@@Z
+?CopySubresourceRegion@RenderingDeviceContextDX11@ImplDX11@needle@hh@@UEAAXPEBVNeedleRefcountResource@34@IPEBUuint_vector3@34@PEAV534@IPEBUBox@34@@Z:
     mov rax, 01410f32f0h
     jmp rax
 
@@ -117547,6 +117852,41 @@ PUBLIC ?CreateCamera@ObjCamera@app@@UEAAPEAVCameraController@camera@app_cmn@@I@Z
 
 PUBLIC ?SetCamera@ObjCamera@app@@UEAAXXZ
 ?SetCamera@ObjCamera@app@@UEAAXXZ:
+    mov rax, 014118f6e0h
+    jmp rax
+
+PUBLIC ?Setup@RenderingEngine@gfx@hh@@UEAA_NAEBUSetupInfo@RenderManagerBase@gfnd@3@@Z
+?Setup@RenderingEngine@gfx@hh@@UEAA_NAEBUSetupInfo@RenderManagerBase@gfnd@3@@Z:
+    mov rax, 014118f6e0h
+    jmp rax
+
+PUBLIC ?BeforeRender@RenderingEngine@gfx@hh@@UEAAXAEBUFxRenderParam@SupportFX@needle@3@@Z
+?BeforeRender@RenderingEngine@gfx@hh@@UEAAXAEBUFxRenderParam@SupportFX@needle@3@@Z:
+    mov rax, 014118f6e0h
+    jmp rax
+
+PUBLIC ?Render@RenderingEngine@gfx@hh@@UEAA_NAEBUFxRenderParam@SupportFX@needle@3@@Z
+?Render@RenderingEngine@gfx@hh@@UEAA_NAEBUFxRenderParam@SupportFX@needle@3@@Z:
+    mov rax, 014118f6e0h
+    jmp rax
+
+PUBLIC ?AfterRender@RenderingEngine@gfx@hh@@UEAAXAEBUFxRenderParam@SupportFX@needle@3@@Z
+?AfterRender@RenderingEngine@gfx@hh@@UEAAXAEBUFxRenderParam@SupportFX@needle@3@@Z:
+    mov rax, 014118f6e0h
+    jmp rax
+
+PUBLIC ?GetNativeDevice@RenderingEngine@gfx@hh@@UEAAPEAUID3D11Device@@XZ
+?GetNativeDevice@RenderingEngine@gfx@hh@@UEAAPEAUID3D11Device@@XZ:
+    mov rax, 014118f6e0h
+    jmp rax
+
+PUBLIC ?Startup@RenderingEngine@gfx@hh@@UEAA_KXZ
+?Startup@RenderingEngine@gfx@hh@@UEAA_KXZ:
+    mov rax, 014118f6e0h
+    jmp rax
+
+PUBLIC ?Shutdown@RenderingEngine@gfx@hh@@UEAA_KXZ
+?Shutdown@RenderingEngine@gfx@hh@@UEAA_KXZ:
     mov rax, 014118f6e0h
     jmp rax
 
@@ -177225,6 +177565,16 @@ PUBLIC ??_DImpl@RenderManager@gfx@hh@@QEAAXXZ
     mov rax, 014f1d7430h
     jmp rax
 
+PUBLIC ??_DRenderManager@gfx@hh@@QEAAXXZ
+??_DRenderManager@gfx@hh@@QEAAXXZ:
+    mov rax, 014f1e9560h
+    jmp rax
+
+PUBLIC ?AddListener@RenderManager@gfx@hh@@QEAAXPEAVListener@123@@Z
+?AddListener@RenderManager@gfx@hh@@QEAAXPEAVListener@123@@Z:
+    mov rax, 014f1eae10h
+    jmp rax
+
 PUBLIC ?Create@RenderManager@gfx@hh@@SAPEAV123@PEAVIAllocator@fnd@csl@@@Z
 ?Create@RenderManager@gfx@hh@@SAPEAV123@PEAVIAllocator@fnd@csl@@@Z:
     mov rax, 014f1f02f0h
@@ -177255,8 +177605,23 @@ PUBLIC ?Setup@Impl@RenderManager@gfx@hh@@QEAA_NAEBUSetupInfo@RenderManagerBase@g
     mov rax, 014f2197b0h
     jmp rax
 
+PUBLIC ?UnkFunc1@RenderManager@gfx@hh@@UEAA_KXZ
+?UnkFunc1@RenderManager@gfx@hh@@UEAA_KXZ:
+    mov rax, 014f21ec70h
+    jmp rax
+
+PUBLIC ?Setup@RenderManager@gfx@hh@@UEAA_NAEBUSetupInfo@RenderManagerBase@gfnd@3@@Z
+?Setup@RenderManager@gfx@hh@@UEAA_NAEBUSetupInfo@RenderManagerBase@gfnd@3@@Z:
+    mov rax, 014f21ec70h
+    jmp rax
+
 PUBLIC ?UnkFunc2@RenderManager@gfx@hh@@UEAA_KXZ
 ?UnkFunc2@RenderManager@gfx@hh@@UEAA_KXZ:
+    mov rax, 014f222510h
+    jmp rax
+
+PUBLIC ??_DRenderManager@needle@hh@@QEAAXXZ
+??_DRenderManager@needle@hh@@QEAAXXZ:
     mov rax, 014f222510h
     jmp rax
 
@@ -178000,6 +178365,11 @@ PUBLIC ??_DIBLComponent@gfx@hh@@QEAAXXZ
     mov rax, 014f75fa90h
     jmp rax
 
+PUBLIC ?AddProbes@IBLComponent@gfx@hh@@QEAAXPEAVResProbeData@23@MPEBD1@Z
+?AddProbes@IBLComponent@gfx@hh@@QEAAXPEAVResProbeData@23@MPEBD1@Z:
+    mov rax, 014f7620b0h
+    jmp rax
+
 PUBLIC ?SetIBLTexture@IBLComponent@gfx@hh@@QEAAXPEAVTexture@needle@3@PEBD@Z
 ?SetIBLTexture@IBLComponent@gfx@hh@@QEAAXPEAVTexture@needle@3@PEBD@Z:
     mov rax, 014f76d670h
@@ -178008,6 +178378,11 @@ PUBLIC ?SetIBLTexture@IBLComponent@gfx@hh@@QEAAXPEAVTexture@needle@3@PEBD@Z
 PUBLIC ?SetIBLTexture@IBLComponent@gfx@hh@@QEAAXPEAPEAVTexture@needle@3@PEBD@Z
 ?SetIBLTexture@IBLComponent@gfx@hh@@QEAAXPEAPEAVTexture@needle@3@PEBD@Z:
     mov rax, 014f76d670h
+    jmp rax
+
+PUBLIC ?RemoveProbes@IBLComponent@gfx@hh@@QEAAXPEAVResProbeData@23@MPEBD@Z
+?RemoveProbes@IBLComponent@gfx@hh@@QEAAXPEAVResProbeData@23@MPEBD@Z:
+    mov rax, 014f776460h
     jmp rax
 
 PUBLIC ??0LightComponent@gfx@hh@@QEAA@PEAVIAllocator@fnd@csl@@@Z
@@ -178110,8 +178485,28 @@ PUBLIC ?Startup@RenderingEngineNeedle@gfx@hh@@UEAA_KXZ
     mov rax, 014f8123b0h
     jmp rax
 
+PUBLIC ??_DCaptureComponent@gfx@hh@@QEAAXXZ
+??_DCaptureComponent@gfx@hh@@QEAAXXZ:
+    mov rax, 014f86ccb0h
+    jmp rax
+
+PUBLIC ??_DImpl@CaptureComponent@gfx@hh@@QEAAXXZ
+??_DImpl@CaptureComponent@gfx@hh@@QEAAXXZ:
+    mov rax, 014f86d5a0h
+    jmp rax
+
+PUBLIC ?AddListener@CaptureComponent@gfx@hh@@QEAAXPEAVListener@123@@Z
+?AddListener@CaptureComponent@gfx@hh@@QEAAXPEAVListener@123@@Z:
+    mov rax, 014f8714b0h
+    jmp rax
+
 PUBLIC ?UnkFunc2@CaptureComponent@gfx@hh@@UEAAXXZ
 ?UnkFunc2@CaptureComponent@gfx@hh@@UEAAXXZ:
+    mov rax, 014f891a10h
+    jmp rax
+
+PUBLIC ?Deinitialize@CaptureComponent@gfx@hh@@UEAAXXZ
+?Deinitialize@CaptureComponent@gfx@hh@@UEAAXXZ:
     mov rax, 014f891a10h
     jmp rax
 
@@ -178547,6 +178942,11 @@ PUBLIC ??_DIBLParamBuildJob@needle@hh@@QEAAXXZ
 
 PUBLIC ??_DGlobalLightParamBuidJob@needle@hh@@QEAAXXZ
 ??_DGlobalLightParamBuidJob@needle@hh@@QEAAXXZ:
+    mov rax, 014fd60760h
+    jmp rax
+
+PUBLIC ??_DLightFieldParamBuildJob@needle@hh@@QEAAXXZ
+??_DLightFieldParamBuildJob@needle@hh@@QEAAXXZ:
     mov rax, 014fd60760h
     jmp rax
 
@@ -184400,6 +184800,21 @@ PUBLIC ??_DImpl@SCWorld@needle@hh@@QEAAXXZ
     mov rax, 0154700720h
     jmp rax
 
+PUBLIC ??0DefaultCaptureRenderingPipeline@needle@hh@@QEAA@PEAVIAllocator@fnd@csl@@PEAVPBRModelInstanceRenderer@12@@Z
+??0DefaultCaptureRenderingPipeline@needle@hh@@QEAA@PEAVIAllocator@fnd@csl@@PEAVPBRModelInstanceRenderer@12@@Z:
+    mov rax, 0154703840h
+    jmp rax
+
+PUBLIC ??0ImpostorCaptureRenderingPipeline@needle@hh@@QEAA@PEAVIAllocator@fnd@csl@@PEAVPBRModelInstanceRenderer@12@@Z
+??0ImpostorCaptureRenderingPipeline@needle@hh@@QEAA@PEAVIAllocator@fnd@csl@@PEAVPBRModelInstanceRenderer@12@@Z:
+    mov rax, 0154706fa0h
+    jmp rax
+
+PUBLIC ??0BlendModelCaptureRenderingPipeline@needle@hh@@QEAA@PEAVIAllocator@fnd@csl@@PEAVPBRModelInstanceRenderer@12@@Z
+??0BlendModelCaptureRenderingPipeline@needle@hh@@QEAA@PEAVIAllocator@fnd@csl@@PEAVPBRModelInstanceRenderer@12@@Z:
+    mov rax, 0154708e90h
+    jmp rax
+
 PUBLIC ??0WorldRenderingPipeline@needle@hh@@QEAA@PEAVIAllocator@fnd@csl@@@Z
 ??0WorldRenderingPipeline@needle@hh@@QEAA@PEAVIAllocator@fnd@csl@@@Z:
     mov rax, 0154709610h
@@ -184485,9 +184900,19 @@ PUBLIC ??0ShaderUtil@needle@hh@@QEAA@XZ
     mov rax, 015477d4b0h
     jmp rax
 
+PUBLIC ??0TextureUtil@needle@hh@@QEAA@XZ
+??0TextureUtil@needle@hh@@QEAA@XZ:
+    mov rax, 0154782820h
+    jmp rax
+
 PUBLIC ??_DMaterialObject@MaterialObjectContainer@needle@hh@@QEAAXXZ
 ??_DMaterialObject@MaterialObjectContainer@needle@hh@@QEAAXXZ:
     mov rax, 0154795d70h
+    jmp rax
+
+PUBLIC ??_DImpl@TextureUtil@needle@hh@@QEAAXXZ
+??_DImpl@TextureUtil@needle@hh@@QEAAXXZ:
+    mov rax, 0154796520h
     jmp rax
 
 PUBLIC ??_DShaderUtil@needle@hh@@QEAAXXZ
@@ -184497,6 +184922,11 @@ PUBLIC ??_DShaderUtil@needle@hh@@QEAAXXZ
 
 PUBLIC ??_DIBLGGXSamplingTexture@needle@hh@@QEAAXXZ
 ??_DIBLGGXSamplingTexture@needle@hh@@QEAAXXZ:
+    mov rax, 01547a2040h
+    jmp rax
+
+PUBLIC ??_DTextureUtil@needle@hh@@QEAAXXZ
+??_DTextureUtil@needle@hh@@QEAAXXZ:
     mov rax, 01547a2040h
     jmp rax
 
@@ -184525,8 +184955,18 @@ PUBLIC ??0DeferredRenderJob@needle@hh@@QEAA@PEAVIAllocator@fnd@csl@@I@Z
     mov rax, 01547c64b0h
     jmp rax
 
+PUBLIC ??_DResolveDepthJob@needle@hh@@QEAAXXZ
+??_DResolveDepthJob@needle@hh@@QEAAXXZ:
+    mov rax, 01547ed140h
+    jmp rax
+
 PUBLIC ?SetupDeferredRenderingPipeline@DeferredRenderJob@needle@hh@@UEAAXXZ
 ?SetupDeferredRenderingPipeline@DeferredRenderJob@needle@hh@@UEAAXXZ:
+    mov rax, 01548048a0h
+    jmp rax
+
+PUBLIC ?SetupDeferredRenderingPipeline@DeferredRenderJob@needle@hh@@UEAAXAEBURenderJobContext@23@@Z
+?SetupDeferredRenderingPipeline@DeferredRenderJob@needle@hh@@UEAAXAEBURenderJobContext@23@@Z:
     mov rax, 01548048a0h
     jmp rax
 
@@ -184550,13 +184990,28 @@ PUBLIC ?UnkFunc19@DefaultDeferredRenderJob@needle@hh@@UEAAXXZ
     mov rax, 01548453b0h
     jmp rax
 
+PUBLIC ?UnkFunc19@DefaultDeferredRenderJob@needle@hh@@UEAAXAEBURenderJobContext@23@@Z
+?UnkFunc19@DefaultDeferredRenderJob@needle@hh@@UEAAXAEBURenderJobContext@23@@Z:
+    mov rax, 01548453b0h
+    jmp rax
+
 PUBLIC ?UnkFunc20@DefaultDeferredRenderJob@needle@hh@@UEAAXXZ
 ?UnkFunc20@DefaultDeferredRenderJob@needle@hh@@UEAAXXZ:
     mov rax, 0154846170h
     jmp rax
 
+PUBLIC ?UnkFunc20@DefaultDeferredRenderJob@needle@hh@@UEAAXAEBURenderJobContext@23@@Z
+?UnkFunc20@DefaultDeferredRenderJob@needle@hh@@UEAAXAEBURenderJobContext@23@@Z:
+    mov rax, 0154846170h
+    jmp rax
+
 PUBLIC ?UnkFunc21@DefaultDeferredRenderJob@needle@hh@@UEAAXXZ
 ?UnkFunc21@DefaultDeferredRenderJob@needle@hh@@UEAAXXZ:
+    mov rax, 015484f3f0h
+    jmp rax
+
+PUBLIC ?UnkFunc21@DefaultDeferredRenderJob@needle@hh@@UEAAXAEBURenderJobContext@23@@Z
+?UnkFunc21@DefaultDeferredRenderJob@needle@hh@@UEAAXAEBURenderJobContext@23@@Z:
     mov rax, 015484f3f0h
     jmp rax
 
@@ -184628,6 +185083,16 @@ PUBLIC ??0GatherDrawPassInfoJob@needle@hh@@QEAA@PEAVRenderJob@12@PEAVIAllocator@
 PUBLIC ??_DGatherDrawPassInfoJob@needle@hh@@QEAAXXZ
 ??_DGatherDrawPassInfoJob@needle@hh@@QEAAXXZ:
     mov rax, 0154b20fc0h
+    jmp rax
+
+PUBLIC ?AddUnk2@GatherDrawPassInfoJob@needle@hh@@QEAAX_J@Z
+?AddUnk2@GatherDrawPassInfoJob@needle@hh@@QEAAX_J@Z:
+    mov rax, 0154b2a630h
+    jmp rax
+
+PUBLIC ?AddUnk1@GatherDrawPassInfoJob@needle@hh@@QEAAX_J@Z
+?AddUnk1@GatherDrawPassInfoJob@needle@hh@@QEAAX_J@Z:
+    mov rax, 0154b38e90h
     jmp rax
 
 PUBLIC ??0ShadowMapPipeline@needle@hh@@QEAA@PEAVIAllocator@fnd@csl@@@Z
@@ -184780,6 +185245,21 @@ PUBLIC ?ParamChangedCallback@Listener@?$ParamHolder@UFxShadowMapParameter@needle
     mov rax, 0154e881d0h
     jmp rax
 
+PUBLIC ??0SkyProbe@needle@hh@@QEAA@XZ
+??0SkyProbe@needle@hh@@QEAA@XZ:
+    mov rax, 0154e8b9d0h
+    jmp rax
+
+PUBLIC ??_DSkyProbe@needle@hh@@QEAAXXZ
+??_DSkyProbe@needle@hh@@QEAAXXZ:
+    mov rax, 0154e93640h
+    jmp rax
+
+PUBLIC ??0ShaderTextureUtil@needle@hh@@QEAA@XZ
+??0ShaderTextureUtil@needle@hh@@QEAA@XZ:
+    mov rax, 0154e9a680h
+    jmp rax
+
 PUBLIC ?UnkFunc8@PostEffectRenderJob@needle@hh@@UEAAXXZ
 ?UnkFunc8@PostEffectRenderJob@needle@hh@@UEAAXXZ:
     mov rax, 0154ea8210h
@@ -184810,9 +185290,84 @@ PUBLIC ?SetRenderTarget@PostEffectRenderJob@needle@hh@@UEAAXIPEAVRenderTarget@23
     mov rax, 0154ebc1b0h
     jmp rax
 
+PUBLIC ??0FXAAJob@needle@hh@@QEAA@PEAVRenderManager@12@@Z
+??0FXAAJob@needle@hh@@QEAA@PEAVRenderManager@12@@Z:
+    mov rax, 0154f66550h
+    jmp rax
+
+PUBLIC ?UnkFunc23@FXAAJob@needle@hh@@UEAAXXZ
+?UnkFunc23@FXAAJob@needle@hh@@UEAAXXZ:
+    mov rax, 0154f78500h
+    jmp rax
+
+PUBLIC ?Setup@FXAAJob@needle@hh@@UEAAXAEAV?$intrusive_ptr@VRenderingDevice@needle@hh@@USRefCountAddReleaseNeedleObject@23@$00@23@@Z
+?Setup@FXAAJob@needle@hh@@UEAAXAEAV?$intrusive_ptr@VRenderingDevice@needle@hh@@USRefCountAddReleaseNeedleObject@23@$00@23@@Z:
+    mov rax, 0154f83d50h
+    jmp rax
+
+PUBLIC ?Setup@FXAAJob@needle@hh@@UEAAXAEBURenderJobContext@23@@Z
+?Setup@FXAAJob@needle@hh@@UEAAXAEBURenderJobContext@23@@Z:
+    mov rax, 0154f83d50h
+    jmp rax
+
+PUBLIC ??0SetupInfo@WorldRenderingPipeline@needle@hh@@QEAA@PEAVPBRModelInstanceRenderer@23@@Z
+??0SetupInfo@WorldRenderingPipeline@needle@hh@@QEAA@PEAVPBRModelInstanceRenderer@23@@Z:
+    mov rax, 0155008210h
+    jmp rax
+
 PUBLIC ??0GlobalParameterBuilder@needle@hh@@QEAA@PEAVIAllocator@fnd@csl@@III@Z
 ??0GlobalParameterBuilder@needle@hh@@QEAA@PEAVIAllocator@fnd@csl@@III@Z:
     mov rax, 015500f5e0h
+    jmp rax
+
+PUBLIC ??0DeferredShadingJob@needle@hh@@QEAA@HH@Z
+??0DeferredShadingJob@needle@hh@@QEAA@HH@Z:
+    mov rax, 0155012be0h
+    jmp rax
+
+PUBLIC ??_DDeferredShadingJob@needle@hh@@QEAAXXZ
+??_DDeferredShadingJob@needle@hh@@QEAAXXZ:
+    mov rax, 01550173a0h
+    jmp rax
+
+PUBLIC ?UnkFunc23@DeferredShadingJob@needle@hh@@UEAAXXZ
+?UnkFunc23@DeferredShadingJob@needle@hh@@UEAAXXZ:
+    mov rax, 015501e5a0h
+    jmp rax
+
+PUBLIC ??0DeferredRenderPipeline@needle@hh@@QEAA@PEAVIAllocator@fnd@csl@@@Z
+??0DeferredRenderPipeline@needle@hh@@QEAA@PEAVIAllocator@fnd@csl@@@Z:
+    mov rax, 0155028490h
+    jmp rax
+
+PUBLIC ??_DDeferredRenderPipeline@needle@hh@@QEAAXXZ
+??_DDeferredRenderPipeline@needle@hh@@QEAAXXZ:
+    mov rax, 0155028dc0h
+    jmp rax
+
+PUBLIC ??0SimpleCaptureJob@needle@hh@@QEAA@HH@Z
+??0SimpleCaptureJob@needle@hh@@QEAA@HH@Z:
+    mov rax, 015511f2a0h
+    jmp rax
+
+PUBLIC ?Start@SimpleCaptureJob@needle@hh@@UEAAXAEBURenderJobContext@23@@Z
+?Start@SimpleCaptureJob@needle@hh@@UEAAXAEBURenderJobContext@23@@Z:
+    mov rax, 015513a9a0h
+    jmp rax
+
+PUBLIC ??0PickColorShaderObject@needle@hh@@QEAA@XZ
+??0PickColorShaderObject@needle@hh@@QEAA@XZ:
+    mov rax, 015514ea10h
+    jmp rax
+
+PUBLIC ??_DPickColorShaderObject@needle@hh@@QEAAXXZ
+??_DPickColorShaderObject@needle@hh@@QEAAXXZ:
+    mov rax, 0155155250h
+    jmp rax
+
+PUBLIC ?Initialize@PickColorShaderObject@needle@hh@@QEAAXPEAVRenderingDevice@23@PEAVSupportFX@23@@Z
+?Initialize@PickColorShaderObject@needle@hh@@QEAAXPEAVRenderingDevice@23@PEAVSupportFX@23@@Z:
+    mov rax, 015515bca0h
     jmp rax
 
 PUBLIC ??0IBLGGXSamplingTexture@needle@hh@@QEAA@XZ

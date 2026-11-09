@@ -15,7 +15,7 @@ namespace hh::gfnd {
             uint64_t unk6;
             uint64_t unk7;
             uint64_t unk8;
-            uint64_t unk9;
+            const char* renderDocDLLFilepath;
             void* unk10;
         };
 
