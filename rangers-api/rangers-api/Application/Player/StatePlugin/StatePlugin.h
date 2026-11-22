@@ -8,8 +8,8 @@ namespace app::player {
     class StatePluginBase : public hh::fnd::ReferencedObject {
     public:
         // I currently don't have a way to know where in the hierarchy these belong...
-        uint8_t unk1;
-        uint8_t unk2;
+        uint8_t unk1; // Triggers Removecallback
+        bool doUpdate;
 
         StatePluginBase(csl::fnd::IAllocator* allocator) : hh::fnd::ReferencedObject{ allocator, true } {}
 

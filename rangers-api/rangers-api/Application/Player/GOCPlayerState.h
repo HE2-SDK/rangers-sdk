@@ -4,15 +4,16 @@ namespace app::player {
     template<typename T>
     class GOCPlayerStateBase : public hh::ut::StateBase<T> {
     public:
-        struct Unk1 {
-            int a, b, c;
+        struct Action {
+            uint32_t nameHash;
+            app::ut::Timer timer;
         };
 
         typedef bool MessageHandler(GOCPlayerHsm& gocPlayerHsm, hh::fnd::Message& message);
 
         csl::ut::MoveArray<MessageHandler*> messageHandlers;
-        csl::ut::InplaceMoveArray<Unk1, 4> unk5;
-        float dwordA0;
+        csl::ut::InplaceMoveArray<Action, 4> actions;
+        float stateTime;
         float dwordA4;
         int currentAnimationState;
         int previousAnimationState;

@@ -1065,11 +1065,11 @@ namespace rangerssdk::ucsl {
 
 #include "ApplicationCommon/HID/GOCCharacterInput.h"
 
-#include "Application/Timer.h"
 #include "Application/ObjNpcBase.h"
 
 #include "Application/Utilities/PriorityList.h"
 #include "Application/Utilities/SendMessage.h"
+#include "Application/Utilities/Timer.h"
 #include "Application/Utilities/TransitionValue.h"
 #include "Application/Utilities/Interpolator.h"
 

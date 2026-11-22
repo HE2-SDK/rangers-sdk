@@ -82935,38 +82935,38 @@ PUBLIC ?GetClass@ShareManagerNull@app@@SAPEBVGameServiceClass@game@hh@@XZ
     mov rax, 0140b11060h
     jmp rax
 
-PUBLIC ??0Timer@app@@QEAA@M@Z
-??0Timer@app@@QEAA@M@Z:
+PUBLIC ??0Timer@ut@app@@QEAA@M@Z
+??0Timer@ut@app@@QEAA@M@Z:
     mov rax, 0140b11210h
     jmp rax
 
-PUBLIC ?GetTarget@Timer@app@@QEBAMXZ
-?GetTarget@Timer@app@@QEBAMXZ:
+PUBLIC ?GetTarget@Timer@ut@app@@QEBAMXZ
+?GetTarget@Timer@ut@app@@QEBAMXZ:
     mov rax, 0140b11240h
     jmp rax
 
-PUBLIC ?GetProgress@Timer@app@@QEAAMXZ
-?GetProgress@Timer@app@@QEAAMXZ:
+PUBLIC ?GetProgress@Timer@ut@app@@QEAAMXZ
+?GetProgress@Timer@ut@app@@QEAAMXZ:
     mov rax, 0140b11250h
     jmp rax
 
-PUBLIC ?GetRemaining@Timer@app@@QEBAMXZ
-?GetRemaining@Timer@app@@QEBAMXZ:
+PUBLIC ?GetRemaining@Timer@ut@app@@QEBAMXZ
+?GetRemaining@Timer@ut@app@@QEBAMXZ:
     mov rax, 0140b112c0h
     jmp rax
 
-PUBLIC ?GetCurrent@Timer@app@@QEBAMXZ
-?GetCurrent@Timer@app@@QEBAMXZ:
+PUBLIC ?GetCurrent@Timer@ut@app@@QEBAMXZ
+?GetCurrent@Timer@ut@app@@QEBAMXZ:
     mov rax, 0140b112d0h
     jmp rax
 
-PUBLIC ?IsFinished@Timer@app@@QEBA_NXZ
-?IsFinished@Timer@app@@QEBA_NXZ:
+PUBLIC ?IsFinished@Timer@ut@app@@QEBA_NXZ
+?IsFinished@Timer@ut@app@@QEBA_NXZ:
     mov rax, 0140b112e0h
     jmp rax
 
-PUBLIC ?IsActive@Timer@app@@QEBA_NXZ
-?IsActive@Timer@app@@QEBA_NXZ:
+PUBLIC ?IsActive@Timer@ut@app@@QEBA_NXZ
+?IsActive@Timer@ut@app@@QEBA_NXZ:
     mov rax, 0140b11300h
     jmp rax
 
@@ -82975,13 +82975,13 @@ PUBLIC ?Reset@Timer@EffectOverlay@player@app@@QEAAXXZ
     mov rax, 0140b11320h
     jmp rax
 
-PUBLIC ?Reset@Timer@app@@QEAAXXZ
-?Reset@Timer@app@@QEAAXXZ:
+PUBLIC ?Reset@Timer@ut@app@@QEAAXXZ
+?Reset@Timer@ut@app@@QEAAXXZ:
     mov rax, 0140b11320h
     jmp rax
 
-PUBLIC ?ResetCurrent@Timer@app@@QEAAXXZ
-?ResetCurrent@Timer@app@@QEAAXXZ:
+PUBLIC ?ResetCurrent@Timer@ut@app@@QEAAXXZ
+?ResetCurrent@Timer@ut@app@@QEAAXXZ:
     mov rax, 0140b11330h
     jmp rax
 
@@ -82990,8 +82990,8 @@ PUBLIC ?Set@Timer@EffectOverlay@player@app@@QEAAXM@Z
     mov rax, 0140b11340h
     jmp rax
 
-PUBLIC ?Set@Timer@app@@QEAAXM@Z
-?Set@Timer@app@@QEAAXM@Z:
+PUBLIC ?Set@Timer@ut@app@@QEAAXM@Z
+?Set@Timer@ut@app@@QEAAXM@Z:
     mov rax, 0140b11340h
     jmp rax
 
@@ -83000,8 +83000,8 @@ PUBLIC ?Add@Timer@EffectOverlay@player@app@@QEAA_NM@Z
     mov rax, 0140b11360h
     jmp rax
 
-PUBLIC ?Add@Timer@app@@QEAA_NM@Z
-?Add@Timer@app@@QEAA_NM@Z:
+PUBLIC ?Add@Timer@ut@app@@QEAA_NM@Z
+?Add@Timer@ut@app@@QEAA_NM@Z:
     mov rax, 0140b11360h
     jmp rax
 
@@ -174780,8 +174780,8 @@ PUBLIC ??0Timer@EffectOverlay@player@app@@QEAA@XZ
     mov rax, 014d095ae0h
     jmp rax
 
-PUBLIC ??0Timer@app@@QEAA@XZ
-??0Timer@app@@QEAA@XZ:
+PUBLIC ??0Timer@ut@app@@QEAA@XZ
+??0Timer@ut@app@@QEAA@XZ:
     mov rax, 014d095ae0h
     jmp rax
 

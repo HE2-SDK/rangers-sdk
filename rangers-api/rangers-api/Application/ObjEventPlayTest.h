@@ -5,7 +5,7 @@ namespace app{
     public:
         evt::EventSetupData eventSetupData;
         int unk0;
-        Timer unkTimer;
+        ut::Timer unkTimer;
         char unk3;
 
         virtual bool ProcessMessage(hh::fnd::Message& message) override;

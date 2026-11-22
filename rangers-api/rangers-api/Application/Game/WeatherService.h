@@ -16,7 +16,7 @@ namespace app::game {
         save::WeatherData::Type currentWeather;
         save::WeatherData::Type prevWeather;
         float unk5;
-        app::Timer timer;
+        app::ut::Timer timer;
         save::WeatherBlockData::Type weather;
         Timestamp currentTime;
         save::WeatherBlockData::Status status;
