@@ -55,7 +55,7 @@ namespace app::game {
         int dword1A4;
         int dword1A8;
         int64_t qword1AC;
-        app::Timer app__timer1B4;
+        app::ut::Timer app__ut__Timer1B4;
         int64_t qword1C0;
         int64_t qword1C8;
         int64_t qword1D0;

@@ -36,7 +36,7 @@ namespace app::player {
             virtual unsigned int GetNameHash() const override;
         };
 
-        Timer idleAnimationTimer;
+        ut::Timer idleAnimationTimer;
         char byteB8;
         int dwordBC;
         char byteC0;

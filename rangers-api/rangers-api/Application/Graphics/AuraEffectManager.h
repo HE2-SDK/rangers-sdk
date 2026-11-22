@@ -21,7 +21,7 @@ namespace app::gfx {
         float unk8;
         char unk9[88];
         int64_t unk10;
-        Timer unk11;
+        ut::Timer unk11;
         char unk12;
 
         virtual void* GetRuntimeTypeInfo() const override;

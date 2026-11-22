@@ -5,7 +5,7 @@ namespace app::player{
     public:
         hh::fnd::Handle<ObjOverlayEffect> obj;
         char flags;
-        app::Timer timer;
+        app::ut::Timer timer;
 
         virtual unsigned int GetNameHash() const override;
         virtual void Update(int64_t a2, float deltaTime) override;

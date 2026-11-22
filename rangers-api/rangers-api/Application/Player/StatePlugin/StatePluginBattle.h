@@ -12,8 +12,8 @@ namespace app::player {
         hh::snd::SoundHandle unk58;
         uint32_t unk5C;
         uint32_t unk60;
-        Timer qword64;
-        Timer qword6C;
+        ut::Timer qword64;
+        ut::Timer qword6C;
         uint32_t qword74;
         float qword78;
         unsigned int dword7C;

@@ -9,7 +9,7 @@ namespace app::player {
         csl::math::Vector4 csl__math__vector450;
         uint8_t gap60[32];
         uint8_t byte80;
-        app::Timer timer84;
+        app::ut::Timer timer84;
         uint8_t byte8C;
 
         virtual unsigned int GetNameHash() const override;

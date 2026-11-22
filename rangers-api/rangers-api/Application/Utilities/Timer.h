@@ -1,7 +1,7 @@
 #pragma once
 
-namespace app{
-    struct Timer{
+namespace app::ut {
+    struct Timer {
         float target;
         float current;
 

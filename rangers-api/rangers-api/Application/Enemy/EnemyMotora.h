@@ -110,7 +110,7 @@ namespace app {
         class Chargeup : public app_cmn::fsm::GOCStateBase<EnemyMotoraContext> {
         public:
             EnemyMotoraSpawner* spawnerData;
-            Timer chargeUpTimer;
+            ut::Timer chargeUpTimer;
             hh::snd::SoundHandle chargeSound;
 
             virtual void DoEnter(int previousStateId) override;
@@ -132,7 +132,7 @@ namespace app {
             hh::anim::GOCAnimator* gocAnimator;
             game::GOCEyesight* gocEyesight;
             hh::snd::SoundHandle dashSound;
-            Timer timerTillLoseSight;
+            ut::Timer timerTillLoseSight;
             float distanceToPlayer;
             float distanceToRecognizeObstacle;
 
